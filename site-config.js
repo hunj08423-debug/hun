@@ -6,7 +6,7 @@
    - aiEndpoint: AI 중계 서버(Cloudflare Worker) 주소. 예: "https://qp-ai.내이름.workers.dev"
                  비워 두면 이 사이트에서는 AI 기능이 꺼져 있습니다. API 키는 절대 여기에 넣지 마세요. */
 window.QP_SITE = {
-  operator: "홍지훈 (개인 기획)",
+  operator: "지훈 (개인 기획)",
   contact: "",
   claudeUrl: "https://claude.ai/artifact/7Ld15z5DcujWTbEJQD3Lsd",
   aiEndpoint: "https://qp-ai.hunji08423.workers.dev"
