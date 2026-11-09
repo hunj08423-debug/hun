@@ -195,6 +195,7 @@ details.card > div { margin-top: 0.8rem; }
 details.card summary { cursor: pointer; font-weight: 700; min-height: 2rem; }
 .copybox { white-space: pre-wrap; font-size: 0.92rem; background: var(--bg); border: 1px solid var(--line); border-radius: 0.7rem; padding: 0.8rem; }
 .foot { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+.foot-link { background: none; border: 0; padding: 0.2rem 0; color: var(--accent); font: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; }
 @media (prefers-reduced-motion: no-preference) { .bubble, .coach { animation: rise 0.25s ease-out; } @keyframes rise { from { transform: translateY(4px); opacity: 0.6 } to { transform: none; opacity: 1 } } }
 </style>
 </head>
@@ -205,7 +206,7 @@ details.card summary { cursor: pointer; font-weight: 700; min-height: 2rem; }
     <button class="size-btn" id="sizeBtn" type="button" aria-pressed="false">글자 크게</button>
   </header>
   <main id="app" aria-live="polite"></main>
-  <footer class="foot">3분 신학 도서관 · 체험판 · 감수 전입니다. 쓰신 대답과 대화는 이 페이지에 저장되지 않으며, 화면을 닫으면 사라집니다. AI 기능을 쓰면 답을 만들기 위해 쓰신 글이 Claude로 보내집니다. 아이를 알아볼 수 있는 정보(이름, 학교 등)는 넣지 마세요.</footer>
+  <footer class="foot">3분 신학 도서관 · 체험판 · 감수 전입니다. 쓰신 대답과 대화는 이 페이지에 저장되지 않으며, 화면을 닫으면 사라집니다. AI 기능을 쓰면 답을 만들기 위해 쓰신 글이 Claude로 보내집니다. 아이를 알아볼 수 있는 정보(이름, 학교 등)는 넣지 마세요. <button class="foot-link" type="button" data-go="about">이용 안내</button></footer>
 </div>
 
 <script src="site-config.js"></script>
@@ -352,10 +353,12 @@ if (Object.keys(SITE).length) {
   const ai = SITE_AI
     ? " AI 기능을 쓰면 답을 만들기 위해 쓰신 글이 Claude(Anthropic의 AI)로 보내지며, 이 사이트는 그 글을 저장하지 않습니다."
     : " 이 사이트는 아무것도 수집하지 않습니다.";
-  foot.innerHTML = `3분 신학 도서관 · 체험판 · 감수 전입니다. 쓰신 대답과 대화는 이 사이트에 저장되지 않으며, 화면을 닫으면 사라집니다.${ai} 아이를 알아볼 수 있는 정보(이름, 학교 등)는 넣지 마세요. <span class="foot-site">글자 크기와 '우리 교회 목록'만 이 기기에 저장됩니다.${op ? `<br>${op}` : ""}</span>`;
+  foot.innerHTML = `3분 신학 도서관 · 체험판 · 감수 전입니다. 쓰신 대답과 대화는 이 사이트에 저장되지 않으며, 화면을 닫으면 사라집니다.${ai} 아이를 알아볼 수 있는 정보(이름, 학교 등)는 넣지 마세요. <span class="foot-site">글자 크기와 '우리 교회 목록'만 이 기기에 저장됩니다.${op ? `<br>${op}` : ""}</span> <button class="foot-link" type="button" data-go="about">이용 안내</button>`;
   /* 설정 파일에 API 키를 잘못 넣었을 때 운영자가 바로 알아채도록 */
   if (/sk-ant-/i.test(JSON.stringify(SITE))) document.querySelector(".wrap").insertAdjacentHTML("afterbegin", `<div class="notice err" role="alert"><b>운영자 확인 필요</b> · site-config.js에 API 키로 보이는 글자가 있습니다. 이 파일은 누구나 볼 수 있습니다. 바로 지우고, Claude 콘솔에서 그 키를 삭제한 뒤 새 키는 Cloudflare에만 넣어 주세요.</div>`);
 }
+/* 맨 아래 '이용 안내' 버튼 */
+document.querySelector(".foot").addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (b) { if (S.ctl) S.ctl.abort(); go(b.dataset.go); } });
 
 /* ===================== 화면 ===================== */
 function render() {
@@ -371,6 +374,7 @@ function render() {
   if (v === "prep") return viewPrep();
   if (v === "library") return viewLibrary();
   if (v === "feedback") return viewFeedback();
+  if (v === "about") return viewAbout();
   if (v === "state") return viewState();
   if (v === "course") return viewCourse();
   if (v === "translate") return viewTranslate();
@@ -735,7 +739,7 @@ async function askKid() {
     else if (siteAiDown(code)) toSelfMode(errText(code) + SELF_TAIL);
     else if (code === "cancelled") { S.notice = "멈췄습니다."; S.noticeErr = false; S.retryKid = true; }
     else { S.notice = errText(code); S.noticeErr = true; S.retryKid = code !== "too_long"; }
-  } finally { S.busy = false; S.ctl = null; viewChat(); scrollChat(); }
+  } finally { S.busy = false; if (S.ctl === ctl) S.ctl = null; if (S.view === "chat") { viewChat(); scrollChat(); } }
 }
 async function askHint() {
   const sample = await samplePromise; if (!sample) return;
@@ -749,7 +753,7 @@ async function askHint() {
 ${transcript()}`, { modelTier: "quick", cache: false });
     S.hint = text.trim();
   } catch (e) { const code = e && e.code; if (siteAiDown(code)) toSelfMode(errText(code) + SELF_TAIL); else { S.notice = errText(code); S.noticeErr = true; } }
-  finally { S.hintBusy = false; viewChat(); }
+  finally { S.hintBusy = false; if (S.view === "chat") viewChat(); }
 }
 
 /* ---------- 돌아보기 ---------- */
@@ -802,7 +806,7 @@ async function startReview() {
     else if (siteAiDown(code)) { toSelfMode(""); S.rvNotice = errText(code) + " 혼자 돌아보는 방식으로 바꿨습니다."; }
     else if (code === "cancelled") { S.notice = "돌아보기를 멈췄습니다."; S.noticeErr = false; }
     else { S.notice = errText(code); S.noticeErr = true; }
-  } finally { S.busy = false; S.ctl = null; render(); }
+  } finally { S.busy = false; if (S.ctl === ctl) S.ctl = null; render(); }
 }
 function viewReview() {
   const p = S.persona; let body = "";
@@ -958,7 +962,7 @@ async function makePrep(inp) {
     S.prep.result = data && typeof data === "object" ? data : null;
     if (!S.prep.result) S.prep.notice = "결과를 제대로 받지 못했습니다. 다시 눌러 주세요.";
   } catch (e) { const code = e && e.code; if (code !== "cancelled") S.prep.notice = errText(code); siteAiDown(code); }
-  finally { S.prep.busy = false; S.ctl = null; viewPrep(); }
+  finally { S.prep.busy = false; if (S.ctl === ctl) S.ctl = null; if (S.view === "prep") viewPrep(); }
 }
 function practiceCustom() {
   const inp = S.prep.input, r = S.prep.result || {};
@@ -1377,6 +1381,30 @@ function viewFeedback() {
     sync();
     copyText(fbText(f), document.getElementById("fbText"), document.getElementById("copyMsg"));
   };
+}
+
+/* ---------- 이용 안내 (AI 사용 고지, 저장·전송 범위, 라이선스) ---------- */
+function aiFlowText() {
+  if (SITE_AI) return "AI 기능을 쓰면 답을 만들기 위해 쓰신 글이 이 사이트의 중계 서버(Cloudflare)를 거쳐 Anthropic의 Claude로 보내집니다. 중계 서버는 글을 저장하지 않고, 지나치게 잦은 요청을 막으려고 접속 주소(IP)만 잠깐 메모리에 둡니다.";
+  if (Object.keys(SITE).length) return "이 주소에서는 AI 기능이 꺼져 있어서, 쓰신 글은 어디로도 보내지지 않습니다.";
+  return "AI 기능은 이 페이지를 연 분의 Claude 계정으로 작동합니다. 답을 만들기 위해 쓰신 글이 Claude(Anthropic)로 보내지고, 사용량도 그 계정에서 계산됩니다.";
+}
+function viewAbout() {
+  const site = Object.keys(SITE).length > 0;
+  const op = SITE.operator ? `운영: ${esc(SITE.operator)}${SITE.contact ? ` · 문의: ${esc(SITE.contact)}` : ""}<br>` : "";
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="toHome">← 처음으로</button>
+    <div class="stack-sm"><h1>이용 안내</h1><p class="muted">마지막으로 고친 날: 2026년 11월</p></div>
+    <section class="card"><h3>어떤 도구인가요</h3><p>교회학교 교사와 사역자(성인)가 아이·청소년·청년·부모의 어려운 신앙 질문을 받고 대화를 이어 가도록 연습하는 도구입니다. 전문가 감수 전 체험판이라 부족한 내용이 있을 수 있습니다.</p></section>
+    <section class="card"><h3>생성형 AI를 쓰는 기능</h3><p>'직접 대답 연습', '코치에게 귀띔 받기', AI로 받는 '돌아보기', '대화 준비'는 생성형 AI(Anthropic의 Claude)가 만든 내용을 보여 줍니다. 'AI 없이' 표시가 있는 기능은 AI를 쓰지 않고 미리 써 둔 내용만 보여 줍니다.</p><ul><li>AI가 만든 내용은 틀릴 수 있습니다. 중요한 판단은 목회자나 전문가와 함께 확인하세요.</li><li>AI는 어떤 신학 입장이 맞는지 판단하지 않도록 만들었습니다.</li></ul></section>
+    <section class="card"><h3>쓰신 글은 어디로 가나요</h3><ul><li>회원 가입이 없고, 이름이나 연락처를 모으지 않습니다.</li><li>쓰신 대답과 대화는 이 ${site ? "사이트" : "페이지"}에 저장되지 않으며, 화면을 닫으면 사라집니다.</li><li>${esc(aiFlowText())}</li><li>글자 크기와 '우리 교회 목록'만 이 기기의 브라우저에 저장됩니다.</li><li>아이를 알아볼 수 있는 정보(이름, 학교, 사는 곳)는 넣지 마세요.</li></ul></section>
+    <section class="card"><h3>상담을 대신하지 않습니다</h3><p>이 도구는 대화 연습용이며 전문 상담이나 의료·법률 조언을 대신하지 않습니다. 아이가 위험하다고 느껴지면 혼자 해결하려 하지 말고 바로 도움을 요청하세요.</p><ul><li>자살예방상담전화 109</li><li>청소년상담 1388 (전화·문자·카카오톡)</li><li>아동학대 신고 112</li></ul></section>
+    <section class="card"><h3>저작권과 함께 쓰기</h3><p>프로그램 코드는 MIT 라이선스로, 장면·안내문·자료 설명 같은 내용은 CC BY-SA 4.0으로 공개합니다. 출처를 밝히고 고친 판도 같은 조건으로 공개하면, 교회와 교단이 자유롭게 쓰고 고쳐서 자기 판을 운영할 수 있습니다.</p><ul><li>연결된 책·기사·기관 자료의 저작권은 각 저작권자에게 있습니다.</li><li>성경 구절은 특정 번역본을 그대로 옮기지 않고 풀어 썼습니다.</li></ul></section>
+    <section class="card"><h3>운영과 의견</h3><p>${op}의견은 '의견 정리하기'에서 정리해 보내 주세요.</p><div class="btn-row"><button class="btn ghost" type="button" data-go="feedback">의견 정리하기</button></div></section>
+  </div>`;
+  document.getElementById("toHome").onclick = () => go("home");
+  app.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => go(b.dataset.go)));
 }
 
 render();
