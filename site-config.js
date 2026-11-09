@@ -6,8 +6,8 @@
    - aiEndpoint: AI 중계 서버(Cloudflare Worker) 주소. 비워 두면("") 이 사이트에서는 AI 기능이 꺼집니다.
                  자기 판을 만드는 교회·교단은 자기 Worker 주소로 바꾸세요. API 키는 절대 여기에 넣지 마세요. */
 window.QP_SITE = {
-  operator: "홍지훈 (개인 기획)",
-  contact: "",
+  operator: "지훈 (개인 기획)",
+  contact: "askjihun@gmai.com",
   claudeUrl: "https://claude.ai/artifact/7Ld15z5DcujWTbEJQD3Lsd",
   aiEndpoint: "https://ap-ai.hunji08423.workers.dev"
 };
