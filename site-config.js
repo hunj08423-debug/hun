@@ -4,7 +4,7 @@
    - contact  : 문의처(메일 주소 등). 비워 두면 화면에 나오지 않습니다.
    - claudeUrl: AI 기능이 있는 Claude 판 주소. 비워 두면 안내 링크가 나오지 않습니다. */
 window.QP_SITE = {
-  operator: "홍지훈 (개인 기획)",
+  operator: "지훈 (개인 기획)",
   contact: "",
   claudeUrl: "https://claude.ai/artifact/7Ld15z5DcujWTbEJQD3Lsd"
 };
