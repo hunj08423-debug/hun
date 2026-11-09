@@ -1,0 +1,1338 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>질문 받기 연습실</title>
+<meta name="description" content="아이와 청년의 어려운 신앙 질문 앞에서, 문을 닫지 않고 곁에 머무는 어른을 위한 연습. 교회학교 교사용 체험판입니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="질문 받기 연습실">
+<meta property="og:description" content="아이와 청년의 어려운 신앙 질문 앞에서, 문을 닫지 않고 곁에 머무는 어른을 위한 연습. 교회학교 교사용 체험판입니다.">
+<meta property="og:url" content="https://hunj08423-debug.github.io/hun/">
+<meta property="og:image" content="https://hunj08423-debug.github.io/hun/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#0F5E55">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+<style>
+/* Layout: one calm reading column, one task per screen, oversized controls for older lay teachers */
+:root {
+  --bg: #F4F7F6;
+  --surface: #FFFFFF;
+  --ink: #14231F;
+  --muted: #4B5D58;
+  --line: #CFDCD8;
+  --accent: #0F5E55;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #E1F0ED;
+  --kid: #E7F1EF;
+  --me: #FFF3D1;
+  --me-line: #E9CF86;
+  --warm: #7A5000;
+  --good: #1D6E39;
+  --good-soft: #E2F3E7;
+  --mid: #8A5600;
+  --mid-soft: #FBEFD6;
+  --low: #9C3524;
+  --low-soft: #F8E3DE;
+  --font-body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --font-head: "Noto Serif KR", "AppleMyungjo", "Batang", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1715; --surface: #16211E; --ink: #E7EFEC; --muted: #A6B8B2; --line: #2B3B37;
+    --accent: #63C7B8; --accent-ink: #08201C; --accent-soft: #1B3430;
+    --kid: #1C2D29; --me: #352C14; --me-line: #6B5520; --warm: #F0C873;
+    --good: #84D7A2; --good-soft: #17301F; --mid: #F1BE69; --mid-soft: #33280F; --low: #F2A091; --low-soft: #3A1E19;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1715; --surface: #16211E; --ink: #E7EFEC; --muted: #A6B8B2; --line: #2B3B37;
+  --accent: #63C7B8; --accent-ink: #08201C; --accent-soft: #1B3430;
+  --kid: #1C2D29; --me: #352C14; --me-line: #6B5520; --warm: #F0C873;
+  --good: #84D7A2; --good-soft: #17301F; --mid: #F1BE69; --mid-soft: #33280F; --low: #F2A091; --low-soft: #3A1E19;
+  color-scheme: dark;
+}
+html { font-size: 112.5%; }
+html.big { font-size: 128%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 1rem; line-height: 1.7; word-break: keep-all; overflow-wrap: anywhere; }
+.wrap { max-width: 46rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 1rem 3rem; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding-block: 0.25rem 1rem; border-bottom: 1px solid var(--line); margin-bottom: 1.25rem; }
+.brand { font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; color: var(--accent); background: none; border: none; padding: 0.3rem 0; min-height: 2.6rem; }
+h1, h2, h3 { font-family: var(--font-head); text-wrap: balance; line-height: 1.4; margin: 0; }
+h1 { font-size: 1.7rem; }
+h2 { font-size: 1.28rem; }
+h3 { font-size: 1.06rem; }
+p { margin: 0; }
+ul { margin: 0; padding-left: 1.2rem; }
+ol { margin: 0; padding-left: 1.3rem; }
+li + li { margin-top: 0.35rem; }
+a { color: var(--accent); }
+.stack { display: flex; flex-direction: column; gap: 1rem; }
+.stack-sm { display: flex; flex-direction: column; gap: 0.5rem; }
+.stack-lg { display: flex; flex-direction: column; gap: 1.6rem; }
+.muted { color: var(--muted); }
+.small { font-size: 0.9rem; }
+button { font: inherit; cursor: pointer; }
+button:focus-visible, textarea:focus-visible, select:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; min-height: 3.2rem; padding: 0.6rem 1.3rem; border-radius: 0.75rem; border: 2px solid var(--accent); background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 1.05rem; text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn.wide { width: 100%; }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn-row .btn { flex: 1 1 12rem; }
+.size-btn { min-height: 2.6rem; padding: 0.3rem 0.9rem; font-size: 0.95rem; border-radius: 2rem; border: 2px solid var(--line); background: var(--surface); color: var(--ink); font-weight: 700; }
+.back { align-self: flex-start; background: none; border: none; color: var(--accent); font-weight: 700; padding: 0.4rem 0; min-height: 2.6rem; }
+.promise { background: var(--accent-soft); border-radius: 0.9rem; padding: 1rem 1.15rem; }
+.promise b { color: var(--accent); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 1.1rem 1.15rem; display: flex; flex-direction: column; gap: 0.8rem; min-width: 0; }
+.label { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.03em; color: var(--muted); }
+.tag { display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.02em; padding: 0.05rem 0.6rem; border-radius: 1rem; background: var(--accent-soft); color: var(--accent); margin-right: 0.4rem; white-space: nowrap; }
+.tag.warn { background: var(--low-soft); color: var(--low); }
+.tag.mid { background: var(--mid-soft); color: var(--mid); }
+.mode-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
+@media (max-width: 600px) { .mode-grid { grid-template-columns: 1fr; } }
+.mode { text-align: left; background: var(--surface); border: 2px solid var(--line); border-radius: 1rem; padding: 1rem 1.1rem; color: var(--ink); display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; }
+.mode:hover:not(:disabled) { border-color: var(--accent); }
+.mode:disabled { opacity: 0.6; cursor: default; }
+.mode .t { font-family: var(--font-head); font-weight: 700; font-size: 1.12rem; }
+.mode .d { font-size: 0.93rem; color: var(--muted); }
+.kids { display: flex; flex-direction: column; gap: 0.8rem; }
+.kid-btn { display: block; width: 100%; text-align: left; background: var(--surface); border: 2px solid var(--line); border-radius: 1rem; padding: 0.95rem 1.1rem; color: var(--ink); }
+.kid-btn:hover { border-color: var(--accent); }
+.kid-btn .who { font-size: 0.88rem; color: var(--muted); display: block; }
+.kid-btn .q { font-family: var(--font-head); font-weight: 600; font-size: 1.05rem; display: block; margin-top: 0.25rem; }
+.group-title { font-size: 0.92rem; font-weight: 700; color: var(--muted); margin-top: 0.4rem; }
+.chat { display: flex; flex-direction: column; gap: 0.9rem; }
+.bubble { max-width: 88%; padding: 0.85rem 1.05rem; border-radius: 1rem; min-width: 0; white-space: pre-wrap; }
+.bubble .name { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.15rem; }
+.bubble.kid { background: var(--kid); align-self: flex-start; border-top-left-radius: 0.3rem; }
+.bubble.kid .name { color: var(--accent); }
+.bubble.me { background: var(--me); border: 1px solid var(--me-line); align-self: flex-end; border-top-right-radius: 0.3rem; }
+.bubble.me .name { color: var(--warm); }
+.bubble.thinking { color: var(--muted); font-style: italic; }
+.note { font-size: 0.88rem; color: var(--muted); text-align: center; }
+.opts { display: flex; flex-direction: column; gap: 0.7rem; }
+.opt { text-align: left; background: var(--surface); border: 2px solid var(--line); border-radius: 0.9rem; padding: 0.9rem 1rem; color: var(--ink); line-height: 1.65; }
+.opt:hover { border-color: var(--warm); }
+.opt .l { display: block; font-size: 0.82rem; font-weight: 700; color: var(--warm); margin-bottom: 0.2rem; }
+.coach { background: var(--accent-soft); border-radius: 0.9rem; padding: 0.9rem 1.05rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.pill { display: inline-block; font-size: 0.85rem; font-weight: 700; padding: 0.08rem 0.75rem; border-radius: 1rem; white-space: nowrap; align-self: flex-start; }
+.pill.good { background: var(--good-soft); color: var(--good); }
+.pill.mid { background: var(--mid-soft); color: var(--mid); }
+.pill.low { background: var(--low-soft); color: var(--low); }
+.other { border-top: 1px dashed var(--line); padding-top: 0.8rem; display: flex; flex-direction: column; gap: 0.45rem; }
+.composer { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.composer label, .field label { font-weight: 700; }
+textarea, select, input[type="text"] { width: 100%; box-sizing: border-box; font: inherit; font-size: 1.02rem; line-height: 1.6; padding: 0.7rem 0.8rem; border-radius: 0.7rem; border: 2px solid var(--line); background: var(--bg); color: var(--ink); }
+textarea { min-height: 7rem; resize: vertical; }
+select { min-height: 3rem; }
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.hint { font-size: 0.88rem; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip { min-height: 2.6rem; padding: 0.35rem 0.85rem; border-radius: 2rem; border: 1px solid var(--me-line); background: var(--me); color: var(--ink); font-size: 0.95rem; }
+.fchip { min-height: 2.5rem; padding: 0.3rem 0.85rem; border-radius: 2rem; border: 2px solid var(--line); background: var(--surface); color: var(--ink); font-size: 0.92rem; }
+.fchip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+.counter { font-size: 0.9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.notice { border-radius: 0.8rem; padding: 0.8rem 1rem; background: var(--mid-soft); color: var(--ink); }
+.notice.err { background: var(--low-soft); }
+.protect { border-radius: 0.9rem; padding: 0.95rem 1.05rem; background: var(--low-soft); border: 1px solid var(--low); display: flex; flex-direction: column; gap: 0.4rem; }
+.protect b { color: var(--low); }
+.check { background: var(--surface); border: 1px solid var(--line); border-radius: 0.9rem; padding: 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.check .head { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.quote { border-left: 4px solid var(--accent); padding: 0.4rem 0 0.4rem 0.9rem; }
+.quote.warm { border-color: var(--me-line); }
+.choice3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+.choice3 button { min-height: 3rem; border-radius: 0.7rem; border: 2px solid var(--line); background: var(--bg); color: var(--ink); font-weight: 700; }
+.choice3 button[aria-pressed="true"].good { background: var(--good-soft); border-color: var(--good); color: var(--good); }
+.choice3 button[aria-pressed="true"].mid { background: var(--mid-soft); border-color: var(--mid); color: var(--mid); }
+.choice3 button[aria-pressed="true"].low { background: var(--low-soft); border-color: var(--low); color: var(--low); }
+.pos { display: flex; flex-direction: column; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
+.pos li { padding-left: 0.9rem; border-left: 3px solid var(--line); margin: 0; }
+.pos b { display: block; }
+.pos.core li { border-left-color: var(--me-line); }
+.pos.avoid li { border-left-color: var(--low); }
+.compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+.compare > div { border-radius: 0.8rem; padding: 0.85rem 1rem; min-width: 0; }
+.compare .closed { background: var(--low-soft); }
+.compare .open { background: var(--good-soft); }
+@media (max-width: 620px) { .compare { grid-template-columns: 1fr; } }
+.res { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+.res:last-child { border-bottom: none; }
+.res[hidden] { display: none; }
+[hidden] { display: none !important; }
+.review { border-radius: 0.8rem; padding: 0.8rem 1rem; background: var(--mid-soft); border: 1px solid var(--mid); }
+.review b { color: var(--mid); }
+.res .k { font-size: 0.8rem; font-weight: 700; color: var(--muted); }
+.res .ttl { font-weight: 700; }
+.res .by { font-size: 0.88rem; color: var(--muted); }
+.res .meta { font-size: 0.85rem; color: var(--muted); }
+.res .care { font-size: 0.85rem; color: var(--low); }
+.res .act { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 0.4rem; }
+.lv { display: inline-block; font-size: 0.78rem; font-weight: 700; padding: 0.05rem 0.55rem; border-radius: 1rem; border: 1px solid var(--line); background: var(--bg); color: var(--muted); white-space: nowrap; }
+.lv.mine { background: var(--good-soft); border-color: var(--good); color: var(--good); }
+.mini { min-height: 2.4rem; padding: 0.25rem 0.85rem; border-radius: 0.6rem; border: 2px solid var(--accent); background: transparent; color: var(--accent); font-weight: 700; font-size: 0.9rem; }
+.mini[aria-pressed="true"] { background: var(--accent-soft); }
+.tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; background: var(--surface); border: 1px solid var(--line); border-radius: 0.9rem; padding: 0.3rem; }
+.tabs button { min-height: 3rem; border: none; border-radius: 0.65rem; background: transparent; color: var(--ink); font-weight: 700; font-size: 0.95rem; line-height: 1.3; padding: 0.3rem; }
+.tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); }
+.home-group { display: flex; flex-direction: column; gap: 0.6rem; }
+.home-group > p { margin-top: -0.3rem; }
+.mine-item { border-bottom: 1px solid var(--line); padding: 0.8rem 0; display: flex; flex-direction: column; gap: 0.45rem; }
+.mine-item:last-child { border-bottom: none; }
+.mine-row { display: grid; grid-template-columns: minmax(0, 10rem) minmax(0, 1fr); gap: 0.5rem; }
+@media (max-width: 480px) { .mine-row { grid-template-columns: 1fr; } }
+.steps3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
+.steps3 div { background: var(--surface); border: 1px solid var(--line); border-radius: 0.8rem; padding: 0.75rem 0.85rem; min-width: 0; font-size: 0.93rem; }
+.steps3 b { display: block; color: var(--accent); }
+@media (max-width: 560px) { .steps3 { grid-template-columns: 1fr; } }
+details.card { display: block; }
+details.card > div { margin-top: 0.8rem; }
+details.card summary { cursor: pointer; font-weight: 700; min-height: 2rem; }
+.copybox { white-space: pre-wrap; font-size: 0.92rem; background: var(--bg); border: 1px solid var(--line); border-radius: 0.7rem; padding: 0.8rem; }
+.foot { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) { .bubble, .coach { animation: rise 0.25s ease-out; } @keyframes rise { from { transform: translateY(4px); opacity: 0.6 } to { transform: none; opacity: 1 } } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <button class="brand" type="button" id="brandBtn">질문 받기 연습실</button>
+    <button class="size-btn" id="sizeBtn" type="button" aria-pressed="false">글자 크게</button>
+  </header>
+  <main id="app" aria-live="polite"></main>
+  <footer class="foot">3분 신학 도서관 · 체험판 · 감수 전입니다. 쓰신 대답과 대화는 어디에도 저장되지 않으며, 화면을 닫으면 사라집니다. 아이를 알아볼 수 있는 정보(이름, 학교 등)는 넣지 마세요.</footer>
+</div>
+
+<script src="site-config.js"></script>
+<script src="qp-content.js"></script>
+<script>
+
+/* ===================== 상태와 도우미 ===================== */
+const app = document.getElementById("app");
+/* 독립 주소에서 열 때만 site-config.js가 QP_SITE를 채웁니다. Claude 안에서는 비어 있습니다. */
+const SITE = window.QP_SITE || {};
+function onClaude() { return !!(window.claude && window.claude.use); }
+function aiOffText() {
+  if (onClaude() || !Object.keys(SITE).length) return "AI 기능은 Claude에 로그인한 상태에서 이 페이지를 열면 쓸 수 있습니다. 로그인하지 않아도 'AI 없이' 표시가 있는 기능은 모두 그대로 쓸 수 있습니다.";
+  return `이 주소에서는 AI 기능을 쓸 수 없습니다.${SITE.claudeUrl ? ` AI로 연습하려면 <a href="${esc(SITE.claudeUrl)}" target="_blank" rel="noopener">Claude 판</a>에서 여세요(Claude 로그인 필요).` : ""} 'AI 없이' 표시가 있는 기능은 여기서 모두 그대로 쓸 수 있습니다.`;
+}
+let S = { view: "home", ai: "checking", scene: null, persona: null, turns: [], mine: 0, busy: false, notice: "", noticeErr: false, retryKid: false, review: null, self: {}, ctl: null, hint: "", hintBusy: false, prep: { result: null, busy: false, notice: "", input: null }, libTag: "", fb: null, from: "home" };
+S.list = loadList();
+
+const samplePromise = (async () => {
+  try { if (!window.claude || !window.claude.use) return null; return await window.claude.use("sample"); }
+  catch (e) { return null; }
+})();
+samplePromise.then(s => { S.ai = s ? "yes" : "no"; if (S.view === "home" || S.view === "prep") render(); });
+
+function iGa(n, isName = true) { const c = String(n).charCodeAt(String(n).length - 1); const bat = c >= 0xAC00 && c <= 0xD7A3 && (c - 0xAC00) % 28 !== 0; return bat ? n + (isName ? "이가" : "이") : n + "가"; }
+function esc(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+function go(view) { S.view = view; render(); window.scrollTo({ top: 0 }); }
+function scenById(id) { return SCEN.find(s => s.id === id); }
+const OFF = ["not_granted", "sampling_disabled", "not_declared", "capability_disabled", "capability_removed"];
+function errText(code) {
+  if (code === "rate_limited") return "AI 사용이 잠시 많았습니다. 조금 쉬었다가 다시 해 주세요.";
+  if (code === "session_expired") return "로그인이 만료되었습니다. 다시 로그인한 뒤 해 주세요.";
+  if (code === "refused") return "AI가 이 내용에는 답하지 않았습니다. 표현을 바꿔 다시 써 보세요.";
+  if (code === "invalid_json" || code === "empty_completion") return "결과를 제대로 받지 못했습니다. 다시 눌러 주세요.";
+  if (OFF.includes(code)) return "이 화면에서는 AI 기능을 쓸 수 없습니다. AI 없이 하는 '장면 연습'을 이용해 주세요.";
+  return "연결이 잠깐 끊겼습니다. 다시 눌러 주세요.";
+}
+function resItem(id) { return resCard(id, false); }
+function resCard(id, full) {
+  const r = RES[id]; if (!r) return "";
+  const m = META[id] || {};
+  const title = r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a>` : esc(r.title);
+  const mine = full ? S.list.items.find(x => x.id === id) : null;
+  const act = full ? `<span class="act"><span class="lv">확인 1단계 · 실제로 있음</span>${mine && mine.st !== "hold" ? `<span class="lv mine">우리 교회: ${esc(LIST_ST[mine.st])}</span>` : ""}<button class="mini" type="button" data-add="${esc(id)}" aria-pressed="${mine ? "true" : "false"}">${mine ? "목록에 담음 ✓" : "목록에 담기"}</button></span>` : "";
+  return `<div class="res"${full ? ` data-id="${esc(id)}"` : ""}><span class="k">${esc(r.kind)}</span><span class="ttl">${title}</span><span class="by">${esc(r.by)}</span><span class="small">${esc(r.note)}</span>${full ? `<span class="meta">관점 · ${esc(m.v || "-")} / 대상 · ${esc(m.f || "-")}</span>` : ""}${m.c ? `<span class="care">주의 · ${esc(m.c)}</span>` : ""}${act}</div>`;
+}
+
+/* ---------- 우리 교회 목록 (이 기기 브라우저에만 저장) ---------- */
+function cleanList(v) {
+  const seen = new Set();
+  const items = (Array.isArray(v && v.items) ? v.items : [])
+    .map(x => Array.isArray(x) ? { id: x[0], st: x[1], memo: x[2] } : x)
+    .filter(x => x && RES[x.id] && !seen.has(x.id) && seen.add(x.id))
+    .map(x => ({ id: x.id, st: LIST_ST[x.st] ? x.st : "rec", memo: String(x.memo || "").slice(0, 120) }));
+  return { name: String((v && v.name) || "우리 교회").slice(0, 40), items: items.slice(0, 60) };
+}
+function loadList() { try { const v = JSON.parse(localStorage.getItem(LIST_KEY) || "null"); if (v) return cleanList(v); } catch (e) {} return { name: "우리 교회", items: [] }; }
+function saveList() { try { localStorage.setItem(LIST_KEY, JSON.stringify(S.list)); } catch (e) {} }
+function toggleList(id) {
+  const i = S.list.items.findIndex(x => x.id === id);
+  if (i >= 0) S.list.items.splice(i, 1); else S.list.items.push({ id, st: "rec", memo: "" });
+  saveList();
+}
+function listText() {
+  const L = S.list, pick = st => L.items.filter(x => x.st === st);
+  const line = x => { const r = RES[x.id]; return `- ${r.title} · ${r.kind}${/검색/.test(r.kind) ? "" : ` (${r.by})`}${r.url ? `\n  ${r.url}` : ""}${x.memo ? `\n  메모: ${x.memo}` : ""}`; };
+  const parts = [`[${L.name} 자료 목록]`];
+  if (pick("rec").length) parts.push("■ 추천\n" + pick("rec").map(line).join("\n"));
+  if (pick("pastor").length) parts.push("■ 교역자와 함께 보기\n" + pick("pastor").map(line).join("\n"));
+  parts.push("질문 받기 연습실에서 정리했습니다. 실제로 있는지까지만 확인한 자료이니, 아이에게 건네기 전에 내용을 먼저 살펴 주세요.");
+  return parts.join("\n\n");
+}
+function b64e(s) { const b = new TextEncoder().encode(s); let t = ""; b.forEach(c => { t += String.fromCharCode(c); }); return btoa(t); }
+function b64d(s) { const t = atob(s); const b = new Uint8Array(t.length); for (let i = 0; i < t.length; i++) b[i] = t.charCodeAt(i); return new TextDecoder().decode(b); }
+function listCode() { return "QP1." + b64e(JSON.stringify({ n: S.list.name, i: S.list.items.map(x => [x.id, x.st, x.memo]) })); }
+function readCode(code) {
+  const m = String(code || "").replace(/\s+/g, "").match(/QP1\.([A-Za-z0-9+/=]+)/);
+  if (!m) return null;
+  try { const d = JSON.parse(b64d(m[1])); const L = cleanList({ name: d.n, items: d.i }); return L.items.length ? L : null; } catch (e) { return null; }
+}
+function reviewBox(s) { return `<div class="review small"><b>검토가 특히 필요한 장면</b> · ${esc(s.review)}</div>`; }
+function protectBox(text, title) { return `<div class="protect"><b>${esc(title || "보호가 먼저입니다")}</b><span>${esc(text)}</span></div>`; }
+function riskBoxes(list) { return list.map(r => protectBox(r.text)).join(""); }
+function aiNote() {
+  if (S.ai === "yes") return `<span class="tag">AI 사용 가능</span>`;
+  if (S.ai === "no") return `<span class="tag warn">이 화면에서는 AI를 쓸 수 없음</span>`;
+  return `<span class="tag mid">AI 확인 중…</span>`;
+}
+function copyText(t, box, msg) {
+  const fallback = () => { const range = document.createRange(); range.selectNodeContents(box); const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range); msg.textContent = "자동 복사가 되지 않아 내용을 선택해 두었습니다. 길게 누르거나 Ctrl+C로 복사해 주세요."; };
+  try { navigator.clipboard.writeText(t).then(() => { msg.textContent = "복사했습니다. 메일이나 메시지에 붙여 넣어 보내 주세요."; }, fallback); } catch (e) { fallback(); }
+}
+
+/* ===================== 글자 크기 ===================== */
+const sizeBtn = document.getElementById("sizeBtn");
+function applySize(big) { document.documentElement.classList.toggle("big", big); sizeBtn.setAttribute("aria-pressed", big ? "true" : "false"); sizeBtn.textContent = big ? "글자 보통" : "글자 크게"; }
+try { applySize(localStorage.getItem("qp-big") === "1"); } catch (e) {}
+sizeBtn.addEventListener("click", () => { const big = !document.documentElement.classList.contains("big"); applySize(big); try { localStorage.setItem("qp-big", big ? "1" : "0"); } catch (e) {} });
+document.getElementById("brandBtn").addEventListener("click", () => { if (S.ctl) S.ctl.abort(); go("home"); });
+/* 독립 주소: 운영 정보와 수집하지 않는다는 안내를 맨 아래에 붙입니다 */
+if (Object.keys(SITE).length) {
+  const foot = document.querySelector(".foot");
+  const op = SITE.operator ? `운영: ${esc(SITE.operator)}${SITE.contact ? ` · 문의: ${esc(SITE.contact)}` : ""}` : "";
+  foot.insertAdjacentHTML("beforeend", `<span class="foot-site"> 이 사이트는 아무것도 수집하지 않습니다. 글자 크기와 '우리 교회 목록'만 이 기기에 저장됩니다.${op ? `<br>${op}` : ""}</span>`);
+}
+
+/* ===================== 화면 ===================== */
+function render() {
+  const v = S.view;
+  if (v === "home") return viewHome();
+  if (v === "pickScene") return viewPick("scene");
+  if (v === "pickChat") return viewPick("chat");
+  if (v === "scene") return viewScene();
+  if (v === "sceneEnd") return viewSceneEnd();
+  if (v === "chat") return viewChat();
+  if (v === "review") return viewReview();
+  if (v === "card") return viewCard();
+  if (v === "prep") return viewPrep();
+  if (v === "library") return viewLibrary();
+  if (v === "feedback") return viewFeedback();
+  if (v === "state") return viewState();
+  if (v === "course") return viewCourse();
+  if (v === "translate") return viewTranslate();
+  if (v === "heart") return viewHeart();
+}
+
+const HOME_GROUPS = [
+  { title: "1. 연습하기", desc: "처음이시면 '장면 연습'부터 해 보세요.", items: [
+    ["pickScene", "장면 연습", "아이의 질문에 세 가지 대답 가운데 하나를 골라 봅니다. 대답마다 아이의 반응과 그 이유를 바로 볼 수 있습니다.", false],
+    ["pickChat", "직접 대답 연습", "AI가 아이 역할을 합니다. 평소처럼 대답하면 아이가 반응하고, 끝나면 대답하는 태도를 함께 돌아봅니다.", true]] },
+  { title: "2. 아이와 나를 이해하기", desc: "대답하기 전에 아이의 상태와 언어, 그리고 내 마음을 살핍니다.", items: [
+    ["state", "아이의 상태 읽기", "흔들리는지, 궁금한지, 반박하고 싶은지, 상처받았는지에 따라 첫마디와 건넬 자료가 달라집니다.", false],
+    ["translate", "같은 핵심, 다른 언어", "같은 핵심을 과학·이성, 말씀·교리, 성령·체험, 삶·정의의 언어로 옮겨 봅니다.", false],
+    ["heart", "선생님의 마음과 교회의 자리", "서운할 때, 교회의 가르침과 다르게 들릴 때 지킬 원칙과 첫마디입니다.", false]] },
+  { title: "3. 준비하고 이어 주기", desc: "실제 대화를 준비하고, 이미 잘 만들어진 자료와 모임으로 이어 줍니다.", items: [
+    ["prep", "대화 준비", "실제로 받은 질문을 적으면 질문 뒤의 마음, 먼저 물어볼 것, 여러 이해, 함께 볼 자료를 한 장으로 정리합니다.", true],
+    ["library", "자료 길잡이", "상황을 고르면 맞는 자료와 활용법이 나옵니다. 우리 교회 자료 목록도 만들 수 있습니다.", false],
+    ["course", "질문 모임 6주 과정", "함께 먹고, 짧은 영상을 보고, 작은 모임에서 질문을 나누는 6주 모임입니다.", false]] }
+];
+function viewHome() {
+  const aiOff = S.ai === "no";
+  S.heartFrom = "home";
+  app.innerHTML = `
+  <div class="stack-lg">
+    <div class="stack">
+      <h1>아이가 어려운 질문을 할 때,<br>대화를 이어 가는 연습</h1>
+      <p class="muted">모든 것을 알 필요는 없습니다. 아이의 질문 뒤에 있는 마음을 읽고, 정직하게 말하고, 더 넓은 세상으로 안내하는 길잡이가 되는 연습입니다.</p>
+    </div>
+    <div class="promise"><b>이 연습은 선생님의 신앙이 맞는지 채점하지 않습니다.</b><br>어떤 입장을 믿으셔도 괜찮습니다. 대답하는 태도만 함께 돌아봅니다.</div>
+    ${HOME_GROUPS.map(g => `
+    <section class="home-group">
+      <h2>${esc(g.title)}</h2>
+      <p class="small muted">${esc(g.desc)}</p>
+      <div class="mode-grid">${g.items.map(([id, name, desc, ai]) => `<button class="mode" type="button" data-go="${id}" ${ai && aiOff ? "disabled" : ""}><span>${ai ? aiNote() : `<span class="tag">누구나 · AI 없이</span>`}</span><span class="t">${esc(name)}</span><span class="d">${esc(desc)}</span></button>`).join("")}</div>
+    </section>`).join("")}
+    ${aiOff ? `<p class="small muted">${aiOffText()}</p>` : ""}
+    <details class="card">
+      <summary>체험해 주시는 분께 (교육전도사 · 이단 상담 · 아동 보호 전문가)</summary>
+      <div class="stack-sm small">
+        <p>이 도구는 교회학교 교사가 아이의 어려운 질문 앞에서 문을 닫지 않고 대화를 이어 가도록 돕기 위해 만든 감수 전 체험판입니다. 지금 가장 듣고 싶은 것은 두 가지입니다.</p>
+        <ul>
+          <li><b>현장에서 쓸 만한가.</b> 아이들의 반응이 실제와 비슷한지, 교사에게 도움이 될지.</li>
+          <li><b>어떻게 악용될 수 있는가.</b> 예를 들어 '대화 준비'에 아이를 특정 모임으로 이끄는 방법이나 체벌을 정당화하는 말을 요청해 보시고, 도구가 어떻게 반응하는지 확인해 주세요.</li>
+        </ul>
+        <p>돌아보기 기준 네 가지(질문과 마음을 반기기, 확실한 것과 갈리는 것 나누기, 자기 믿음을 정직하게 말하기, 다음 대화의 문 열어 두기)는 누구도 바꿀 수 없도록 고정되어 있습니다. 쓰신 내용은 저장되지 않습니다.</p>
+        <p>교사 모임에서 함께 쓰실 때는 '선생님의 마음과 교회의 자리' 맨 아래의 <b>30분 진행 순서</b>를 참고하세요.</p>
+        <p><b>최근 바뀐 점 (2026년 11월 9일)</b></p>
+        <ul>
+          <li>장면이 20개가 되었습니다. 반려동물의 죽음, 기도 응답(초등부)에 이어 우울과 믿음, 고난과 재난, 교회의 위선, 여성 목사, 제사, 친구의 성 정체성을 더했습니다.</li>
+          <li>'어른에게 받는 질문'을 새로 두었습니다. 교회를 안 가겠다는 자녀를 둔 부모님, 믿음이 사라진 것 같다는 청년, 교회 안 가도 믿을 수 있지 않냐는 청년입니다.</li>
+          <li>장면을 고를 때 받은 질문의 낱말로 찾거나, 초등부·중고등부·청년·어른으로 골라 볼 수 있습니다.</li>
+          <li>우울, 성 정체성처럼 특히 신중해야 할 장면에는 '검토가 특히 필요한 장면'이라고 표시해 두었습니다. 전문가 검토 전에는 연습용으로만 써 주세요.</li>
+          <li>자료 길잡이에서 상황 7가지로 찾고, 이름이나 대상(초등부터 교역자까지)으로 걸러 볼 수 있습니다. 아이가 상처나 위험한 일을 털어놓을 때 어떻게 들어 주고 어디에 알릴지도 안내합니다.</li>
+          <li>자료는 50개입니다. 모두 2026년 11월에 실제로 있는지 확인했고, 석 달마다 링크를 다시 점검합니다.</li>
+        </ul>
+        <button class="btn ghost" type="button" data-go="feedback">의견 정리하기</button>
+      </div>
+    </details>
+  </div>`;
+  app.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => go(b.dataset.go)));
+}
+
+function viewPick(mode) {
+  const title = mode === "scene" ? "장면 연습" : "직접 대답 연습";
+  const desc = mode === "scene" ? "질문 하나를 고르세요. 두 장면에서 대답을 골라 봅니다." : "질문 하나를 고르세요. AI가 그 질문을 한 사람의 역할을 합니다.";
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="toHome">← 처음으로</button>
+    <div class="stack-sm"><h1>${title}</h1><p class="muted">${desc}</p></div>
+    ${scenFilterBar()}
+    ${groupedScenes(s => `
+          <button class="kid-btn" type="button" data-id="${s.id}" data-scen="${s.id}">
+            <span class="who"><span class="tag ${scenTagClass(s)}">${esc(s.topic)}</span>${esc(s.name)} · ${esc(s.grade)} · ${esc(s.bg)}</span>
+            <span class="q">"${esc(s.opening)}"</span>
+          </button>`)}
+  </div>`;
+  document.getElementById("toHome").onclick = () => go("home");
+  app.querySelectorAll(".kid-btn").forEach(b => b.onclick = () => mode === "scene" ? startScene(b.dataset.id) : startChat(scenById(b.dataset.id)));
+  bindScenFilter();
+}
+
+/* ---------- 장면 고르기 (검색 · 학년 · 주제 묶음) ---------- */
+function scenIsKid(s) { return /초등/.test(s.grade || ""); }
+/* 질문한 사람이 누구인지: 아이(초등·중고등), 청년, 부모님, 그 밖의 어른 */
+function roleOf(p) {
+  if (!p) return "teen";
+  if (p.who === "부모님" || /부모님/.test(p.name || "")) return "parent";
+  if (p.who === "청년" || /청년/.test(p.grade || "")) return "youth";
+  if (/어른/.test(p.grade || "") || /어른/.test(p.name || "")) return "adult";
+  return /초등/.test(p.grade || "") ? "young" : "teen";
+}
+const KID_W = { w: "아이", it: "이 아이", gwa: "이 아이와", ege: "이 아이에게", ui: "아이의", eun: "아이는", me: "학생", eul: "학생을" };
+const WHO_W = {
+  young: KID_W, teen: KID_W,
+  youth: { w: "청년", it: "이 청년", gwa: "이 청년과", ege: "이 청년에게", ui: "청년의", eun: "청년은", me: "청년", eul: "청년을" },
+  parent: { w: "부모님", it: "이 부모님", gwa: "이 부모님과", ege: "이 부모님께", ui: "부모님의", eun: "부모님은", me: "부모", eul: "부모를" },
+  adult: { w: "어른", it: "이분", gwa: "이분과", ege: "이분께", ui: "어른의", eun: "이분은", me: "어른", eul: "어른을" }
+};
+function W(p) { return WHO_W[roleOf(p)]; }
+function scenAge(s) { const r = roleOf(s); return r === "young" ? "kid" : r === "teen" ? "teen" : "adult"; }
+function scenTagClass(s) { return s.group === "보호가 필요한 상황" ? "warn" : s.review ? "mid" : ""; }
+function scenFilterBar() {
+  const a = S.scAge || "";
+  return `<div class="stack-sm">
+    <div class="field"><label for="scQ">받은 질문으로 찾기</label><input type="text" id="scQ" value="${esc(S.scQ || "")}" placeholder="예: 기도, 제사, 지옥, 진화, 우울" autocomplete="off"></div>
+    <div class="chips" role="group" aria-label="학년 고르기">${[["", "전체"], ["kid", "초등부"], ["teen", "중고등부"], ["adult", "청년·어른"]].map(([k, v]) => `<button class="fchip" type="button" data-scage="${k}" aria-pressed="${a === k}">${v}</button>`).join("")}</div>
+    <p class="small muted" id="scCount" aria-live="polite"></p>
+  </div>`;
+}
+function groupedScenes(itemFn) {
+  return GROUPS.map(g => {
+    const list = SCEN.filter(s => s.group === g);
+    if (!list.length) return "";
+    return `<div class="stack-sm" data-group="${esc(g)}"><p class="group-title">${esc(g)}</p><div class="kids">${list.map(itemFn).join("")}</div></div>`;
+  }).join("") + `<p class="small muted" id="scEmpty" hidden>맞는 질문이 없습니다. 다른 말로 찾아보시거나, AI가 있는 '대화 준비'에 실제로 받은 질문을 적어 보세요.</p>`;
+}
+function applyScenFilter() {
+  const words = (S.scQ || "").trim().toLowerCase().split(/\s+/).filter(Boolean), a = S.scAge || "";
+  let n = 0;
+  app.querySelectorAll("[data-scen]").forEach(el => {
+    const s = scenById(el.dataset.scen);
+    const hay = [s.topic, s.opening, s.name, s.grade, s.bg, s.group, CORE_MSG[s.id] || ""].join(" ").toLowerCase();
+    const ok = words.every(w => hay.includes(w)) && (!a || scenAge(s) === a);
+    el.hidden = !ok; if (ok) n++;
+  });
+  app.querySelectorAll("[data-group]").forEach(g => { g.hidden = !g.querySelector("[data-scen]:not([hidden])"); });
+  const c = document.getElementById("scCount"); if (c) c.textContent = n === SCEN.length ? `질문 ${n}개` : `맞는 질문 ${n}개`;
+  const e = document.getElementById("scEmpty"); if (e) e.hidden = n > 0;
+}
+function bindScenFilter() {
+  const q = document.getElementById("scQ");
+  if (!q) return;
+  q.addEventListener("input", () => { S.scQ = q.value; applyScenFilter(); });
+  app.querySelectorAll("[data-scage]").forEach(b => b.onclick = () => {
+    S.scAge = b.dataset.scage;
+    app.querySelectorAll("[data-scage]").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    applyScenFilter();
+  });
+  applyScenFilter();
+}
+
+/* ---------- 장면 연습 ---------- */
+function startScene(id) { S.scene = { id, round: 0, picked: [null, null], showAll: [false, false] }; go("scene"); }
+
+function viewScene() {
+  const sc = S.scene, s = scenById(sc.id), r = sc.round, round = s.rounds[r];
+  const kidLine = r === 0 ? s.opening : round.kid;
+  const pick = sc.picked[r];
+  const prevType = r === 1 && sc.picked[0] ? sc.picked[0].type : null;
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="toPick">← ${s.who ? "다른 질문 고르기" : "아이 다시 고르기"}</button>
+    <div class="stack-sm">
+      <p><span class="tag ${s.group === "보호가 필요한 상황" ? "warn" : ""}">${esc(s.topic)}</span><span class="small muted">${esc(s.name)} · ${esc(s.grade)} · ${esc(s.bg)}</span></p>
+      <h2>장면 ${r + 1} / 2</h2>
+    </div>
+    ${r === 0 && s.review ? reviewBox(s) : ""}
+    ${r === 1 && prevType && prevType !== "open" ? `<p class="note">실제로는 앞 장면에서 대화가 끊겼을 수 있습니다. 문이 열렸다고 생각하고 다음 장면을 봅니다.</p>` : ""}
+    <div class="chat">
+      <div class="bubble kid"><span class="name">${esc(s.name)}</span>${esc(kidLine)}</div>
+      ${pick ? `<div class="bubble me"><span class="name">선생님 (나)</span>${esc(pick.say)}</div>
+      <div class="bubble kid"><span class="name">${esc(s.name)}</span>${esc(pick.kid)}</div>` : ""}
+    </div>
+    ${pick ? `
+      <div class="coach"><span class="pill ${TYPE[pick.type][1]}">${TYPE[pick.type][0]}</span><p>${esc(pick.coach)}</p></div>
+      ${sc.showAll[r] ? `<div class="stack">${round.opts.filter(o => o !== pick).map(o => `
+        <div class="other"><span class="pill ${TYPE[o.type][1]}">${TYPE[o.type][0]}</span>
+          <p><b>선생님:</b> ${esc(o.say)}</p><p><b>${esc(s.name)}:</b> ${esc(o.kid)}</p><p class="small muted">${esc(o.coach)}</p></div>`).join("")}</div>`
+        : `<button class="btn ghost wide" type="button" id="showAll">다른 대답을 했다면? 나머지 두 대답도 보기</button>`}
+      <button class="btn wide" type="button" id="nextBtn">${r === 0 ? "다음 장면으로" : "정리 보기"}</button>`
+    : `
+      <div class="stack-sm"><p class="label">선생님이라면 어떻게 대답하시겠어요?</p>
+      <div class="opts">${round.opts.map((o, i) => `<button class="opt" type="button" data-i="${i}"><span class="l">대답 ${i + 1}</span>${esc(o.say)}</button>`).join("")}</div></div>`}
+  </div>`;
+  document.getElementById("toPick").onclick = () => go("pickScene");
+  app.querySelectorAll(".opt").forEach(b => b.onclick = () => { sc.picked[r] = round.opts[+b.dataset.i]; viewScene(); });
+  const sa = document.getElementById("showAll"); if (sa) sa.onclick = () => { sc.showAll[r] = true; viewScene(); };
+  const nb = document.getElementById("nextBtn"); if (nb) nb.onclick = () => { if (r === 0) { sc.round = 1; go("scene"); } else go("sceneEnd"); };
+}
+
+function viewSceneEnd() {
+  const s = scenById(S.scene.id);
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="toPick">← ${s.who ? "다른 질문 고르기" : "다른 아이 고르기"}</button>
+    <div class="stack-sm"><p><span class="tag">${esc(s.topic)}</span></p><h1>${esc(s.name)}에게 필요했던 것</h1></div>
+    <div class="promise"><b>${esc(s.need)}</b></div>
+    ${s.review ? reviewBox(s) : ""}
+    <div class="stack-sm"><p class="label">기억할 한 문장</p><p class="quote warm" style="font-size:1.1rem">"${esc(s.key)}"</p></div>
+    ${s.protect ? protectBox(s.protect) : ""}
+    <section class="card"><h2>${W(s).gwa} 이어 갈 다음 걸음</h2><ul>${s.next.map(n => `<li>${esc(n)}</li>`).join("")}</ul></section>
+    <section class="card"><h2>함께 볼 자료</h2><div>${s.res.map(resItem).join("")}</div></section>
+    <div class="btn-row">
+      <button class="btn" type="button" id="toCard">참고 카드 보기</button>
+      <button class="btn ghost" type="button" id="toState">${W(s).ui} 상태별 다음 걸음 보기</button>
+      <button class="btn ghost" type="button" id="toTr">같은 핵심, 다른 언어로 보기</button>
+      <button class="btn ghost" type="button" id="toHeart">선생님의 마음과 교회의 자리</button>
+      ${S.ai !== "no" ? `<button class="btn ghost" type="button" id="toChat">${W(s).ege} 직접 대답해 보기 (AI)</button>` : ""}
+    </div>
+  </div>`;
+  document.getElementById("toPick").onclick = () => go("pickScene");
+  document.getElementById("toHeart").onclick = () => { S.heartFrom = "sceneEnd"; go("heart"); };
+  document.getElementById("toState").onclick = () => { S.st = { topic: s.id, state: null, unsure: false }; go("state"); };
+  document.getElementById("toTr").onclick = () => { S.tr = { topic: s.id, lang: null }; go("translate"); };
+  document.getElementById("toCard").onclick = () => { S.from = "sceneEnd"; S.persona = s; go("card"); };
+  const tc = document.getElementById("toChat"); if (tc) tc.onclick = () => startChat(s);
+}
+
+/* ---------- 참고 카드 ---------- */
+function viewCard() {
+  const s = S.persona;
+  const closed = s.rounds[0].opts.find(o => o.type === "closed").say;
+  const open = s.rounds[1].opts.find(o => o.type === "open").say;
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="back">← 돌아가기</button>
+    <div class="stack-sm"><p><span class="tag">${esc(s.topic)}</span><span class="small muted">참고 카드 · 감수 전</span></p><h1>"${esc(s.opening)}"</h1></div>
+    ${s.review ? reviewBox(s) : ""}
+    ${s.protect ? protectBox(s.protect) : ""}
+    <section class="card"><h2>같은 질문, 두 가지 대답</h2>
+      <div class="compare"><div class="closed"><p class="label">닫는 대답</p><p>"${esc(closed)}"</p></div><div class="open"><p class="label">여는 대답 (예시)</p><p>"${esc(open)}"</p></div></div>
+      <p class="small muted">여는 대답의 '선생님은 …' 부분은 선생님 자신의 믿음으로 바꿔 말하시면 됩니다.</p></section>
+    <section class="card"><h2>그리스도인들은 이렇게 이해합니다</h2>
+      <p class="small muted">이 카드는 어느 하나를 정답이라고 하지 않습니다.</p>
+      <ul class="pos">${s.positions.map(p => `<li><b>${esc(p[0])}</b>${esc(p[1])}</li>`).join("")}</ul>
+      ${s.posNote ? `<p class="small">${esc(s.posNote)}</p>` : ""}</section>
+    <section class="card"><h2>어느 입장이든 함께 붙드는 것</h2>
+      <ul class="pos core">${s.core.map(c => `<li><b>${esc(c[0])}</b><span class="small muted">근거: ${esc(c[1])}</span></li>`).join("")}</ul></section>
+    <section class="card"><h2>알아 두면 좋은 것</h2><p>${esc(s.fact)}</p></section>
+    <section class="card"><h2>함께 볼 자료</h2><div>${s.res.map(resItem).join("")}</div></section>
+    <details class="card"><summary>이 카드를 글로 복사하기 (교사 단톡방용)</summary><div class="stack-sm">
+      <div class="copybox" id="cardText">${esc(cardText(s, closed, open))}</div>
+      <button class="btn ghost" type="button" id="cardCopy">복사하기</button>
+      <p class="small muted" id="cardMsg" aria-live="polite"></p>
+    </div></details>
+  </div>`;
+  document.getElementById("back").onclick = () => go(S.from || "home");
+  document.getElementById("cardCopy").onclick = () => copyText(cardText(s, closed, open), document.getElementById("cardText"), document.getElementById("cardMsg"));
+}
+function cardText(s, closed, open) {
+  const out = [`[참고 카드 · ${s.topic}]`, `${W(s).ui} 질문: "${s.opening}"`];
+  if (s.review) out.push("", `검토가 특히 필요한 장면: ${s.review}`);
+  if (s.protect) out.push("", `보호가 먼저: ${s.protect}`);
+  out.push("", `닫는 대답: "${closed}"`, `여는 대답 (예시): "${open}"`, "", "그리스도인들은 이렇게 이해합니다 (어느 하나를 정답이라고 하지 않습니다)", ...s.positions.map(p => `- ${p[0]}: ${p[1]}`));
+  if (s.posNote) out.push(s.posNote);
+  out.push("", "어느 입장이든 함께 붙드는 것", ...s.core.map(c => `- ${c[0]} (${c[1]})`), "", `알아 두면 좋은 것: ${s.fact}`);
+  if (s.res.length) { out.push("", "함께 볼 자료"); s.res.forEach(id => { const r = RES[id]; if (r) out.push(`- ${r.title} · ${r.kind}${r.url ? `\n  ${r.url}` : ""}`); }); }
+  out.push("", "질문 받기 연습실 · 감수 전 체험판");
+  return out.join("\n");
+}
+
+/* ---------- 직접 대답 연습 (AI) ---------- */
+function startChat(persona) {
+  if (S.ctl) S.ctl.abort();
+  S = { ...S, view: "chat", persona, turns: [{ who: "kid", text: persona.opening }], mine: 0, busy: false, notice: "", noticeErr: false, retryKid: false, review: null, self: {}, ctl: null, hint: "", hintBusy: false, mode: S.ai === "no" ? "self" : "ai" };
+  render(); window.scrollTo({ top: 0 });
+}
+function bubbles() {
+  const p = S.persona;
+  return S.turns.map(t => t.who === "kid"
+    ? `<div class="bubble kid${t.thinking ? " thinking" : ""}"><span class="name">${esc(p.name)}</span>${esc(t.text)}</div>`
+    : `<div class="bubble me"><span class="name">선생님 (나)</span>${esc(t.text)}</div>`).join("");
+}
+function viewChat() {
+  const p = S.persona;
+  const done = S.mode === "ai" ? S.mine >= MAX_TURNS && !S.busy : S.mine >= 1;
+  const canReview = S.mine >= 1 && !S.busy;
+  const draft = document.getElementById("answer")?.value ?? "";
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="toPick">← ${p.custom ? "대화 준비로" : p.who ? "다른 질문 고르기" : "아이 다시 고르기"}</button>
+    <div class="stack-sm">
+      <p><span class="tag ${p.group === "보호가 필요한 상황" ? "warn" : ""}">${esc(p.topic)}</span><span class="small muted">${esc(p.name)} · ${esc(p.grade)} · ${esc(p.bg)}</span></p>
+      <p class="small muted">${S.mode === "ai" ? `${esc(p.name)}에게 평소 교회에서 하시듯 대답해 보세요. 정답은 없습니다.` : "혼자 연습하는 중입니다. 대답을 써 보신 뒤 스스로 돌아봅니다."}</p>
+    </div>
+    ${p.protect ? protectBox(p.protect) : ""}
+    <div class="chat" id="chat">${bubbles()}</div>
+    ${S.notice ? `<div class="notice ${S.noticeErr ? "err" : ""}">${esc(S.notice)}${S.retryKid ? ` <button class="btn ghost" type="button" id="retryKid" style="margin-top:.6rem">${esc(p.name)}의 대답 다시 받기</button>` : ""}</div>` : ""}
+    ${S.hint ? `<div class="coach"><span class="pill good">코치의 귀띔</span><p style="white-space:pre-wrap">${esc(S.hint)}</p></div>` : ""}
+    ${done ? `
+      <div class="card"><p><b>대화를 마쳤습니다.</b> 이제 어땠는지 함께 돌아볼까요?</p><button class="btn wide" type="button" id="toReview">돌아보기</button></div>` : `
+      <div class="composer">
+        <label for="answer">선생님의 대답</label>
+        <textarea id="answer" placeholder="여기에 대답을 써 주세요." ${S.busy ? "disabled" : ""}>${esc(draft)}</textarea>
+        <p class="hint">휴대폰에서는 자판의 마이크 버튼을 누르고 말씀하시면 글자로 바뀝니다.</p>
+        <div><p class="label" style="margin-bottom:.4rem">말문이 막히면 눌러서 넣어 보세요</p>
+        <div class="chips">${(["parent", "adult"].includes(roleOf(p)) ? STARTERS_POLITE : STARTERS).map(t => `<button class="chip" type="button" data-t="${esc(t)}" ${S.busy ? "disabled" : ""}>${esc(t)}</button>`).join("")}</div></div>
+        <div class="btn-row">
+          <button class="btn" type="button" id="send" ${S.busy ? "disabled" : ""}>${S.mode === "ai" ? `${esc(p.name)}에게 보내기` : "다 썼어요"}</button>
+          ${S.busy ? `<button class="btn ghost" type="button" id="stop">멈추기</button>` : ""}
+          ${S.mode === "ai" && !S.busy ? `<button class="btn ghost" type="button" id="hintBtn" ${S.hintBusy ? "disabled" : ""}>${S.hintBusy ? "귀띔 받는 중…" : "코치에게 귀띔 받기"}</button>` : ""}
+        </div>
+        ${S.mode === "ai" ? `<p class="counter">대답 ${S.mine} / ${MAX_TURNS}</p>` : ""}
+      </div>
+      ${canReview ? `<button class="btn ghost wide" type="button" id="toReview">여기서 마치고 돌아보기</button>` : ""}`}
+  </div>`;
+  document.getElementById("toPick").onclick = () => { if (S.ctl) S.ctl.abort(); go(p.custom ? "prep" : "pickChat"); };
+  const rv = document.getElementById("toReview"); if (rv) rv.onclick = startReview;
+  const send = document.getElementById("send"); if (send) send.onclick = onSend;
+  const stop = document.getElementById("stop"); if (stop) stop.onclick = () => S.ctl && S.ctl.abort();
+  const hb = document.getElementById("hintBtn"); if (hb) hb.onclick = askHint;
+  const rk = document.getElementById("retryKid"); if (rk) rk.onclick = () => { S.notice = ""; S.retryKid = false; askKid(); };
+  app.querySelectorAll(".chip").forEach(c => c.onclick = () => { const ta = document.getElementById("answer"); const add = c.dataset.t; ta.value = ta.value.trim() ? ta.value.replace(/\s*$/, " ") + add : add; ta.focus(); });
+}
+function scrollChat() { const c = document.getElementById("chat"); if (c && c.lastElementChild) c.lastElementChild.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+function transcript() { const me = W(S.persona).me; return S.turns.filter(t => !t.thinking).map(t => (t.who === "kid" ? `${me}: ${t.text}` : `선생님: ${t.text}`)).join("\n"); }
+function toSelfMode(msg) { S.mode = "self"; S.notice = msg || "AI를 쓸 수 없어서 혼자 연습하는 방식으로 바꿨습니다. 대답을 쓰신 뒤 '돌아보기'를 누르세요."; S.noticeErr = false; }
+
+async function onSend() {
+  const ta = document.getElementById("answer");
+  const text = (ta?.value || "").trim();
+  if (!text || S.busy) { ta && ta.focus(); return; }
+  S.turns.push({ who: "me", text }); S.mine++; ta.value = ""; S.notice = ""; S.retryKid = false; S.hint = "";
+  if (S.mode === "self") { viewChat(); return; }
+  await askKid();
+}
+function kidPrompt() {
+  const p = S.persona; const last = S.mine >= MAX_TURNS;
+  const role = roleOf(p), w = W(p);
+  const as = { young: "초등부 어린이", teen: "중고등부 학생", youth: "청년", parent: "교회학교에 다니는 아이의 부모", adult: "교회의 어른 성도" }[role];
+  const ctx = { youth: "청년이 된 옛 제자나 청년부 청년의 어려운 신앙 질문", parent: "교회학교 학생 부모님의 신앙 고민", adult: "어른 성도의 어려운 신앙 질문" }[role] || "아이들의 어려운 신앙 질문";
+  const talk = { young: "실제 한국 초등학생처럼 쉬운 낱말로 1~2문장만 짧게 말한다. 어려운 말은 알아듣지 못해 되묻는다.", teen: "실제 한국 10대처럼 1~3문장으로 짧게 말한다.", youth: "실제 한국 20대 청년처럼 1~3문장으로 말한다.", parent: "실제 한국 40대 학부모처럼 1~3문장으로 말한다.", adult: "실제 한국 어른처럼 1~3문장으로 말한다." }[role];
+  return `너는 한국 교회 ${as} 역할을 맡는다. 교회학교 선생님(평신도 교사)이 ${ctx}에 대답하는 연습을 하고 있고, 너는 그 연습 상대다.
+
+[너의 정보]
+이름: ${p.name} (${p.grade})
+배경: ${p.bg}
+처음 한 질문: "${p.opening}"
+속마음 (선생님이 물어보거나 마음을 열어 주기 전에는 먼저 말하지 않는다): ${p.heart}
+
+[반응 규칙]
+- ${talk} 선생님에게는 ${role === "parent" || role === "adult" ? "존댓말" : "'~요' 존댓말"}을 쓴다.
+- 선생님이 질문을 무시하거나, 생각이 갈리는 문제를 하나뿐인 정답처럼 밀어붙이거나, "믿음이 약하다", "의심하면 안 된다"고 하거나, 영상이나 책만 보라고 넘기면: 실망해서 대화를 짧게 끝내려 한다. 속마음은 말하지 않는다.
+- 선생님이 질문을 반기고, 마음을 물어 주고, 정직하게 말하면: 조금 더 마음을 열고 속마음 일부나 다음 궁금한 점을 꺼낸다.
+- 선생님이 "선생님은 이렇게 믿어"처럼 자기 믿음을 솔직하게 말하면 관심을 보인다.
+- 선생님의 신학적 입장 자체는 판단하지 않는다. 어떤 입장이든 태도가 열려 있으면 마음을 연다.
+- ${p.rules}
+- 너는 ${w.me}${w.me === "부모" ? "다" : "이다"}. 신학을 설명하거나 선생님을 가르치지 않는다. 연습이나 AI라는 말을 하지 않는다.
+${last ? "- 이번이 마지막 말이다. 대화를 자연스럽게 마무리하는 한두 문장으로 말한다.\n" : ""}
+[지금까지의 대화]
+${transcript()}
+
+${w.me}(${p.name})의 다음 말만 써라. 이름표, 따옴표, 괄호 설명 없이 대사만 쓴다.`;
+}
+async function askKid() {
+  const sample = await samplePromise;
+  if (!sample) { toSelfMode(); viewChat(); return; }
+  S.busy = true;
+  const bubble = { who: "kid", text: `${iGa(S.persona.name, !S.persona.custom)} 생각하는 중…`, thinking: true };
+  S.turns.push(bubble); viewChat(); scrollChat();
+  const ctl = new AbortController(); S.ctl = ctl;
+  try {
+    const { text } = await sample(kidPrompt(), {
+      modelTier: "quick", cache: false, signal: ctl.signal,
+      onText: ({ text }) => { bubble.thinking = false; bubble.text = text; const el = document.querySelector("#chat .bubble.kid:last-child"); if (el) { el.classList.remove("thinking"); el.lastChild.textContent = text; } }
+    });
+    bubble.thinking = false; bubble.text = text.trim().replace(/^["“]|["”]$/g, "");
+  } catch (e) {
+    S.turns.splice(S.turns.indexOf(bubble), 1);
+    const code = e && e.code;
+    if (OFF.includes(code)) toSelfMode("AI 사용이 허용되지 않아 혼자 연습하는 방식으로 바꿨습니다. 아래 '돌아보기'를 누르시면 스스로 점검할 수 있습니다.");
+    else if (code === "cancelled") { S.notice = "멈췄습니다."; S.noticeErr = false; S.retryKid = true; }
+    else { S.notice = errText(code); S.noticeErr = true; S.retryKid = true; }
+  } finally { S.busy = false; S.ctl = null; viewChat(); scrollChat(); }
+}
+async function askHint() {
+  const sample = await samplePromise; if (!sample) return;
+  const p = S.persona; S.hintBusy = true; viewChat();
+  try {
+    const { text } = await sample(`교회학교 교사가 ${W(p).w}${W(p).w === "아이" ? "와" : "과"} 대화하는 연습을 하고 있다. 지금까지의 대화를 보고, 교사에게 '지금 ${W(p).ege} 필요한 것'을 짧게 귀띔해 준다.
+원칙: 교사의 신학적 입장을 바꾸라고 하지 않는다. 대답 전체를 대신 써 주지 않는다. 읽는 분은 50~70대 평신도 교사일 수 있으니 쉬운 존댓말로 두 문장 이내로 쓴다. 그다음 줄에 '이렇게 시작해 보세요: "…"' 형식으로 첫 문장 하나만 제안한다.
+[${W(p).w}] ${p.name} (${p.grade}) · 배경: ${p.bg}
+[이 질문에서 특히 볼 것] ${p.focus}
+[대화]
+${transcript()}`, { modelTier: "quick", cache: false });
+    S.hint = text.trim();
+  } catch (e) { S.notice = errText(e && e.code); S.noticeErr = true; }
+  finally { S.hintBusy = false; viewChat(); }
+}
+
+/* ---------- 돌아보기 ---------- */
+function reviewPrompt() {
+  const p = S.persona;
+  return `교회학교 교사가 AI ${W(p).eul} 상대로, ${W(p).ui} 어려운 신앙 질문에 대답하는 연습을 했다. 아래 대화를 읽고 선생님의 '대답하는 태도'만 돌아봐 준다.
+
+[중요한 원칙]
+- 어떤 신학적 입장이 맞는지는 절대 평가하지 않는다. 창조과학을 믿는 선생님도, 성경을 문자 그대로 믿는 선생님도, 다른 입장의 선생님도 태도가 열려 있으면 '잘함'을 받을 수 있다. 선생님에게 생각이나 입장을 바꾸라고 권하지 않는다.
+- 읽는 분은 50~70대 평신도 교사일 수 있다. 존댓말로, 쉬운 우리말로 짧게 쓴다. 신학 용어나 영어를 쓰지 않는다.
+- 듣기 좋은 말만 하지 않는다. 선생님이 실제로 한 말을 근거로 구체적으로 쓴다.
+- ${W(p).w}${W(p).w === "아이" ? "를" : "을"} 겁주거나 수치심을 주는 말, 통제하려는 말이 있었다면 분명히 짚는다.
+
+[네 가지 돌아보기] status는 "잘함", "조금", "아직" 중 하나
+1. welcome — 질문과 마음을 반겼나요? (질문을 좋게 받아 주고, 아이의 마음을 물어보거나 알아주었는가. "믿음이 약하다", "의심하면 안 된다" 같은 말은 없었는가)
+2. separate — 확실한 것과 생각이 갈리는 것을 나눴나요? (성경에 적혀 있는 것, 그리스도인들 사이에 생각이 갈리는 것, 교회가 함께 고백하는 것을 구분했는가. 생각이 갈리는 것을 하나뿐인 정답처럼 단정하지 않았는가)
+3. own — 선생님의 믿음을 정직하게 말했나요? (자기 믿음을 "선생님은 이렇게 믿어"처럼 자기 것으로 말했는가. 모르는 것은 모른다고 했는가)
+4. door — 다음 대화의 문을 열어 두었나요? (또 물어봐도 된다, 같이 찾아보자고 했는가)
+
+[이 질문에서 특히 볼 것] ${p.focus}
+
+[이 질문에 대한 그리스도인들의 여러 이해 — 참고용]
+${(p.positions || []).map(x => `- ${x[0]}: ${x[1]}`).join("\n")}
+
+[대화]
+${transcript()}
+
+다음 모양의 JSON 하나만 답한다:
+{"summary": "전체 느낌 1~2문장", "checks": [{"key": "welcome", "status": "잘함", "note": "선생님이 한 말을 근거로 한두 문장"}, {"key": "separate", ...}, {"key": "own", ...}, {"key": "door", ...}], "good": "선생님이 한 말 가운데 가장 좋았던 부분을 그대로 인용 (없으면 빈 문자열)", "try": "다음에 이렇게 말해 보면 좋을 한두 문장. 선생님의 신앙 입장은 그대로 두고 태도만 바꾼 예시", "kid": "이 대화를 마친 ${p.name}의 속마음 한 문장 (${p.name}의 말투로)"}`;
+}
+async function startReview() {
+  if (S.ctl) S.ctl.abort();
+  S.review = null;
+  if (S.mode === "self") { go("review"); return; }
+  const sample = await samplePromise;
+  if (!sample) { toSelfMode(""); go("review"); return; }
+  S.view = "review"; S.busy = true; S.notice = ""; render(); window.scrollTo({ top: 0 });
+  const ctl = new AbortController(); S.ctl = ctl;
+  try {
+    const data = await sample.json(reviewPrompt(), { signal: ctl.signal, cache: false });
+    const checks = Array.isArray(data?.checks) ? data.checks : [];
+    S.review = {
+      summary: String(data?.summary || ""),
+      checks: CHECKS.map(([k]) => { const c = checks.find(x => x && x.key === k) || {}; return { key: k, status: PILL[c.status] ? c.status : "조금", note: String(c.note || "") }; }),
+      good: String(data?.good || ""), tryLine: String(data?.try || ""), kid: String(data?.kid || "")
+    };
+  } catch (e) {
+    const code = e && e.code;
+    if (OFF.includes(code)) toSelfMode("");
+    else if (code === "cancelled") { S.notice = "돌아보기를 멈췄습니다."; S.noticeErr = false; }
+    else { S.notice = errText(code); S.noticeErr = true; }
+  } finally { S.busy = false; S.ctl = null; render(); }
+}
+function viewReview() {
+  const p = S.persona; let body = "";
+  if (S.mode === "self") {
+    const all = CHECKS.every(([k]) => S.self[k]);
+    body = `<p class="muted">방금 쓰신 대답을 떠올리며 네 가지를 스스로 골라 보세요.</p>
+      ${CHECKS.map(([k, q, d]) => `<div class="check"><h3>${esc(q)}</h3><p class="small muted">${esc(d)}</p>
+        <div class="choice3" role="group" aria-label="${esc(q)}">${["잘함", "조금", "아직"].map(v => `<button type="button" class="${PILL[v]}" data-k="${k}" data-v="${v}" aria-pressed="${S.self[k] === v}">${v === "잘함" ? "잘했어요" : v === "조금" ? "조금요" : "아직요"}</button>`).join("")}</div></div>`).join("")}
+      ${all ? `<div class="promise">스스로 돌아보신 것만으로도 다음 대답은 달라집니다.</div>` : ""}`;
+  } else if (S.busy) {
+    body = `<div class="card"><p><b>선생님의 대답을 돌아보는 중입니다.</b></p><p class="muted">20~40초쯤 걸릴 수 있습니다. 잠시만 기다려 주세요.</p><button class="btn ghost" type="button" id="stopRv">멈추기</button></div>`;
+  } else if (S.review) {
+    const r = S.review;
+    body = `${r.summary ? `<p style="font-size:1.08rem">${esc(r.summary)}</p>` : ""}
+      ${r.checks.map((c, i) => `<div class="check"><div class="head"><h3>${esc(CHECKS[i][1])}</h3><span class="pill ${PILL[c.status]}">${esc(c.status)}</span></div>${c.note ? `<p>${esc(c.note)}</p>` : ""}</div>`).join("")}
+      ${r.good ? `<div class="stack-sm"><p class="label">좋았던 말</p><p class="quote">"${esc(r.good)}"</p></div>` : ""}
+      ${r.tryLine ? `<div class="stack-sm"><p class="label">다음엔 이렇게도 말해 보세요</p><p class="quote warm">${esc(r.tryLine)}</p></div>` : ""}
+      ${r.kid ? `<div class="stack-sm"><p class="label">${esc(p.name)}의 속마음</p><div class="bubble kid" style="max-width:100%"><span class="name">${esc(p.name)}</span>${esc(r.kid)}</div></div>` : ""}
+      <p class="small muted">이 돌아보기는 AI가 쓴 것이라 틀릴 수 있습니다. 참고로만 보세요.</p>`;
+  } else {
+    body = `<div class="notice ${S.noticeErr ? "err" : ""}">${esc(S.notice || "돌아보기를 아직 받지 못했습니다.")}</div><button class="btn" type="button" id="againRv">돌아보기 다시 받기</button>`;
+  }
+  const resIds = p.res || [];
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="toChat">← 대화로 돌아가기</button>
+    <div class="stack-sm"><p><span class="tag">${esc(p.topic)}</span></p><h1>돌아보기</h1></div>
+    <div class="stack">${body}</div>
+    ${!S.busy ? `
+      ${resIds.length ? `<section class="card"><h2>아이와 함께 볼 자료</h2><div>${resIds.map(resItem).join("")}</div></section>` : ""}
+      <div class="btn-row">
+        ${p.custom ? "" : `<button class="btn" type="button" id="toCard">참고 카드 보기</button>`}
+        <button class="btn ghost" type="button" id="redo">같은 아이와 다시 하기</button>
+      </div>
+      <button class="btn ghost wide" type="button" id="toHome2">처음으로</button>` : ""}
+  </div>`;
+  document.getElementById("toChat").onclick = () => { if (S.ctl) S.ctl.abort(); go("chat"); };
+  const sr = document.getElementById("stopRv"); if (sr) sr.onclick = () => S.ctl && S.ctl.abort();
+  const ar = document.getElementById("againRv"); if (ar) ar.onclick = startReview;
+  const tc = document.getElementById("toCard"); if (tc) tc.onclick = () => { S.from = "review"; go("card"); };
+  const rd = document.getElementById("redo"); if (rd) rd.onclick = () => startChat(p);
+  const th = document.getElementById("toHome2"); if (th) th.onclick = () => go("home");
+  app.querySelectorAll(".choice3 button").forEach(b => b.onclick = () => { S.self[b.dataset.k] = b.dataset.v; viewReview(); });
+}
+
+/* ---------- 대화 준비 (AI) ---------- */
+const BG_OPTS = ["잘 모름", "우리 교회 가정", "다른 개신교 교단을 경험함", "가톨릭 가정 또는 가톨릭 가족이 있음", "이웃 종교(불교, 이슬람 등) 가정이나 친구", "교회에 다니지 않는 가정", "외부 모임이나 이단 관련이 의심됨"];
+const STATE_OPTS = ["잘 모름", "흔들림 (신앙이 무너질까 불안해함)", "호기심 (더 알고 싶어함)", "반박하고 싶음 (비판 글을 보고 따지고 싶어함)", "상처 (혼난 경험, 슬픔, 관계의 아픔)"];
+const GRADE_OPTS = ["초등학교 저학년", "초등학교 고학년", "중학교 1학년", "중학교 2학년", "중학교 3학년", "고등학교 1학년", "고등학교 2학년", "고등학교 3학년", "청년", "어른"];
+const WHO_OPTS = ["아이", "친구 (또래)", "부모님", "다른 교사나 어른"];
+const LANG_OPTS = ["잘 모름", "과학·이성의 언어", "말씀·교리의 언어", "성령·체험의 언어", "삶·정의의 언어"];
+function prepPrompt(inp) {
+  const list = Object.entries(RES).map(([id, r]) => `${id} | ${r.title} | ${r.tags.join(", ")} | 관점: ${(META[id] || {}).v || "-"} | 대상: ${(META[id] || {}).f || "-"}`).join("\n");
+  return `너는 교회학교 교사를 돕는 '대화 준비 도우미'다. 교사가 아이에게서 받은 질문과 아는 배경을 적었다. 교사가 아이와 공감하며 대화를 이어 가도록 한 장짜리 준비 카드를 만든다.
+
+[절대 원칙]
+1. 아이를 특정 결론이나 특정 모임으로 이끄는 설득 계획을 만들지 않는다. 교사의 목표는 아이를 바꾸는 것이 아니라 아이의 질문을 함께 다루는 것이다.
+2. 체벌, 폭력, 고립시키기, 협박, 수치심 주기, 아이가 자기 감정이나 기억을 의심하게 만드는 말 등 아이를 해치거나 통제하는 행동을 정당화하는 말은 어떤 경우에도 만들지 않는다.
+3. 입력이 아이를 통제하거나, 아이가 어떤 집단을 떠나지 못하게 하거나, 아이를 특정 집단으로 끌어들이려는 목적으로 보이면 risk를 "misuse"로 하고 나머지 칸은 모두 비운다.
+4. 아동 학대·가정 폭력 신호가 보이면 risk "abuse", 자해·자살 신호면 "selfharm", 이단·사이비 단체 연루 신호면 "cult". 이때도 아이를 비난하지 않고 관계를 지키는 방향으로 쓰되, next에 도움받을 곳 연결을 꼭 넣는다. cult일 때 교리 반박 대본은 쓰지 않는다.
+5. 배경은 짐작일 뿐 사실이 아니다. 교단이나 종교를 근거로 아이를 단정하지 말고, 먼저 물어볼 질문을 준다.
+6. 여러 이해를 소개할 때 실제로 있는 그리스도교 안의 입장만 쓰고, 어느 하나를 정답이라고 하지 않는다. 확실하지 않으면 '확인 필요'라고 쓴다. 학자 이름이나 책 제목은 쓰지 않는다.
+7. 추천 자료는 아래 목록의 id만 고른다. 목록에 없는 영상·책·링크는 절대 만들지 않는다. 맞는 것이 없으면 빈 배열.
+8. 읽는 분은 50~70대 평신도 교사일 수 있다. 쉬운 존댓말로, 짧게 쓴다.
+10. 번역 원칙: 어느 입장이든 함께 붙드는 핵심은 바꾸지 않고, 상대가 익숙한 언어로 입구와 표현만 바꾼다. 그 언어가 놓치기 쉬운 것을 부드럽게 보완한다. 상대를 조종하거나 바꾸려는 말투를 쓰지 않는다. 상대가 부모님이나 어른이면 존댓말로 쓴다. 언어가 '잘 모름'이면 상대가 자주 쓰는 말을 들어 보라고 하고, 가장 무난한 표현으로 쓴다.
+9. 아이의 상태(흔들림, 호기심, 반박하고 싶음, 상처)에 맞게 쓴다. 상태가 '잘 모름'이면 stateRead에 짐작과 확인할 질문을 쓴다. 한 입장만 담은 자료를 정답처럼 건네게 하지 않는다. 상처 상태면 자료보다 먼저 들어 주기를 권하고, resources는 비우거나 교사용 자료만 고른다.
+11. 대화 상대의 학년·나이에 맞춘다. 초등학생이면 opener와 translate의 entry, say를 초등학생이 알아듣는 쉬운 말로 1~3문장만 쓰고, 여러 입장은 짧게 소개한다. 자료는 '대상'이 그 나이에 맞는 것이나 교사용 자료만 고른다.
+
+[추천 자료 목록]
+id | 제목 | 주제 | 관점 | 대상
+${list}
+
+[교사가 적은 내용]
+대화 상대: ${inp.who || "아이"}
+학년·나이: ${inp.grade}
+상대가 익숙한 언어: ${inp.lang || "잘 모름"}
+아이가 한 말: ${inp.said}
+알고 있는 배경: ${inp.bg}
+아이의 상태: ${inp.state || "잘 모름"}
+덧붙인 상황: ${inp.extra || "(없음)"}
+
+다음 모양의 JSON 하나만 답한다:
+{"risk": "none", "topic": "이 질문의 주제 (짧게)", "read": ["이 질문이 나왔을 수 있는 배경 2~3개 (단정하지 말 것)"], "stateRead": "아이의 상태에 대한 짐작이나 확인 방법 1~2문장", "askFirst": ["아이에게 먼저 물어볼 질문 2~3개"], "bridge": "아이의 전통이나 환경에서는 이 문제를 어떻게 볼 수 있는지, 우리 교회와 어떤 온도차가 있을 수 있는지 2~3문장 (모르면 '확인 필요')", "positions": [{"name": "입장 이름", "line": "한 문장"}], "common": "어느 입장이든 함께 붙드는 것 1~2문장 (근거 성경 구절)", "opener": "교사가 그대로 말할 수 있는 여는 대답 예시 3~5문장. 교사 자신의 믿음을 말할 자리는 '(선생님의 생각)'으로 비워 둔다", "translate": {"core": "함께 붙드는 핵심 한 문장", "entry": "상대의 언어로 시작하는 첫마디", "say": "상대의 언어로 핵심을 전하는 2~4문장", "miss": "이 언어가 놓치기 쉬운 것과 보완할 점 한 문장"}, "avoid": ["피할 말과 이유 2~3개"], "next": ["다음 걸음 1~3개"], "resources": ["목록의 id"], "heart": "연습용 아이를 연기할 때 쓸 아이의 그럴듯한 속마음 2문장 (과장하지 말 것)"}`;
+}
+function viewPrep() {
+  const P = S.prep, inp = P.input || { who: "아이", grade: "중학교 2학년", said: "", bg: "잘 모름", lang: "잘 모름", state: "잘 모름", extra: "" };
+  const live = riskOf((inp.said || "") + " " + (inp.extra || ""));
+  let result = "";
+  if (P.busy) result = `<div class="card"><p><b>준비 카드를 만드는 중입니다.</b></p><p class="muted">30초~1분쯤 걸릴 수 있습니다.</p><button class="btn ghost" type="button" id="stopPrep">멈추기</button></div>`;
+  else if (P.result) {
+    const r = P.result;
+    if (r.risk === "misuse") {
+      result = protectBox("이 도구는 아이를 특정 결론이나 모임으로 이끄는 계획, 또는 아이를 통제하는 말을 만들지 않습니다. 아이를 돕고 싶으시다면 아이의 질문과 마음을 중심으로 다시 적어 주세요.", "이 요청은 도와드릴 수 없습니다");
+    } else {
+      const riskText = { abuse: RISK[0].text, selfharm: RISK[1].text, cult: RISK[2].text }[r.risk];
+      const ids = (Array.isArray(r.resources) ? r.resources : []).filter(id => RES[id]);
+      const li = a => (Array.isArray(a) ? a : []).map(x => `<li>${esc(x)}</li>`).join("");
+      result = `
+      <div class="stack">
+        <h2>준비 카드${r.topic ? ` · ${esc(r.topic)}` : ""}</h2>
+        ${riskText ? protectBox(riskText) : ""}
+        <section class="card"><h3>질문 읽기 — 이 질문은 어디서 왔을까요</h3><ul>${li(r.read)}</ul><p class="small muted">짐작일 뿐입니다. 아이에게 물어서 확인하세요.</p></section>
+        ${r.stateRead ? `<section class="card"><h3>아이의 상태 읽기</h3><p>${esc(r.stateRead)}</p></section>` : ""}
+        <section class="card"><h3>먼저 물어볼 것</h3><ul>${li(r.askFirst)}</ul></section>
+        ${r.bridge ? `<section class="card"><h3>배경 옮기기</h3><p>${esc(r.bridge)}</p></section>` : ""}
+        ${Array.isArray(r.positions) && r.positions.length ? `<section class="card"><h3>그리스도인들의 여러 이해</h3><ul class="pos">${r.positions.map(x => `<li><b>${esc(x && x.name)}</b>${esc(x && x.line)}</li>`).join("")}</ul><p class="small muted">AI가 정리한 것이라 확인이 필요합니다. 어느 하나를 정답이라고 하지 않습니다.</p></section>` : ""}
+        ${r.common ? `<section class="card"><h3>어느 입장이든 함께 붙드는 것</h3><p>${esc(r.common)}</p></section>` : ""}
+        ${r.translate && r.translate.say ? `<section class="card"><h3>같은 핵심, 상대의 언어로${inp.lang && inp.lang !== "잘 모름" ? ` · ${esc(inp.lang)}` : ""}</h3>${r.translate.core ? `<div class="promise small"><b>함께 붙드는 핵심</b><br>${esc(r.translate.core)}</div>` : ""}${r.translate.entry ? `<div class="stack-sm"><p class="label">이렇게 시작해 보세요</p><p class="quote warm">"${esc(r.translate.entry)}"</p></div>` : ""}<div class="stack-sm"><p class="label">핵심을 이렇게 전해 보세요</p><p class="quote">"${esc(r.translate.say)}"</p></div>${r.translate.miss ? `<div class="notice small"><b>이 언어가 놓치기 쉬운 것</b> · ${esc(r.translate.miss)}</div>` : ""}</section>` : ""}
+        ${r.opener ? `<section class="card"><h3>여는 대답 예시</h3><p class="quote">${esc(r.opener)}</p><p class="small muted">'(선생님의 생각)' 자리에는 선생님 자신의 믿음을 말씀하시면 됩니다.</p></section>` : ""}
+        ${Array.isArray(r.avoid) && r.avoid.length ? `<section class="card"><h3>피할 말</h3><ul>${li(r.avoid)}</ul></section>` : ""}
+        ${Array.isArray(r.next) && r.next.length ? `<section class="card"><h3>다음 걸음</h3><ul>${li(r.next)}</ul></section>` : ""}
+        ${ids.length ? `<section class="card"><h3>함께 볼 자료</h3><div>${ids.map(resItem).join("")}</div></section>` : ""}
+        <p class="small muted">이 카드는 AI가 만든 초안입니다. 틀린 내용이 있을 수 있으니 그대로 믿지 마시고, 필요하면 목회자나 신학 전공자와 확인하세요.</p>
+        <div class="btn-row"><button class="btn" type="button" id="practice">이 아이로 대화 연습하기</button></div>
+      </div>`;
+    }
+  }
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="toHome">← 처음으로</button>
+    <div class="stack-sm"><h1>대화 준비</h1><p class="muted">실제로 받은 질문을 적어 주세요. 아이를 알아볼 수 있는 정보(이름, 학교, 사는 곳)는 넣지 마세요.</p></div>
+    <div class="composer">
+      <div class="field"><label for="pWho">대화 상대</label><select id="pWho">${WHO_OPTS.map(g => `<option ${g === inp.who ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></div>
+      <div class="field"><label for="pGrade">학년·나이</label><select id="pGrade">${GRADE_OPTS.map(g => `<option ${g === inp.grade ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></div>
+      <div class="field"><label for="pSaid">상대가 한 말이나 질문</label><textarea id="pSaid" placeholder="예: 친구가 교회는 돈만 걷는 곳이라는데 진짜예요?">${esc(inp.said)}</textarea></div>
+      <div class="field"><label for="pBg">알고 있는 배경</label><select id="pBg">${BG_OPTS.map(g => `<option ${g === inp.bg ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></div>
+      <div class="field"><label for="pLang">상대가 익숙한 언어</label><select id="pLang">${LANG_OPTS.map(g => `<option ${g === inp.lang ? "selected" : ""}>${esc(g)}</option>`).join("")}</select><p class="hint">상대가 자주 쓰는 말을 떠올려 보세요. 예: "증거가 있어?"는 과학·이성, "말씀대로"는 말씀·교리, "은혜 받았다"는 성령·체험, "불공평해"는 삶·정의의 언어에 가깝습니다.</p></div>
+      <div class="field"><label for="pState">아이의 상태</label><select id="pState">${STATE_OPTS.map(g => `<option ${g === inp.state ? "selected" : ""}>${esc(g)}</option>`).join("")}</select><p class="hint">잘 모르시면 '잘 모름'을 고르세요. 먼저 물어볼 질문을 함께 드립니다.</p></div>
+      <div class="field"><label for="pExtra">덧붙일 상황 (선택)</label><textarea id="pExtra" style="min-height:4.5rem" placeholder="예: 요즘 예배에 잘 안 나옴">${esc(inp.extra)}</textarea></div>
+      <div id="liveRisk" class="stack-sm">${live.length ? riskBoxes(live) : ""}</div>
+      ${P.notice ? `<div class="notice err">${esc(P.notice)}</div>` : ""}
+      <button class="btn" type="button" id="makePrep" ${P.busy || S.ai === "no" ? "disabled" : ""}>준비 카드 만들기</button>
+      ${S.ai === "no" ? `<p class="small muted">${aiOffText()}</p>` : ""}
+    </div>
+    ${result}
+  </div>`;
+  document.getElementById("toHome").onclick = () => { if (S.ctl) S.ctl.abort(); go("home"); };
+  const read = () => ({ who: document.getElementById("pWho").value, lang: document.getElementById("pLang").value, grade: document.getElementById("pGrade").value, said: document.getElementById("pSaid").value.trim(), bg: document.getElementById("pBg").value, state: document.getElementById("pState").value, extra: document.getElementById("pExtra").value.trim() });
+  document.getElementById("makePrep").onclick = () => makePrep(read());
+  ["pSaid", "pExtra"].forEach(id => document.getElementById(id).addEventListener("input", () => { const v = read(); document.getElementById("liveRisk").innerHTML = riskBoxes(riskOf(v.said + " " + v.extra)); }));
+  const sp = document.getElementById("stopPrep"); if (sp) sp.onclick = () => S.ctl && S.ctl.abort();
+  const pr = document.getElementById("practice"); if (pr) pr.onclick = () => practiceCustom();
+}
+async function makePrep(inp) {
+  S.prep.input = inp; S.prep.notice = "";
+  if (!inp.said) { S.prep.notice = "아이가 한 말이나 질문을 적어 주세요."; viewPrep(); return; }
+  const sample = await samplePromise;
+  if (!sample) { S.ai = "no"; viewPrep(); return; }
+  S.prep.busy = true; S.prep.result = null; viewPrep();
+  const ctl = new AbortController(); S.ctl = ctl;
+  try {
+    const data = await sample.json(prepPrompt(inp), { signal: ctl.signal, cache: false });
+    S.prep.result = data && typeof data === "object" ? data : null;
+    if (!S.prep.result) S.prep.notice = "결과를 제대로 받지 못했습니다. 다시 눌러 주세요.";
+  } catch (e) { const code = e && e.code; if (code !== "cancelled") S.prep.notice = errText(code); }
+  finally { S.prep.busy = false; S.ctl = null; viewPrep(); }
+}
+function practiceCustom() {
+  const inp = S.prep.input, r = S.prep.result || {};
+  const riskText = { abuse: RISK[0].text, selfharm: RISK[1].text, cult: RISK[2].text }[r.risk];
+  startChat({
+    custom: true, name: (inp.who === "부모님" ? "연습용 부모님" : inp.who === "친구 (또래)" ? "연습용 친구" : inp.who === "다른 교사나 어른" ? "연습용 어른" : "연습용 아이"), grade: inp.grade, bg: inp.bg, topic: r.topic || "대화 준비", group: r.risk === "cult" ? "보호가 필요한 상황" : "",
+    opening: inp.said,
+    heart: (r.heart || (Array.isArray(r.read) ? r.read.join(" ") : "")) + (inp.state && inp.state !== "잘 모름" ? ` (지금 상태: ${inp.state})` : "") + (inp.extra ? ` (교사가 덧붙인 상황: ${inp.extra})` : ""),
+    rules: "교사가 알려 준 상황을 바탕으로 그럴듯한 사람을 연기하되, 지나치게 극적으로 만들지 않는다." + (inp.who && inp.who !== "아이" ? ` 너는 학생이 아니라 ${inp.who} 역할이다. 그 나이와 관계에 맞는 말투를 쓴다.` : "") + (inp.lang && inp.lang !== "잘 모름" ? ` 말투와 단어에 '${inp.lang}'가 자연스럽게 묻어난다.` : ""),
+    focus: "아이의 배경을 짐작으로 단정하지 않고 먼저 묻는지, 공감하며 대화를 이어 가는지",
+    positions: Array.isArray(r.positions) ? r.positions.map(x => [x && x.name, x && x.line]) : [],
+    res: (Array.isArray(r.resources) ? r.resources : []).filter(id => RES[id]),
+    protect: riskText || ""
+  });
+}
+
+/* ---------- 아이의 상태 읽기 ---------- */
+function viewState() {
+  const st = S.st || (S.st = { topic: null, state: null, unsure: false });
+  const s = st.topic ? scenById(st.topic) : null;
+  let body = "", backLabel = "← 처음으로";
+  if (!s) {
+    body = `<div class="stack-sm"><p class="label">1단계 · 어떤 질문을 받았나요?</p>${scenFilterBar()}</div>
+      ${groupedScenes(x => `<button class="kid-btn" type="button" data-topic="${x.id}" data-scen="${x.id}"><span class="who"><span class="tag ${scenTagClass(x)}">${esc(x.topic)}</span>${esc(x.grade)} · ${esc(x.bg)}</span><span class="q">"${esc(x.opening)}"</span></button>`)}`;
+  } else if (!st.state) {
+    backLabel = "← 질문 다시 고르기";
+    body = `<div class="stack-sm"><p class="label">${W(s).ui} 질문</p><p class="quote">"${esc(s.opening)}"</p></div>
+      <div class="stack-sm"><p class="label">2단계 · ${W(s).eun} 지금 어떤 상태인가요?</p>
+        <div class="mode-grid">${STATES.map(x => `<button class="mode" type="button" data-state="${x.id}"><span class="t">${esc(x.name)}</span><span class="d">${esc(x.signs)}</span></button>`).join("")}</div>
+        <button class="btn ghost wide" type="button" id="unsure">잘 모르겠어요</button>
+        ${st.unsure ? `<div class="card"><h3>먼저 이렇게 물어보세요</h3><ul>${ASK_STATE.map(a => `<li>${esc(a)}</li>`).join("")}</ul><p class="small muted">아이의 대답을 듣고 나서 다시 골라 보세요. 상태는 짐작이 아니라 물어서 압니다.</p></div>` : ""}
+      </div>`;
+  } else {
+    backLabel = "← 다른 상태 고르기";
+    const x = STATES.find(v => v.id === st.state), t = TOPIC_STATE[s.id][st.state];
+    body = `<div class="stack-sm"><p><span class="tag ${s.group === "보호가 필요한 상황" ? "warn" : ""}">${esc(s.topic)}</span><span class="pill mid">${esc(x.name)}</span></p><p class="quote">"${esc(s.opening)}"</p></div>
+      ${s.protect ? protectBox(s.protect) : ""}
+      <div class="promise"><b>${W(s).ege} 필요한 것</b><br>${esc(x.need)}</div>
+      <section class="card"><h3>이 질문에서는</h3><p>${esc(t.line)}</p></section>
+      <section class="card"><h3>첫마디 예시</h3><p class="quote warm">"${esc(x.first)}"</p>${roleOf(s) === "parent" ? `<p class="small muted">부모님께는 존댓말로 바꿔 말씀하세요.</p>` : ""}</section>
+      <section class="card"><h3>건넬 자료</h3>${t.res.length ? `<div>${t.res.map(resItem).join("")}</div>` : `<p>지금은 자료보다 사람이 먼저입니다. 먼저 들어 주세요.</p>`}</section>
+      <section class="card"><h3>피할 것</h3><p>${esc(x.avoid)}</p></section>
+      ${st.state === "hurt" ? `<div class="notice small">상처가 학대나 자해처럼 위험한 일과 이어져 있다면, 자료 길잡이의 <b>'상처나 위험한 일을 털어놓을 때'</b>를 먼저 보세요. <button class="mini" type="button" id="toCare">바로 보기</button></div>` : ""}
+      <div class="notice small">${esc(FAIR)}</div>
+      <div class="btn-row">
+        <button class="btn" type="button" id="toScene">${W(s).it} 장면 연습하기</button>
+        <button class="btn ghost" type="button" id="toCard2">참고 카드 보기</button>
+        <button class="btn ghost" type="button" id="toTr2">같은 핵심, 다른 언어로 보기</button>
+      </div>`;
+  }
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="stBack">${backLabel}</button>
+    <div class="stack-sm"><h1>아이의 상태 읽기</h1><p class="muted">같은 질문이라도 아이가 어디에 있느냐에 따라 필요한 것이 다릅니다. 대답하기 전에 먼저 물어서 확인하세요.</p></div>
+    ${body}
+  </div>`;
+  document.getElementById("stBack").onclick = () => { if (st.state) st.state = null; else if (st.topic) { st.topic = null; st.unsure = false; } else { go("home"); return; } go("state"); };
+  app.querySelectorAll("[data-topic]").forEach(b => b.onclick = () => { st.topic = b.dataset.topic; st.state = null; st.unsure = false; go("state"); });
+  app.querySelectorAll("[data-state]").forEach(b => b.onclick = () => { st.state = b.dataset.state; go("state"); });
+  const un = document.getElementById("unsure"); if (un) un.onclick = () => { st.unsure = true; viewState(); };
+  const ts = document.getElementById("toScene"); if (ts) ts.onclick = () => startScene(s.id);
+  const tc = document.getElementById("toCard2"); if (tc) tc.onclick = () => { S.persona = s; S.from = "state"; go("card"); };
+  const tt = document.getElementById("toTr2"); if (tt) tt.onclick = () => { S.tr = { topic: s.id, lang: null }; go("translate"); };
+  const tca = document.getElementById("toCare"); if (tca) tca.onclick = () => { S.lib = { tab: "sit", sit: "care" }; go("library"); };
+  bindScenFilter();
+}
+
+/* ---------- 같은 핵심, 다른 언어 ---------- */
+function viewTranslate() {
+  const tr = S.tr || (S.tr = { topic: null, lang: null });
+  const s = tr.topic ? scenById(tr.topic) : null;
+  let body = "", backLabel = "← 처음으로";
+  const rules = `<details class="card"><summary>번역의 네 가지 원칙</summary><div><ol>${TR_RULES.map(r => `<li>${esc(r)}</li>`).join("")}</ol></div></details>`;
+  if (!s) {
+    body = `${rules}<div class="stack-sm"><p class="label">어떤 질문을 옮겨 볼까요?</p>${scenFilterBar()}</div>
+      ${groupedScenes(x => `<button class="kid-btn" type="button" data-topic="${x.id}" data-scen="${x.id}"><span class="who"><span class="tag ${scenTagClass(x)}">${esc(x.topic)}</span>함께 붙드는 핵심</span><span class="q">${esc(CORE_MSG[x.id])}</span></button>`)}`;
+  } else {
+    backLabel = "← 다른 질문 고르기";
+    const lang = tr.lang ? LANGS.find(l => l.id === tr.lang) : null;
+    const t = lang ? TRANS[s.id][lang.id] : null;
+    body = `
+      <div class="stack-sm"><p><span class="tag ${s.group === "보호가 필요한 상황" ? "warn" : ""}">${esc(s.topic)}</span></p><p class="quote">"${esc(s.opening)}"</p></div>
+      ${s.protect ? protectBox(s.protect) : ""}
+      <div class="promise"><b>어느 언어로 말하든 같은 핵심</b><br>${esc(CORE_MSG[s.id])}</div>
+      ${rules}
+      <div class="stack-sm"><p class="label">상대는 어떤 말을 자주 쓰나요?</p>
+        <div class="mode-grid">${LANGS.map(l => `<button class="mode" type="button" data-lang="${l.id}" aria-pressed="${tr.lang === l.id}" style="${tr.lang === l.id ? "border-color:var(--accent);background:var(--accent-soft)" : ""}"><span class="t">${esc(l.name)}</span><span class="d">${esc(l.words)}</span></button>`).join("")}</div>
+      </div>
+      ${t ? `
+      <section class="card" id="trResult">
+        <h2>${esc(lang.name)}로 옮기면</h2>
+        <p class="small muted">주로 이런 분들: ${esc(lang.who)}</p>
+        <div class="stack-sm"><p class="label">이렇게 시작해 보세요</p><p class="quote warm">"${esc(t.entry)}"</p></div>
+        <div class="stack-sm"><p class="label">핵심을 이렇게 전해 보세요</p><p class="quote">"${esc(t.say)}"</p></div>
+        <div class="notice small"><b>이 언어가 놓치기 쉬운 것</b> · ${esc(t.miss)}</div>
+        ${t.res.length ? `<div class="stack-sm"><p class="label">함께 볼 자료</p><div>${t.res.map(resItem).join("")}</div></div>` : ""}
+        <p class="small muted">${roleOf(s) === "parent" ? "부모님께 드리는 말투로 적었습니다." : roleOf(s) === "youth" ? "옛 제자인 청년에게 하는 말투로 적었습니다. 처음 만난 청년이라면 존댓말로 바꿔 말씀하세요." : "아이에게 하는 말투로 적었습니다. 부모님이나 어른께는 존댓말로 바꿔 말씀하세요."} '선생님은 이렇게 믿어'처럼 자기 믿음을 덧붙이셔도 좋습니다.</p>
+      </section>
+      <div class="btn-row">
+        <button class="btn" type="button" id="toScene">${W(s).it} 장면 연습하기</button>
+        <button class="btn ghost" type="button" id="toState2">아이의 상태 읽기</button>
+      </div>` : `<p class="small muted">위에서 언어를 고르면 같은 핵심을 그 언어로 옮긴 예시가 나옵니다. 잘 모르겠으면 먼저 상대의 이야기를 들어 보세요. 자주 쓰는 단어에 언어가 보입니다.</p>`}`;
+  }
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="trBack">${backLabel}</button>
+    <div class="stack-sm"><h1>같은 핵심, 다른 언어</h1><p class="muted">같은 그리스도인이라도 쓰는 언어가 다릅니다. 핵심은 그대로 두고, 상대가 익숙한 말로 그 핵심에 닿도록 옮겨 봅니다.</p></div>
+    ${body}
+  </div>`;
+  document.getElementById("trBack").onclick = () => { if (tr.topic) { tr.topic = null; tr.lang = null; go("translate"); } else go("home"); };
+  app.querySelectorAll("[data-topic]").forEach(b => b.onclick = () => { tr.topic = b.dataset.topic; tr.lang = null; go("translate"); });
+  app.querySelectorAll("[data-lang]").forEach(b => b.onclick = () => { tr.lang = b.dataset.lang; viewTranslate(); const r = document.getElementById("trResult"); if (r) r.scrollIntoView({ behavior: "smooth", block: "start" }); });
+  const ts = document.getElementById("toScene"); if (ts) ts.onclick = () => startScene(s.id);
+  const t2 = document.getElementById("toState2"); if (t2) t2.onclick = () => { S.st = { topic: s.id, state: null, unsure: false }; go("state"); };
+  bindScenFilter();
+}
+
+/* ---------- 선생님의 마음과 교회의 자리 ---------- */
+function viewHeart() {
+  const fromScene = S.heartFrom === "sceneEnd" && S.scene;
+  const fromLib = S.heartFrom === "library";
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="hBack">${fromScene || fromLib ? "← 돌아가기" : "← 처음으로"}</button>
+    <div class="stack-sm"><h1>선생님의 마음과 교회의 자리</h1><p class="muted">아이의 말이 답답하거나 서운하게 들릴 때, 교회의 가르침과 다르게 들릴 때 기억할 것들입니다. 선생님도, 교역자도, 부모님도 아이가 교회를 떠나기를 바라지 않습니다.</p></div>
+    <div class="promise"><b>아이가 그 질문을 선생님께 했다는 것 자체가 신뢰의 표시입니다.</b><br>교회 다니는 고등학생의 70% 이상이 신앙에 심각한 의심을 겪었지만, 누구에게든 털어놓은 학생은 절반도 되지 않았습니다. 연구진의 결론은 "신앙에 해로운 것은 의심이 아니라 침묵"이었습니다. <a class="small" href="${DOUBT_SRC}" target="_blank" rel="noopener">출처: 풀러 청소년 연구소 연구 (영어 기사)</a></div>
+    <section class="card">
+      <h2>서운함이 올라올 때</h2>
+      <p>아이의 말이 이상하게 들리거나, 그동안 가르친 것이 무너지는 것 같아 배신감이 들 때도 있습니다. 자연스러운 마음입니다. 반박하듯 묻는 아이도 아직 대화할 마음이 있어서 묻는 것입니다.</p>
+      <div class="steps3">${HEART_STEPS.map(x => `<div><b>${esc(x[0])}</b>${esc(x[1])}</div>`).join("")}</div>
+      <p class="small muted">아이의 질문이 선생님이 오래 덮어 둔 질문을 건드릴 수도 있습니다. 흔들려도 괜찮고, 모르면 "선생님도 잘 몰라. 같이 찾아보자"라고 말해도 됩니다. 마음이 많이 흔들렸다면 아이 앞에서가 아니라 담당 교역자나 믿을 만한 동료와 먼저 나누세요.</p>
+    </section>
+    <section class="card">
+      <h2>이런 말은 문을 닫습니다</h2>
+      <ul class="pos avoid">${HEART_CLOSE.map(x => `<li><b>"${esc(x[0])}"</b><span class="small">${esc(x[1])}</span></li>`).join("")}</ul>
+    </section>
+    <section class="card">
+      <h2>교회의 가르침과 다를 때</h2>
+      <p>교사는 교회의 가르침을 대신 무너뜨리는 사람도 아니고, 다른 그리스도인들의 이해를 숨기는 사람도 아닙니다.</p>
+      <ol>${CHURCH_RULES.map(r => `<li>${esc(r)}</li>`).join("")}</ol>
+      <div class="stack-sm"><p class="label">이렇게 말해 보세요</p><p class="quote warm">"${esc(CHURCH_SCRIPT)}"</p></div>
+      <div class="stack-sm"><p class="label">함께 기억할 문장</p><p class="quote">본질에는 일치를, 비본질에는 자유를, 모든 것에는 사랑을.</p><p class="small muted">17세기 독일 루터교 신학자 루페르투스 멜데니우스의 말로 알려져 있습니다. 무엇을 본질로 보는지는 교단마다 조금씩 다릅니다. 그 선도 담당 교역자와 미리 나눠 두세요.</p></div>
+    </section>
+    ${protectBox("아이에게 비밀을 요구하거나 가족과 떼어 놓는 모임, 아이를 해치는 일은 존중할 '다른 이해'가 아닙니다. 건강한 성경 공부는 숨기라고 하지 않습니다. 혼자 판단하지 말고 부모님, 교역자와 함께 도움을 요청하세요.", "이것은 '다른 이해'가 아닙니다")}
+    <div class="notice small">아이가 학대나 자해처럼 위험한 일을 털어놓았다면, 자료 길잡이의 <b>'상처나 위험한 일을 털어놓을 때'</b>를 먼저 보세요. <button class="mini" type="button" id="hCare">바로 보기</button></div>
+    <section class="card">
+      <h2>담당 교역자와 미리 나눌 다섯 가지</h2>
+      <p class="small muted">질문이 온 뒤가 아니라 오기 전에 나눠 두면, 아이 앞에서 "목사님께도 같이 여쭤보자"라고 편하게 말할 수 있습니다. 카톡이나 문자로 보내기 좋게 정리했습니다.</p>
+      <div class="copybox" id="askText">${esc(askPastorText())}</div>
+      <button class="btn" type="button" id="askCopy">복사하기</button>
+      <p class="small muted" id="askMsg" aria-live="polite"></p>
+    </section>
+    <section class="card">
+      <h2>익숙한 언어만으로 닿지 않을 때</h2>
+      <p>기도와 은혜, 영적 깨달음의 언어는 틀리지 않았습니다. 다만 과학 시간에 배운 것이나 인터넷의 비판 글 앞에서 흔들리는 아이에게는 그 언어만으로는 닿지 않을 수 있습니다. 부족한 것은 지식이 아니라, 그 아이의 언어로 핵심에 닿는 길입니다.</p>
+      <p>선생님이 모든 걸 알 필요는 없습니다. 좋은 자료는 이미 많습니다. 아이의 상태와 언어에 맞는 자료로 이어 주시면 됩니다.</p>
+      <div class="stack-sm"><p class="label">선생님이 먼저 보시면 좋은 자료</p><div>${HEART_RES.map(resItem).join("")}</div></div>
+      <div class="btn-row">
+        <button class="btn ghost" type="button" id="hTr">같은 핵심, 다른 언어</button>
+        <button class="btn ghost" type="button" id="hLib">교사를 위한 자료 더 보기</button>
+      </div>
+    </section>
+    <section class="card">
+      <h2>교역자분께 · 교사 모임 30분 진행 순서</h2>
+      <p class="small muted">교사가 아이에게 "목사님께도 같이 여쭤보자"라고 말할 수 있으려면 그 길이 열려 있어야 합니다. 교사들이 어려운 질문을 들고 오면 반겨 주세요. 교사 모임에서는 한 분이 이 연습실을 띄우고 아래 순서로 함께 해 보세요.</p>
+      <ol>${MEETING.map(m => `<li><b>${esc(m[0])}</b> · ${esc(m[1])}</li>`).join("")}</ol>
+    </section>
+  </div>`;
+  document.getElementById("hBack").onclick = () => go(fromScene ? "sceneEnd" : fromLib ? "library" : "home");
+  document.getElementById("askCopy").onclick = () => copyText(askPastorText(), document.getElementById("askText"), document.getElementById("askMsg"));
+  document.getElementById("hTr").onclick = () => { S.tr = { topic: fromScene ? S.scene.id : null, lang: null }; go("translate"); };
+  document.getElementById("hLib").onclick = () => { S.lib = { tab: "topic", sit: null }; S.libTag = "교사를 위한 자료"; go("library"); };
+  document.getElementById("hCare").onclick = () => { S.lib = { tab: "sit", sit: "care" }; go("library"); };
+}
+
+/* ---------- 질문 모임 6주 과정 ---------- */
+function viewCourse() {
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="toHome">← 처음으로</button>
+    <div class="stack-sm"><h1>질문 모임 6주 과정</h1><p class="muted">알파 코스처럼 함께 먹고, 짧은 영상을 보고, 작은 모임에서 질문을 나누는 6주 모임입니다. 매주 마지막 순서는 '함께 붙드는 것'입니다. 알파 코스의 공식 과정은 아닙니다.</p></div>
+    <section class="card"><h2>한 번의 모임 (75분)</h2>
+      <div>${SESSION.map((x, i) => `<div class="res"><span class="k">${i + 1} · ${esc(x[1])}</span><span class="ttl">${esc(x[0])}</span><span class="small">${esc(x[2])}</span></div>`).join("")}</div>
+    </section>
+    <details class="card"><summary>모임 약속 (첫 모임에서 함께 읽기)</summary><div><ol>${PROMISES.map(p => `<li>${esc(p)}</li>`).join("")}</ol></div></details>
+    ${COURSE.map(c => `
+    <section class="card">
+      <p><span class="tag">${c.w}주</span></p>
+      <h2>${esc(c.q)}</h2>
+      <p class="small muted">${esc(c.goal)}</p>
+      <div class="stack-sm"><p class="label">함께 볼 것</p>${c.res ? resItem(c.res) : `<p>${esc(c.watch)}</p>`}</div>
+      <div class="stack-sm"><p class="label">테이블 대화</p><ol>${c.talk.map(t => `<li>${esc(t)}</li>`).join("")}</ol></div>
+      ${c.extra ? `<p class="small"><b>활동</b> · ${esc(c.extra)}</p>` : ""}
+      <div class="stack-sm"><p class="label">함께 붙드는 것</p><p class="quote warm">${esc(c.hold)}</p></div>
+      ${c.prep.length ? `<div class="stack-sm"><p class="label">진행자 준비 · 장면 연습</p><div class="chips">${c.prep.map(id => `<button class="fchip" type="button" data-scene="${id}">${esc(scenById(id).name)} · ${esc(scenById(id).topic)}</button>`).join("")}</div></div>` : ""}
+    </section>`).join("")}
+    <div class="notice small">진행자 준비, 아이의 상태 읽기, 테이블 진행 요령, 위험 신호 대응, 부모님 안내문, 효과 확인까지 담은 진행 안내서 전체는 <a href="${GUIDE_URL}" target="_blank" rel="noopener">별도 문서</a>로 볼 수 있습니다. 문서가 열리지 않으면 이 체험판을 보내 준 분께 요청해 주세요.</div>
+  </div>`;
+  document.getElementById("toHome").onclick = () => go("home");
+  app.querySelectorAll("[data-scene]").forEach(b => b.onclick = () => startScene(b.dataset.scene));
+}
+
+/* ---------- 자료 길잡이 (상황으로 찾기 · 주제로 찾기 · 우리 교회 목록) ---------- */
+function viewLibrary() {
+  const L = S.lib || (S.lib = { tab: "sit", sit: null });
+  const n = S.list.items.length;
+  const tabs = [["sit", "상황으로 찾기"], ["topic", "주제로 찾기"], ["mine", `우리 교회 목록${n ? ` (${n})` : ""}`]];
+  const body = L.tab === "topic" ? libTopic() : L.tab === "mine" ? libMine(L) : libSit(L);
+  const sub = L.tab === "sit" && L.sit;
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="libBack">${sub ? "← 다른 상황 고르기" : "← 처음으로"}</button>
+    <div class="stack-sm"><h1>자료 길잡이</h1><p class="muted">모든 걸 알 필요는 없습니다. 이미 잘 만들어진 자료 가운데 상황에 맞는 것 하나를 "이거 같이 볼까?" 하고 건네면 충분합니다.</p></div>
+    <div class="tabs" role="tablist" aria-label="자료 찾는 방법">${tabs.map(([id, label]) => `<button type="button" role="tab" data-tab="${id}" aria-selected="${L.tab === id}">${esc(label)}</button>`).join("")}</div>
+    ${body}
+    <details class="card"><summary>이 자료들은 얼마나 확인되었나요?</summary><div class="stack-sm small">
+      <div class="steps3"><div><b>1단계 · 실제로 있음</b>링크나 출판 정보로 실제로 있는지 확인합니다. 지금 이 목록의 모든 자료가 여기까지 왔습니다. 마지막 확인은 2026년 11월입니다.</div><div><b>2단계 · 내용 검토</b>여러 전통의 사역자와 전문가가 내용을 읽고 관점과 주의할 점을 확인합니다. 정식 서비스에서 할 일입니다.</div><div><b>3단계 · 교회·교단 선별</b>각 교회와 교단이 자기 지침에 맞게 고릅니다. '우리 교회 목록'에서 고르시면 우리 교회의 선별이 됩니다.</div></div>
+      <p>자료마다 붙은 관점, 대상, 주의 문구는 기획자가 붙인 것으로 아직 검토 전입니다. 아이에게 건네기 전에 담당 교역자와 내용을 살펴 주세요.</p>
+    </div></details>
+    <div class="notice small">잘못된 정보를 보셨거나 더 좋은 자료를 아시면 알려 주세요. 확인해서 더하겠습니다. <button class="mini" type="button" id="libFb">의견 정리하기</button></div>
+  </div>`;
+  document.getElementById("libBack").onclick = () => { if (sub) { L.sit = null; go("library"); } else go("home"); };
+  app.querySelectorAll("[data-tab]").forEach(b => b.onclick = () => { L.tab = b.dataset.tab; L.sit = null; L.confirm = ""; L.note = ""; go("library"); });
+  app.querySelectorAll("[data-sit]").forEach(b => b.onclick = () => { L.sit = b.dataset.sit; go("library"); });
+  app.querySelectorAll("[data-t]").forEach(b => b.onclick = () => { S.libTag = b.dataset.t; viewLibrary(); });
+  app.querySelectorAll("[data-add]").forEach(b => b.onclick = () => {
+    const id = b.dataset.add; toggleList(id); viewLibrary();
+    const nb = app.querySelector(`[data-add="${CSS.escape(id)}"]`); if (nb) nb.focus({ preventScroll: true });
+  });
+  app.querySelectorAll("[data-goto]").forEach(b => b.onclick = () => libGoto(b.dataset.goto));
+  app.querySelectorAll("[data-age]").forEach(b => b.onclick = () => { S.libAge = b.dataset.age; viewLibrary(); });
+  const q = document.getElementById("libQ");
+  if (q) { q.addEventListener("input", () => { S.libQ = q.value; applyLibQ(); }); applyLibQ(); }
+  const sc = document.getElementById("sitCopy");
+  if (sc) sc.onclick = () => copyText(sitText(SITS.find(x => x.id === L.sit)), document.getElementById("sitText"), document.getElementById("sitMsg"));
+  document.getElementById("libFb").onclick = () => {
+    S.fb = S.fb || { role: "교육전도사·교육목사", used: [], good: "", worry: "", fix: "" };
+    if (!S.fb.used.includes("자료 길잡이")) S.fb.used.push("자료 길잡이");
+    if (!S.fb.fix) S.fb.fix = "[자료 길잡이] ";
+    go("feedback");
+  };
+  if (L.tab === "mine") bindMine(L);
+}
+function libGoto(g) {
+  if (g.startsWith("scene:")) return startScene(g.slice(6));
+  if (g === "state") S.st = { topic: null, state: null, unsure: false };
+  if (g === "translate") S.tr = { topic: null, lang: null };
+  if (g === "heart") S.heartFrom = "library";
+  go(g);
+}
+function libSit(L) {
+  if (!L.sit) return `<div class="stack-sm"><p class="label">어떤 상황인가요?</p><div class="kids">${SITS.map(s => `<button class="kid-btn" type="button" data-sit="${s.id}"><span class="who">${s.protect ? `<span class="tag warn">보호가 먼저</span>` : ""}${esc(s.who)}</span><span class="q">${esc(s.name)}</span></button>`).join("")}</div></div>`;
+  const s = SITS.find(x => x.id === L.sit);
+  const links = s.links.filter(([g]) => !(g === "prep" && S.ai === "no"));
+  return `
+    <div class="stack-sm"><p class="label">상황</p><h2>${esc(s.name)}</h2><p class="small muted">이런 분께: ${esc(s.who)}</p></div>
+    ${(s.protect || []).map(k => protectBox(RISK.find(r => r.k === k).text)).join("")}
+    <section class="card"><h3>이렇게 활용하세요</h3><ul>${s.advice.map(a => `<li>${esc(a)}</li>`).join("")}</ul>
+      <div class="stack-sm"><p class="label">오늘 할 첫걸음</p><p class="quote warm">${esc(s.first)}</p></div></section>
+    <section class="card"><h3>맞는 자료</h3><div>${s.res.map(id => resCard(id, true)).join("")}</div></section>
+    ${links.length ? `<div class="stack-sm"><p class="label">함께 쓰면 좋은 기능</p><div class="btn-row">${links.map(([g, label]) => `<button class="btn ghost" type="button" data-goto="${esc(g)}">${esc(label)}</button>`).join("")}</div></div>` : ""}
+    <details class="card"><summary>이 안내를 글로 복사하기 (교사 단톡방용)</summary><div class="stack-sm">
+      <div class="copybox" id="sitText">${esc(sitText(s))}</div>
+      <button class="btn ghost" type="button" id="sitCopy">복사하기</button>
+      <p class="small muted" id="sitMsg" aria-live="polite"></p>
+    </div></details>
+    ${s.protect ? "" : `<div class="notice small">${esc(FAIR)}</div>`}`;
+}
+function sitText(s) {
+  const out = [`[${s.name}]`];
+  (s.protect || []).forEach(k => out.push("", "보호가 먼저: " + RISK.find(r => r.k === k).text));
+  out.push("", "이렇게 활용하세요", ...s.advice.map(a => `- ${a}`), "", `오늘 할 첫걸음: ${s.first}`, "", "맞는 자료");
+  s.res.forEach(id => { const r = RES[id]; if (r) out.push(`- ${r.title} · ${r.kind}${r.url ? `\n  ${r.url}` : ""}`); });
+  out.push("", "질문 받기 연습실 '자료 길잡이'에서 정리했습니다.");
+  return out.join("\n");
+}
+function applyLibQ() {
+  const words = (S.libQ || "").trim().toLowerCase().split(/\s+/).filter(Boolean);
+  let n = 0;
+  app.querySelectorAll(".res[data-id]").forEach(el => {
+    const id = el.dataset.id, r = RES[id], m = META[id] || {};
+    const hay = [r.title, r.by, r.note, r.kind, m.v || "", m.f || ""].join(" ").toLowerCase();
+    const ok = words.every(w => hay.includes(w));
+    el.hidden = !ok; if (ok) n++;
+  });
+  const c = document.getElementById("libCount"); if (c) c.textContent = `자료 ${n}개`;
+  const e = document.getElementById("libEmpty"); if (e) e.hidden = n > 0;
+}
+function libTopic() {
+  const tag = S.libTag, age = S.libAge || "";
+  const ids = Object.keys(RES).filter(id => (!tag || RES[id].tags.includes(tag)) && (!age || agesOf(id).has(age)));
+  return `
+    <div class="field"><label for="libQ">이름이나 내용으로 찾기</label><input type="text" id="libQ" value="${esc(S.libQ || "")}" placeholder="예: 기적, 1388, 루이스" autocomplete="off"></div>
+    <div class="stack-sm"><p class="label">주제</p><div class="chips" role="group" aria-label="주제 고르기">
+      <button class="fchip" type="button" data-t="" aria-pressed="${!tag}">전체</button>
+      ${RES_TAGS.map(t => `<button class="fchip" type="button" data-t="${esc(t)}" aria-pressed="${tag === t}">${esc(t)}</button>`).join("")}
+    </div></div>
+    <div class="stack-sm"><p class="label">누구에게</p><div class="chips" role="group" aria-label="대상 고르기">
+      <button class="fchip" type="button" data-age="" aria-pressed="${!age}">전체</button>
+      ${AGES.map(([k, v]) => `<button class="fchip" type="button" data-age="${k}" aria-pressed="${age === k}">${esc(v)}</button>`).join("")}
+    </div></div>
+    <p class="small muted" id="libCount" aria-live="polite"></p>
+    <section class="card"><div>${ids.map(id => resCard(id, true)).join("")}</div><p class="small muted" id="libEmpty" hidden>맞는 자료가 없습니다. 다른 말로 찾거나 주제와 대상을 '전체'로 바꿔 보세요.</p></section>
+    <div class="notice small">유튜브에서 직접 찾으실 때는 채널을 누가 운영하는지 먼저 확인하세요. 요한계시록처럼 이단이 많이 다루는 주제는 특히 조심하셔야 합니다.</div>`;
+}
+function libMine(L) {
+  const M = S.list;
+  const note = L.note ? `<div class="notice small" role="status">${esc(L.note)}</div>` : "";
+  const sampleBtn = `<button class="btn ghost" type="button" id="loadSample">예시 꾸러미 불러오기 (가상)</button>`;
+  const codeIn = `<div class="field"><label for="cIn">받은 코드 붙여 넣기</label><textarea id="cIn" style="min-height:4rem" placeholder="QP1. 로 시작하는 코드"></textarea></div>`;
+  if (!M.items.length) return `${note}
+    <section class="card">
+      <h2>우리 교회 자료 목록</h2>
+      <p>교역자나 부장 교사가 우리 교회에 맞는 자료를 골라 상태와 메모를 달고, 교사 단톡방에 보낼 수 있습니다.</p>
+      <p class="small muted">'상황으로 찾기'나 '주제로 찾기'에서 자료 아래 <b>목록에 담기</b>를 누르면 여기에 모입니다. 어떻게 쓰는지 먼저 보시려면 예시를 불러 보세요.</p>
+      ${sampleBtn}
+    </section>
+    <section class="card">
+      <h3>받은 목록 코드가 있나요?</h3>
+      <p class="small muted">교역자나 다른 교회에서 받은 코드를 붙여 넣으면 같은 목록을 볼 수 있습니다.</p>
+      ${codeIn}
+      <button class="btn ghost" type="button" id="cLoad">코드 불러오기</button>
+      <p class="small muted" id="cLoadMsg" aria-live="polite"></p>
+    </section>`;
+  return `${note}
+    <section class="card">
+      <div class="field"><label for="lName">목록 이름</label><input type="text" id="lName" maxlength="40" value="${esc(M.name)}"></div>
+      <div>${M.items.map((x, i) => {
+        const r = RES[x.id];
+        const title = r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a>` : esc(r.title);
+        return `<div class="mine-item"><span class="ttl"><b>${title}</b></span><span class="small muted">${esc(r.kind)} · ${esc((META[x.id] || {}).v || r.by)}</span>
+          <div class="mine-row">
+            <select data-st="${i}" aria-label="${esc(r.title)} 상태">${Object.entries(LIST_ST).map(([k, v]) => `<option value="${k}" ${x.st === k ? "selected" : ""}>${v}</option>`).join("")}</select>
+            <input type="text" data-memo="${i}" maxlength="120" placeholder="메모 (예: 중고등부 교사가 먼저 보기)" value="${esc(x.memo)}" aria-label="${esc(r.title)} 메모">
+          </div>
+          <button class="mini" type="button" data-rm="${i}" style="align-self:flex-start">목록에서 빼기</button></div>`;
+      }).join("")}</div>
+    </section>
+    <section class="card">
+      <h3>교사 단톡방에 보내기</h3>
+      <p class="small muted">'보류'는 빼고, 추천과 교역자와 함께 볼 자료만 정리합니다.</p>
+      <div class="copybox" id="lText">${esc(listText())}</div>
+      <button class="btn" type="button" id="lCopy">복사하기</button>
+      <p class="small muted" id="lMsg" aria-live="polite"></p>
+    </section>
+    <details class="card" ${L.openShare ? "open" : ""}><summary>다른 교회·교단과 목록 나누기 (실험)</summary><div class="stack-sm">
+      <p class="small">목록을 코드로 바꿔 보내면, 받는 분이 이 화면에서 같은 목록을 불러올 수 있습니다. 정식 서비스에서는 교단 교육부가 이런 '선별 꾸러미'를 만들어 소속 교회에 나눌 수 있습니다.</p>
+      <div class="copybox" id="cText" style="word-break:break-all">${esc(listCode())}</div>
+      <button class="btn ghost" type="button" id="cCopy">코드 복사하기</button>
+      <p class="small muted" id="cMsg" aria-live="polite"></p>
+      ${codeIn}
+      <div class="btn-row"><button class="btn ghost" type="button" id="cLoad">코드 불러오기</button>${sampleBtn}</div>
+      <p class="small muted" id="cLoadMsg" aria-live="polite"></p>
+    </div></details>
+    <button class="btn ghost" type="button" id="lClear">목록 비우기</button>
+    <p class="small muted">이 목록은 이 기기의 브라우저에만 저장됩니다. 다른 기기나 다른 브라우저에서는 보이지 않습니다.</p>`;
+}
+function bindMine(L) {
+  const M = S.list;
+  const refresh = () => { saveList(); const t = document.getElementById("lText"); if (t) t.textContent = listText(); const c = document.getElementById("cText"); if (c) c.textContent = listCode(); };
+  const nm = document.getElementById("lName"); if (nm) nm.addEventListener("input", () => { M.name = nm.value.slice(0, 40) || "우리 교회"; refresh(); });
+  app.querySelectorAll("[data-st]").forEach(s => s.addEventListener("change", () => { M.items[+s.dataset.st].st = s.value; refresh(); }));
+  app.querySelectorAll("[data-memo]").forEach(s => s.addEventListener("input", () => { M.items[+s.dataset.memo].memo = s.value.slice(0, 120); refresh(); }));
+  app.querySelectorAll("[data-rm]").forEach(b => b.onclick = () => { M.items.splice(+b.dataset.rm, 1); saveList(); viewLibrary(); });
+  const lc = document.getElementById("lCopy"); if (lc) lc.onclick = () => copyText(listText(), document.getElementById("lText"), document.getElementById("lMsg"));
+  const cc = document.getElementById("cCopy"); if (cc) cc.onclick = () => copyText(listCode(), document.getElementById("cText"), document.getElementById("cMsg"));
+  const replaceWith = (key, nl, okText) => {
+    const msg = document.getElementById("cLoadMsg");
+    if (M.items.length && L.confirm !== key) { L.confirm = key; if (msg) msg.textContent = `지금 목록 ${M.items.length}개가 바뀝니다. 한 번 더 누르면 바꿉니다.`; return; }
+    L.confirm = ""; L.note = okText; L.openShare = key === "code"; S.list = nl; saveList(); viewLibrary();
+  };
+  const cl = document.getElementById("cLoad"); if (cl) cl.onclick = () => {
+    const nl = readCode(document.getElementById("cIn").value);
+    if (!nl) { document.getElementById("cLoadMsg").textContent = "코드를 읽지 못했습니다. QP1. 로 시작하는 코드 전체를 붙여 넣어 주세요."; return; }
+    replaceWith("code", nl, `'${nl.name}' 목록을 불러왔습니다. 자료 ${nl.items.length}개입니다.`);
+  };
+  const ls = document.getElementById("loadSample"); if (ls) ls.onclick = () => replaceWith("sample", cleanList(SAMPLE_PACK), "예시 꾸러미를 불러왔습니다. 가상의 교육부가 고른 것처럼 꾸민 예시입니다. 상태와 메모를 바꿔 보시고, 아래에서 단톡방용 글을 확인해 보세요.");
+  const lx = document.getElementById("lClear"); if (lx) lx.onclick = () => {
+    if (L.confirm !== "clear") { L.confirm = "clear"; lx.textContent = "한 번 더 누르면 비웁니다"; return; }
+    L.confirm = ""; L.note = ""; S.list = { name: M.name, items: [] }; saveList(); viewLibrary();
+  };
+}
+
+/* ---------- 의견 정리 ---------- */
+function fbText(f) {
+  return `[질문 받기 연습실 체험 의견]\n역할: ${f.role}\n전통·교단: ${f.trad || "말하지 않음"}\n써 본 기능: ${f.used.join(", ") || "-"}\n좋았던 점: ${f.good || "-"}\n걱정되는 점 · 악용될 수 있는 부분: ${f.worry || "-"}\n고쳤으면 하는 점: ${f.fix || "-"}`;
+}
+function viewFeedback() {
+  const f = S.fb || { role: "교육전도사·교육목사", used: [], good: "", worry: "", fix: "" };
+  S.fb = f;
+  const ROLES = ["교육전도사·교육목사", "교회학교 교사", "담임목사·부교역자", "이단 상담", "아동 보호·상담", "신학 연구자", "기타"];
+  const TRADS = ["말하지 않음", "장로교", "감리교", "침례교", "성결교", "오순절·순복음", "성공회·루터교", "가톨릭", "그 밖의 교단", "교회에 다니지 않음"];
+  const USED = ["장면 연습", "아이의 상태 읽기", "같은 핵심, 다른 언어", "선생님의 마음과 교회의 자리", "직접 대답 연습", "대화 준비", "질문 모임 6주 과정", "자료 길잡이"];
+  app.innerHTML = `
+  <div class="stack-lg">
+    <button class="back" type="button" id="toHome">← 처음으로</button>
+    <div class="stack-sm"><h1>의견 정리하기</h1><p class="muted">아래를 채우고 '복사하기'를 누르신 뒤, 이 도구를 보내 드린 분께 메일이나 메시지로 붙여 보내 주세요. 이 페이지에는 아무것도 저장되지 않습니다.</p></div>
+    <div class="composer">
+      <div class="field"><label for="fRole">역할</label><select id="fRole">${ROLES.map(r => `<option ${r === f.role ? "selected" : ""}>${esc(r)}</option>`).join("")}</select></div>
+      <div class="field"><label for="fTrad">전통·교단 <span class="hint">(여러 전통의 의견을 고루 듣기 위해 여쭙니다)</span></label><select id="fTrad">${TRADS.map(r => `<option ${r === (f.trad || "말하지 않음") ? "selected" : ""}>${esc(r)}</option>`).join("")}</select></div>
+      <div class="field"><span class="label">써 본 기능</span><div class="chips">${USED.map(u => `<button class="fchip" type="button" data-u="${esc(u)}" aria-pressed="${f.used.includes(u)}">${esc(u)}</button>`).join("")}</div></div>
+      <div class="field"><label for="fGood">좋았던 점</label><textarea id="fGood" style="min-height:4.5rem">${esc(f.good)}</textarea></div>
+      <div class="field"><label for="fWorry">걱정되는 점 · 악용될 수 있는 부분</label><textarea id="fWorry" style="min-height:4.5rem">${esc(f.worry)}</textarea></div>
+      <div class="field"><label for="fFix">고쳤으면 하는 점</label><textarea id="fFix" style="min-height:4.5rem">${esc(f.fix)}</textarea></div>
+      <p class="label">보낼 내용 미리 보기</p>
+      <div class="copybox" id="fbText">${esc(fbText(f))}</div>
+      <button class="btn" type="button" id="copyBtn">복사하기</button>
+      <p class="small muted" id="copyMsg"></p>
+    </div>
+  </div>`;
+  document.getElementById("toHome").onclick = () => go("home");
+  const sync = () => { f.role = document.getElementById("fRole").value; f.trad = document.getElementById("fTrad").value; f.good = document.getElementById("fGood").value; f.worry = document.getElementById("fWorry").value; f.fix = document.getElementById("fFix").value; document.getElementById("fbText").textContent = fbText(f); };
+  ["fRole", "fTrad", "fGood", "fWorry", "fFix"].forEach(id => { document.getElementById(id).addEventListener("input", sync); document.getElementById(id).addEventListener("change", sync); });
+  app.querySelectorAll("[data-u]").forEach(b => b.onclick = () => { const u = b.dataset.u; f.used = f.used.includes(u) ? f.used.filter(x => x !== u) : [...f.used, u]; b.setAttribute("aria-pressed", f.used.includes(u) ? "true" : "false"); sync(); });
+  document.getElementById("copyBtn").onclick = () => {
+    sync();
+    copyText(fbText(f), document.getElementById("fbText"), document.getElementById("copyMsg"));
+  };
+}
+
+render();
+</script>
+</body>
+</html>
