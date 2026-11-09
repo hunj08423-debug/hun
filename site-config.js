@@ -8,6 +8,6 @@
 window.QP_SITE = {
   operator: "홍지훈 (개인 기획)",
   contact: "",
-  claudeUrl: "https://claude.ai/artifact/7Ld15z5DcujWTbEJQD3Lsd",
+  claudeUrl: "aiEndpoint: "https://qp-ai.hunji08423.workers.dev"",
   aiEndpoint: ""
 };
