@@ -205,7 +205,7 @@ details.card summary { cursor: pointer; font-weight: 700; min-height: 2rem; }
     <button class="size-btn" id="sizeBtn" type="button" aria-pressed="false">글자 크게</button>
   </header>
   <main id="app" aria-live="polite"></main>
-  <footer class="foot">3분 신학 도서관 · 체험판 · 감수 전입니다. 쓰신 대답과 대화는 어디에도 저장되지 않으며, 화면을 닫으면 사라집니다. 아이를 알아볼 수 있는 정보(이름, 학교 등)는 넣지 마세요.</footer>
+  <footer class="foot">3분 신학 도서관 · 체험판 · 감수 전입니다. 쓰신 대답과 대화는 이 페이지에 저장되지 않으며, 화면을 닫으면 사라집니다. AI 기능을 쓰면 답을 만들기 위해 쓰신 글이 Claude로 보내집니다. 아이를 알아볼 수 있는 정보(이름, 학교 등)는 넣지 마세요.</footer>
 </div>
 
 <script src="site-config.js"></script>
@@ -221,11 +221,43 @@ function aiOffText() {
   if (onClaude() || !Object.keys(SITE).length) return "AI 기능은 Claude에 로그인한 상태에서 이 페이지를 열면 쓸 수 있습니다. 로그인하지 않아도 'AI 없이' 표시가 있는 기능은 모두 그대로 쓸 수 있습니다.";
   return `이 주소에서는 AI 기능을 쓸 수 없습니다.${SITE.claudeUrl ? ` AI로 연습하려면 <a href="${esc(SITE.claudeUrl)}" target="_blank" rel="noopener">Claude 판</a>에서 여세요(Claude 로그인 필요).` : ""} 'AI 없이' 표시가 있는 기능은 여기서 모두 그대로 쓸 수 있습니다.`;
 }
+/* 독립 주소에서 site-config.js에 aiEndpoint(AI 중계 서버 주소)가 있으면 그 서버를 거쳐 AI를 씁니다.
+   API 키는 중계 서버에만 있고 이 페이지에는 없습니다. */
+const SITE_AI = Object.keys(SITE).length > 0 && !onClaude() && /^https?:\/\/\S+$/.test(String(SITE.aiEndpoint || "").trim());
+function makeEndpointSample(url) {
+  async function call(input, opts, json) {
+    const aborted = () => !!(opts.signal && opts.signal.aborted);
+    let res, data = null;
+    try {
+      res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ input, json, tier: opts.modelTier === "quick" ? "quick" : "deep" }), signal: opts.signal });
+      data = await res.json().catch(() => null);
+    } catch (e) { throw { code: aborted() ? "cancelled" : "network" }; }
+    if (aborted()) throw { code: "cancelled" };
+    if (!res.ok || !data || data.error || typeof data.text !== "string") throw { code: (data && data.error) || "network" };
+    return data;
+  }
+  const s = async (input, opts = {}) => {
+    const d = await call(input, opts, false);
+    if (typeof opts.onText === "function") opts.onText({ text: d.text, delta: d.text });
+    return { text: d.text, truncated: !!d.truncated };
+  };
+  s.json = async (input, opts = {}) => {
+    const d = await call(input, opts, true);
+    const t = d.text, a = t.indexOf("{"), b = t.lastIndexOf("}");
+    try { if (a >= 0 && b > a) return JSON.parse(t.slice(a, b + 1)); } catch (e) {}
+    throw { code: "invalid_json" };
+  };
+  return s;
+}
 let S = { view: "home", ai: "checking", scene: null, persona: null, turns: [], mine: 0, busy: false, notice: "", noticeErr: false, retryKid: false, review: null, self: {}, ctl: null, hint: "", hintBusy: false, prep: { result: null, busy: false, notice: "", input: null }, libTag: "", fb: null, from: "home" };
 S.list = loadList();
 
 const samplePromise = (async () => {
-  try { if (!window.claude || !window.claude.use) return null; return await window.claude.use("sample"); }
+  try {
+    if (SITE_AI) return makeEndpointSample(String(SITE.aiEndpoint).trim());
+    if (!window.claude || !window.claude.use) return null;
+    return await window.claude.use("sample");
+  }
   catch (e) { return null; }
 })();
 samplePromise.then(s => { S.ai = s ? "yes" : "no"; if (S.view === "home" || S.view === "prep") render(); });
@@ -241,8 +273,16 @@ function errText(code) {
   if (code === "refused") return "AI가 이 내용에는 답하지 않았습니다. 표현을 바꿔 다시 써 보세요.";
   if (code === "invalid_json" || code === "empty_completion") return "결과를 제대로 받지 못했습니다. 다시 눌러 주세요.";
   if (OFF.includes(code)) return "이 화면에서는 AI 기능을 쓸 수 없습니다. AI 없이 하는 '장면 연습'을 이용해 주세요.";
+  /* 아래는 독립 사이트의 AI 중계 서버에서만 나옵니다 */
+  if (code === "no_credit") return "이 사이트의 AI 사용량이 정해 둔 한도에 닿았습니다.";
+  if (code === "too_long") return "보낼 글이 너무 깁니다. 조금 줄여서 다시 해 주세요.";
+  if (["site_ai_off", "forbidden", "not_configured"].includes(code)) return "이 사이트의 AI 연결에 문제가 생겼습니다. 운영하는 분께 알려 주세요.";
   return "연결이 잠깐 끊겼습니다. 다시 눌러 주세요.";
 }
+/* 중계 서버가 '다시 눌러도 안 되는' 상태(한도 도달, 설정 문제)를 알리면 이번 방문 동안 AI를 끄고 혼자 연습으로 이어 갑니다 */
+const SITE_OFF = ["no_credit", "site_ai_off", "forbidden", "not_configured"];
+function siteAiDown(code) { if (!SITE_OFF.includes(code)) return false; S.ai = "no"; return true; }
+const SELF_TAIL = " 이 대화는 혼자 연습하는 방식으로 이어 갑니다. 대답을 쓰신 뒤 '돌아보기'를 누르세요.";
 function resItem(id) { return resCard(id, false); }
 function resCard(id, full) {
   const r = RES[id]; if (!r) return "";
@@ -305,11 +345,16 @@ function applySize(big) { document.documentElement.classList.toggle("big", big);
 try { applySize(localStorage.getItem("qp-big") === "1"); } catch (e) {}
 sizeBtn.addEventListener("click", () => { const big = !document.documentElement.classList.contains("big"); applySize(big); try { localStorage.setItem("qp-big", big ? "1" : "0"); } catch (e) {} });
 document.getElementById("brandBtn").addEventListener("click", () => { if (S.ctl) S.ctl.abort(); go("home"); });
-/* 독립 주소: 운영 정보와 수집하지 않는다는 안내를 맨 아래에 붙입니다 */
+/* 독립 주소: 맨 아래 안내를 이 사이트에 맞게 바꾸고 운영 정보를 붙입니다 */
 if (Object.keys(SITE).length) {
   const foot = document.querySelector(".foot");
   const op = SITE.operator ? `운영: ${esc(SITE.operator)}${SITE.contact ? ` · 문의: ${esc(SITE.contact)}` : ""}` : "";
-  foot.insertAdjacentHTML("beforeend", `<span class="foot-site"> 이 사이트는 아무것도 수집하지 않습니다. 글자 크기와 '우리 교회 목록'만 이 기기에 저장됩니다.${op ? `<br>${op}` : ""}</span>`);
+  const ai = SITE_AI
+    ? " AI 기능을 쓰면 답을 만들기 위해 쓰신 글이 Claude(Anthropic의 AI)로 보내지며, 이 사이트는 그 글을 저장하지 않습니다."
+    : " 이 사이트는 아무것도 수집하지 않습니다.";
+  foot.innerHTML = `3분 신학 도서관 · 체험판 · 감수 전입니다. 쓰신 대답과 대화는 이 사이트에 저장되지 않으며, 화면을 닫으면 사라집니다.${ai} 아이를 알아볼 수 있는 정보(이름, 학교 등)는 넣지 마세요. <span class="foot-site">글자 크기와 '우리 교회 목록'만 이 기기에 저장됩니다.${op ? `<br>${op}` : ""}</span>`;
+  /* 설정 파일에 API 키를 잘못 넣었을 때 운영자가 바로 알아채도록 */
+  if (/sk-ant-/i.test(JSON.stringify(SITE))) document.querySelector(".wrap").insertAdjacentHTML("afterbegin", `<div class="notice err" role="alert"><b>운영자 확인 필요</b> · site-config.js에 API 키로 보이는 글자가 있습니다. 이 파일은 누구나 볼 수 있습니다. 바로 지우고, Claude 콘솔에서 그 키를 삭제한 뒤 새 키는 Cloudflare에만 넣어 주세요.</div>`);
 }
 
 /* ===================== 화면 ===================== */
@@ -609,7 +654,7 @@ function viewChat() {
       <div class="card"><p><b>대화를 마쳤습니다.</b> 이제 어땠는지 함께 돌아볼까요?</p><button class="btn wide" type="button" id="toReview">돌아보기</button></div>` : `
       <div class="composer">
         <label for="answer">선생님의 대답</label>
-        <textarea id="answer" placeholder="여기에 대답을 써 주세요." ${S.busy ? "disabled" : ""}>${esc(draft)}</textarea>
+        <textarea id="answer" maxlength="2000" placeholder="여기에 대답을 써 주세요."${S.busy ? "disabled" : ""}>${esc(draft)}</textarea>
         <p class="hint">휴대폰에서는 자판의 마이크 버튼을 누르고 말씀하시면 글자로 바뀝니다.</p>
         <div><p class="label" style="margin-bottom:.4rem">말문이 막히면 눌러서 넣어 보세요</p>
         <div class="chips">${(["parent", "adult"].includes(roleOf(p)) ? STARTERS_POLITE : STARTERS).map(t => `<button class="chip" type="button" data-t="${esc(t)}" ${S.busy ? "disabled" : ""}>${esc(t)}</button>`).join("")}</div></div>
@@ -687,8 +732,9 @@ async function askKid() {
     S.turns.splice(S.turns.indexOf(bubble), 1);
     const code = e && e.code;
     if (OFF.includes(code)) toSelfMode("AI 사용이 허용되지 않아 혼자 연습하는 방식으로 바꿨습니다. 아래 '돌아보기'를 누르시면 스스로 점검할 수 있습니다.");
+    else if (siteAiDown(code)) toSelfMode(errText(code) + SELF_TAIL);
     else if (code === "cancelled") { S.notice = "멈췄습니다."; S.noticeErr = false; S.retryKid = true; }
-    else { S.notice = errText(code); S.noticeErr = true; S.retryKid = true; }
+    else { S.notice = errText(code); S.noticeErr = true; S.retryKid = code !== "too_long"; }
   } finally { S.busy = false; S.ctl = null; viewChat(); scrollChat(); }
 }
 async function askHint() {
@@ -702,7 +748,7 @@ async function askHint() {
 [대화]
 ${transcript()}`, { modelTier: "quick", cache: false });
     S.hint = text.trim();
-  } catch (e) { S.notice = errText(e && e.code); S.noticeErr = true; }
+  } catch (e) { const code = e && e.code; if (siteAiDown(code)) toSelfMode(errText(code) + SELF_TAIL); else { S.notice = errText(code); S.noticeErr = true; } }
   finally { S.hintBusy = false; viewChat(); }
 }
 
@@ -736,7 +782,7 @@ ${transcript()}
 }
 async function startReview() {
   if (S.ctl) S.ctl.abort();
-  S.review = null;
+  S.review = null; S.rvNotice = "";
   if (S.mode === "self") { go("review"); return; }
   const sample = await samplePromise;
   if (!sample) { toSelfMode(""); go("review"); return; }
@@ -753,6 +799,7 @@ async function startReview() {
   } catch (e) {
     const code = e && e.code;
     if (OFF.includes(code)) toSelfMode("");
+    else if (siteAiDown(code)) { toSelfMode(""); S.rvNotice = errText(code) + " 혼자 돌아보는 방식으로 바꿨습니다."; }
     else if (code === "cancelled") { S.notice = "돌아보기를 멈췄습니다."; S.noticeErr = false; }
     else { S.notice = errText(code); S.noticeErr = true; }
   } finally { S.busy = false; S.ctl = null; render(); }
@@ -761,7 +808,7 @@ function viewReview() {
   const p = S.persona; let body = "";
   if (S.mode === "self") {
     const all = CHECKS.every(([k]) => S.self[k]);
-    body = `<p class="muted">방금 쓰신 대답을 떠올리며 네 가지를 스스로 골라 보세요.</p>
+    body = `${S.rvNotice ? `<div class="notice">${esc(S.rvNotice)}</div>` : ""}<p class="muted">방금 쓰신 대답을 떠올리며 네 가지를 스스로 골라 보세요.</p>
       ${CHECKS.map(([k, q, d]) => `<div class="check"><h3>${esc(q)}</h3><p class="small muted">${esc(d)}</p>
         <div class="choice3" role="group" aria-label="${esc(q)}">${["잘함", "조금", "아직"].map(v => `<button type="button" class="${PILL[v]}" data-k="${k}" data-v="${v}" aria-pressed="${S.self[k] === v}">${v === "잘함" ? "잘했어요" : v === "조금" ? "조금요" : "아직요"}</button>`).join("")}</div></div>`).join("")}
       ${all ? `<div class="promise">스스로 돌아보신 것만으로도 다음 대답은 달라집니다.</div>` : ""}`;
@@ -880,11 +927,11 @@ function viewPrep() {
     <div class="composer">
       <div class="field"><label for="pWho">대화 상대</label><select id="pWho">${WHO_OPTS.map(g => `<option ${g === inp.who ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></div>
       <div class="field"><label for="pGrade">학년·나이</label><select id="pGrade">${GRADE_OPTS.map(g => `<option ${g === inp.grade ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></div>
-      <div class="field"><label for="pSaid">상대가 한 말이나 질문</label><textarea id="pSaid" placeholder="예: 친구가 교회는 돈만 걷는 곳이라는데 진짜예요?">${esc(inp.said)}</textarea></div>
+      <div class="field"><label for="pSaid">상대가 한 말이나 질문</label><textarea id="pSaid" maxlength="1500" placeholder="예: 친구가 교회는 돈만 걷는 곳이라는데 진짜예요?">${esc(inp.said)}</textarea></div>
       <div class="field"><label for="pBg">알고 있는 배경</label><select id="pBg">${BG_OPTS.map(g => `<option ${g === inp.bg ? "selected" : ""}>${esc(g)}</option>`).join("")}</select></div>
       <div class="field"><label for="pLang">상대가 익숙한 언어</label><select id="pLang">${LANG_OPTS.map(g => `<option ${g === inp.lang ? "selected" : ""}>${esc(g)}</option>`).join("")}</select><p class="hint">상대가 자주 쓰는 말을 떠올려 보세요. 예: "증거가 있어?"는 과학·이성, "말씀대로"는 말씀·교리, "은혜 받았다"는 성령·체험, "불공평해"는 삶·정의의 언어에 가깝습니다.</p></div>
       <div class="field"><label for="pState">아이의 상태</label><select id="pState">${STATE_OPTS.map(g => `<option ${g === inp.state ? "selected" : ""}>${esc(g)}</option>`).join("")}</select><p class="hint">잘 모르시면 '잘 모름'을 고르세요. 먼저 물어볼 질문을 함께 드립니다.</p></div>
-      <div class="field"><label for="pExtra">덧붙일 상황 (선택)</label><textarea id="pExtra" style="min-height:4.5rem" placeholder="예: 요즘 예배에 잘 안 나옴">${esc(inp.extra)}</textarea></div>
+      <div class="field"><label for="pExtra">덧붙일 상황 (선택)</label><textarea id="pExtra" maxlength="800" style="min-height:4.5rem" placeholder="예: 요즘 예배에 잘 안 나옴">${esc(inp.extra)}</textarea></div>
       <div id="liveRisk" class="stack-sm">${live.length ? riskBoxes(live) : ""}</div>
       ${P.notice ? `<div class="notice err">${esc(P.notice)}</div>` : ""}
       <button class="btn" type="button" id="makePrep" ${P.busy || S.ai === "no" ? "disabled" : ""}>준비 카드 만들기</button>
@@ -910,7 +957,7 @@ async function makePrep(inp) {
     const data = await sample.json(prepPrompt(inp), { signal: ctl.signal, cache: false });
     S.prep.result = data && typeof data === "object" ? data : null;
     if (!S.prep.result) S.prep.notice = "결과를 제대로 받지 못했습니다. 다시 눌러 주세요.";
-  } catch (e) { const code = e && e.code; if (code !== "cancelled") S.prep.notice = errText(code); }
+  } catch (e) { const code = e && e.code; if (code !== "cancelled") S.prep.notice = errText(code); siteAiDown(code); }
   finally { S.prep.busy = false; S.ctl = null; viewPrep(); }
 }
 function practiceCustom() {
