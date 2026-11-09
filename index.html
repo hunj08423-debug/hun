@@ -265,6 +265,16 @@ samplePromise.then(s => { S.ai = s ? "yes" : "no"; if (S.view === "home" || S.vi
 
 function iGa(n, isName = true) { const c = String(n).charCodeAt(String(n).length - 1); const bat = c >= 0xAC00 && c <= 0xD7A3 && (c - 0xAC00) % 28 !== 0; return bat ? n + (isName ? "이가" : "이") : n + "가"; }
 function esc(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+/* 문의처(site-config.js의 contact): 메일 주소면 메일 쓰기 링크, https 주소(오픈 채팅 등)면 새 창 링크 */
+function contactOf() { return String(SITE.contact || "").trim(); }
+function contactKind(c) { return /^https?:\/\/\S+$/i.test(c) ? "url" : /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(c) ? "mail" : c ? "text" : ""; }
+function contactHtml(c) {
+  const k = contactKind(c);
+  if (k === "mail") return `<a href="mailto:${esc(c)}">${esc(c)}</a>`;
+  if (k === "url") return `<a href="${esc(c)}" target="_blank" rel="noopener">${esc(c)}</a>`;
+  return esc(c);
+}
+function opLine() { return [SITE.operator ? `운영: ${esc(SITE.operator)}` : "", contactOf() ? `문의: ${contactHtml(contactOf())}` : ""].filter(Boolean).join(" · "); }
 function go(view) { S.view = view; render(); window.scrollTo({ top: 0 }); }
 function scenById(id) { return SCEN.find(s => s.id === id); }
 const OFF = ["not_granted", "sampling_disabled", "not_declared", "capability_disabled", "capability_removed"];
@@ -350,7 +360,7 @@ document.getElementById("brandBtn").addEventListener("click", () => { if (S.ctl)
 /* 독립 주소: 맨 아래 안내를 이 사이트에 맞게 바꾸고 운영 정보를 붙입니다 */
 if (Object.keys(SITE).length) {
   const foot = document.querySelector(".foot");
-  const op = SITE.operator ? `운영: ${esc(SITE.operator)}${SITE.contact ? ` · 문의: ${esc(SITE.contact)}` : ""}` : "";
+  const op = opLine();
   const ai = SITE_AI
     ? " AI 기능을 쓰면 답을 만들기 위해 쓰신 글이 Claude(Anthropic의 AI)로 보내지며, 이 사이트는 그 글을 저장하지 않습니다."
     : " 이 사이트는 아무것도 수집하지 않습니다.";
@@ -1370,16 +1380,28 @@ function bindMine(L) {
 function fbText(f) {
   return `[질문 받기 연습실 체험 의견]\n역할: ${f.role}\n전통·교단: ${f.trad || "말하지 않음"}\n써 본 기능: ${f.used.join(", ") || "-"}\n좋았던 점: ${f.good || "-"}\n걱정되는 점 · 악용될 수 있는 부분: ${f.worry || "-"}\n고쳤으면 하는 점: ${f.fix || "-"}`;
 }
+/* 메일 쓰기 링크: 너무 길면 메일 앱에서 잘릴 수 있어 붙여 넣기 안내로 바꿉니다 */
+function fbMail(to, text) {
+  const head = `mailto:${to}?subject=${encodeURIComponent("[질문 받기 연습실] 체험 의견")}&body=`;
+  const full = head + encodeURIComponent(text);
+  return full.length <= 6000
+    ? { href: full, fits: true }
+    : { href: head + encodeURIComponent("(의견이 길어서 자동으로 다 담지 못했습니다. 연습실의 '의견 정리하기'에서 '복사하기'를 누른 뒤 여기에 붙여 넣어 주세요.)"), fits: false };
+}
 function viewFeedback() {
   const f = S.fb || { role: "교육전도사·교육목사", used: [], good: "", worry: "", fix: "" };
   S.fb = f;
   const ROLES = ["교육전도사·교육목사", "교회학교 교사", "담임목사·부교역자", "이단 상담", "아동 보호·상담", "신학 연구자", "기타"];
   const TRADS = ["말하지 않음", "장로교", "감리교", "침례교", "성결교", "오순절·순복음", "성공회·루터교", "가톨릭", "그 밖의 교단", "교회에 다니지 않음"];
   const USED = ["장면 연습", "아이의 상태 읽기", "같은 핵심, 다른 언어", "선생님의 마음과 교회의 자리", "직접 대답 연습", "대화 준비", "질문 모임 6주 과정", "자료 길잡이"];
+  const to = contactOf(), kind = contactKind(to);
+  const guide = kind === "mail" ? `아래를 채우고 '메일 쓰기'를 누르면 메일 앱이 열립니다(받는 곳: ${contactHtml(to)}). 메일 앱이 열리지 않으면 '복사하기'를 누른 뒤 이 주소로 붙여 보내 주세요.`
+    : kind ? `아래를 채우고 '복사하기'를 누르신 뒤, 문의처(${contactHtml(to)})로 붙여 보내 주세요.`
+    : "아래를 채우고 '복사하기'를 누르신 뒤, 이 도구를 보내 드린 분께 메일이나 메시지로 붙여 보내 주세요.";
   app.innerHTML = `
   <div class="stack-lg">
     <button class="back" type="button" id="toHome">← 처음으로</button>
-    <div class="stack-sm"><h1>의견 정리하기</h1><p class="muted">아래를 채우고 '복사하기'를 누르신 뒤, 이 도구를 보내 드린 분께 메일이나 메시지로 붙여 보내 주세요. 이 페이지에는 아무것도 저장되지 않습니다.</p></div>
+    <div class="stack-sm"><h1>의견 정리하기</h1><p class="muted">${guide} 이 페이지에는 아무것도 저장되지 않습니다.</p></div>
     <div class="composer">
       <div class="field"><label for="fRole">역할</label><select id="fRole">${ROLES.map(r => `<option ${r === f.role ? "selected" : ""}>${esc(r)}</option>`).join("")}</select></div>
       <div class="field"><label for="fTrad">전통·교단 <span class="hint">(여러 전통의 의견을 고루 듣기 위해 여쭙니다)</span></label><select id="fTrad">${TRADS.map(r => `<option ${r === (f.trad || "말하지 않음") ? "selected" : ""}>${esc(r)}</option>`).join("")}</select></div>
@@ -1389,12 +1411,21 @@ function viewFeedback() {
       <div class="field"><label for="fFix">고쳤으면 하는 점</label><textarea id="fFix" style="min-height:4.5rem">${esc(f.fix)}</textarea></div>
       <p class="label">보낼 내용 미리 보기</p>
       <div class="copybox" id="fbText">${esc(fbText(f))}</div>
-      <button class="btn" type="button" id="copyBtn">복사하기</button>
+      ${kind === "mail"
+        ? `<div class="btn-row"><a class="btn" id="mailBtn" href="${esc(fbMail(to, fbText(f)).href)}">메일 쓰기</a><button class="btn ghost" type="button" id="copyBtn">복사하기</button></div>`
+        : `<button class="btn" type="button" id="copyBtn">복사하기</button>`}
       <p class="small muted" id="copyMsg"></p>
     </div>
   </div>`;
   document.getElementById("toHome").onclick = () => go("home");
-  const sync = () => { f.role = document.getElementById("fRole").value; f.trad = document.getElementById("fTrad").value; f.good = document.getElementById("fGood").value; f.worry = document.getElementById("fWorry").value; f.fix = document.getElementById("fFix").value; document.getElementById("fbText").textContent = fbText(f); };
+  const mailBtn = document.getElementById("mailBtn");
+  const sync = () => { f.role = document.getElementById("fRole").value; f.trad = document.getElementById("fTrad").value; f.good = document.getElementById("fGood").value; f.worry = document.getElementById("fWorry").value; f.fix = document.getElementById("fFix").value; document.getElementById("fbText").textContent = fbText(f); document.getElementById("copyMsg").textContent = ""; if (mailBtn) mailBtn.href = fbMail(to, fbText(f)).href; };
+  if (mailBtn) mailBtn.onclick = () => {
+    sync();
+    document.getElementById("copyMsg").textContent = fbMail(to, fbText(f)).fits
+      ? `메일 앱이 열리지 않으면 '복사하기'를 누른 뒤 ${to} 로 보내 주세요.`
+      : "의견이 길어서 메일에 다 담기지 않습니다. '복사하기'를 누른 뒤 메일 본문에 붙여 넣어 주세요.";
+  };
   ["fRole", "fTrad", "fGood", "fWorry", "fFix"].forEach(id => { document.getElementById(id).addEventListener("input", sync); document.getElementById(id).addEventListener("change", sync); });
   app.querySelectorAll("[data-u]").forEach(b => b.onclick = () => { const u = b.dataset.u; f.used = f.used.includes(u) ? f.used.filter(x => x !== u) : [...f.used, u]; b.setAttribute("aria-pressed", f.used.includes(u) ? "true" : "false"); sync(); });
   document.getElementById("copyBtn").onclick = () => {
@@ -1411,7 +1442,7 @@ function aiFlowText() {
 }
 function viewAbout() {
   const site = Object.keys(SITE).length > 0;
-  const op = SITE.operator ? `운영: ${esc(SITE.operator)}${SITE.contact ? ` · 문의: ${esc(SITE.contact)}` : ""}<br>` : "";
+  const op = opLine() ? `${opLine()}<br>` : "";
   app.innerHTML = `
   <div class="stack-lg">
     <button class="back" type="button" id="toHome">← 처음으로</button>
@@ -1421,7 +1452,7 @@ function viewAbout() {
     <section class="card"><h3>쓰신 글은 어디로 가나요</h3><ul><li>회원 가입이 없고, 이름이나 연락처를 모으지 않습니다.</li><li>쓰신 대답과 대화는 이 ${site ? "사이트" : "페이지"}에 저장되지 않으며, 화면을 닫으면 사라집니다.</li><li>${esc(aiFlowText())}</li><li>글자 크기와 '우리 교회 목록'만 이 기기의 브라우저에 저장됩니다.</li><li>아이를 알아볼 수 있는 정보(이름, 학교, 사는 곳)는 넣지 마세요.</li></ul></section>
     <section class="card"><h3>상담을 대신하지 않습니다</h3><p>이 도구는 대화 연습용이며 전문 상담이나 의료·법률 조언을 대신하지 않습니다. 아이가 위험하다고 느껴지면 혼자 해결하려 하지 말고 바로 도움을 요청하세요.</p><ul><li>자살예방상담전화 109</li><li>청소년상담 1388 (전화·문자·카카오톡)</li><li>아동학대 신고 112</li></ul></section>
     <section class="card"><h3>저작권과 함께 쓰기</h3><p>프로그램 코드는 MIT 라이선스로, 장면·안내문·자료 설명 같은 내용은 CC BY-SA 4.0으로 공개합니다. 출처를 밝히고 고친 판도 같은 조건으로 공개하면, 교회와 교단이 자유롭게 쓰고 고쳐서 자기 판을 운영할 수 있습니다.</p><ul><li>연결된 책·기사·기관 자료의 저작권은 각 저작권자에게 있습니다.</li><li>성경 구절은 특정 번역본을 그대로 옮기지 않고 풀어 썼습니다.</li></ul></section>
-    <section class="card"><h3>운영과 의견</h3><p>${op}의견은 '의견 정리하기'에서 정리해 보내 주세요.</p><div class="btn-row"><button class="btn ghost" type="button" data-go="feedback">의견 정리하기</button></div></section>
+    <section class="card"><h3>운영과 의견</h3><p>${op}${contactOf() ? "의견이나 문제가 있으면 '의견 정리하기'에서 정리해 위 문의처로 보내 주세요. 이상한 AI 답, 끊긴 자료 링크, 고쳐야 할 표현을 알려 주시면 큰 도움이 됩니다." : "의견은 '의견 정리하기'에서 정리해 보내 주세요."}</p><div class="btn-row"><button class="btn ghost" type="button" data-go="feedback">의견 정리하기</button></div></section>
   </div>`;
   document.getElementById("toHome").onclick = () => go("home");
   app.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => go(b.dataset.go)));
