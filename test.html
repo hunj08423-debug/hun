@@ -161,10 +161,12 @@ async function runPrep(c, n) {
   for (let k = 1; k <= (c.repeat || 1); k++) {
     W.eval(`S.ai = "yes"; go("prep");`);
     times.push(await timed(`makePrep(${JSON.stringify(inp)})`));
-    const r = W.eval("S.prep.result"), notice = W.eval("S.prep.notice");
+    const r = W.eval("S.prep.result"), notice = W.eval("S.prep.notice"), off = W.eval("OFFTOPIC_TEXT");
     if (c.repeat) lines.push(`--- ${k}번째 ---`);
-    lines.push(r ? JSON.stringify(r, null, 2) : `[오류] ${notice}`);
-    if (!r) bad = true;
+    if (r && r.risk === "misuse") lines.push("risk: misuse → 화면에는 '이 요청은 도와드릴 수 없습니다' 안내만 나옵니다 (막힘, 정상)");
+    else if (r && r.risk === "offtopic") lines.push("risk: offtopic → 화면에는 범위 밖 안내만 나옵니다 (막힘, 정상)");
+    else if (!r && notice === off) lines.push(`[범위 밖 안내 (막힘, 정상)] ${notice}`);
+    else { lines.push(r ? JSON.stringify(r, null, 2) : `[오류] ${notice}`); if (!r) bad = true; }
   }
   return finish(c, n, lines, times, bad);
 }
