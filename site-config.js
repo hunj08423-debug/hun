@@ -7,7 +7,7 @@
                  자기 판을 만드는 교회·교단은 자기 Worker 주소로 바꾸세요. API 키는 절대 여기에 넣지 마세요. */
 window.QP_SITE = {
   operator: "지훈",
-  contact: "askjihun@gmai.com",
+  contact: "askjihun@gmail.com",
   claudeUrl: "https://claude.ai/artifact/7Ld15z5DcujWTbEJQD3Lsd",
   aiEndpoint: "https://ap-ai.hunji08423.workers.dev"
 };
