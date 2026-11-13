@@ -32,14 +32,15 @@
 - eggs-1.jpg ~ eggs-4.jpg — 부활절 달걀 (튤립과 달걀, 무늬 달걀, 플라스틱 달걀, 봄 화환 걸린 나무 문)
 - lantern-1.jpg ~ lantern-3.jpg — 등불 나눔 행렬 (밤 골목의 등불, 촛불을 든 사람들, 등불을 거는 아이)
 - sukkot-1.jpg ~ sukkot-4.jpg — 교회 마당 초막 캠프 (모닥불 둘레의 밤, 함께 굽는 저녁, 초록 잎 식탁, 줄 전구)
-- alleluia-1.jpg, alleluia-2.jpg — 할렐루야를 묻는 날 (함께 색칠하는 손, 닫힌 나무 상자)
+- alleluia-1.jpg ~ alleluia-3.jpg — 할렐루야를 묻는 날 (함께 색칠하는 손, 닫힌 나무 상자, 열린 나무 상자)
 - lentbox-1.jpg ~ lentbox-3.jpg — 사순절 나눔 상자 (동전 모으는 아이, 저금통 앞의 가족, 십자가 새긴 헌금함)
 - birthday-1.jpg ~ birthday-5.jpg — 교회 생일 잔치 (빛나는 십자가와 풍선, 생일 컵케이크, 돗자리 소풍 둘, 노을 진 교회)
+- pinwheel-1.jpg — 바람개비 (교회 생일 잔치와 성령 바람개비에 함께 씀)
 - honey-1.jpg, honey-2.jpg — 꿀 찍은 첫 글자 (꿀과 꿀 막대, 꿀 과자)
 
 ## 장면 사진 (위키미디어 공용. Flickr에서 옮겨진 사진이라 저작자와 이용 조건은 원본 페이지에 있음. 크기를 줄여 실음)
 - christingle-4.jpg — 마시멜로를 꽂은 크리스팅글 — https://commons.wikimedia.org/wiki/File:Christingle_reinvented._(8304327645).jpg
 - christingle-3.jpg — 성탄 전야 예배를 위해 상자에 담아 둔 크리스팅글 — https://commons.wikimedia.org/wiki/File:Christingles_(3182614809).jpg
 
-## 아직 사진이 없는 장면 (페이지에서는 빛 상자 그림으로 보임)
-- 할렐루야 상자를 여는 부활절 아침(열린 상자)
+## 아직 사진이 없는 장면
+- 없음. 여섯 절기의 장면 열두 개와 첫 화면의 장소 네 곳에 모두 사진이 있음.
