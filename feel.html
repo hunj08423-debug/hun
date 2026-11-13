@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>함께 느끼는 방 · 질문 받기 연습실</title>
+<meta name="description" content="교회 달력을 따라 아이들과 함께 보고, 만들고, 가 보는 신앙. 그림으로 여는 질문, 절기 전통 만들기, 함께 가 볼 곳, 순례 수첩.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="함께 느끼는 방 · 질문 받기 연습실">
+<meta property="og:description" content="교회 달력을 따라 아이들과 함께 보고, 만들고, 가 보는 신앙. 그림으로 여는 질문, 절기 전통 만들기, 함께 가 볼 곳, 순례 수첩.">
+<meta property="og:url" content="https://hunj08423-debug.github.io/hun/feel.html">
+<meta property="og:image" content="https://hunj08423-debug.github.io/hun/feel-isenheim-rise.jpg">
+<meta name="theme-color" content="#F8F7F4">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+<style>
+/* 함께 느끼는 방 — 연습실과 같은 글꼴과 모서리, 따뜻한 종이 바탕. 방의 색은 교회 달력을 따라 바뀐다. */
+:root{
+  --bg:#F8F7F4;--surface:#FFFFFF;--ink:#1C1A17;--ink2:#3D3A35;--muted:#5F584F;--faint:#8A8278;
+  --line:#E6E1D9;--line2:#EFEBE5;--chip:#ECE9E4;--practice:#0F5E55;--practice-soft:#E1F0ED;
+  --accent:#3F6F24;--soft:#EAF2E3;--on-accent:#FFFFFF;--night:#12100E;--night-ink:#F3EEE6;
+  --sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --serif:"Noto Serif KR","AppleMyungjo","Batang",serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#151311;--surface:#1E1B18;--ink:#F1ECE4;--ink2:#D9D2C7;--muted:#B3AA9E;--faint:#8F877C;--line:#36312B;--line2:#2B2722;--chip:#2A2622;--practice:#63C7B8;--practice-soft:#1B3430;--on-accent:#151311;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#151311;--surface:#1E1B18;--ink:#F1ECE4;--ink2:#D9D2C7;--muted:#B3AA9E;--faint:#8F877C;--line:#36312B;--line2:#2B2722;--chip:#2A2622;--practice:#63C7B8;--practice-soft:#1B3430;--on-accent:#151311;color-scheme:dark}
+.s-advent{--accent:#5B3E8C;--soft:#F1ECF8}.s-christmas{--accent:#8C6414;--soft:#F8F0DD}.s-lent{--accent:#4A2F66;--soft:#EEE8F4}
+.s-easter{--accent:#94700F;--soft:#F9F2DB}.s-pentecost{--accent:#A8262B;--soft:#FAE8E6}.s-ordinary{--accent:#3F6F24;--soft:#EAF2E3}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .s-advent{--accent:#C2AEEB;--soft:#2B2339}:root:not([data-theme="light"]) .s-christmas{--accent:#E6C46F;--soft:#2F2716}:root:not([data-theme="light"]) .s-lent{--accent:#CDB0E6;--soft:#2A2136}:root:not([data-theme="light"]) .s-easter{--accent:#EBCB6B;--soft:#302815}:root:not([data-theme="light"]) .s-pentecost{--accent:#F2A49B;--soft:#3A1F1D}:root:not([data-theme="light"]) .s-ordinary{--accent:#A9D98E;--soft:#20301A}}
+:root[data-theme="dark"] .s-advent{--accent:#C2AEEB;--soft:#2B2339}:root[data-theme="dark"] .s-christmas{--accent:#E6C46F;--soft:#2F2716}:root[data-theme="dark"] .s-lent{--accent:#CDB0E6;--soft:#2A2136}:root[data-theme="dark"] .s-easter{--accent:#EBCB6B;--soft:#302815}:root[data-theme="dark"] .s-pentecost{--accent:#F2A49B;--soft:#3A1F1D}:root[data-theme="dark"] .s-ordinary{--accent:#A9D98E;--soft:#20301A}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+html.big .page,html.big dialog{zoom:1.14}
+a{color:var(--accent)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:8px}
+.page{max-width:520px;margin:0 auto;padding-block:14px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.brand{font-size:16px;font-weight:700;color:var(--accent)}
+.pill{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:14px;font-weight:500;cursor:pointer}
+.rooms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:4px;background:var(--chip);border-radius:14px;margin-top:-10px}
+.rooms a{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:10px;color:var(--ink2);font-size:15px;font-weight:500;text-decoration:none}
+.rooms a[aria-current]{background:var(--accent);color:var(--on-accent);font-weight:700}
+.serif,h1,h2,h3{font-family:var(--serif);margin:0;text-wrap:balance}
+h1{font-size:31px;line-height:1.32;font-weight:700;letter-spacing:-.015em}
+h2{font-size:21px;line-height:1.4;font-weight:700}
+h3{font-size:20px;line-height:1.4;font-weight:700}
+p{margin:0}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--accent)}
+.lead{font-size:15px;line-height:1.72;color:var(--muted)}
+.muted{color:var(--muted)}.small{font-size:13px;line-height:1.6}
+.sec{display:flex;flex-direction:column;gap:12px}
+.sec-head{display:flex;flex-direction:column;gap:4px}
+.jump{display:flex;flex-wrap:wrap;gap:6px}
+.jump a{display:inline-flex;align-items:center;min-height:36px;padding:0 13px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink2);font-size:13.5px;font-weight:500;text-decoration:none}
+.cal{background:var(--soft);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.cal-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:12.5px}
+.cal h2{font-size:24px;line-height:1.3}
+.cal h2 small{font-family:var(--sans);font-size:15px;font-weight:500;color:var(--muted)}
+.when{font-size:13px;font-weight:700;color:var(--accent)}
+.bar{position:relative;height:14px;border-radius:7px;overflow:hidden;background:var(--surface)}
+.bar span{position:absolute;top:0;bottom:0}
+.today{position:absolute;top:-5px;width:2px;height:24px;background:var(--ink);border-radius:1px}
+.bar-wrap{position:relative;padding-top:5px}
+.bar-ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 13px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:13.5px;font-weight:600;cursor:pointer}
+.chip i{width:8px;height:8px;border-radius:50%;display:block}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chip[aria-pressed="true"] i{background:var(--on-accent)!important}
+.rail{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));padding-right:max(16px,env(safe-area-inset-right,0px));scroll-snap-type:x mandatory}
+.mini{flex:0 0 250px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:9px;text-align:left;cursor:pointer}
+.tile{width:56px;height:56px;border-radius:16px;background:var(--soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.tile svg{width:40px;height:40px}
+.tile.sm{width:48px;height:48px;border-radius:14px}.tile.sm svg{width:34px;height:34px}
+.date{font-size:12px;font-weight:700;color:var(--accent)}
+.mini .t{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.4}
+.mini .d{font-size:13.5px;line-height:1.6;color:var(--ink2)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.card img{display:block;width:100%;height:230px;object-fit:cover}
+.card .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px}
+.ties{background:var(--soft);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.ties b{font-size:11.5px;color:var(--accent)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid transparent;background:var(--accent);color:var(--on-accent);font-size:14px;font-weight:700;text-decoration:none;cursor:pointer}
+.btn.line{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn.prac{background:var(--practice-soft);color:var(--practice)}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:18px;display:flex;flex-direction:column;overflow:hidden}
+.row{display:flex;align-items:center;gap:14px;padding:14px 16px;border:0;border-top:1px solid var(--line2);background:none;text-align:left;width:100%;cursor:pointer}
+.row:first-child{border-top:0}
+.row .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.row .n{font-size:16px;font-weight:700}
+.row .s{font-size:13px;color:var(--muted);line-height:1.5}
+.row .chev{color:var(--faint);font-size:20px}
+.row img.th{width:48px;height:48px;border-radius:14px;object-fit:cover;flex:0 0 48px}
+.book{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.stamps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 8px}
+.stamp{display:flex;flex-direction:column;align-items:center;gap:6px;border:0;background:none;padding:0;font-size:11.5px;line-height:1.35;color:var(--muted);text-align:center;cursor:pointer}
+.stamp .ring{width:62px;height:62px;border-radius:50%;border:2px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--faint)}
+.stamp .ring svg{width:32px;height:32px;opacity:.45}
+.stamp[aria-pressed="true"]{color:var(--ink);font-weight:500}
+.stamp[aria-pressed="true"] .ring{border:2px solid var(--accent);color:var(--accent);background:var(--soft);transform:rotate(-8deg)}
+.stamp[aria-pressed="true"] .ring svg{opacity:1}
+.foot{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;line-height:1.6;color:var(--muted)}
+.foot ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:14px;z-index:50}
+/* 자세히 보기 */
+dialog.sheet{width:min(560px,100%);max-width:100%;max-height:92dvh;margin:auto auto 0;padding:0;border:0;border-radius:22px 22px 0 0;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.sheet::backdrop{background:rgba(20,16,12,.45)}
+@media (min-width:700px){dialog.sheet{margin:auto;border-radius:22px;max-height:88dvh}}
+.sh{display:flex;flex-direction:column;max-height:92dvh}
+.sh-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 12px 10px 20px;border-bottom:1px solid var(--line2)}
+.x{width:44px;height:44px;border-radius:50%;border:0;background:var(--chip);font-size:20px;line-height:1;cursor:pointer;flex:0 0 44px}
+.sh-body{overflow-y:auto;padding:18px 20px calc(28px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:18px}
+.sh-body img.hero{width:100%;border-radius:16px;display:block;max-height:340px;object-fit:cover}
+.blk{display:flex;flex-direction:column;gap:8px}
+.blk h4{margin:0;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--accent)}
+.blk ol,.blk ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.root{background:var(--soft);border-radius:14px;padding:14px 16px;font-family:var(--serif);font-size:16px;line-height:1.6;font-weight:600}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px}
+.facts dt{color:var(--muted)}.facts dd{margin:0}
+.seg{display:flex;gap:2px;background:var(--chip);border-radius:12px;padding:3px}
+.seg button{flex:1;min-height:40px;border:0;border-radius:10px;background:transparent;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.14)}
+.care{border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.6}
+.src{font-size:12.5px;color:var(--muted);line-height:1.6}
+/* 보여 주기 */
+dialog.show{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--night);color:var(--night-ink)}
+dialog.show::backdrop{background:#000}
+.sw{height:100%;display:flex;flex-direction:column;padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));gap:14px}
+.sw-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sw .x{background:rgba(255,255,255,.14);color:var(--night-ink)}
+.sw-img{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.sw-img img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px}
+.sw-q{font-family:var(--serif);font-size:21px;line-height:1.5;text-align:center;min-height:3em;max-width:560px;margin:0 auto}
+.sw-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;max-width:560px;width:100%;margin:0 auto}
+.sw-nav button{min-height:46px;padding:0 20px;border-radius:999px;border:0;background:rgba(255,255,255,.14);color:var(--night-ink);font-weight:600;cursor:pointer}
+.dots{display:flex;gap:6px}.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3)}.dots i.on{background:var(--night-ink)}
+.sw .seg{background:rgba(255,255,255,.1);max-width:320px;margin:0 auto;width:100%}
+.sw .seg button{color:rgba(255,255,255,.7)}.sw .seg button[aria-pressed="true"]{background:rgba(255,255,255,.22);color:#fff;box-shadow:none}
+#printBook{display:none}
+@media print{
+  body.printing>*:not(#printBook){display:none!important}
+  body.printing #printBook{display:block;color:#000;background:#fff;font-family:var(--sans)}
+  #printBook h1{font-size:22pt;margin-bottom:4pt}
+  #printBook .pg{display:grid;grid-template-columns:repeat(4,1fr);gap:14pt 8pt;margin-top:14pt}
+  #printBook .ps{display:flex;flex-direction:column;align-items:center;gap:4pt;font-size:9pt;text-align:center;break-inside:avoid}
+  #printBook .pr{width:70pt;height:70pt;border-radius:50%;border:1.2pt dashed #888;display:flex;align-items:center;justify-content:center;color:#bbb}
+  #printBook .pr svg{width:30pt;height:30pt}
+}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="e-wreath" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="24" cy="34" rx="18" ry="6.5"/><rect x="10" y="20" width="4" height="12" rx="1"/><rect x="18" y="17" width="4" height="13" rx="1"/><rect x="26" y="17" width="4" height="13" rx="1"/><rect x="34" y="20" width="4" height="12" rx="1"/></g><path d="M12 17C10.5 15 11.4 12.6 12 11C12.6 12.6 13.5 15 12 17Z" fill="currentColor"/></symbol>
+<symbol id="e-christingle" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="31" r="11"/><path d="M13.5 29C19 32.5 29 32.5 34.5 29"/><rect x="22" y="12" width="4" height="8" rx="1"/><path d="M16 24L11 19M32 24L37 19"/></g><path d="M24 10C22.6 8.2 23.4 6 24 4.6C24.6 6 25.4 8.2 24 10Z" fill="currentColor"/><circle cx="10" cy="18" r="1.6" fill="currentColor"/><circle cx="38" cy="18" r="1.6" fill="currentColor"/></symbol>
+<symbol id="e-nicholas" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="24" cy="15" r="6.5"/><circle cx="15.5" cy="30" r="6.5"/><circle cx="32.5" cy="30" r="6.5"/><path d="M13 42H35"/></g></symbol>
+<symbol id="e-candle" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="19" y="20" width="10" height="22" rx="1.5"/><path d="M13 14l-3-2M35 14l3-2M12 23H8M36 23h4"/></g><path d="M24 17C21.5 14 22.6 10 24 7C25.4 10 26.5 14 24 17Z" fill="currentColor"/></symbol>
+<symbol id="e-star" viewBox="0 0 48 48"><path d="M24 4l3.6 11.4L39 11l-4.4 11L46 26l-11.4 3.6L39 41l-11.4-4.4L24 48l-3.6-11.4L9 41l4.4-11.4L2 26l11.4-4L9 11l11.4 4.4z" transform="translate(4.8 4.8) scale(.8)" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+<symbol id="e-manger" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 3.5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L24 12.3l-3.4 1.8.7-3.8-2.8-2.7 3.8-.6z"/><path d="M8 24h32l-4 9H12z"/><path d="M14 24l2-4M20 24l1-4M28 24l-1-4M34 24l-2-4"/><path d="M12 33l-5 9M36 33l5 9M18 33l-3 9M30 33l3 9"/></g></symbol>
+<symbol id="e-bread" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 31c0-9 7.6-15 17-15s17 6 17 15c0 4-3 7-7 7H14c-4 0-7-3-7-7z"/><path d="M17 23l-2 6M24 22v7M31 23l2 6"/><circle cx="38" cy="10" r="4"/></g></symbol>
+<symbol id="e-crown" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 36L7 16l10 8 7-13 7 13 10-8-2 20z"/><path d="M9 41h30"/><circle cx="24" cy="29" r="2"/></g></symbol>
+<symbol id="e-honey" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="36" height="36" rx="7" opacity=".4"/><path d="M12 13H27V26" stroke-width="3.2"/><path d="M27 26V31"/></g><path d="M27 30.5C24.6 34 24.2 36.4 27 38C29.8 36.4 29.4 34 27 30.5Z" fill="currentColor"/></symbol>
+<symbol id="e-book" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 15c-5-4-12-5-18-4v25c6-1 13 0 18 4c5-4 12-5 18-4V11c-6-1-13 0-18 4z"/><path d="M24 15v25"/><path d="M31.5 19.5a2.5 2.5 0 1 1 3 2.4c-.8.3-1 .8-1 1.6M33.5 27v.1"/></g></symbol>
+<symbol id="e-egg" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6C15.5 6 10 19 10 28C10 36.5 16 42 24 42C32 42 38 36.5 38 28C38 19 32.5 6 24 6Z"/><path d="M24 19V33M18.5 24.5H29.5"/></g></symbol>
+<symbol id="e-paw" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M24 25c5 0 10 6 10 11c0 4-3 5-5 5c-2 0-3-1-5-1s-3 1-5 1c-2 0-5-1-5-5c0-5 5-11 10-11z"/><ellipse cx="12" cy="20" rx="3.6" ry="4.6"/><ellipse cx="19.5" cy="11.5" rx="3.6" ry="4.6"/><ellipse cx="28.5" cy="11.5" rx="3.6" ry="4.6"/><ellipse cx="36" cy="20" rx="3.6" ry="4.6"/></g></symbol>
+<symbol id="e-lantern" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 3v5M18 8h12"/><path d="M15 12h18l-3 4H18z"/><path d="M17 16h14v19H17z"/><path d="M15 35h18l-2 4H17z"/></g><path d="M24 21.5C22.2 23.6 22.2 25.4 24 26.6C25.8 25.4 25.8 23.6 24 21.5Z" fill="currentColor"/></symbol>
+<symbol id="e-thanks" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="18" r="5"/><circle cx="27" cy="15" r="5"/><circle cx="34" cy="21" r="4"/><path d="M8 24h32l-4 16H12z"/><path d="M14 30h20M15.5 35h17"/></g></symbol>
+<symbol id="e-note" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 35V12l20-5v23"/><path d="M18 18l20-5"/><circle cx="13.5" cy="35.5" r="4.5"/><circle cx="33.5" cy="30.5" r="4.5"/></g></symbol>
+<symbol id="e-cup" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9H34C34 18.5 30 23.5 24 23.5C18 23.5 14 18.5 14 9Z"/><path d="M24 23.5V35"/><path d="M15.5 40C17.5 35.5 30.5 35.5 32.5 40Z"/></g></symbol>
+<symbol id="e-hanok" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 3V11M20.5 6.5H27.5"/><path d="M5 21C11 20.5 15 15 24 14C33 15 37 20.5 43 21"/><path d="M5 21L3.5 18.5M43 21L44.5 18.5"/><path d="M11 21V40M37 21V40"/><path d="M19 40V29H29V40"/><path d="M7 40H41"/></g></symbol>
+<symbol id="e-apple" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 15C18 10.5 9.5 13 10 24C10.5 34 17 41 24 38.5C31 41 37.5 34 38 24C38.5 13 30 10.5 24 15Z"/><path d="M24 15C24 11 25 8.5 27.5 6.5"/><path d="M27 10.5C30 6.5 35 6.5 37 8.5C34 11.5 30 11.8 27 10.5Z"/></g></symbol>
+<symbol id="e-bell" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5V9"/><path d="M14 31C14 20 17 10 24 10C31 10 34 20 34 31L37.5 35H10.5Z"/><circle cx="24" cy="39.5" r="2.6"/></g></symbol>
+<symbol id="e-stone" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 40V16a9 9 0 0 1 18 0v24"/><path d="M24 17v11M20 21h8"/><path d="M7 40h34"/><path d="M11 40c.5-2.5 1.5-4 3-5M37 40c-.5-2.5-1.5-4-3-5"/></g></symbol>
+<symbol id="e-giyeok" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19L24 8l18 11"/><path d="M13 24h22v16" stroke-width="3.2"/><path d="M7 40h34"/></g></symbol>
+<symbol id="e-dome" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 3v7M21 6h6"/><path d="M15 22c0-6 4-10.5 9-11.5c5 1 9 5.5 9 11.5z"/><path d="M12 22h24v18H12z"/><path d="M20 40v-8a4 4 0 0 1 8 0v8"/><path d="M8 40h32"/></g></symbol>
+<symbol id="e-brick" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4v7M21 7h6"/><path d="M14 19l10-7 10 7v21H14z"/><circle cx="24" cy="24" r="3"/><path d="M20 40v-6a4 4 0 0 1 8 0v6"/><path d="M8 40h32"/></g></symbol>
+<symbol id="e-facade" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 38V19h28v19"/><path d="M14 19v-8h20v8"/><path d="M19 11V6h10v5"/><path d="M15 26h4M29 26h4"/><path d="M21 38v-9h6v9"/><path d="M5 42h38"/></g></symbol>
+<symbol id="e-box" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="19" width="30" height="21" rx="3"/><path d="M9 27h30M20 23h8"/><circle cx="24" cy="10" r="4.5"/></g></symbol>
+<symbol id="e-pretzel" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 40c-7-2-11-9-9-16c2-7 10-10 16-5c6 5 4 14 0 21"/><path d="M31 40c7-2 11-9 9-16c-2-7-10-10-16-5c-6 5-4 14 0 21"/></g></symbol>
+<symbol id="e-palm" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 44V12"/><path d="M24 15c-4-6-10-8-16-7M24 22c-5-4-11-5-16-3M24 29c-5-3-10-3-14-1M24 15c4-6 10-8 16-7M24 22c5-4 11-5 16-3M24 29c5-3 10-3 14-1"/></g></symbol>
+<symbol id="e-basin" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 27h36c0 8-8 13-18 13S6 35 6 27z"/><path d="M24 7c-2.5 3.5-4 6-4 8a4 4 0 0 0 8 0c0-2-1.5-4.5-4-8zM13 14c-1.5 2-2 3-2 4.5a2 2 0 0 0 4 0c0-1.5-.5-2.5-2-4.5zM35 14c-1.5 2-2 3-2 4.5a2 2 0 0 0 4 0c0-1.5-.5-2.5-2-4.5z"/></g></symbol>
+<symbol id="e-garden" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 41c6-10 13-15 20-15s14 5 20 15z"/><path d="M17 41v-5a4 4 0 0 1 8 0v5"/><circle cx="31" cy="37" r="3.6"/><path d="M14 9v12M10.5 13h7M24 6v13M20.5 10h7M34 9v12M30.5 13h7"/></g></symbol>
+<symbol id="e-banner" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v34"/><path d="M12 8h24l-5 7 5 7H12"/><path d="M5 40h38M10 45h28"/></g></symbol>
+<symbol id="e-sun" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 34h38M12 40h24"/><path d="M14 34a10 10 0 0 1 20 0"/><path d="M24 12v5M12 18l3 3M36 18l-3 3M7 27h3M38 27h3"/></g></symbol>
+<symbol id="e-flame" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5c-6 8-10 13-10 20a10 10 0 0 0 20 0c0-7-4-12-10-20z"/><path d="M24 21c-3 4-4 6-4 9a4 4 0 0 0 8 0c0-3-1-5-4-9z"/><path d="M12 43h24"/></g></symbol>
+<symbol id="e-pinwheel" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 22V6c7 0 9 7 2 16zM22 22h16c0 7-7 9-16 2zM22 22v16c-7 0-9-7-2-16zM22 22H6c0-7 7-9 16-2z"/><path d="M23 24l9 20"/></g></symbol>
+<symbol id="e-bubbles" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h24v15H17l-6 5v-5H5z"/><path d="M33 17h10v15h-4v5l-6-5H21v-4"/></g></symbol>
+<symbol id="e-letter" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="34" height="34" rx="3"/><path d="M15 15h12v8H15zM21 23v11M15 34h12"/><path d="M33 13c3 2 3 6 0 8M33 27c3 2 3 6 0 8"/></g></symbol>
+<symbol id="e-leaf" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 39C9 21 21 10 40 8c-2 19-13 31-31 31z"/><path d="M9 39l19-19M19 29h7M24 24v-6"/></g></symbol>
+<symbol id="e-tower"viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 42V20l3-6 3 6v22M20 42V13l4-8 4 8v29M32 42V20l3-6 3 6v22"/><path d="M24 1.5v3.5M22.3 3h3.4"/><path d="M6 42h36"/></g></symbol>
+</defs>
+</svg>
+
+<div class="page" id="page">
+  <header class="top">
+    <span class="brand" style="color:var(--practice)">질문 받기 연습실</span>
+    <button class="pill" id="sizeBtn" type="button" aria-pressed="false">글자 크게</button>
+  </header>
+  <nav class="rooms" aria-label="방 고르기">
+    <a href="./" data-practice>연습하기</a>
+    <a aria-current="page">함께 느끼기</a>
+  </nav>
+
+  <section class="sec" style="gap:10px">
+    <span class="eyebrow">함께 느끼는 방</span>
+    <h1>보고, 만들고,<br>가 보는 신앙</h1>
+    <p class="lead">기독교는 처음부터 귀로 듣고 눈으로 보고 손으로 만진 신앙이었습니다. 아이와 함께 보고, 만들고, 걸어 보세요. 행사 준비물과 보호자 안내문도 바로 복사할 수 있어요.</p>
+    <p class="small" style="background:var(--practice-soft);color:var(--ink);border-radius:14px;padding:12px 14px"><b style="color:var(--practice)">두 방은 한 쌍입니다.</b> 아름다운 경험은 질문을 열고, 연습하기 방은 그 질문을 정직하게 받는 법을 돕습니다. 정직한 대화가 받쳐 줄 때 그림 한 장, 손으로 만든 물건 하나가 백 마디 말을 대신합니다.</p>
+    <nav class="jump" aria-label="이 방의 차례">
+      <a href="#now">이번 절기</a><a href="#art">그림</a><a href="#make">만들기</a><a href="#go">가 볼 곳</a><a href="#book">순례 수첩</a>
+    </nav>
+  </section>
+
+  <section class="cal" id="cal" aria-label="교회 달력"></section>
+
+  <section class="sec" id="now">
+    <div class="sec-head"><h2 id="nowTitle">다가오는 날에 해 볼 것</h2><p class="small muted" id="nowSub">옆으로 밀어 보세요. 모두 아이 손에 남는 것이 있습니다.</p></div>
+    <div class="rail" id="nowRail"></div>
+  </section>
+
+  <section class="sec" id="art">
+    <div class="sec-head"><h2>그림으로 여는 질문</h2><p class="small muted">그림은 답을 주지 않고 질문을 엽니다. 예배의 대상이 아니라 이야기를 여는 창으로 보여 주세요.</p></div>
+    <div class="sec" id="artList" style="gap:14px"></div>
+  </section>
+
+  <section class="sec" id="make">
+    <div class="sec-head"><h2>손으로 해 보는 전통</h2><p class="small muted">유대 전통에서 한국 교회까지, 어디서 온 전통인지 밝히고 우리 교회 방식으로 해 봅니다.</p></div>
+    <div class="chips" id="branchChips" role="group" aria-label="전통 고르기"></div>
+    <div class="list" id="makeList"></div>
+  </section>
+
+  <section class="sec" id="go">
+    <div class="sec-head"><h2>함께 가 볼 곳</h2><p class="small muted">반 아이들과 다녀오기 좋은 곳입니다. 관람 정보는 2026년 11월에 확인했어요. 가기 전에 한 번 더 확인해 주세요.</p></div>
+    <div class="chips" id="regionChips" role="group" aria-label="지역 고르기"></div>
+    <div class="list" id="goList"></div>
+  </section>
+
+  <section class="sec" id="book">
+    <div class="book">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><h2 style="font-size:19px">우리 반 순례 수첩</h2><span class="date" id="bookCount"></span></div>
+      <p class="small" style="color:var(--ink2)">다녀온 곳, 해 본 전통마다 도장 하나. 한 해가 끝나면 아이 손에 한 해의 기억이 남습니다. 눌러서 도장을 찍어 보세요. 이 기기에만 저장됩니다.</p>
+      <div class="stamps" id="stamps"></div>
+      <div class="btns"><button class="btn site-only" type="button" id="printBtn">수첩 인쇄하기</button><button class="btn line" type="button" id="clearBtn">도장 모두 지우기</button></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <b style="color:var(--ink2)">이 방의 약속</b>
+    <ul>
+      <li>그림은 창문입니다. 예배의 대상이 아니라 이야기를 여는 창으로 보여 줍니다.</li>
+      <li>전통마다 어디서 왔는지 밝히고, 신앙의 무엇을 보여 주는지 한 줄을 붙입니다.</li>
+      <li>활동마다 아이 손에 남는 것이 하나씩 있습니다.</li>
+      <li>교회마다 절기의 이름과 색이 조금씩 다를 수 있습니다. 우리 교회 방식이 먼저입니다.</li>
+    </ul>
+    <a class="btn prac" href="./" data-practice style="align-self:flex-start">아이가 어려운 질문을 할 때 · 질문 받기 연습실</a>
+    <span style="font-size:12px">그림과 장소 사진: 위키미디어 공용. 그림은 모두 저작권이 끝난 작품이고, 장소 사진의 저작자와 이용 조건은 각 장소의 사진 출처 링크에서 볼 수 있습니다.</span>
+  </footer>
+</div>
+
+<dialog class="sheet" id="sheet" aria-labelledby="shTitle"><div class="sh"><div class="sh-top"><b id="shTitle" class="serif" style="font-size:18px"></b><button class="x" type="button" data-close aria-label="닫기">×</button></div><div class="sh-body" id="shBody"></div></div></dialog>
+<dialog class="show" id="show" aria-label="아이에게 보여 주기"><div class="sw" id="sw"></div></dialog>
+<div id="printBook"></div>
+
+<script>
+const PRACTICE_URL = "./";
+const SEASONS = {
+  advent:{name:"대림절",color:"보라",label:"대림",line:"성탄을 기다리는 4주. 초를 하나씩 켜며 오실 분을 기다립니다.",bar:"#5B3E8C"},
+  christmas:{name:"성탄절",color:"흰색과 금색",label:"성탄",line:"빛으로 오신 아기 예수. 열이틀 동안 이어지는 잔치입니다.",bar:"#C9A24A"},
+  lent:{name:"사순절",color:"보라",label:"사순",line:"부활절을 앞둔 40일. 덜어 내고 돌아보는 시간입니다.",bar:"#4A2F66"},
+  easter:{name:"부활절",color:"흰색과 금색",label:"부활",line:"빈 무덤의 아침. 50일 동안 기뻐합니다.",bar:"#D4B45A"},
+  pentecost:{name:"성령강림절",color:"빨강",label:"성령강림",line:"불꽃처럼 임한 성령. 교회의 생일이라고도 부릅니다.",bar:"#A8262B"},
+  ordinary:{name:"연중 시기",color:"초록",label:"연중",line:"자라는 시간. 날마다의 삶 속에서 믿음이 자랍니다.",bar:"#3F6F24"}
+};
+const ART = [
+ {id:"thomas",img:"feel-thomas.jpg",pos:"50% 45%",alt:"카라바조의 그림. 도마가 몸을 숙여 예수의 옆구리 상처에 손가락을 대고, 예수가 도마의 손을 잡아 이끈다.",
+  title:"의심하는 도마",artist:"카라바조",year:"1601~1602년",where:"독일 포츠담, 상수시 궁전 회화관",
+  line:"확인하고 싶었던 제자에게 예수님은 먼저 손을 내미셨습니다.",q:"하나님이 진짜 있는지 모르겠어요.",
+  story:["부활하신 예수님이 제자들을 찾아오셨을 때, 도마는 그 자리에 없었어요.","도마는 내 눈으로 보고 손으로 만져 보기 전에는 믿을 수 없다고 말했지요.","여드레 뒤 다시 오신 예수님은 도마를 꾸짖지 않고, 손을 내밀어 확인해 보라고 먼저 말씀하셨어요."],
+  look:["그림 속 손을 모두 찾아보세요. 누구 손이 누구 손을 잡고 있나요?","도마의 이마에 생긴 주름을 보세요. 어떤 마음일까요?","네 사람의 얼굴이 한곳에 모여 있어요. 모두 무엇을 보고 있나요?"],
+  ask:"너라면 무엇을 확인해 보고 싶니?",
+  root:"의심하는 제자를 꾸짖지 않고 먼저 다가오신 예수님. 의심은 믿음에서 멀어지는 길이 아니라 더 가까이 가는 길이 될 수 있습니다.",
+  care:"손가락이 상처에 닿는 장면이 사실적이에요. 어린아이에게는 미리 말해 주세요. 성경에는 도마가 실제로 만졌다는 말이 없어요. 화가가 상상한 장면이라는 것도 알려 주면 그림을 읽는 눈이 자랍니다.",
+  credit:"카라바조, 「의심하는 도마」, 1601~1602년경, 포츠담 상수시 궁전 회화관. 사진: 위키미디어 공용(저작권 만료)."},
+ {id:"prodigal",img:"feel-prodigal.jpg",pos:"30% 52%",alt:"렘브란트의 그림. 무릎 꿇은 아들의 등을 늙은 아버지가 두 손으로 감싸 안고, 오른쪽에서 형이 내려다본다.",
+  title:"탕자의 귀향",artist:"렘브란트",year:"1660년대 후반",where:"러시아 상트페테르부르크, 에르미타주 미술관",
+  line:"돌아온 아들을 감싼 아버지의 두 손을 보세요. 두 손이 서로 달라 보이지 않나요?",q:"교회 안 가면 하나님이 싫어하세요?",
+  story:["아버지의 재산을 미리 받아 떠난 작은아들이 모든 것을 잃고 돌아왔어요.","종으로라도 받아 달라고 빌려 했는데, 아버지는 멀리서 알아보고 달려와 끌어안았지요.","렘브란트가 세상을 떠나기 얼마 전에 그린 그림이에요."],
+  look:["아버지의 두 손을 보세요. 두 손의 모양이 서로 같나요?","아들의 발과 신발을 보세요. 어떤 길을 걸어왔을까요?","오른쪽에 서 있는 사람은 누구일까요? 표정이 어때 보이나요?"],
+  ask:"이 그림에서 너는 누구랑 가장 닮은 것 같아? 작은아들, 큰아들, 아버지?",
+  root:"돌아오는 사람을 먼저 달려가 안아 주는 아버지. 예수님은 하나님을 이렇게 그려 보이셨습니다(누가복음 15장).",
+  care:"교회를 떠난 누군가를 '탕자'라고 부르는 데 쓰지 마세요. 아이가 자기나 가족을 떠올리며 상처받을 수 있어요.",
+  more:"헨리 나우웬이 이 그림 하나를 오래 바라보며 쓴 책 『탕자의 귀향』이 있습니다. 선생님이 먼저 읽기 좋아요.",
+  credit:"렘브란트, 「탕자의 귀향」, 1660년대 후반, 상트페테르부르크 에르미타주 미술관. 사진: 위키미디어 공용(저작권 만료)."},
+ {id:"isenheim",img:"feel-isenheim-cross.jpg",img2:"feel-isenheim-rise.jpg",pos:"50% 40%",alt:"그뤼네발트의 이젠하임 제단화 가운데 십자가 처형. 상처로 뒤덮인 예수의 몸과 슬퍼하는 사람들.",alt2:"이젠하임 제단화 가운데 부활. 둥근 빛 속에서 예수가 두 팔을 들고 솟아오르고, 무덤을 지키던 군인들이 넘어져 있다.",
+  title:"이젠하임 제단화",artist:"마티아스 그뤼네발트",year:"1512~1516년",where:"프랑스 콜마르, 운터린덴 미술관",
+  line:"아픈 사람들이 머물던 병원에 걸려 있던 그림입니다. 문처럼 열리기도 해요.",q:"하나님은 왜 아픈 사람을 안 고쳐 주세요?",
+  story:["500년 전, 피부가 짓무르는 병을 앓는 사람들을 돌보던 수도원 병원이 있었어요.","화가는 그 병원 제단에 놓을 그림 속 예수님의 몸에, 환자들처럼 상처를 그려 넣었어요. 환자들은 이 그림 앞에서 기도했습니다.","이 그림에는 날개가 달려 있어서, 축일이 되면 문을 열듯 펼쳐 환한 부활 장면을 보여 주었어요."],
+  look:["예수님의 손가락을 보세요. 어떤 모양인가요?","십자가 오른쪽 아래에서 어린양을 찾아보세요.","열린 날 그림에서 예수님 뒤의 둥근 빛은 무슨 색인가요? 군인들은 어떤 모습인가요?"],
+  ask:"아플 때 누가 곁에 있어 주면 좋겠어?",
+  root:"하나님은 아픔을 멀리서 구경하지 않고 아픈 사람 곁으로 오셨다는 믿음. 그리고 그 아픔이 끝이 아니라는 소망.",
+  care:"십자가 그림이 매우 사실적이에요. 어린아이에게는 열린 날(부활)부터 보여 주세요. 가족이 아프거나 슬픔을 겪는 아이에게는 더 천천히 꺼내 주세요.",
+  credit:"마티아스 그뤼네발트, 이젠하임 제단화 「십자가 처형」·「부활」, 1512~1516년, 콜마르 운터린덴 미술관. 사진: 위키미디어 공용(저작권 만료)."}
+];
+const BRANCHES = ["유대 전통","정교회","가톨릭","개신교","여러 교회","한국 교회","우리 교회"];
+const MAKE = [
+ {id:"wreath",emb:"wreath",name:"대림절 화환",title:"초를 하나씩 켜며 기다리기",branch:"개신교",origin:"루터교에서 시작 · 1839년 독일 함부르크",seasons:["advent"],date:{rel:"advent1",off:-7},when:"대림절 첫 주일 한 주 전에 만들기",time:"40분",keep:"집에 가져가는 작은 화환",
+  story:["1839년 독일 함부르크, 어려운 아이들이 함께 살던 집에서 비헤른 목사가 수레바퀴만 한 나무 화환에 초를 꽂았어요.","날마다 빨간 초를 하나씩, 주일마다 흰 초를 하나씩 켜며 성탄을 기다렸지요.","오늘날 초 네 개를 켜는 대림절 화환은 여기서 시작되었습니다."],
+  root:"어둠 속에서 빛이 하루하루 자라나는 기다림.",need:["종이 접시나 둥근 화환 틀","솔방울, 나뭇잎, 색종이","어린이용 LED 초 4개","양면테이프"],
+  steps:["종이 접시 가운데를 오려 둥근 틀을 만듭니다.","솔방울과 나뭇잎을 붙여 화환을 꾸밉니다.","초 네 개를 세우고, 주마다 하나씩 더 켤 순서를 정합니다.","집에 가져가 대림절 주일마다 가족과 함께 켭니다."],
+  church:"대림절 첫 주일 전 주에 만들어 집에 보내면, 주일마다 집과 교회가 같은 초를 켜게 됩니다.",care:"어린아이는 꼭 LED 초를 쓰세요.",
+  src:[["함부르크 관광청: 대림절 화환 이야기","https://hamburg-travel.com/blog/the-advent-wreath-four-candles-conquer-the-world"]]},
+ {id:"christingle",emb:"christingle",name:"크리스팅글",title:"오렌지에 켜는 작은 빛",branch:"개신교",origin:"모라비아 교회 · 1747년 독일",seasons:["advent","christmas"],date:{rel:"advent1",off:7},when:"대림절이나 성탄 전야 촛불 예배",time:"30분",keep:"내가 만든 크리스팅글",
+  story:["1747년 독일 마리엔보른의 어린이 예배에서, 모라비아 교회의 요하네스 데 바테빌 주교가 아이들에게 빨간 리본을 두른 초를 나눠 주었어요.","지금은 오렌지에 초를 꽂은 모양으로 영국 교회들에 널리 퍼졌습니다.","오렌지는 세상, 빨간 리본은 그리스도의 사랑, 과일과 사탕은 하나님이 지으신 모든 것, 초는 어둠 속의 빛을 뜻해요."],
+  root:"세상을 두른 사랑, 그 위에 켜진 빛.",need:["오렌지 1개씩","빨간 리본이나 빨간 테이프","이쑤시개 4개씩","젤리, 건포도 같은 작은 간식","LED 초나 작은 초"],
+  steps:["오렌지 가운데에 빨간 리본을 한 바퀴 두릅니다.","이쑤시개 네 개에 간식을 꽂아 오렌지에 꽂습니다.","오렌지 꼭대기에 초를 꽂습니다.","불을 끄고 함께 초를 밝히며 노래합니다."],
+  church:"영국에서는 어려운 아이들을 돕는 헌금과 함께 합니다. 우리도 이웃 아이들을 위한 작은 헌금을 함께 모아 보세요.",care:"이쑤시개 끝과 촛불을 조심하세요. 간식 알레르기도 확인하세요.",
+  src:[["영국 아동협회: 크리스팅글이란","https://www.childrenssociety.org.uk/how-you-can-help/fundraise-and-events/christingle/what-is-christingle"]]},
+ {id:"star",emb:"star",name:"모라비안 별",title:"창가에 거는 종이 별",branch:"개신교",origin:"모라비아 교회 · 독일",seasons:["advent","christmas"],date:{rel:"advent1",off:0},when:"대림절 첫 주일",time:"1시간",keep:"창가에 걸 종이 별",
+  story:["모라비아 교회 학교에서 시작되어 '헤른후트 별'이라고도 불리는 별이에요.","뾰족한 꼭지가 여러 개 달린 입체 별을 대림절부터 창가에 걸어 둡니다.","아기 예수께로 길을 비춘 베들레헴의 별을 기억하는 마음이지요."],
+  root:"길을 비추어 아기 예수께로 이끈 별.",need:["색종이나 한지","풀","실"],
+  steps:["같은 크기의 고깔을 여러 개 접습니다.","고깔을 공 모양으로 둘러 붙입니다.","실을 달아 교실이나 집 창가에 겁니다."],
+  church:"대림절 첫 주에 만들어 예배당 창에 걸면 성탄까지 한 달 내내 볼 수 있어요.",care:""},
+ {id:"manger",emb:"manger",name:"구유 꾸미기",title:"여물통에 오신 아기",branch:"가톨릭",origin:"가톨릭 · 1223년 이탈리아 그레초",seasons:["advent","christmas"],date:{rel:"advent1",off:0},when:"대림절 첫 주일부터 주현절까지",time:"1시간",keep:"아이마다 만든 작은 인형",
+  story:["1223년 성탄 전야, 이탈리아의 작은 마을 그레초에서 프란치스코는 동굴에 여물통과 소, 나귀를 두고 사람들을 불렀어요.","말로만 듣던 베들레헴을 눈으로 보게 하려는 것이었지요.","그 뒤로 구유를 꾸미는 전통이 온 세상 교회로 퍼졌습니다."],
+  root:"하나님이 가장 낮은 자리, 여물통에 오셨다는 이야기.",need:["종이 상자","지푸라기나 노란 색종이","휴지심, 천 조각, 사인펜"],
+  steps:["상자를 눕혀 마구간을 만듭니다.","휴지심으로 마리아, 요셉, 목자를 만듭니다.","아기 예수는 성탄 아침에 놓습니다.","동방박사는 1월 6일 주현절에 도착하게 합니다."],
+  church:"대림절 첫 주에 빈 마구간을 놓고 주마다 하나씩 채워 가면 기다림을 배울 수 있어요. 개신교회에서도 널리 하는 전통입니다.",care:""},
+ {id:"nicholas",emb:"nicholas",name:"성 니콜라오의 날",title:"몰래 선물한 주교 이야기",branch:"여러 교회",origin:"가톨릭·정교회·루터교 · 12월 6일",seasons:["advent"],date:{fixed:"12-06"},when:"12월 6일",time:"20분",keep:"신발 속 응원 쪽지",
+  story:["산타클로스 이야기의 뿌리는 지금의 튀르키예 땅에 살았던 주교 니콜라오예요.","가난해서 시집을 못 가던 세 딸의 집에 몰래 금 주머니를 던져 넣었다는 이야기가 전해집니다.","그래서 유럽의 여러 나라 아이들은 12월 6일 아침, 밤새 내놓은 신발 속에서 작은 선물을 찾아요."],
+  root:"자기를 드러내지 않고 몰래 베푸는 사랑.",need:["신발 모양 종이 카드","작은 간식","응원 쪽지"],
+  steps:["아이마다 종이 신발에 이름을 씁니다.","선생님이 몰래 간식과 응원 한 줄을 넣어 둡니다.","받은 아이는 다음 주에 다른 친구에게 몰래 베풉니다."],
+  church:"'산타는 진짜 있어요?' 하고 묻는 아이에게 진짜 니콜라오 이야기로 대답할 수 있어요.",care:"받지 못하는 아이가 없도록 선생님이 챙겨 주세요."},
+ {id:"lucia",emb:"candle",name:"성 루치아의 날",title:"가장 어두운 날의 촛불 행렬",branch:"개신교",origin:"스웨덴 교회(루터교) · 12월 13일",seasons:["advent"],date:{fixed:"12-13"},when:"12월 13일 무렵",time:"40분",keep:"종이로 만든 촛불 관",
+  story:["해가 가장 짧은 때, 스웨덴에서는 흰 옷을 입은 아이들이 초를 들고 노래하며 걸어요.","맨 앞에 선 루치아는 머리에 촛불 관을 씁니다.","어둠이 가장 길 때 오시는 빛을 기다리는 날이에요."],
+  root:"가장 어두운 때 비추는 빛.",need:["흰 옷(큰 흰 티셔츠)","빨간 띠","LED 초","두꺼운 종이와 초록 색종이"],
+  steps:["종이 띠에 초록 잎과 LED 초를 붙여 관을 만듭니다.","불을 끄고 줄지어 걸으며 캐럴을 부릅니다.","노래가 끝나면 함께 빵을 나눠 먹습니다."],
+  church:"대림절 저녁 모임이나 성탄 발표회의 첫 순서로 좋아요.",care:"진짜 촛불은 머리에 쓰지 마세요."},
+ {id:"dawn",emb:"note",name:"새벽송",title:"어르신 댁 문 앞의 캐럴",branch:"한국 교회",origin:"한국 교회 · 성탄",seasons:["advent","christmas"],date:{fixed:"12-20"},when:"성탄 전 주일 오후(낮에 하는 새벽송)",time:"반나절",keep:"어르신께 받은 덕담 한마디",
+  story:["성탄 새벽, 청년들과 아이들이 교인들 집을 돌며 캐럴을 부르던 한국 교회의 전통이에요.","문을 열고 간식을 내주던 집집의 기억을 지닌 어른이 많습니다.","요즘은 소음 걱정으로 거의 사라졌어요."],
+  root:"기쁜 소식을 먼저 전하러 가는 발걸음.",need:["캐럴 악보","LED 등불","아이들이 쓴 성탄 카드"],
+  steps:["혼자 사시는 어르신이나 몸이 불편한 교인 댁을 미리 여쭙고 정합니다.","성탄 전 주일 오후, 문 앞에서 캐럴 한두 곡을 부릅니다.","아이들이 쓴 성탄 카드를 드리고 덕담을 듣습니다."],
+  church:"어르신께 옛 새벽송 이야기를 들려 달라고 부탁해 보세요. 세대가 이어지는 시간이 됩니다.",care:"미리 허락받고, 어른 두 명 이상이 함께 다닙니다."},
+ {id:"vasilopita",emb:"bread",name:"바실로피타",title:"첫 조각을 나누는 새해 빵",branch:"정교회",origin:"그리스 정교회 · 1월 1일",seasons:["christmas"],date:{fixed:"01-01"},when:"새해 첫 주일",time:"30분",keep:"접시 밑에서 찾은 별 스티커",
+  story:["그리스 정교회에서는 새해 첫날, 동전 하나를 숨겨 구운 빵을 나눠요.","첫 조각은 예수님 몫으로 떼어 두고, 그다음 가족과 손님에게 차례로 나눕니다.","가난한 이웃을 도운 성 바실리오의 이야기가 이 빵에 담겨 전해집니다."],
+  root:"새해를 나눔으로 시작합니다.",need:["큰 빵이나 파운드케이크","별 스티커 1장","접시"],
+  steps:["아이들 몰래 접시 하나 밑에 별 스티커를 붙입니다.","첫 조각은 예수님 몫으로 떼어 이웃에게 보낼 바구니에 담습니다.","차례로 빵을 나누고, 별을 찾은 아이를 함께 축복합니다."],
+  church:"새해 첫 주일 간식 시간에 좋아요. 예수님 몫의 빵은 교회 어르신이나 이웃에게 전해 보세요.",care:"빵 속에 동전이나 작은 물건을 넣으면 삼킬 위험이 있어요. 접시 밑 스티커로 바꿔 하세요."},
+ {id:"starsingers",emb:"crown",name:"별 노래 아이들",title:"동방박사 옷을 입고 집집이",branch:"가톨릭",origin:"독일 가톨릭 · 1월 6일 주현절",seasons:["christmas","ordinary"],date:{fixed:"01-06"},when:"주현절(1월 6일) 무렵 주일",time:"반나절",keep:"종이 왕관과 별",
+  story:["독일에서는 새해 무렵 아이들이 동방박사 옷을 입고 별을 들고 집집이 찾아가요.","노래를 부르고 그 집에 축복을 빌어 준 뒤, 세계의 어려운 아이들을 위한 헌금을 모읍니다.","문틀에는 분필로 그해의 숫자와 C+M+B를 써 줘요. '그리스도여, 이 집을 축복하소서'라는 라틴어의 첫 글자입니다."],
+  root:"아이들이 다른 아이들을 돕는, 기쁨을 나르는 발걸음.",need:["종이 왕관","금색 별 막대","분필","작은 헌금함"],
+  steps:["왕관과 별을 만들고 캐럴 한 곡을 연습합니다.","미리 허락받은 어르신 댁이나 이웃 가게를 찾아갑니다.","노래와 축복 한 줄을 전합니다.","모은 헌금을 어디에 보낼지 아이들과 함께 정합니다."],
+  church:"새벽송을 낮에 하는 방식과 잘 어울립니다.",care:"방문은 미리 허락받고, 어른 두 명 이상이 함께 다닙니다."},
+ {id:"questions",emb:"book",name:"네 가지 질문",title:"아이의 질문으로 시작하는 식탁",branch:"유대 전통",origin:"유대 전통 · 유월절",seasons:["lent"],date:{rel:"easter",off:-7},when:"부활절 앞 주 무렵",time:"20분",keep:"내가 오늘 던진 질문 카드",
+  story:["유대인 가정의 유월절 저녁 식사는 아이의 질문으로 시작돼요.","가장 어린 아이가 '오늘 밤은 왜 다른 밤과 다른가요?' 하고 물으면, 어른들은 이집트에서 나온 이야기로 대답합니다.","예식서에는 지혜로운 아이, 삐딱한 아이, 단순한 아이, 물을 줄 모르는 아이에게 저마다 다르게 대답하라는 가르침도 있어요."],
+  root:"질문은 막을 것이 아니라 이야기를 여는 문이라는 지혜.",need:["질문 카드","연필"],
+  steps:["간식 시간에 한 아이가 '오늘은 왜 다른 날과 다를까요?'로 시작합니다.","예수님도 제자들과 유월절 식사를 하셨다는 이야기를 짧게 들려줍니다.","아이마다 궁금한 것 하나를 카드에 써서 묻고, 함께 대답을 찾아봅니다."],
+  church:"고난주간에 '마지막 만찬도 유월절 식사였다'는 이야기와 이어 주세요.",care:"유대인의 유월절 식사(세데르)를 교회식으로 재연하는 것을 불편해하는 유대인이 많아요. 음식과 순서를 따라 하지 말고, 질문을 귀하게 여기는 지혜만 배워 오세요."},
+ {id:"eggs",emb:"egg",name:"붉은 달걀",title:"달걀을 부딪치며 나누는 부활 인사",branch:"정교회",origin:"정교회 · 부활절",seasons:["easter"],date:{rel:"easter",off:0},when:"부활절 아침",time:"40분",keep:"내가 물들인 달걀",
+  story:["정교회에서는 부활절에 달걀을 빨갛게 물들여 나눠요.","둘씩 달걀을 부딪치며 한 사람이 '그리스도께서 부활하셨습니다!' 하면 다른 사람이 '참으로 부활하셨습니다!' 하고 받아요.","끝까지 깨지지 않는 달걀이 이기는 놀이입니다."],
+  root:"단단한 껍데기를 깨고 생명이 나오듯, 무덤을 열고 살아나신 예수님.",need:["삶은 달걀","양파 껍질이나 식용 색소","식초 조금"],
+  steps:["양파 껍질을 끓인 물에 식초를 조금 넣습니다.","삶은 달걀을 넣어 20분쯤 물들입니다.","둘씩 짝을 지어 부활 인사를 나누며 달걀을 부딪칩니다.","이긴 달걀도 진 달걀도 함께 나눠 먹습니다."],
+  church:"부활절 예배 뒤 마당에서 하기 좋아요. 개신교회의 부활절 달걀 나눔과 자연스럽게 이어집니다.",care:"달걀 알레르기와 뜨거운 물을 조심하세요."},
+ {id:"honey",emb:"honey",name:"꿀 찍은 첫 글자",title:"배움의 첫맛은 달다",branch:"유대 전통",origin:"유대 전통 · 중세 유럽의 아레인피레니쉬",seasons:["pentecost","ordinary"],date:{fixed:"03-01"},when:"새 학기 첫 주일, 또는 성령강림절",time:"15분",keep:"이름과 '말씀'을 쓴 금빛 카드",
+  story:["중세 유럽의 유대인 마을에서는 다섯 살쯤 된 아이가 처음 성경 공부를 시작하는 날, 선생님이 아이를 품에 안고 맞았어요.","글자가 적힌 판에 꿀을 발라 맛보게 하고, 성경 구절을 쓴 과자와 달걀도 주었습니다.","배움의 첫맛이 달콤하기를 바라는 마음이었지요. 유대인의 오순절에 하던 예식입니다."],
+  root:"주님의 말씀이 꿀보다 달다는 시편(119편)의 고백을 입으로 맛보는 전통.",need:["두꺼운 카드","금색 펜","꿀이나 조청","작은 과자","물티슈"],
+  steps:["금색 펜으로 카드에 아이 이름과 '말씀'을 크게 씁니다.","작은 과자에 꿀을 찍어 한 입씩 맛봅니다.","'말씀은 꿀보다 달아요'를 함께 말해 봅니다.","카드는 성경책에 끼워 가져갑니다."],
+  church:"교회학교 새 학기 첫 주에 하면 좋아요. 성령강림절과 맥추감사절의 뿌리가 바로 이 오순절이라는 것도 함께 알려 주세요.",care:"돌이 안 된 아기에게는 꿀을 주면 안 됩니다. 알레르기를 미리 확인하세요. 유대인의 예식을 흉내 내기보다 '이런 전통이 있대' 하고 배워 오는 마음으로 하세요.",
+  src:[["My Jewish Learning: 기독교 나라들의 유대 교육","https://www.myjewishlearning.com/article/jewish-education-in-christian-countries/"]]},
+ {id:"animals",emb:"paw",name:"동물 축복",title:"강아지도 고양이도 함께 오는 날",branch:"가톨릭",origin:"가톨릭·성공회 · 10월 4일",seasons:["ordinary"],date:{fixed:"10-04"},when:"10월 4일 무렵",time:"30분",keep:"동물 이름표와 축복 카드",
+  story:["아시시의 프란치스코는 새들에게도 설교했다는 이야기가 전해질 만큼 모든 생명을 아꼈어요.","그래서 그를 기억하는 10월 4일 무렵, 많은 교회가 반려동물을 데려와 축복합니다.","강아지, 고양이, 금붕어까지 교회 마당에 모이는 즐거운 날이에요."],
+  root:"하나님이 지으신 모든 생명이 귀하다는 고백.",need:["반려동물 사진(데려올 때는 보호자와 함께)","이름표","짧은 축복 기도"],
+  steps:["아이들이 반려동물이나 좋아하는 동물 사진을 가져옵니다.","한 명씩 동물을 소개합니다.","선생님이 짧게 축복 기도를 합니다."],
+  church:"반려동물이 없는 아이도 좋아하는 동물 그림으로 함께할 수 있어요.",care:"동물 알레르기와 동물을 무서워하는 아이를 미리 확인하세요."},
+ {id:"martin",emb:"lantern",name:"성 마르티노의 등불",title:"망토를 반으로 나눈 군인",branch:"여러 교회",origin:"독일 가톨릭·루터교 · 11월 11일",seasons:["ordinary"],date:{fixed:"11-11"},when:"11월 11일 저녁",time:"1시간",keep:"직접 만든 등불",
+  story:["추운 겨울, 로마 군인 마르티노는 길가에서 떨고 있는 사람을 보고 자기 망토를 칼로 잘라 반을 덮어 주었어요.","독일에서는 그의 날 저녁, 아이들이 직접 만든 등불을 들고 노래하며 동네를 걸어요.","나눔이 어둠을 밝힌다는 뜻이 담겨 있습니다."],
+  root:"가진 것을 반으로 나누는 사랑.",need:["투명 컵이나 종이","한지","LED 초","막대"],
+  steps:["한지를 붙여 등불을 만듭니다.","LED 초를 넣습니다.","저녁에 교회 마당을 노래하며 걷습니다.","겨울옷이나 담요를 모아 이웃과 나눕니다."],
+  church:"11월 추수감사절 무렵 나눔 행사와 함께 하면 좋아요.",care:""},
+ {id:"thanks",emb:"thanks",name:"추수감사 열매 바구니",title:"감사를 하나씩 붙인 열매",branch:"한국 교회",origin:"한국 교회 · 11월 셋째 주일",seasons:["ordinary"],date:{rel:"thanks"},when:"추수감사주일",time:"20분",keep:"감사 쪽지 사진",
+  story:["한국 개신교회는 대개 11월 셋째 주일에 추수감사절을 지켜요. 미국 선교사들이 전해 준 날짜입니다.","강단 앞을 과일과 곡식으로 꾸미고 한 해의 감사를 드리지요.","요즘은 우리 명절 추석에 맞춰 감사절을 지키는 교회도 있어요."],
+  root:"한 해 받은 것을 하나씩 세어 보는 날.",need:["작은 바구니","아이마다 과일 한 알","감사 쪽지와 테이프"],
+  steps:["과일에 감사한 일 한 가지를 쓴 쪽지를 붙입니다.","바구니에 모아 강단 앞에 놓습니다.","예배 뒤 과일을 이웃과 나눕니다."],
+  church:"감사 쪽지를 사진으로 남겨 두면 다음 해에 꺼내 보기 좋아요.",care:"과일 알레르기를 확인하세요."},
+ {id:"lentbox",emb:"box",name:"사순절 나눔 상자",title:"덜어 낸 만큼 이웃에게",branch:"여러 교회",origin:"여러 교회 · 사순절 40일",seasons:["lent"],date:{rel:"easter",off:-46},when:"재의 수요일부터 부활절까지",time:"만들기 20분, 40일 동안 모으기",keep:"부활절에 함께 여는 상자",
+  story:["사순절은 부활절을 앞두고 40일 동안 덜어 내고 돌아보는 때예요.","오래전부터 교회는 이 기간에 금식과 기도, 그리고 가난한 이웃을 돕는 일을 함께 해 왔어요.","간식 하나를 줄인 만큼 상자에 모으면, 덜어 냄이 나눔이 되는 것을 아이들도 배울 수 있어요."],
+  root:"덜어 낸 자리에 이웃을 들이는 40일.",need:["작은 상자나 빈 통","색종이와 스티커","40칸 달력 종이"],
+  steps:["상자를 꾸미고 누구를 도울지 함께 정합니다.","날마다 줄인 간식값을 조금씩 넣고 달력에 표시합니다.","부활절에 상자를 함께 열어 정한 곳에 전합니다."],
+  church:"보낼 곳을 아이들이 직접 정하면 마음이 오래 갑니다. 지역아동센터나 이웃 어르신처럼 얼굴이 보이는 곳이 좋아요.",care:"액수를 비교하지 않도록 상자는 반 전체가 함께 씁니다."},
+ {id:"pretzel",emb:"pretzel",name:"프레첼 굽기",title:"기도하는 팔 모양의 빵",branch:"가톨릭",origin:"중세 유럽 수도원에서 전해진 이야기 · 사순절",seasons:["lent"],date:{rel:"easter",off:-35},when:"사순절 중 한 주일",time:"1시간",keep:"내가 꼬아 만든 프레첼",
+  story:["프레첼은 팔을 가슴에 모으고 기도하는 모습을 닮았다는 이야기가 전해져요.","옛 유럽에서는 사순절에 버터와 달걀을 먹지 않고 밀가루와 물, 소금으로 이런 빵을 구웠다고 합니다.","정확한 시작은 알 수 없지만, 기도를 손으로 빚어 보는 즐거운 전통이에요."],
+  root:"몸으로 배우는 기도의 모양.",need:["시판 빵 반죽이나 밀가루 반죽","굵은 소금 조금","오븐이나 에어프라이어"],
+  steps:["반죽을 길게 늘여 끈을 만듭니다.","끈의 양 끝을 가운데로 꼬아 팔짱 낀 모양을 만듭니다.","소금을 뿌려 굽습니다.","먹기 전에 팔을 모으고 짧게 기도합니다."],
+  church:"구운 프레첼을 사순절 나눔 상자와 함께 이웃에게 나눠도 좋아요.",care:"오븐은 어른이 다루고, 밀가루 알레르기를 확인하세요."},
+ {id:"palm",emb:"palm",name:"종려 가지 행진",title:"가지를 흔들며 맞이하는 왕",branch:"여러 교회",origin:"여러 교회 · 종려주일",seasons:["lent"],date:{rel:"easter",off:-7},when:"부활절 한 주 전 주일(종려주일)",time:"30분",keep:"종이로 만든 종려 가지",
+  story:["예수님이 나귀를 타고 예루살렘에 들어가실 때, 사람들은 종려나무 가지를 흔들며 '호산나!' 하고 맞았어요.","그래서 많은 교회가 부활절 한 주 전 주일에 가지를 들고 예배당에 들어가요.","왕이 말이 아니라 나귀를 타고 오셨다는 것도 함께 이야기해 보세요."],
+  root:"힘이 아니라 겸손으로 오신 왕.",need:["초록 색종이나 두꺼운 종이","가위, 테이프","나무젓가락"],
+  steps:["초록 종이를 길게 접어 잎 모양으로 오립니다.","나무젓가락에 붙여 가지를 만듭니다.","예배를 시작할 때 '호산나'를 외치며 줄지어 들어갑니다."],
+  church:"고난주간이 시작되는 날이에요. 반기던 사람들이 며칠 뒤 등을 돌린 이야기는 아이 나이에 맞게 나눠 주세요.",care:""},
+ {id:"handwash",emb:"basin",name:"서로 손 씻어 주기",title:"제자들의 발을 씻기신 밤",branch:"여러 교회",origin:"여러 교회 · 세족목요일",seasons:["lent"],date:{rel:"easter",off:-3},when:"부활절 앞 목요일",time:"30분",keep:"짝에게 받은 고마움 쪽지",
+  story:["마지막 만찬 날 밤, 예수님은 허리에 수건을 두르고 제자들의 발을 손수 씻어 주셨어요.","그 시절 발 씻기는 가장 낮은 사람이 하던 일이었지요.","그래서 많은 교회가 이날 서로 발을 씻어 주는 예식을 해요. 아이들과는 손으로 해도 충분합니다."],
+  root:"가장 높은 분이 가장 낮은 일을 하셨다.",need:["대야와 따뜻한 물","수건","작은 쪽지"],
+  steps:["둘씩 짝을 지어 앉습니다.","한 사람이 짝의 손에 물을 부어 씻기고 수건으로 닦아 줍니다.","역할을 바꿉니다.","짝에게 고마운 점을 쪽지에 써서 건넵니다."],
+  church:"선생님이 먼저 아이들의 손을 씻어 주면 아이들이 오래 기억합니다.",care:"몸에 닿는 것을 불편해하는 아이는 쪽지 쓰기로만 함께하게 해 주세요."},
+ {id:"alleluia",emb:"banner",name:"할렐루야 묻기",title:"사순절에 묻고 부활절에 꺼내기",branch:"여러 교회",origin:"중세 교회에서 시작 · 사순절과 부활절",seasons:["lent","easter"],date:{rel:"easter",off:-49},when:"사순절 시작 전 주일에 묻고, 부활절에 꺼내기",time:"20분씩 두 번",keep:"다시 꺼낸 할렐루야 깃발",
+  story:["옛 교회는 사순절 동안 '할렐루야'를 부르지 않았어요.","그래서 사순절이 시작되기 전, '할렐루야'라고 쓴 깃발을 상자에 넣어 묻는 예식을 하기도 했지요.","그리고 부활절 아침에 다시 꺼내 크게 외쳤습니다."],
+  root:"기다린 만큼 더 크게 터지는 부활의 기쁨.",need:["천이나 종이 깃발","물감이나 색연필","상자"],
+  steps:["아이들이 '할렐루야' 깃발을 함께 꾸밉니다.","사순절이 시작되기 전 주일에 상자에 넣어 교회 한쪽에 둡니다.","부활절 아침, 상자를 열고 깃발을 들어 '할렐루야!' 하고 외칩니다."],
+  church:"사순절 동안 '지금은 할렐루야를 아끼는 중'이라고 이야기하면 기다림이 놀이가 됩니다.",care:""},
+ {id:"garden",emb:"garden",name:"부활절 정원",title:"돌을 굴려 여는 아침",branch:"개신교",origin:"영국 교회에서 널리 하는 전통 · 고난주간",seasons:["lent","easter"],date:{rel:"easter",off:-6},when:"고난주간에 만들고 부활절 아침에 열기",time:"1시간",keep:"작은 화분 정원",
+  story:["영국 교회와 학교에서는 고난주간에 흙과 이끼, 돌로 작은 정원을 만들어요.","정원 한쪽에 무덤을 만들고 둥근 돌로 입구를 막아 둡니다.","부활절 아침, 아이들이 그 돌을 굴려 빈 무덤을 열어요."],
+  root:"닫힌 무덤이 열린 아침.",need:["넓은 화분이나 쟁반","흙, 이끼나 새싹 씨앗","작은 화분(무덤)과 둥근 돌","나뭇가지 세 개"],
+  steps:["쟁반에 흙을 깔고 이끼나 씨앗을 심습니다.","작은 화분을 눕혀 무덤을 만들고 둥근 돌로 막습니다.","언덕 위에 나뭇가지 십자가 세 개를 세웁니다.","부활절 아침에 돌을 굴리고 꽃을 꽂습니다."],
+  church:"고난주간 동안 교회 입구에 두고, 부활절 예배 전에 아이들이 함께 돌을 굴리게 해 보세요.",care:""},
+ {id:"sunrise",emb:"sun",name:"부활절 해돋이 예배",title:"새벽에 함께 맞는 부활",branch:"개신교",origin:"모라비아 교회 · 1732년 독일 헤른후트",seasons:["easter"],date:{rel:"easter",off:0},when:"부활절 새벽",time:"1시간",keep:"해돋이 앞 단체 사진",
+  story:["여인들이 이른 새벽 무덤에 갔을 때 무덤은 비어 있었어요.","1732년 독일 헤른후트의 모라비아 교회 젊은이들은 부활절 새벽 묘지에 모여 해돋이를 보며 예배했어요.","부활절 새벽에 모여 예배하는 전통은 그 뒤 세계 여러 교회로 퍼졌습니다."],
+  root:"어둠이 물러가는 새벽에 만나는 부활.",need:["따뜻한 옷과 담요","손전등","따뜻한 차와 간식"],
+  steps:["해 뜨는 시각을 미리 확인하고 동쪽이 트인 곳을 정합니다.","어두울 때 모여 조용히 기다립니다.","해가 떠오르면 '그리스도께서 부활하셨습니다!' 하고 함께 외치고 노래합니다.","함께 아침을 먹습니다."],
+  church:"중고등부나 청년부와 함께하기 좋아요. 어린아이들은 교회 마당에서 짧게 해도 충분합니다.",care:"새벽 이동은 보호자 동의와 차량을 미리 준비하세요."},
+ {id:"birthday",emb:"flame",name:"교회 생일 잔치",title:"빨간 옷을 입고 오는 날",branch:"여러 교회",origin:"여러 교회 · 성령강림절",seasons:["pentecost"],date:{rel:"easter",off:49},when:"성령강림절 주일",time:"30분",keep:"생일 케이크 앞 단체 사진",
+  story:["예수님이 하늘로 오르신 뒤 오순절에, 기도하던 제자들 위에 불꽃 같은 혀가 내려앉았어요.","그날 교회가 세상으로 나섰다고 해서 성령강림절을 교회의 생일이라고도 불러요.","그래서 이날 빨간 옷을 입고 오고, 생일 케이크를 나누는 교회가 많아요."],
+  root:"교회는 사람이 만든 모임이 아니라 성령이 불어넣으신 생명.",need:["빨간 옷이나 빨간 소품","케이크와 초","생일 축하 노래"],
+  steps:["한 주 전에 '빨간 옷 입고 오기'를 알립니다.","케이크에 초를 꽂고 우리 교회가 세워진 해를 함께 세어 봅니다.","교회를 위한 생일 축하 노래와 기도를 합니다."],
+  church:"우리 교회가 처음 세워진 날의 이야기와 사진을 어르신께 들어 보면 더 좋아요.",care:""},
+ {id:"pinwheel",emb:"pinwheel",name:"성령 바람개비",title:"보이지 않지만 느껴지는 바람",branch:"여러 교회",origin:"교회학교 활동 · 성령강림절",seasons:["pentecost"],date:{rel:"easter",off:49},when:"성령강림절 무렵",time:"30분",keep:"내가 만든 바람개비",
+  story:["성령이 오시던 날, 하늘에서 세찬 바람 같은 소리가 났다고 성경은 전해요(사도행전 2장).","예수님도 성령을 바람에 빗대어 말씀하셨어요. 바람은 보이지 않아도 느낄 수 있지요.","바람개비를 들고 마당을 달리며 보이지 않는 것을 느껴 보는 시간이에요."],
+  root:"보이지 않아도 움직이게 하시는 분.",need:["정사각형 색종이","할핀이나 압정","나무젓가락이나 빨대"],
+  steps:["색종이 네 모서리에서 가운데 쪽으로 가위집을 냅니다.","한 칸씩 건너 모서리를 가운데로 모아 핀으로 고정합니다.","막대에 꽂아 밖으로 나가 바람을 맞아 봅니다."],
+  church:"바람개비를 돌리며 바람이 어디서 와서 어디로 가는지 모른다는 예수님 말씀(요한복음 3장)을 함께 읽어 보세요.",care:"핀 끝을 조심하세요. 어린아이는 할핀을 쓰세요."},
+ {id:"tongues",emb:"bubbles",name:"여러 나라 말로 인사하기",title:"모두가 자기 말로 알아들은 날",branch:"여러 교회",origin:"여러 교회 · 성령강림절",seasons:["pentecost"],date:{rel:"easter",off:50},when:"성령강림절 무렵",time:"20분",keep:"다른 나라 말 인사 카드",
+  story:["성령이 오시던 날, 제자들이 여러 나라 말로 하나님이 하신 일을 전했어요.","예루살렘에 모여 있던 여러 나라 사람들은 저마다 자기 말로 알아들었지요.","말도 얼굴도 다른 사람들이 한 교회가 된다는 이야기입니다."],
+  root:"다름이 막힘이 되지 않는 공동체.",need:["여러 나라 말로 쓴 인사 카드","세계 지도"],
+  steps:["'하나님이 너를 사랑해'를 여러 나라 말로 적은 카드를 나눕니다.","한 사람씩 카드를 읽고 지도에서 그 나라를 찾습니다.","우리 동네에 사는 다른 나라 친구들을 위해 함께 기도합니다."],
+  church:"교회에 다른 나라에서 온 성도가 있다면 그분 나라 말로 인사를 배워 보세요.",care:"다른 나라 말투를 흉내 내며 놀리지 않도록 미리 이야기해 주세요."},
+ {id:"illum",emb:"letter",name:"채색 머리글자",title:"수도원처럼 말씀의 첫 글자 꾸미기",branch:"가톨릭",origin:"중세 수도원의 손으로 쓴 성경",seasons:["ordinary"],date:null,when:"언제든",time:"40분",keep:"내가 꾸민 성경 구절 한 장",
+  story:["인쇄기가 없던 시절, 수도원에서는 성경을 손으로 베껴 썼어요.","장의 첫 글자는 크게 쓰고 금빛과 덩굴무늬로 꾸며, 읽는 사람이 기쁨으로 말씀을 열게 했지요.","한국 교회에도 성경을 손으로 옮겨 쓰는 필사 전통이 있어요."],
+  root:"말씀을 아름답게 모시는 손.",need:["도화지","금색·은색 펜","색연필이나 물감"],
+  steps:["좋아하는 성경 구절 한 줄을 고릅니다.","그 구절의 첫 글자를 크게 쓰고 테두리와 무늬로 꾸밉니다.","나머지 구절을 정성껏 이어 씁니다."],
+  church:"성경 필사를 하신 어르신이 계시면 필사 노트를 보여 달라고 부탁해 보세요.",care:""},
+ {id:"creation",emb:"leaf",name:"창조 세계 산책",title:"주운 나뭇잎으로 드리는 감사",branch:"여러 교회",origin:"여러 교회 · 9월 창조절",seasons:["ordinary"],date:{fixed:"09-01"},when:"9월 첫 주일 무렵",time:"1시간",keep:"나뭇잎 감사 카드",
+  story:["여러 교회가 9월 1일부터 10월 4일까지를 하나님이 지으신 세상을 돌보는 때로 지켜요.","교회 가까운 공원을 천천히 걸으며 하나님이 지으신 것을 하나씩 찾아봅니다.","주운 나뭇잎으로 감사 카드를 만들어요."],
+  root:"보시기에 좋았던 세상을 함께 돌보는 마음.",need:["봉투","도화지와 풀","돋보기(있으면)","쓰레기 봉투"],
+  steps:["공원을 천천히 걸으며 가장 마음에 드는 나뭇잎을 하나씩 줍습니다.","돋보기로 잎맥을 들여다봅니다.","도화지에 붙이고 감사 한 줄을 씁니다.","돌아오는 길에 쓰레기 한 봉지를 함께 줍습니다."],
+  church:"10월 4일 동물 축복과 이어서 하면 창조절이 한 달 내내 이어집니다.",care:"길을 건널 때와 물가를 조심하세요."},
+ {id:"treasure",emb:"cup",name:"우리 교회 보물찾기",title:"성찬기, 세례 그릇, 종을 가까이에서",branch:"우리 교회",origin:"우리 교회 · 언제든",seasons:[],date:null,when:"언제든, 특히 세례식이나 성찬식 앞 주",time:"40분",keep:"내가 그린 교회 보물 그림",
+  story:["교회에는 오래 쓰인 물건이 많아요. 성찬기, 세례 그릇, 종, 강대상, 낡은 성경책.","물건마다 그것을 만든 사람, 처음 쓴 날, 그 앞에서 세례받은 사람들의 이야기가 있습니다.","아이들과 그 물건을 가까이서 보고, 목사님께 이야기를 들어 보세요."],
+  root:"하나님은 빵과 잔, 물 같은 평범한 것을 통해서도 우리를 만나신다는 믿음.",need:["목사님께 미리 부탁","질문 카드","도화지와 색연필"],
+  steps:["목사님께 성찬기, 세례 그릇 같은 물건을 보여 주실 수 있는지 미리 여쭙니다.","아이들과 물건을 가까이서 봅니다. 만질 수 있는 것과 없는 것을 먼저 알려 줍니다.","'언제부터 썼어요? 누가 만들었어요?' 하고 질문합니다.","가장 마음에 든 물건을 그려 봅니다."],
+  church:"세례식이나 성찬식이 있는 주 앞에 하면 예식이 훨씬 가깝게 느껴집니다.",care:"귀한 성물은 어른이 들고 보여 주세요."}
+];
+const REGIONS = ["서울","인천·경기","영남","호남","해외"];
+const PLACES = [
+ {id:"ganghwa",emb:"hanok",img:"feel-ganghwa.jpg",credit:"https://commons.wikimedia.org/wiki/File:Ganghwa_Anglican_Church.jpg",name:"대한성공회 강화성당",region:"인천·경기",area:"인천 강화",line:"한옥으로 지은 성당",addr:"인천 강화군 강화읍 관청길27번길 10",
+  feel:"1900년에 축성된 성당이에요. 겉은 한옥인데, 안은 서양 교회처럼 길게 놓여 있어요.",kids:"'절처럼 생겼는데 교회예요!' 기와지붕 위의 십자가를 찾아보세요.",
+  how:"10:00~18:00, 연중무휴, 무료 · 문의 032-934-6171",with:"같은 섬 길상면의 온수리성당도 한옥 성당이에요.",keep:"처마 아래 단체 사진",care:"예배와 행사가 있는 시간은 피하고, 안에서는 조용히 둘러보세요.",
+  src:[["한국관광공사 정보(K-Trip Tips)","https://www.ktriptips.com/kor/tourspot/128819"]]},
+ {id:"yanghwajin",emb:"stone",name:"양화진외국인선교사묘원",region:"서울",area:"서울 마포",line:"한국을 사랑한 선교사들이 잠든 언덕",addr:"서울 마포구 양화진길 46",
+  feel:"헐버트, 언더우드 같은 선교사와 그 가족들이 잠든 곳이에요. 바다에서 세상을 떠난 아펜젤러를 기리는 비석도 있어요.",kids:"비석마다 새겨진 한 줄을 찾아 읽어 보세요.",
+  how:"월~토 10:00~17:00, 일요일 쉼, 무료 · 안내는 홈페이지 예약(전날 밤 9시까지, 당일 안 됨) · 문의 02-332-9174",with:"",keep:"마음에 남은 비석 글귀 한 줄",care:"묘원이에요. 어린아이와는 가기 전에 죽음과 기억에 대해 미리 이야기해 두세요.",
+  src:[["한국관광공사 정보(K-Trip Tips)","https://www.ktriptips.com/kor/tourspot/126938"]]},
+ {id:"jeongdong",emb:"brick",name:"정동길",region:"서울",area:"서울 중구",line:"붉은 벽돌 예배당과 돌로 지은 성당이 한 길에",addr:"서울 중구 정동길 일대",
+  feel:"정동제일교회 벧엘예배당, 배재학당역사박물관, 대한성공회 서울주교좌성당이 한 길에 모여 있어요.",kids:"걸으면서 건물마다 다른 십자가 모양을 찾아보세요.",
+  how:"건물마다 관람 시간이 달라 미리 확인하세요.",with:"덕수궁 돌담길과 이어져 있어요.",keep:"건물 앞 단체 사진",care:"차가 다니는 길이에요. 어른이 앞뒤에서 함께 걸어 주세요.",src:[]},
+ {id:"stnicholas",emb:"dome",name:"한국정교회 성 니콜라스 대성당",region:"서울",area:"서울 마포",line:"금빛 이콘이 있는 비잔틴 양식 성당",addr:"서울 마포구 아현동",
+  feel:"1968년에 완공된 비잔틴 양식 성당이에요. 러시아 선교사들이 들여온 이콘 두 점을 모시고 있어요.",kids:"둥근 지붕과 금빛 그림을 처음 보는 놀라움. 정교회는 이콘을 '하늘로 난 창'이라고 설명해요.",
+  how:"예배가 있는 곳이라 미리 연락해 방문할 수 있는 때를 여쭤보세요.",with:"",keep:"이콘 하나를 오래 바라보고 떠오른 한 단어",care:"정교회 예배 공간의 예절(조용히, 사진은 허락받고)을 미리 알려 주세요.",
+  src:[["위키백과: St. Nicholas Cathedral (Seoul)","https://en.wikipedia.org/wiki/St._Nicholas_Cathedral_(Seoul)"]]},
+ {id:"cheongna",emb:"apple",name:"동산 청라언덕",region:"영남",area:"대구 중구",line:"선교사 주택과 대구 첫 서양 사과나무",addr:"대구 중구 달구벌대로 2029",
+  feel:"대구에 기독교가 처음 전해질 무렵 선교사들이 살던 서양식 집 세 채가 남아 있어요.",kids:"대구 최초의 서양 사과나무를 찾아보고, 나무 아래서 사과를 나눠 먹어 보세요.",
+  how:"늘 열려 있고 무료 · 문의 대구관광정보센터 053-627-1337",with:"선교사와 가족들의 묘지인 은혜정원도 함께 있어요.",keep:"사과 한 알과 단체 사진",care:"",
+  src:[["한국관광공사 정보(K-Trip Tips)","https://www.ktriptips.com/kor/tourspot/2611140"]]},
+ {id:"kwon",emb:"bell",name:"권정생동화나라",region:"영남",area:"경북 안동",line:"『강아지똥』 작가가 종지기로 살던 마을",addr:"경북 안동시 일직면 성남길 119",
+  feel:"『강아지똥』, 『몽실 언니』를 쓴 권정생 선생은 1967년부터 안동의 마을 교회에서 종을 치는 종지기로 살았어요.",kids:"동화 속 세계를 둘러보고, 『강아지똥』을 함께 읽으며 가장 작은 것의 쓸모를 이야기해 보세요.",
+  how:"화~일 10:00~17:00, 월요일·1월 1일·설·추석 당일 쉼, 무료 · 단체 숙박과 강당 있음 · 문의 054-858-0808",with:"",keep:"『강아지똥』의 한 구절",care:"",
+  src:[["한국관광공사 정보(K-Trip Tips)","https://www.ktriptips.com/kor/tourspot/2623228"]]},
+ {id:"geumsan",emb:"giyeok",name:"김제 금산교회",region:"호남",area:"전북 김제",line:"ㄱ자로 지은 한옥 예배당",addr:"전북 김제시 금산면",
+  feel:"1904년 테이트 선교사가 마을에 머물며 시작된 교회예요. ㄱ자 모양 한옥 예배당은 전북 문화재입니다.",kids:"머슴이던 이자익이 먼저 장로가 되자, 주인 조덕삼이 그의 설교를 무릎 꿇고 들었다는 이야기를 들려주세요.",
+  how:"지금도 예배하는 교회라 방문 전에 교회에 연락하세요.",with:"",keep:"ㄱ자 예배당 그림 한 장",care:"ㄱ자 모양은 남녀가 따로 앉던 시절의 흔적이에요. 그 시절 이야기도 함께 나눠 보세요.",
+  src:[["아주경제: 머슴에게 무릎 꿇은 조덕삼","https://www.ajunews.com/view/20190819104621757"]]},
+ {id:"yangnim",emb:"stone",name:"광주 양림동 선교사 묘지",region:"호남",area:"광주 남구",line:"선교사 23명이 잠든 언덕과 옛 선교사 마을",addr:"광주 남구 제중로 77",
+  feel:"광주와 전남에 기독교를 전한 선교사 23명이 잠든 묘지예요. 가까이에 오웬기념각 같은 옛 건물이 있어요.",kids:"옛 선교사 마을 길을 걸으며 오래된 건물을 찾아보세요.",
+  how:"문의 062-607-2333",with:"",keep:"마을 지도에 다녀온 곳 표시하기",care:"",
+  src:[["한국관광공사 정보(K-Trip Tips)","https://www.ktriptips.com/eng/tourspot/1629290"]]},
+ {id:"macau",emb:"facade",img:"feel-macau.jpg",credit:"https://commons.wikimedia.org/wiki/File:Ruins_Of_St_Paul%27s_Cathedral,_Macau.jpg",name:"마카오 성 바울 성당 유적",region:"해외",area:"마카오",line:"김대건 신부가 공부한 도시",addr:"",
+  feel:"1835년 불에 타고 앞면만 남은 성당 유적이에요. 성 안토니오 성당에는 김대건 신부의 목상과 유해 일부가 있어요.",kids:"까모에스 공원에서 한국 천주교가 세운 김대건 신부 조각상을 찾아보세요.",
+  how:"가족 여행이나 청년부 여행 때 들르기 좋아요. 떠나기 전에 외교부 해외안전여행을 확인하세요.",with:"",keep:"김대건 신부 조각상 앞 사진",care:"",
+  src:[["서울신문: 마카오, 성 안토니오와 동서양의 조우","https://m.seoul.co.kr/news/2015/10/07/20151007500423"]]},
+ {id:"colmar",img:"feel-isenheim-rise.jpg",name:"콜마르 운터린덴 미술관",region:"해외",area:"프랑스",line:"이젠하임 제단화를 실제로 보는 곳",addr:"",
+  feel:"그림 카드의 이젠하임 제단화가 있는 미술관이에요.",kids:"그림 앞에 서서 실제 크기를 느껴 보세요.",how:"유럽 여행 때. 떠나기 전에 외교부 해외안전여행을 확인하세요.",with:"",keep:"",care:"",src:[]},
+ {id:"potsdam",img:"feel-thomas.jpg",name:"포츠담 상수시 궁전 회화관",region:"해외",area:"독일",line:"「의심하는 도마」가 걸린 곳",addr:"",
+  feel:"그림 카드의 「의심하는 도마」가 걸려 있는 궁전 미술관이에요.",kids:"",how:"여는 기간이 철마다 달라 미리 확인하세요.",with:"",keep:"",care:"",src:[]},
+ {id:"sagrada",emb:"tower",name:"사그라다 파밀리아",region:"해외",area:"스페인 바르셀로나",line:"세계에서 가장 높은 교회",addr:"",
+  feel:"2026년 2월, 가운데 '예수 그리스도의 탑' 꼭대기에 십자가가 올라가 높이 172.5m가 되었어요. 세계에서 가장 높은 교회입니다.",kids:"숲을 닮은 기둥과 색유리 빛을 올려다보세요.",
+  how:"입장권은 미리 예약하세요.",with:"",keep:"",care:"",
+  src:[["Catalan News: 172.5m에 이른 사그라다 파밀리아","https://www.catalannews.com/society-science/item/sagrada-familia-reaches-1725-metres"]]}
+];
+
+/* ---------- 날짜와 절기 ---------- */
+const DAY = 864e5;
+const at = (y, m, d) => new Date(y, m, d);
+const add = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+function easter(y){const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return at(y,mo-1,da);}
+function advent1(y){const c=at(y,11,25),w=c.getDay();return add(c,-(w===0?7:w)-21);}
+function thanksDay(y){const n=at(y,10,1),w=n.getDay();return at(y,10,1+((7-w)%7)+14);}
+function seasonOf(t){
+  const y=t.getFullYear(),a1=advent1(y),xmas=at(y,11,25);
+  if(t>=a1&&t<xmas) return {key:"advent",start:a1,end:add(xmas,-1)};
+  if(t>=xmas) return {key:"christmas",start:xmas,end:at(y+1,0,5)};
+  if(t<=at(y,0,5)) return {key:"christmas",start:at(y-1,11,25),end:at(y,0,5)};
+  const E=easter(y),ash=add(E,-46),pent=add(E,49);
+  if(t>=ash&&t<E) return {key:"lent",start:ash,end:add(E,-1)};
+  if(t>=E&&t<pent) return {key:"easter",start:E,end:add(pent,-1)};
+  if(+t===+pent) return {key:"pentecost",start:pent,end:pent};
+  if(t<ash) return {key:"ordinary",start:at(y,0,6),end:add(ash,-1)};
+  return {key:"ordinary",start:add(pent,1),end:add(a1,-1)};
+}
+function churchYear(t){const y=t.getFullYear();let s=advent1(y);if(t<s)s=advent1(y-1);return {start:s,end:add(advent1(s.getFullYear()+1),-1)};}
+function dateIn(m,y){
+  if(!m.date) return null;
+  const d=m.date;
+  if(d.fixed){const [mm,dd]=d.fixed.split("-").map(Number);return at(y,mm-1,dd);}
+  if(d.rel==="advent1") return add(advent1(y),d.off||0);
+  if(d.rel==="easter") return add(easter(y),d.off||0);
+  if(d.rel==="thanks") return thanksDay(y);
+  return null;
+}
+function nextDate(m,t){const a=dateIn(m,t.getFullYear());if(!a)return null;return a>=add(t,-2)?a:dateIn(m,t.getFullYear()+1);}
+const md = d => `${d.getMonth()+1}월 ${d.getDate()}일`;
+const ymd = d => `${d.getFullYear()}년 ${md(d)}`;
+
+/* ---------- 도우미 ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const emb = (id, cls="tile") => `<span class="${cls}" aria-hidden="true"><svg viewBox="0 0 48 48"><use href="#e-${id}"></use></svg></span>`;
+const store = {get(k,v){try{const x=localStorage.getItem(k);return x==null?v:JSON.parse(x);}catch(e){return v;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+function toast(msg){const t=document.createElement("div");t.className="toast";t.setAttribute("role","status");t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2200);}
+async function copy(text){
+  try{await navigator.clipboard.writeText(text);toast("복사했어요. 단톡방이나 문서에 붙여 넣으세요.");}
+  catch(e){openSheet("복사할 내용",`<p class="small muted">자동 복사가 막혀 있어요. 아래 글을 길게 눌러 모두 선택한 뒤 복사해 주세요.</p><textarea readonly style="width:100%;min-height:260px;border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit;font-size:14px;background:var(--bg);color:var(--ink)">${esc(text)}</textarea>`);}
+}
+
+/* ---------- 상태 ---------- */
+const TODAY = (()=>{const n=new Date();return at(n.getFullYear(),n.getMonth(),n.getDate());})();
+const CUR = seasonOf(TODAY);
+let view = CUR.key, branch = "전체", region = "전체";
+let stamps = store.get("feel-stamps", {});
+
+function setSeasonClass(k){document.body.className = document.body.className.replace(/\bs-\w+/g,"").trim() + " s-" + k;}
+
+function renderCal(){
+  const s = SEASONS[view], cur = view === CUR.key;
+  const cy = churchYear(TODAY), total = (cy.end - cy.start)/DAY + 1;
+  const segs = []; let d = cy.start;
+  while (d <= cy.end){const z = seasonOf(d), e = z.end > cy.end ? cy.end : z.end; segs.push({key:z.key,l:(d-cy.start)/DAY/total*100,w:((e-d)/DAY+1)/total*100}); d = add(e,1);}
+  const pos = (TODAY - cy.start)/DAY/total*100;
+  const nxt = seasonOf(add(CUR.end,1)), left = Math.round((add(CUR.end,1)-TODAY)/DAY);
+  let when;
+  if (cur) when = CUR.start.getTime()===CUR.end.getTime() ? `오늘, ${ymd(TODAY)}` : `${md(CUR.start)} ~ ${md(CUR.end)} · 다음 ${SEASONS[nxt.key].name}까지 ${left}일`;
+  else { const f = segs.find(g => g.key === view); const st = add(cy.start, Math.round(f.l/100*total)); when = `이번 교회력에서는 ${ymd(st)}부터 · 미리 보는 중`; }
+  $("#cal").innerHTML = `
+   <div class="cal-top"><b style="letter-spacing:.06em;color:var(--accent)">교회 달력</b><span class="muted">오늘 ${ymd(TODAY)}</span></div>
+   <h2>${cur ? "지금은 " : ""}${s.name} <small>· ${s.color}</small></h2>
+   <p class="when">${esc(when)}</p>
+   <p style="font-size:14.5px;line-height:1.65">${esc(s.line)}</p>
+   <div class="bar-wrap"><div class="bar" role="img" aria-label="${md(cy.start)}부터 일 년 동안의 교회 달력. 절기마다 색이 다릅니다.">${segs.map(g=>`<span style="left:${g.l.toFixed(2)}%;width:calc(${g.w.toFixed(2)}% - 2px);min-width:3px;background:${SEASONS[g.key].bar};opacity:${g.key===view?1:.3}"></span>`).join("")}</div><i class="today" style="left:calc(${pos.toFixed(2)}% - 1px)" title="오늘"></i>
+   <div class="bar-ends"><span>${md(cy.start)} · 교회의 새해</span><span>${md(cy.end)}</span></div></div>
+   <p class="small muted" style="margin-top:2px">눌러서 절기마다 바뀌는 방의 색과 해 볼 것을 미리 보세요.</p>
+   <div class="chips" role="group" aria-label="절기 고르기">${Object.keys(SEASONS).map(k=>`<button class="chip" type="button" data-season="${k}" aria-pressed="${k===view}"><i style="background:${SEASONS[k].bar}"></i>${SEASONS[k].label}${k===CUR.key?" · 지금":""}</button>`).join("")}</div>`;
+}
+
+function renderNow(){
+  const s = SEASONS[view];
+  let items;
+  if (view === CUR.key){
+    items = MAKE.map(m => ({m, d: nextDate(m, TODAY)})).filter(x => x.d && (x.d - TODAY)/DAY <= 45).sort((a,b) => a.d - b.d).slice(0,7);
+    $("#nowTitle").textContent = "다가오는 날에 해 볼 것";
+  } else {
+    items = MAKE.filter(m => m.seasons.includes(view)).map(m => ({m, d: null}));
+    $("#nowTitle").textContent = `${s.name}에 해 볼 것`;
+  }
+  $("#nowRail").innerHTML = items.length ? items.map(({m,d}) => `
+    <button class="mini" type="button" data-open="make:${m.id}">${emb(m.emb)}
+      <span class="date">${d ? md(d) + (d.getDay()===0?" 주일":"") : esc(m.when)}</span>
+      <span class="small muted" style="font-size:12px">${esc(m.origin)}</span>
+      <span class="t">${esc(m.title)}</span>
+      <span class="d">${esc(m.name)} · ${esc(m.time)}<br>손에 남는 것: ${esc(m.keep)}</span></button>`).join("")
+    : `<p class="small muted">이 절기에 맞춘 활동은 아직 없어요. 아래 '손으로 해 보는 전통'에서 골라 보세요.</p>`;
+}
+
+function renderArt(){
+  $("#artList").innerHTML = ART.map(a => `
+   <article class="card">
+     <img src="${a.img}" alt="${esc(a.alt)}" style="object-position:${a.pos}" loading="lazy">
+     <div class="body">
+       <span class="small muted">${esc(a.artist)} · ${esc(a.year)}</span>
+       <h3>${esc(a.title)}</h3>
+       <p style="font-size:14.5px">${esc(a.line)}</p>
+       <div class="ties"><b>이런 질문과 이어져요</b><span style="font-size:14.5px">“${esc(a.q)}”</span></div>
+       <div class="btns"><button class="btn" type="button" data-show="${a.id}">아이에게 보여 주기</button><button class="btn line" type="button" data-open="art:${a.id}">${a.img2 ? "닫힌 날 · 열린 날" : "자세히 보기"}</button></div>
+     </div>
+   </article>`).join("");
+}
+
+function renderMake(){
+  $("#branchChips").innerHTML = ["전체", ...BRANCHES].map(b => `<button class="chip" type="button" data-branch="${b}" aria-pressed="${b===branch}">${b}</button>`).join("");
+  const list = MAKE.filter(m => branch === "전체" || m.branch === branch);
+  $("#makeList").innerHTML = list.map(m => `
+   <button class="row" type="button" data-open="make:${m.id}">${emb(m.emb,"tile sm")}
+     <span class="tx"><span class="n">${esc(m.name)}</span><span class="s">${esc(m.origin)} · ${esc(m.time)}</span></span><span class="chev" aria-hidden="true">›</span></button>`).join("");
+}
+
+function renderGo(){
+  $("#regionChips").innerHTML = ["전체", ...REGIONS].map(r => `<button class="chip" type="button" data-region="${r}" aria-pressed="${r===region}">${r}</button>`).join("");
+  const list = PLACES.filter(p => region === "전체" || p.region === region);
+  $("#goList").innerHTML = list.map(p => `
+   <button class="row" type="button" data-open="go:${p.id}">${p.img ? `<img class="th" src="${p.img}" alt="">` : emb(p.emb,"tile sm")}
+     <span class="tx"><span class="n">${esc(p.name)}</span><span class="s">${esc(p.area)} · ${esc(p.line)}</span></span><span class="chev" aria-hidden="true">›</span></button>`).join("");
+}
+
+const STAMPS = [...MAKE.map(m => ({id:"m-"+m.id, emb:m.emb, name:m.name})), ...PLACES.filter(p => p.region !== "해외").map(p => ({id:"p-"+p.id, emb:p.emb, name:p.name.replace("대한성공회 ","").replace("외국인선교사묘원"," 선교사묘원").replace("한국정교회 ","").replace(" 선교사 묘지","")}))];
+function renderStamps(){
+  const n = STAMPS.filter(s => stamps[s.id]).length;
+  $("#bookCount").textContent = `${n} / ${STAMPS.length}`;
+  $("#stamps").innerHTML = STAMPS.map(s => `<button class="stamp" type="button" data-stamp="${s.id}" aria-pressed="${!!stamps[s.id]}"><span class="ring"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#e-${s.emb}"></use></svg></span>${esc(s.name)}</button>`).join("");
+}
+
+/* ---------- 자세히 보기 ---------- */
+let lastFocus = null;
+function openSheet(title, html){
+  const d = $("#sheet"); $("#shTitle").textContent = title; $("#shBody").innerHTML = html; $("#shBody").scrollTop = 0;
+  lastFocus = document.activeElement;
+  if (!d.open) { try { d.showModal(); } catch(e) { d.setAttribute("open",""); } }
+}
+const blk = (h, body) => body ? `<div class="blk"><h4>${h}</h4>${body}</div>` : "";
+const ul = a => `<ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
+const ol = a => `<ol>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>`;
+const srcs = a => a && a.length ? `<p class="src">더 알아보기: ${a.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join(" · ")}</p>` : "";
+
+function artHtml(a, open){
+  const img = open && a.img2 ? a.img2 : a.img, alt = open && a.img2 ? a.alt2 : a.alt;
+  return `${a.img2 ? `<div class="seg" role="group" aria-label="제단화 펼치기"><button type="button" data-wing="${a.id}:0" aria-pressed="${!open}">닫힌 날 · 십자가</button><button type="button" data-wing="${a.id}:1" aria-pressed="${!!open}">열린 날 · 부활</button></div>` : ""}
+   <img class="hero" src="${img}" alt="${esc(alt)}">
+   <p class="small muted">${esc(a.artist)} · ${esc(a.year)} · ${esc(a.where)}</p>
+   ${blk("3분 이야기", `<p>${a.story.map(esc).join(" ")}</p>`)}
+   ${blk("그림 속에서 찾아보기", ol(a.look))}
+   ${blk("아이에게 물어볼 것", `<p class="serif" style="font-size:17px;font-weight:600">“${esc(a.ask)}”</p>`)}
+   <div class="root">${esc(a.root)}</div>
+   <a class="btn prac" href="${PRACTICE_URL}" data-practice style="justify-content:flex-start;border-radius:14px;min-height:52px;padding:10px 16px">아이가 “${esc(a.q)}” 하고 물으면 · 질문 받기 연습실에서 연습하기</a>
+   ${blk("조심할 점", `<div class="care">${esc(a.care)}</div>`)}
+   ${a.more ? blk("선생님이 더 읽을 것", `<p>${esc(a.more)}</p>`) : ""}
+   <p class="src">${esc(a.credit)}</p>
+   <div class="btns"><button class="btn" type="button" data-show="${a.id}">아이에게 보여 주기</button></div>`;
+}
+function makeText(m){
+  return [`[교회학교 활동] ${m.name} · ${m.title}`, `어디서 온 전통: ${m.origin}`, `언제: ${m.when}`, `걸리는 시간: ${m.time}`, "", "준비물", ...m.need.map(x=>`- ${x}`), "", "순서", ...m.steps.map((x,i)=>`${i+1}. ${x}`), "", `아이가 가져갈 것: ${m.keep}`, `담긴 뜻: ${m.root}`, m.care ? `조심할 것: ${m.care}` : "", "", "함께 느끼는 방에서 옮김"].filter((x,i,a)=>!(x===""&&a[i-1]==="")).join("\n").trim();
+}
+function makeHtml(m){
+  const d = nextDate(m, TODAY);
+  return `<div style="display:flex;gap:14px;align-items:center">${emb(m.emb)}<div><p class="small muted">${esc(m.origin)}</p><p class="serif" style="font-size:19px;font-weight:700;line-height:1.4">${esc(m.title)}</p></div></div>
+   <dl class="facts"><dt>언제</dt><dd>${esc(m.when)}${d ? ` · 다음은 ${ymd(d)}` : ""}</dd><dt>시간</dt><dd>${esc(m.time)}</dd><dt>손에 남는 것</dt><dd>${esc(m.keep)}</dd></dl>
+   ${blk("이야기", `<p>${m.story.map(esc).join(" ")}</p>`)}
+   <div class="root">${esc(m.root)}</div>
+   ${blk("준비물", ul(m.need))}
+   ${blk("이렇게 해요", ol(m.steps))}
+   ${blk("우리 교회에서 할 때", `<p>${esc(m.church)}</p>`)}
+   ${m.care ? blk("조심할 점", `<div class="care">${esc(m.care)}</div>`) : ""}
+   ${srcs(m.src)}
+   <div class="btns"><button class="btn" type="button" data-copy="make:${m.id}">준비물과 순서 복사</button><button class="btn line" type="button" data-stamp-open="m-${m.id}">${stamps["m-"+m.id] ? "도장 찍었어요" : "해 봤어요 · 도장 찍기"}</button></div>`;
+}
+function goText(p){
+  return [`[교회학교 나들이 안내]`, `어디로: ${p.name}${p.addr ? ` (${p.addr})` : ""}`, `언제:   월   일(   )   시 교회 출발 ·   시 도착 예정`, `무엇을: ${p.feel}`, `준비물: 편한 신발, 물, 간식`, p.how ? `관람 정보: ${p.how}` : "", "", "보호자 연락처를 꼭 알려 주세요.", "사진은 보호자께서 동의하신 아이만 찍어 나눕니다.", "문의: 담당 선생님 (                )"].filter(Boolean).join("\n");
+}
+function goHtml(p){
+  return `${p.img ? `<img class="hero" src="${p.img}" alt="${esc(p.name)} 사진">${p.credit ? `<p class="src">사진: <a href="${p.credit}" target="_blank" rel="noopener">위키미디어 공용</a> (저작자와 이용 조건은 링크에서 볼 수 있어요. 크기를 줄여 실었습니다.)</p>` : ""}` : `<div style="display:flex;gap:14px;align-items:center">${emb(p.emb)}<p class="small muted">${esc(p.area)}</p></div>`}
+   <p class="serif" style="font-size:19px;font-weight:700;line-height:1.4">${esc(p.line)}</p>
+   ${blk("느낄 것", `<p>${esc(p.feel)}</p>`)}
+   ${p.kids ? blk("아이들이 좋아할 것", `<p>${esc(p.kids)}</p>`) : ""}
+   ${blk("가는 법", `<p>${esc(p.how)}</p>${p.addr ? `<p class="small muted">${esc(p.addr)}</p>` : ""}`)}
+   ${p.with ? blk("함께 들를 곳", `<p>${esc(p.with)}</p>`) : ""}
+   ${p.keep ? blk("손에 남길 것", `<p>${esc(p.keep)}</p>`) : ""}
+   ${p.care ? blk("조심할 점", `<div class="care">${esc(p.care)}</div>`) : ""}
+   ${blk("단체로 갈 때", ul(["보호자 동의서에 행선지, 시간, 연락처, 사진 촬영 여부를 적어 받습니다.","어른 두 명 이상이 함께 다니고, 아이와 어른이 단둘이 떨어지지 않게 합니다.","예배와 행사 시간을 피하고, 해설이 있는 곳은 미리 예약합니다.","돌아와서 가장 기억에 남은 것 한 가지씩 나눕니다."]))}
+   ${srcs(p.src)}
+   <div class="btns"><button class="btn" type="button" data-copy="go:${p.id}">보호자 안내문 복사</button>${p.region !== "해외" ? `<button class="btn line" type="button" data-stamp-open="p-${p.id}">${stamps["p-"+p.id] ? "도장 찍었어요" : "다녀왔어요 · 도장 찍기"}</button>` : ""}</div>`;
+}
+
+/* ---------- 보여 주기 ---------- */
+let showState = null;
+function renderShow(){
+  const {a, i, open} = showState, qs = [...a.look, a.ask], img = open && a.img2 ? a.img2 : a.img;
+  $("#sw").innerHTML = `
+   <div class="sw-top"><span style="font-size:14px;opacity:.8">${esc(a.title)} · ${esc(a.artist)}</span><button class="x" type="button" data-close aria-label="닫기">×</button></div>
+   ${a.img2 ? `<div class="seg" role="group" aria-label="제단화 펼치기"><button type="button" data-swing="0" aria-pressed="${!open}">닫힌 날</button><button type="button" data-swing="1" aria-pressed="${!!open}">열린 날</button></div>` : ""}
+   <div class="sw-img"><img src="${img}" alt="${esc(open && a.img2 ? a.alt2 : a.alt)}"></div>
+   <p class="sw-q" aria-live="polite">${esc(qs[i])}</p>
+   <div class="sw-nav"><button type="button" data-step="-1" ${i===0?"disabled":""}>이전</button><span class="dots">${qs.map((_,k)=>`<i class="${k===i?"on":""}"></i>`).join("")}</span><button type="button" data-step="1">${i===qs.length-1?"처음으로":"다음 질문"}</button></div>`;
+}
+function openShow(id){
+  const a = ART.find(x => x.id === id); if (!a) return;
+  showState = {a, i:0, open: a.id === "isenheim"}; renderShow();
+  const d = $("#show"); if ($("#sheet").open) $("#sheet").close();
+  try { d.showModal(); } catch(e) { d.setAttribute("open",""); }
+}
+
+/* ---------- 인쇄 ---------- */
+function printBook(){
+  $("#printBook").innerHTML = `<h1>우리 반 순례 수첩</h1><p>이름: ______________________ &nbsp;&nbsp; 교회: ______________________</p>
+   <div class="pg">${STAMPS.map(s=>`<div class="ps"><div class="pr"><svg viewBox="0 0 48 48"><use href="#e-${s.emb}"></use></svg></div><b>${esc(s.name)}</b><span>날짜 ____ . ____</span></div>`).join("")}</div>`;
+  document.body.classList.add("printing");
+  window.print();
+  setTimeout(() => document.body.classList.remove("printing"), 500);
+}
+
+/* ---------- 이벤트 ---------- */
+document.addEventListener("click", e => {
+  const t = e.target.closest("button, a"); if (!t) return;
+  const ds = t.dataset;
+  if (ds.season){ view = ds.season; setSeasonClass(view); renderCal(); renderNow(); return; }
+  if (ds.branch){ branch = ds.branch; renderMake(); return; }
+  if (ds.region){ region = ds.region; renderGo(); return; }
+  if (ds.open){ const [k,id] = ds.open.split(":");
+    if (k === "art"){ const a = ART.find(x=>x.id===id); openSheet(a.title, artHtml(a, false)); }
+    if (k === "make"){ const m = MAKE.find(x=>x.id===id); openSheet(m.name, makeHtml(m)); }
+    if (k === "go"){ const p = PLACES.find(x=>x.id===id); openSheet(p.name, goHtml(p)); }
+    return; }
+  if (ds.wing){ const [id,o] = ds.wing.split(":"); const a = ART.find(x=>x.id===id); $("#shBody").innerHTML = artHtml(a, o === "1"); return; }
+  if (ds.show){ openShow(ds.show); return; }
+  if (ds.swing){ showState.open = ds.swing === "1"; renderShow(); return; }
+  if (ds.step){ const n = [...showState.a.look, showState.a.ask].length; showState.i = ds.step === "1" ? (showState.i + 1) % n : Math.max(0, showState.i - 1); renderShow(); return; }
+  if (ds.copy){ const [k,id] = ds.copy.split(":"); copy(k === "make" ? makeText(MAKE.find(x=>x.id===id)) : goText(PLACES.find(x=>x.id===id))); return; }
+  if (ds.stamp){ stamps[ds.stamp] = !stamps[ds.stamp]; if (!stamps[ds.stamp]) delete stamps[ds.stamp]; store.set("feel-stamps", stamps); renderStamps(); return; }
+  if (ds.stampOpen){ stamps[ds.stampOpen] = true; store.set("feel-stamps", stamps); renderStamps(); t.textContent = "도장 찍었어요"; toast("순례 수첩에 도장을 찍었어요."); return; }
+  if ("close" in ds){ const d = t.closest("dialog"); if (d) d.close(); return; }
+});
+document.querySelectorAll("dialog").forEach(d => {
+  d.addEventListener("click", e => { if (e.target === d) d.close(); });
+  d.addEventListener("close", () => { if (lastFocus && lastFocus.focus) lastFocus.focus(); });
+});
+document.addEventListener("keydown", e => {
+  if (!$("#show").open || !showState) return;
+  if (e.key === "ArrowRight"){ const n = showState.a.look.length + 1; showState.i = (showState.i + 1) % n; renderShow(); }
+  if (e.key === "ArrowLeft"){ showState.i = Math.max(0, showState.i - 1); renderShow(); }
+});
+$("#printBtn").addEventListener("click", printBook);
+$("#clearBtn").addEventListener("click", () => { if ($("#clearBtn").dataset.sure){ stamps = {}; store.set("feel-stamps", stamps); renderStamps(); $("#clearBtn").textContent = "도장 모두 지우기"; delete $("#clearBtn").dataset.sure; toast("도장을 모두 지웠어요."); } else { $("#clearBtn").dataset.sure = "1"; $("#clearBtn").textContent = "한 번 더 누르면 지워져요"; } });
+const sizeBtn = $("#sizeBtn");
+function applySize(big){ document.documentElement.classList.toggle("big", big); sizeBtn.setAttribute("aria-pressed", big ? "true" : "false"); sizeBtn.textContent = big ? "글자 작게" : "글자 크게"; }
+applySize(store.get("qp-big", "0") === "1" || store.get("qp-big", 0) === 1);
+sizeBtn.addEventListener("click", () => { const big = !document.documentElement.classList.contains("big"); applySize(big); try { localStorage.setItem("qp-big", big ? "1" : "0"); } catch(e) {} });
+document.querySelectorAll("[data-practice]").forEach(a => a.setAttribute("href", PRACTICE_URL));
+
+setSeasonClass(view); renderCal(); renderNow(); renderArt(); renderMake(); renderGo(); renderStamps();
+</script>
+</body>
+</html>

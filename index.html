@@ -87,6 +87,11 @@ button:focus-visible, textarea:focus-visible, select:focus-visible, a:focus-visi
 .btn-row .btn { flex: 1 1 12rem; }
 .size-btn { min-height: 2.6rem; padding: 0.3rem 0.9rem; font-size: 0.95rem; border-radius: 2rem; border: 2px solid var(--line); background: var(--surface); color: var(--ink); font-weight: 700; }
 .back { align-self: flex-start; background: none; border: none; color: var(--accent); font-weight: 700; padding: 0.4rem 0; min-height: 2.6rem; }
+.rooms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; background: var(--line); border-radius: 14px; }
+.rooms a { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 46px; border-radius: 10px; color: var(--ink); font-weight: 500; text-decoration: none; }
+.rooms a[aria-current] { background: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.rooms .dot { width: 8px; height: 8px; border-radius: 50%; background: #B08A2E; }
+.rooms .new { font-size: 0.7rem; font-weight: 700; color: #7A5B12; background: #F6EEDA; border-radius: 999px; padding: 2px 7px; }
 .promise { background: var(--accent-soft); border-radius: 0.9rem; padding: 1rem 1.15rem; }
 .promise b { color: var(--accent); }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 1.1rem 1.15rem; display: flex; flex-direction: column; gap: 0.8rem; min-width: 0; }
@@ -194,6 +199,21 @@ details.card { display: block; }
 details.card > div { margin-top: 0.8rem; }
 details.card summary { cursor: pointer; font-weight: 700; min-height: 2rem; }
 .copybox { white-space: pre-wrap; font-size: 0.92rem; background: var(--bg); border: 1px solid var(--line); border-radius: 0.7rem; padding: 0.8rem; }
+.res .badges { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.1rem 0; }
+.res .badges .tag { margin-right: 0; }
+details.guide { margin-top: 0.4rem; border: 1px solid var(--line); border-radius: 0.7rem; background: var(--surface); }
+details.guide > summary { cursor: pointer; font-weight: 700; font-size: 0.93rem; min-height: 2.6rem; padding: 0.55rem 0.85rem; color: var(--accent); }
+details.guide > div { padding: 0 0.85rem 0.85rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.93rem; }
+details.guide ol, details.guide ul { margin: 0; padding-left: 1.25rem; }
+details.guide li + li { margin-top: 0.2rem; }
+details.guide .g-h { font-weight: 700; font-size: 0.85rem; color: var(--muted); margin: 0 0 0.15rem; }
+/* '인쇄·PDF로 저장'을 누르면 그 자료의 안내만 따로 옮겨 한 장으로 인쇄합니다 */
+#printArea { display: none; }
+@media print {
+  body.print-one > *:not(#printArea) { display: none !important; }
+  body.print-one #printArea { display: block; padding: 0 0.5rem; }
+  #printArea .res { border: none; }
+}
 .foot { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
 .foot-link { background: none; border: 0; padding: 0.2rem 0; color: var(--accent); font: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; }
 @media (prefers-reduced-motion: no-preference) { .bubble, .coach { animation: rise 0.25s ease-out; } @keyframes rise { from { transform: translateY(4px); opacity: 0.6 } to { transform: none; opacity: 1 } } }
@@ -296,14 +316,84 @@ function siteAiDown(code) { if (!SITE_OFF.includes(code)) return false; S.ai = "
 const OFFTOPIC_TEXT = "이 연습실은 아이나 부모님 같은 대화 상대와의 대화 준비만 돕습니다. 상대가 한 말이나 질문을 적어 주세요.";
 const SELF_TAIL = " 이 대화는 혼자 연습하는 방식으로 이어 갑니다. 대답을 쓰신 뒤 '돌아보기'를 누르세요.";
 function resItem(id) { return resCard(id, false); }
+const GUIDES = typeof GUIDE !== "undefined" ? GUIDE : {};
+const EN_STEPS = typeof EN_HOW !== "undefined" ? EN_HOW : [];
+const EN_TIP = typeof EN_SAY !== "undefined" ? EN_SAY : "";
+/* 영어 자료: 안내에 영어라고 적었거나 종류 이름에 '영어'가 있으면 */
+function isEnglishRes(id) { const r = RES[id] || {}; return (GUIDES[id] && GUIDES[id].lang === "영어") || /영어/.test(r.kind || ""); }
+function resBadges(id) {
+  const g = GUIDES[id], b = [];
+  if (isEnglishRes(id)) b.push(`<span class="tag warn">영어 · 번역해서 보기</span>`);
+  if (g && /가입/.test(g.need || "")) b.push(`<span class="tag mid">회원가입 필요</span>`);
+  return b.length ? `<span class="badges">${b.join("")}</span>` : "";
+}
+/* 상대에게 보낼 말: 건넬 때 하는 말 + (영어면) 번역하는 법 + 자료 이름과 주소 */
+function sayText(id) {
+  const g = GUIDES[id], r = RES[id]; if (!g || !g.say || !r) return "";
+  return [g.say, isEnglishRes(id) ? EN_TIP : "", `${r.title}${r.url ? `\n${r.url}` : ""}`].filter(Boolean).join("\n\n");
+}
+/* 교사 단톡방이나 인쇄용 안내 글 */
+function guideText(id) {
+  const g = GUIDES[id], r = RES[id], m = META[id] || {}; if (!g || !r) return "";
+  const out = [`[${r.title}] ${r.kind} · ${r.by}`];
+  if (r.url) out.push(r.url);
+  out.push("", r.note);
+  if (m.v) out.push(`관점: ${m.v} / 대상: ${m.f || "-"}`);
+  out.push("", [g.form, g.need, g.lang].filter(Boolean).join(" · "), "", "처음 이렇게", ...g.steps.map((s, i) => `${i + 1}. ${s}`));
+  if (g.tricky && g.tricky.length) out.push("", "까다로운 점", ...g.tricky.map(s => `- ${s}`));
+  if (isEnglishRes(id)) out.push("", "번역하는 법", ...EN_STEPS.map(s => `- ${s}`));
+  if (m.c) out.push("", `주의: ${m.c}`);
+  if (g.eg) out.push("", g.eg);
+  if (g.say) out.push("", `건넬 때: "${g.say}"`);
+  out.push("", "질문 받기 연습실 '자료 길잡이'에서 정리했습니다.");
+  return out.join("\n");
+}
+function guideBox(id) {
+  const g = GUIDES[id], r = RES[id]; if (!g || !r) return "";
+  const say = sayText(id);
+  return `<details class="guide"><summary>처음 쓰는 법과 까다로운 점</summary><div>
+    <p class="small"><b>${esc(g.form || r.kind)}</b>${[g.need, g.lang].filter(Boolean).map(x => ` · ${esc(x)}`).join("")}</p>
+    <div><p class="g-h">처음 이렇게</p><ol>${g.steps.map(s => `<li>${esc(s)}</li>`).join("")}</ol></div>
+    ${g.tricky && g.tricky.length ? `<div><p class="g-h">까다로운 점</p><ul>${g.tricky.map(s => `<li>${esc(s)}</li>`).join("")}</ul></div>` : ""}
+    ${isEnglishRes(id) && EN_STEPS.length ? `<div><p class="g-h">번역하는 법</p><ul>${EN_STEPS.map(s => `<li>${esc(s)}</li>`).join("")}</ul></div>` : ""}
+    ${g.eg ? `<p class="small muted">${esc(g.eg)}</p>` : ""}
+    ${say ? `<div><p class="g-h">건넬 때 이렇게 (자료 주소와 함께 복사됩니다)</p><div class="copybox" data-gbox>${esc(say)}</div></div>` : ""}
+    <div class="btn-row">${say ? `<button class="mini" type="button" data-gsay="${esc(id)}">보낼 말 복사하기</button>` : ""}<button class="mini" type="button" data-gcopy="${esc(id)}">안내 복사하기 (교사용)</button><button class="mini" type="button" data-gprint="${esc(id)}">인쇄·PDF로 저장</button></div>
+    <p class="small muted" data-gmsg aria-live="polite"></p>
+  </div></details>`;
+}
 function resCard(id, full) {
   const r = RES[id]; if (!r) return "";
   const m = META[id] || {};
   const title = r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a>` : esc(r.title);
   const mine = full ? S.list.items.find(x => x.id === id) : null;
   const act = full ? `<span class="act"><span class="lv">확인 1단계 · 실제로 있음</span>${mine && mine.st !== "hold" ? `<span class="lv mine">우리 교회: ${esc(LIST_ST[mine.st])}</span>` : ""}<button class="mini" type="button" data-add="${esc(id)}" aria-pressed="${mine ? "true" : "false"}">${mine ? "목록에 담음 ✓" : "목록에 담기"}</button></span>` : "";
-  return `<div class="res"${full ? ` data-id="${esc(id)}"` : ""}><span class="k">${esc(r.kind)}</span><span class="ttl">${title}</span><span class="by">${esc(r.by)}</span><span class="small">${esc(r.note)}</span>${full ? `<span class="meta">관점 · ${esc(m.v || "-")} / 대상 · ${esc(m.f || "-")}</span>` : ""}${m.c ? `<span class="care">주의 · ${esc(m.c)}</span>` : ""}${act}</div>`;
+  return `<div class="res"${full ? ` data-id="${esc(id)}"` : ""}><span class="k">${esc(r.kind)}</span><span class="ttl">${title}</span><span class="by">${esc(r.by)}</span>${resBadges(id)}<span class="small">${esc(r.note)}</span>${full ? `<span class="meta">관점 · ${esc(m.v || "-")} / 대상 · ${esc(m.f || "-")}</span>` : ""}${m.c ? `<span class="care">주의 · ${esc(m.c)}</span>` : ""}${guideBox(id)}${act}</div>`;
 }
+/* 자료 안내의 복사·인쇄 단추는 어느 화면에 있든 여기서 받습니다 */
+function printGuide(card, id) {
+  let area = document.getElementById("printArea");
+  if (!area) { area = document.createElement("div"); area.id = "printArea"; document.body.appendChild(area); }
+  const r = RES[id] || {};
+  const copy = card.cloneNode(true);
+  copy.querySelectorAll("button, .act, [data-gmsg]").forEach(x => x.remove());
+  copy.removeAttribute("data-id");
+  const d = copy.querySelector("details.guide"); if (d) d.open = true;
+  area.innerHTML = `<p class="small muted">질문 받기 연습실 · 자료 길잡이 · 처음 쓰는 법</p>${r.url ? `<p class="small">주소: ${esc(r.url)}</p>` : ""}`;
+  area.appendChild(copy);
+  document.body.classList.add("print-one");
+  const done = () => { document.body.classList.remove("print-one"); area.innerHTML = ""; window.removeEventListener("afterprint", done); };
+  window.addEventListener("afterprint", done);
+  try { window.print(); } catch (e) { done(); }
+}
+document.getElementById("app").addEventListener("click", e => {
+  const b = e.target.closest("[data-gsay],[data-gcopy],[data-gprint]"); if (!b) return;
+  const card = b.closest(".res"); if (!card) return;
+  const msg = card.querySelector("[data-gmsg]");
+  if (b.dataset.gsay) copyText(sayText(b.dataset.gsay), card.querySelector("[data-gbox]"), msg);
+  else if (b.dataset.gcopy) copyText(guideText(b.dataset.gcopy), card.querySelector("details.guide > div"), msg);
+  else printGuide(card, b.dataset.gprint);
+});
 
 /* ---------- 우리 교회 목록 (이 기기 브라우저에만 저장) ---------- */
 function cleanList(v) {
@@ -410,6 +500,7 @@ function viewHome() {
   S.heartFrom = "home";
   app.innerHTML = `
   <div class="stack-lg">
+    <nav class="rooms" aria-label="방 고르기"><a aria-current="page">연습하기</a><a href="feel.html"><span class="dot" aria-hidden="true"></span>함께 느끼기<span class="new">새 방</span></a></nav>
     <div class="stack">
       <h1>아이가 어려운 질문을 할 때,<br>대화를 이어 가는 연습</h1>
       <p class="muted">모든 것을 알 필요는 없습니다. 아이의 질문 뒤에 있는 마음을 읽고, 정직하게 말하고, 더 넓은 세상으로 안내하는 길잡이가 되는 연습입니다.</p>
@@ -432,14 +523,18 @@ function viewHome() {
         </ul>
         <p>돌아보기 기준 네 가지(질문과 마음을 반기기, 확실한 것과 갈리는 것 나누기, 자기 믿음을 정직하게 말하기, 다음 대화의 문 열어 두기)는 누구도 바꿀 수 없도록 고정되어 있습니다. 쓰신 내용은 저장되지 않습니다.</p>
         <p>교사 모임에서 함께 쓰실 때는 '선생님의 마음과 교회의 자리' 맨 아래의 <b>30분 진행 순서</b>를 참고하세요.</p>
-        <p><b>최근 바뀐 점 (2026년 11월 9일)</b></p>
+        <p><b>최근 바뀐 점 (2026년 11월 14일)</b></p>
         <ul>
+          <li><b>새 방 '함께 느끼기'를 열었습니다.</b> 교회 달력을 따라 색이 바뀌고, 그림으로 여는 질문 3점, 절기 전통 28가지(유대 전통·정교회·가톨릭·개신교·한국 교회), 함께 가 볼 곳 12곳, 순례 수첩이 있습니다. 행사 준비물과 보호자 안내문을 바로 복사할 수 있습니다.</li>
+          <li>자료 길잡이에 '학문으로 보는 성경·종교' 주제와 '교회 말에 거부감이 큰 사람과 이야기할 때' 상황을 더했습니다. 쓰기 까다로운 자료에는 <b>처음 쓰는 법</b>(영어인지, 가입이 필요한지, 찾는 법, 건넬 때 보낼 말)을 붙였습니다.</li>
+          <li>직접 대답 연습에서 아이를 위험하게 할 수 있는 말(연락처·사진 묻기, 둘이서만 만나기, 비밀로 하자는 말, 성적인 말, 욕설·위협)은 아이에게 보내지 않고 이유를 알려 드립니다.</li>
+          <li>대화 준비에서 현실과 다른 경험(들리지 않는 소리, 감시당한다는 생각 등)이 보이면 정신건강의학과와 정신건강위기상담전화 1577-0199를 안내합니다.</li>
           <li>장면이 20개가 되었습니다. 반려동물의 죽음, 기도 응답(초등부)에 이어 우울과 믿음, 고난과 재난, 교회의 위선, 여성 목사, 제사, 친구의 성 정체성을 더했습니다.</li>
           <li>'어른에게 받는 질문'을 새로 두었습니다. 교회를 안 가겠다는 자녀를 둔 부모님, 믿음이 사라진 것 같다는 청년, 교회 안 가도 믿을 수 있지 않냐는 청년입니다.</li>
           <li>장면을 고를 때 받은 질문의 낱말로 찾거나, 초등부·중고등부·청년·어른으로 골라 볼 수 있습니다.</li>
           <li>우울, 성 정체성처럼 특히 신중해야 할 장면에는 '검토가 특히 필요한 장면'이라고 표시해 두었습니다. 전문가 검토 전에는 연습용으로만 써 주세요.</li>
-          <li>자료 길잡이에서 상황 7가지로 찾고, 이름이나 대상(초등부터 교역자까지)으로 걸러 볼 수 있습니다. 아이가 상처나 위험한 일을 털어놓을 때 어떻게 들어 주고 어디에 알릴지도 안내합니다.</li>
-          <li>자료는 50개입니다. 모두 2026년 11월에 실제로 있는지 확인했고, 매달 링크를 다시 점검합니다.</li>
+          <li>자료 길잡이에서 상황 8가지로 찾고, 이름이나 대상(초등부터 교역자까지)으로 걸러 볼 수 있습니다. 아이가 상처나 위험한 일을 털어놓을 때 어떻게 들어 주고 어디에 알릴지도 안내합니다.</li>
+          <li>자료는 ${Object.keys(RES).length}개입니다. 모두 2026년 11월에 실제로 있는지 확인했고, 매달 링크를 다시 점검합니다.</li>
         </ul>
         <button class="btn ghost" type="button" data-go="feedback">의견 정리하기</button>
       </div>
@@ -672,6 +767,8 @@ const CONDUCT = [
     "우리\\s*둘만\\s*(?:알자|아는\\s*거야|알고\\s*있자)",
     "우리끼리만\\s*(?:알자|아는\\s*거야|알고\\s*있자)",
     C_WHO + "\\s*(?:이|가)?\\s*모르게\\s*(?:하자|가자|와|만나|해|오렴|나와)" + C_MEET].join("|")) },
+  { k: "lure", why: "꾀어서 둘만의 무언가를 하자는 말",
+    re: new RegExp("(?:(?:아저씨|오빠|삼촌|형|누나|언니|이모|선생님|쌤|나)\\s*(?:랑|하고|이랑|와)\\s*(?:같이\\s*|둘이\\s*)?좋은\\s*(?:거|것|일|데)\\s*(?:할래|하자|해\\s*볼래|할까|해\\s*줄게|가자|갈래)|(?:너|넌|니)\\s*(?:만|한테만)\\s*(?:특별히|몰래)\\s*(?:주는|줄|보여|해\\s*줄))" + C_PROT) },
   { k: "romance", why: "연인처럼 부르거나 사귀자는 말",
     re: /(?:(?<![가-힣])자기야|우리\s*자기(?:야|가|는|랑|한테|를|도)|여보(?!세요|게|시오)|(?:뽀뽀|키스)\s*(?:해\s*줄게|하자|할래|해\s*줘|해\s*줄래)|(?<!친구\s*(?:를|랑|와|하고)?\s*)(?:사귀자|사귈래)|(?:나|선생님|쌤)\s*(?:랑|하고|와|이랑)\s*사귀|애인\s*(?:하자|할래|해\s*줄래))(?!\s*(?:라고|라는|란|하고\s*부르))/ },
   { k: "group", kids: true, why: "교회 밖 비밀 대화방이나 개인 대화로 이끄는 말",
@@ -694,12 +791,55 @@ function conductRule(p) {
 }
 function conductBox(list, p) {
   const kid = isKidRole(p), has = k => list.some(c => c.k === k);
+  const rules = list.filter(c => c.k !== "ai"), ai = list.filter(c => c.k === "ai");
+  const head = [rules.length ? `${rules.map(c => c.why).join(", ")}로 보였습니다.` : "", ...ai.map(c => /[.!?]$/.test(c.why) ? c.why : c.why + ".")].filter(Boolean).join(" ");
   const tail = [
-    list.some(c => c.kids) ? "연락과 만남은 보호자와 교회가 함께 알 수 있는 방법으로만 하고, 아이와 비밀을 만들지 마세요." : "",
-    has("body") || has("romance") ? (kid ? "아이에게 성적 수치심을 주는 말은 성적 학대가 될 수 있습니다." : "상대에게 성적 수치심을 주는 말은 성희롱이 될 수 있습니다.") : "",
-    has("abuse") ? (kid ? "아이에게 하는 욕설과 위협은 정서적 학대가 될 수 있습니다." : "욕설과 위협은 상대에게 깊은 상처를 줍니다.") : ""
+    rules.some(c => c.kids) ? "연락과 만남은 보호자와 교회가 함께 알 수 있는 방법으로만 하고, 아이와 비밀을 만들지 마세요." : "",
+    has("body") || has("romance") || has("lure") ? (kid ? "아이에게 성적 수치심을 주는 말은 성적 학대가 될 수 있습니다." : "상대에게 성적 수치심을 주는 말은 성희롱이 될 수 있습니다.") : "",
+    has("abuse") ? (kid ? "아이에게 하는 욕설과 위협은 정서적 학대가 될 수 있습니다." : "욕설과 위협은 상대에게 깊은 상처를 줍니다.") : "",
+    ai.length && !rules.length ? (kid ? "실제 아이에게 이런 말을 하면 아이를 위험하게 하거나 깊은 상처를 줄 수 있습니다." : "실제로 이런 말을 하면 상대에게 깊은 상처를 줄 수 있습니다.") : ""
   ].filter(Boolean).join(" ");
-  return `<div class="protect" id="conductWarn" role="alert"><b>이 말은 ${esc(p.name)}에게 보내지 않았습니다</b><span>${esc(list.map(c => c.why).join(", "))}로 보였습니다. ${esc(tail)}</span>${S.locked ? "" : `<span class="small">잘못 걸렸다면 표현을 바꿔 다시 보내 주세요. 쓰신 글은 아래 칸에 그대로 있습니다.</span>`}</div>`;
+  const small = S.locked ? "" : `${ai.length ? "AI가 대화 흐름을 보고 판단한 것이라 틀릴 수 있습니다. " : ""}잘못 걸렸다면 표현을 바꿔 다시 보내 주세요. 쓰신 글은 아래 칸에 그대로 있습니다.`;
+  return `<div class="protect" id="conductWarn" role="alert"><b>이 말은 ${esc(p.name)}에게 보내지 않았습니다</b><span>${esc(head)} ${esc(tail)}</span>${small ? `<span class="small">${esc(small)}</span>` : ""}</div>`;
+}
+/* 대화 중 AI 확인: 정해 둔 규칙에 걸리지 않게 돌려 말하는 말('아저씨랑 좋은 거 할래?' 같은)을 대화 흐름과 함께 봅니다.
+   아이의 대답과 동시에 묻고, 위험하다고 하면 아이의 대답을 버리고 그 말을 보내지 않은 것으로 되돌립니다.
+   확인이 실패하면(인터넷 문제 등) 막지 않고 넘어가고, 돌아보기가 다시 봅니다. */
+function guardPrompt(text, before) {
+  const p = S.persona, kid = isKidRole(p), w = W(p), who = kid ? "아이" : "상대";
+  const B = S.blocked || [];
+  return `너는 교회학교 교사들이 쓰는 대화 연습 사이트의 안전 확인 담당이다. 교사가 연습 상대인 ${w.w}(${p.name}, ${p.grade})에게 보내려는 말을 지금까지의 대화와 함께 읽고, 이 말을 실제 ${who}에게 했다면 ${who}를 위험하게 하거나 해치는 말인지 판단한다.
+
+[막아야 하는 말]
+${kid ? `- 아이를 꾀어 둘만의 관계를 만들려는 말: '아저씨랑 좋은 거 할래?', '너만 특별해', 선물·간식·용돈을 내세워 따로 보자는 말
+- 아이와 둘이서만 만나거나 어디로 데려가려는 말, 혼자 남거나 혼자 나오라는 말, 선생님 집이나 차로 부르는 말
+- 부모님이나 교회에 비밀로 하자는 말, 부모님께 거짓말을 하라는 말
+- 아이에게 연락처·사는 곳·사진을 묻는 말, 개인 대화방이나 교회 밖 모임으로 부르는 말
+` : ""}- 연인처럼 부르는 말, 외모·몸·성에 관한 말이나 성적인 암시
+- ${who}가 싫다고 했는데 다시 조르거나, 서운하다며 죄책감을 주거나, 겁을 주는 말
+- 욕설, 모욕, 위협, '죽어라' 같은 말
+
+[막지 않는 말]
+- ${who}의 말을 그대로 옮겨 확인하는 말('누가 비밀로 하자고 했어?'), ${who}를 보호하려는 말('그런 말을 하는 어른이 있으면 꼭 말해 줘')
+- 반 친구들이나 가족과 함께하는 자리, 예배와 교회 행사 초대, 보호자와 함께 이야기하자는 말, 평범한 칭찬·위로·사과
+${kid ? "" : "- 어른끼리 연락처를 주고받거나 따로 만나 이야기하자는 말\n"}- 신앙에 대한 어떤 입장이든. 서툴거나 닫힌 대답('믿음이 부족해서 그래', '그런 건 생각하지 마')도 여기서는 막지 않는다. 그런 것은 돌아보기에서 다룬다.
+- 평범한 뜻으로 읽히고 대화 흐름에도 위험한 신호가 없으면 막지 않는다.
+
+[지금까지의 대화]
+${before}
+${B.length ? `\n[이 대화에서 이미 막힌 선생님의 말]\n${B.map(b => `- ${b.text}`).join("\n")}\n` : ""}
+[선생님이 지금 보내려는 말]
+${text}
+
+다음 모양의 JSON 하나만 답한다: {"block": true 또는 false, "why": "막는다면 '~하는 말입니다'처럼 쉬운 존댓말 이유 한 문장, 막지 않으면 빈 문자열"}`;
+}
+/* AI 확인이 막으면: 아이의 대답을 버리고, 보낸 말을 대화에서 빼고, 쓴 글을 칸에 되돌립니다 */
+function blockAfterCheck(text, why, bubble) {
+  const bi = S.turns.indexOf(bubble); if (bi >= 0) S.turns.splice(bi, 1);
+  for (let i = S.turns.length - 1; i >= 0; i--) if (S.turns[i].who === "me") { if (S.turns[i].text === text) { S.turns.splice(i, 1); S.mine = Math.max(0, S.mine - 1); } break; }
+  const w = { k: "ai", kids: isKidRole(S.persona), why: String(why || "").trim() || "대화 흐름으로 보아 상대를 위험하게 할 수 있는 말입니다." };
+  S.blocked = [...(S.blocked || []), { text, kinds: ["ai"], why: w.why }];
+  S.conductWarn = [w]; S.locked = S.blocked.length >= BLOCK_LIMIT; S.draftBack = text; S.notice = ""; S.retryKid = false;
 }
 /* 돌아보기 화면 맨 위: 보내기 전에 막은 말이 있었거나, AI가 선생님의 행동에서 보호 문제를 찾았을 때 */
 function conductReviewBox(note, p) {
@@ -711,7 +851,7 @@ function conductReviewBox(note, p) {
 }
 function startChat(persona) {
   if (S.ctl) S.ctl.abort();
-  S = { ...S, view: "chat", persona, turns: [{ who: "kid", text: persona.opening }], mine: 0, busy: false, notice: "", noticeErr: false, retryKid: false, review: null, self: {}, ctl: null, hint: "", hintBusy: false, blocked: [], conductWarn: null, locked: false, mode: S.ai === "no" ? "self" : "ai" };
+  S = { ...S, view: "chat", persona, turns: [{ who: "kid", text: persona.opening }], mine: 0, busy: false, notice: "", noticeErr: false, retryKid: false, review: null, self: {}, ctl: null, hint: "", hintBusy: false, blocked: [], conductWarn: null, locked: false, pendingGuard: null, draftBack: undefined, mode: S.ai === "no" ? "self" : "ai" };
   render(); window.scrollTo({ top: 0 });
 }
 function bubbles() {
@@ -724,7 +864,7 @@ function viewChat() {
   const p = S.persona;
   const done = S.mode === "ai" ? S.mine >= MAX_TURNS && !S.busy : S.mine >= 1;
   const canReview = (S.mine >= 1 || (S.blocked || []).length > 0) && !S.busy;
-  const draft = document.getElementById("answer")?.value ?? "";
+  const draft = S.draftBack ?? document.getElementById("answer")?.value ?? ""; S.draftBack = undefined;
   app.innerHTML = `
   <div class="stack-lg">
     <button class="back" type="button" id="toPick">← ${p.custom ? "대화 준비로" : p.who ? "다른 질문 고르기" : "아이 다시 고르기"}</button>
@@ -760,7 +900,7 @@ function viewChat() {
   const send = document.getElementById("send"); if (send) send.onclick = onSend;
   const stop = document.getElementById("stop"); if (stop) stop.onclick = () => S.ctl && S.ctl.abort();
   const hb = document.getElementById("hintBtn"); if (hb) hb.onclick = askHint;
-  const rk = document.getElementById("retryKid"); if (rk) rk.onclick = () => { S.notice = ""; S.retryKid = false; askKid(); };
+  const rk = document.getElementById("retryKid"); if (rk) rk.onclick = () => { S.notice = ""; S.retryKid = false; askKid(S.pendingGuard || undefined); };
   app.querySelectorAll(".chip").forEach(c => c.onclick = () => { const ta = document.getElementById("answer"); const add = c.dataset.t; ta.value = ta.value.trim() ? ta.value.replace(/\s*$/, " ") + add : add; ta.focus(); });
 }
 function scrollChat() { const c = document.getElementById("chat"); if (c && c.lastElementChild) c.lastElementChild.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
@@ -781,9 +921,10 @@ async function onSend() {
     return;
   }
   S.conductWarn = null;
+  const before = transcript();
   S.turns.push({ who: "me", text }); S.mine++; ta.value = ""; S.notice = ""; S.retryKid = false; S.hint = "";
   if (S.mode === "self") { viewChat(); return; }
-  await askKid();
+  await askKid({ text, before });
 }
 function kidPrompt() {
   const p = S.persona; const last = S.mine >= MAX_TURNS;
@@ -824,27 +965,39 @@ function cleanKidLine(text, p) {
   for (let i = 0; i < 3 && tag.test(s); i++) s = s.replace(tag, "").trim();
   return s.replace(/^["“]|["”]$/g, "");
 }
-async function askKid() {
+async function askKid(guard) {
   const sample = await samplePromise;
   if (!sample) { toSelfMode(); viewChat(); return; }
   S.busy = true;
   const bubble = { who: "kid", text: `${iGa(S.persona.name, !S.persona.custom)} 생각하는 중…`, thinking: true };
   S.turns.push(bubble); viewChat(); scrollChat();
   const ctl = new AbortController(); S.ctl = ctl;
+  /* 새로 보낸 말이면 AI 확인을 아이의 대답과 동시에 묻습니다. 확인이 끝나기 전에는 아이의 대답을 보여 주지 않습니다 */
+  const checkP = guard ? sample.json(guardPrompt(guard.text, guard.before), { modelTier: "quick", cache: false, signal: ctl.signal }).catch(() => null) : Promise.resolve(null);
   try {
-    const { text } = await sample(kidPrompt(), {
+    let kidErr = null;
+    const kidP = sample(kidPrompt(), {
       modelTier: "quick", cache: false, signal: ctl.signal,
-      onText: ({ text }) => { bubble.thinking = false; bubble.text = text; const el = document.querySelector("#chat .bubble.kid:last-child"); if (el) { el.classList.remove("thinking"); el.lastChild.textContent = text; } }
-    });
-    bubble.thinking = false; bubble.text = cleanKidLine(text, S.persona);
+      onText: guard ? undefined : ({ text }) => { bubble.thinking = false; bubble.text = text; const el = document.querySelector("#chat .bubble.kid:last-child"); if (el) { el.classList.remove("thinking"); el.lastChild.textContent = text; } }
+    }).catch(e => { kidErr = e; return null; });
+    const [kid, check] = await Promise.all([kidP, checkP]);
+    if (guard && check && (check.block === true || check.block === "true") && !ctl.signal.aborted) { S.pendingGuard = null; blockAfterCheck(guard.text, check.why, bubble); return; }
+    if (kidErr) throw kidErr;
+    S.pendingGuard = null;
+    bubble.thinking = false; bubble.text = cleanKidLine(kid.text, S.persona);
   } catch (e) {
+    /* 멈추거나 실패해서 다시 받을 때도 같은 말을 다시 확인합니다 */
+    if (guard) S.pendingGuard = guard;
     S.turns.splice(S.turns.indexOf(bubble), 1);
     const code = e && e.code;
     if (OFF.includes(code)) toSelfMode("AI 사용이 허용되지 않아 혼자 연습하는 방식으로 바꿨습니다. 아래 '돌아보기'를 누르시면 스스로 점검할 수 있습니다.");
     else if (siteAiDown(code)) toSelfMode(errText(code) + SELF_TAIL);
     else if (code === "cancelled") { S.notice = "멈췄습니다."; S.noticeErr = false; S.retryKid = true; }
     else { S.notice = errText(code); S.noticeErr = true; S.retryKid = code !== "too_long"; }
-  } finally { S.busy = false; if (S.ctl === ctl) S.ctl = null; if (S.view === "chat") { viewChat(); scrollChat(); } }
+  } finally {
+    S.busy = false; if (S.ctl === ctl) S.ctl = null;
+    if (S.view === "chat") { viewChat(); if (S.conductWarn) { const w = document.getElementById("conductWarn"); if (w) w.scrollIntoView({ block: "center", behavior: "smooth" }); } else scrollChat(); }
+  }
 }
 async function askHint() {
   const sample = await samplePromise; if (!sample) return;
@@ -982,7 +1135,8 @@ const GRADE_OPTS = ["초등학교 저학년", "초등학교 고학년", "중학�
 const WHO_OPTS = ["아이", "친구 (또래)", "부모님", "다른 교사나 어른"];
 const LANG_OPTS = ["잘 모름", "과학·이성의 언어", "말씀·교리의 언어", "성령·체험의 언어", "삶·정의의 언어"];
 function prepPrompt(inp) {
-  const list = Object.entries(RES).map(([id, r]) => `${id} | ${r.title} | ${r.tags.join(", ")} | 관점: ${(META[id] || {}).v || "-"} | 대상: ${(META[id] || {}).f || "-"}`).join("\n");
+  /* 준비 카드에는 영어 자료를 추천하지 않습니다(영어 자료는 자료 길잡이에서 사용 안내와 함께 봅니다) */
+  const list = Object.entries(RES).filter(([id]) => !isEnglishRes(id)).map(([id, r]) => `${id} | ${r.title} | ${r.tags.join(", ")} | 관점: ${(META[id] || {}).v || "-"} | 대상: ${(META[id] || {}).f || "-"}`).join("\n");
   return `너는 교회학교 교사를 돕는 '대화 준비 도우미'다. 교사가 아이에게서 받은 질문과 아는 배경을 적었다. 교사가 아이와 공감하며 대화를 이어 가도록 한 장짜리 준비 카드를 만든다.
 
 [절대 원칙]
@@ -1053,7 +1207,7 @@ function viewPrep() {
       result = `<div class="notice">${esc(OFFTOPIC_TEXT)}</div>`;
     } else {
       const boxes = cardBoxes(r, inp);
-      const ids = (Array.isArray(r.resources) ? r.resources : []).filter(id => RES[id]);
+      const ids = (Array.isArray(r.resources) ? r.resources : []).filter(id => RES[id] && !isEnglishRes(id));
       const li = a => (Array.isArray(a) ? a : []).map(x => `<li>${esc(x)}</li>`).join("");
       result = `
       <div class="stack">
@@ -1172,7 +1326,7 @@ function practiceCustom() {
     rules: "교사가 알려 준 상황을 바탕으로 그럴듯한 사람을 연기하되, 지나치게 극적으로 만들지 않는다." + (inp.who && inp.who !== "아이" ? ` 너는 학생이 아니라 ${inp.who} 역할이다. 그 나이와 관계에 맞는 말투를 쓴다.` : "") + (inp.lang && inp.lang !== "잘 모름" ? ` 말투와 단어에 '${inp.lang}'가 자연스럽게 묻어난다.` : ""),
     focus: "아이의 배경을 짐작으로 단정하지 않고 먼저 묻는지, 공감하며 대화를 이어 가는지",
     positions: Array.isArray(r.positions) ? r.positions.map(x => [x && x.name, x && x.line]) : [],
-    res: (Array.isArray(r.resources) ? r.resources : []).filter(id => RES[id]),
+    res: (Array.isArray(r.resources) ? r.resources : []).filter(id => RES[id] && !isEnglishRes(id)),
     protect: riskText || ""
   });
 }
@@ -1380,6 +1534,12 @@ function viewLibrary() {
       <div class="steps3"><div><b>1단계 · 실제로 있음</b>링크나 출판 정보로 실제로 있는지 확인합니다. 지금 이 목록의 모든 자료가 여기까지 왔습니다. 마지막 확인은 2026년 11월입니다.</div><div><b>2단계 · 내용 검토</b>여러 전통의 사역자와 전문가가 내용을 읽고 관점과 주의할 점을 확인합니다. 정식 서비스에서 할 일입니다.</div><div><b>3단계 · 교회·교단 선별</b>각 교회와 교단이 자기 지침에 맞게 고릅니다. '우리 교회 목록'에서 고르시면 우리 교회의 선별이 됩니다.</div></div>
       <p>자료마다 붙은 관점, 대상, 주의 문구는 기획자가 붙인 것으로 아직 검토 전입니다. 아이에게 건네기 전에 담당 교역자와 내용을 살펴 주세요.</p>
     </div></details>
+    <details class="card" id="enHow"><summary>영어 자료는 이렇게 보세요</summary><div class="stack-sm small">
+      <p>영어로 된 자료에는 <span class="tag warn">영어 · 번역해서 보기</span> 표시가 붙어 있습니다. 글로 된 사이트는 번역 기능으로 충분히 읽히지만, 영상의 소리는 번역되지 않으니 자막을 켜세요.</p>
+      <ul>${EN_STEPS.map(s => `<li>${esc(s)}</li>`).join("")}</ul>
+      <p>신학 낱말은 어색하게 옮겨지기도 합니다(예: covenant 언약, atonement 속죄). 중요한 문장은 번역 창에서 원문을 다시 켜서 확인하세요.</p>
+      <p>영어 자료를 다른 분께 건넬 때는 자료 아래 '처음 쓰는 법'의 <b>보낼 말 복사하기</b>를 쓰세요. 번역하는 법이 함께 들어갑니다. 대화 준비(AI) 카드에는 영어 자료를 추천하지 않습니다.</p>
+    </div></details>
     <div class="notice small">잘못된 정보를 보셨거나 더 좋은 자료를 아시면 알려 주세요. 확인해서 더하겠습니다. <button class="mini" type="button" id="libFb">의견 정리하기</button></div>
   </div>`;
   document.getElementById("libBack").onclick = () => { if (sub) { L.sit = null; go("library"); } else go("home"); };
@@ -1441,8 +1601,8 @@ function applyLibQ() {
   const words = (S.libQ || "").trim().toLowerCase().split(/\s+/).filter(Boolean);
   let n = 0;
   app.querySelectorAll(".res[data-id]").forEach(el => {
-    const id = el.dataset.id, r = RES[id], m = META[id] || {};
-    const hay = [r.title, r.by, r.note, r.kind, m.v || "", m.f || ""].join(" ").toLowerCase();
+    const id = el.dataset.id, r = RES[id], m = META[id] || {}, g = GUIDES[id] || {};
+    const hay = [r.title, r.by, r.note, r.kind, m.v || "", m.f || "", g.need || "", g.form || "", g.lang || "", isEnglishRes(id) ? "영어" : ""].join(" ").toLowerCase();
     const ok = words.every(w => hay.includes(w));
     el.hidden = !ok; if (ok) n++;
   });
@@ -1616,7 +1776,7 @@ function viewAbout() {
     <button class="back" type="button" id="toHome">← 처음으로</button>
     <div class="stack-sm"><h1>이용 안내</h1><p class="muted">마지막으로 고친 날: 2026년 11월</p></div>
     <section class="card"><h3>어떤 도구인가요</h3><p>교회학교 교사와 사역자(성인)가 아이·청소년·청년·부모의 어려운 신앙 질문을 받고 대화를 이어 가도록 연습하는 도구입니다. 전문가 감수 전 체험판이라 부족한 내용이 있을 수 있습니다.</p><p>장면 연습에서는 대답을 '여는 대답', '아쉬운 대답', '닫는 대답'으로 나눕니다. 여는 대답은 답을 주지 않는 대답이 아니라, 답을 준 뒤에도 아이가 다시 물을 수 있게 남겨 두는 대답입니다.</p></section>
-    <section class="card"><h3>생성형 AI를 쓰는 기능</h3><p>'직접 대답 연습', '코치에게 귀띔 받기', AI로 받는 '돌아보기', '대화 준비'는 생성형 AI(Anthropic의 Claude)가 만든 내용을 보여 줍니다. 'AI 없이' 표시가 있는 기능은 AI를 쓰지 않고 미리 써 둔 내용만 보여 줍니다.</p><ul><li>AI가 만든 내용은 틀릴 수 있습니다. 중요한 판단은 목회자나 전문가와 함께 확인하세요.</li><li>AI는 어떤 신학 입장이 맞는지 판단하지 않도록 만들었습니다.</li></ul></section>
+    <section class="card"><h3>생성형 AI를 쓰는 기능</h3><p>'직접 대답 연습', '코치에게 귀띔 받기', AI로 받는 '돌아보기', '대화 준비'는 생성형 AI(Anthropic의 Claude)가 만든 내용을 보여 줍니다. 'AI 없이' 표시가 있는 기능은 AI를 쓰지 않고 미리 써 둔 내용만 보여 줍니다.</p><ul><li>AI가 만든 내용은 틀릴 수 있습니다. 중요한 판단은 목회자나 전문가와 함께 확인하세요.</li><li>AI는 어떤 신학 입장이 맞는지 판단하지 않도록 만들었습니다.</li><li>'직접 대답 연습'에서 아이를 위험하게 할 수 있는 말(연락처·사진 묻기, 둘이서만 만나기, 비밀로 하자는 말, 성적인 말, 욕설·위협 등)은 아이에게 보내지 않고 이유를 알려 드립니다. 정해 둔 규칙으로 먼저 보고, 규칙에 없는 돌려 말하기는 AI가 대화 흐름과 함께 봅니다.</li></ul></section>
     <section class="card"><h3>쓰신 글은 어디로 가나요</h3><ul><li>회원 가입이 없고, 이름이나 연락처를 모으지 않습니다.</li><li>쓰신 대답과 대화는 이 ${site ? "사이트" : "페이지"}에 저장되지 않으며, 화면을 닫으면 사라집니다.</li><li>${esc(aiFlowText())}</li><li>글자 크기와 '우리 교회 목록'만 이 기기의 브라우저에 저장됩니다.</li><li>아이를 알아볼 수 있는 정보(이름, 학교, 사는 곳)는 넣지 마세요.</li></ul></section>
     <section class="card"><h3>상담을 대신하지 않습니다</h3><p>이 도구는 대화 연습용이며 전문 상담이나 의료·법률 조언을 대신하지 않습니다. 아이가 위험하다고 느껴지면 혼자 해결하려 하지 말고 바로 도움을 요청하세요.</p><ul><li>자살예방상담전화 109</li><li>청소년상담 1388 (전화·문자·카카오톡)</li><li>아동학대 신고 112</li></ul></section>
     <section class="card"><h3>저작권과 함께 쓰기</h3><p>프로그램 코드는 MIT 라이선스로, 장면·안내문·자료 설명 같은 내용은 CC BY-SA 4.0으로 공개합니다. 출처를 밝히고 고친 판도 같은 조건으로 공개하면, 교회와 교단이 자유롭게 쓰고 고쳐서 자기 판을 운영할 수 있습니다.</p><ul><li>연결된 책·기사·기관 자료의 저작권은 각 저작권자에게 있습니다.</li><li>성경 구절은 특정 번역본을 그대로 옮기지 않고 풀어 썼습니다.</li></ul></section>
