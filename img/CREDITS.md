@@ -5,9 +5,9 @@
 ## 그림 (저작권이 끝난 작품, 위키미디어 공용)
 - thomas.jpg — 카라바조, 「의심하는 도마」 — https://commons.wikimedia.org/wiki/File:Caravaggio_-_The_Incredulity_of_Saint_Thomas.jpg
 - prodigal.jpg — 렘브란트, 「탕자의 귀향」 — https://commons.wikimedia.org/wiki/File:Rembrandt_Harmensz_van_Rijn_-_Return_of_the_Prodigal_Son_-_Google_Art_Project.jpg
-- isenheim-cross.jpg — 그뤼네발트, 이젠하임 제단화 「십자가 처형」 — https://commons.wikimedia.org/wiki/File:Matthias_Gr%C3%BCnewald_-_The_Crucifixion_-_WGA10723.jpg
-- isenheim-rise.jpg — 그뤼네발트, 이젠하임 제단화 「부활」 — https://commons.wikimedia.org/wiki/File:Matthias_Gr%C3%BCnewald_-_The_Resurrection_-_WGA10754.jpg
-- angelico.jpg — 프라 안젤리코, 「수태고지」 — https://commons.wikimedia.org/wiki/File:Angelico_-_Annunciation_-_San_Marco_north_corridor.jpg
+- isenheim-cross.jpg — 그뤼네발트, 이젠하임 제단화 「십자가 처형」 — 위키미디어 공용 파일 「Isenheim Altarpiece — FIRST OPENING」에서 가운데 그림만 잘라 냄(11월 15일 더 큰 사진으로 바꿈) — https://commons.wikimedia.org/w/index.php?search=Isenheim+Altarpiece+FIRST+OPENING
+- isenheim-rise.jpg — 그뤼네발트, 이젠하임 제단화 「부활」 — 위키미디어 공용 파일 「Matthias Grünewald - Resurrection」(11월 15일 더 큰 사진으로 바꿈) — https://commons.wikimedia.org/w/index.php?search=Matthias+Gr%C3%BCnewald+Resurrection
+- angelico.jpg — 프라 안젤리코, 「수태고지」(마드리드 프라도 미술관, 아래 받침 그림은 잘라 냄. 11월 15일 피렌체 산 마르코 벽화에서 바꿈) — https://commons.wikimedia.org/wiki/File:La_Anunciaci%C3%B3n,_by_Fra_Angelico,_from_Prado_in_Google_Earth.jpg
 - latour.jpg — 조르주 드 라 투르, 「갓난아기」 — https://commons.wikimedia.org/wiki/File:Georges_de_La_Tour_-_Newlyborn_infant_-_Mus%C3%A9e_des_Beaux-Arts_de_Rennes.jpg
 - elgreco.jpg — 엘 그레코, 「성령 강림」 — https://commons.wikimedia.org/wiki/File:Pentecost%C3%A9s_(El_Greco,_c._1600)_Prado.jpg
 - millet.jpg — 장프랑수아 밀레, 「만종」 — https://commons.wikimedia.org/wiki/File:Jean-Fran%C3%A7ois_Millet_-_The_Angelus_-_Google_Art_Project.jpg
@@ -46,7 +46,7 @@
 - star-1.jpg ~ star-3.jpg — 모라비안 별 (헤른후트 별, 창가의 종이 별, 나무 꼭대기 별)
 - manger-1.jpg ~ manger-4.jpg — 구유 꾸미기 (밤의 마구간, 양 떼 구유, 프로방스 마을 인형 구유, 전구 구유)
 - handwash-1.jpg, handwash-2.jpg — 서로 손 씻어 주기 (두 손에 받는 물)
-- tongues-1.jpg ~ tongues-3.jpg — 여러 나라 말로 인사하기 (지구본 둘레의 아이들, 지구본을 든 아이들, 세계 지도 색칠)
+- tongues-3.jpg — 여러 나라 말로 인사하기 (세계 지도 색칠). tongues-1·2·5는 Pixabay 사진, tongues-4는 아래 11월 15일 Unsplash 사진
 - thanks-1.jpg ~ thanks-3.jpg — 추수감사 열매 바구니 (들고 가는 과일 바구니, 밀짚모자 옆 바구니, 수박 바구니)
 - illum-1.jpg ~ illum-4.jpg — 채색 머리글자 (금빛 첫 글자, 빨간 첫 글자 필사본, 두루마리 책장, 깃펜과 옛 종이)
 - treasure-1.jpg ~ treasure-5.jpg — 우리 교회 보물찾기 (말씀을 새긴 성찬상, 은빛 성찬기, 오래된 잔, 강단 촛대, 성찬 잔 준비)
@@ -183,6 +183,13 @@
 - wreath-4.jpg — waldemar-brandt — https://unsplash.com/photos/XTZp7u5T1Nk (새로 더함)
 - wreath-5.jpg — g-l — https://unsplash.com/photos/wOtLcKJaBYM (새로 더함)
 - wreath-6.jpg — alexandra-mitache — https://unsplash.com/photos/8rsDkhHA9_w (새로 더함)
+- tongues-4.jpg — delsie-bohol — https://unsplash.com/photos/e4eAFTheb1A (새로 더함)
+- garden-1.jpg — matt-seymour — https://unsplash.com/photos/9t2_HmP3ieo (새로 더함)
+
+## 장면 사진 (Pixabay. Pixabay 콘텐츠 라이선스: 무료로 쓸 수 있고 출처 표기 의무는 없음)
+- tongues-1.jpg — sunriseforever — https://pixabay.com/photos/kids-7024409/ (돋보기로 지구본을 보는 아이들)
+- tongues-2.jpg — mihail_fotodeti — https://pixabay.com/photos/kids-2835431/ (지구본을 가리키는 아이)
+- tongues-5.jpg — ralphs_fotos — https://pixabay.com/photos/migration-3129340/ (세계 지도 위에 포갠 세 손)
 
 ## 장면 사진 (위키미디어 공용. 크기를 줄여 실음. 페이지의 사진 출처 줄에 찍은 사람·라이선스·원본 링크를 밝힘)
 위키미디어 공용은 자유 라이선스(퍼블릭 도메인, CC0, CC BY, CC BY-SA) 사진만 받습니다. CC BY·CC BY-SA는 찍은 사람, 라이선스, 원본 링크를 밝히면 쓸 수 있고, 사진을 고쳐 새 사진을 만들 때만 같은 라이선스로 내놓아야 합니다.
@@ -201,6 +208,10 @@
 - nicholas-2.jpg — 신터클라스 — CrazyPhunk(nl.wikipedia), CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Sinterklaas_2007.jpg
 - starsingers-1.jpg — 미콜라 피모넨코, 「콜랴드키」(1880년대 후반) — 저작권이 끝난 그림 — https://commons.wikimedia.org/wiki/File:Пимоненко_Колядки_1880.jpg
 - starsingers-2.jpg — 몰도바 성탄 우표(1996) — Post of Moldova, 퍼블릭 도메인(몰도바 우표) — https://commons.wikimedia.org/wiki/File:Stamp_of_Moldova_341.gif
+- garden-3.jpg — 피크커크 성 페가 교회의 작은 부활절 정원 — Paul Bryan, CC BY-SA 2.0 — https://commons.wikimedia.org/wiki/File:Miniature_Easter_garden_at_St._Pega%27s_church,_Peakirk_-_geograph.org.uk_-_8293472.jpg
+- garden-4.jpg — 프레던 교회의 부활절 정원 — Neil Owen, CC BY-SA 2.0 — https://commons.wikimedia.org/wiki/File:Easter_Garden,_Fretherne_-_geograph.org.uk_-_7476025.jpg
+- garden-5.jpg — 크라이스트처치 수도원 교회의 부활절 정원 — Michael Garlick, CC BY-SA 2.0 — https://commons.wikimedia.org/wiki/File:Christchurch_Priory,_The_Easter_Garden_-_geograph.org.uk_-_8064344.jpg
+- garden-6.jpg — 솔즈베리 대성당의 부활절 정원 — Richard Avery, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Easter_Garden,_Salisbury_Cathedral_1.jpg
 
 ## 받았지만 쓰지 않은 사진 (11월 14일)
 - 그리스 외교부 바실로피타 자르기(장관·총리) — 정치인
@@ -218,7 +229,8 @@
 
 - 11월 15일 보내 주신 사진 가운데 장면에 딱 맞는 자리가 없어 아직 넣지 않은 것: 어두운 예배당의 빛나는 십자가(julie-stan), 분홍 네온 십자가(earl-mckenzie), 극장 찬양 집회(hannah-busing), 찬양·기도 모임 둘(elianna-gill 5VRY0ST3bbM, 4z9HMs3_6aw), 밤의 고딕 교회(ravi-patel). 받은 폴더의 다른 Unsplash 사진들도 장면에 맞는 것만 골라 넣음.
 - 페이스북에서 온 '빛나는 십자가와 풍선' 사진은 교회 행사에서 아이들을 찍은 다른 사람의 사진이라 쓰지 않음.
+- 11월 15일 저녁에 받았지만 넣지 않은 것: 아이들 색칠(oscar-omondi), 교실 포스터(Pixabay profesales), 천에 그림 그리는 아이들(yazid-n), 군복 차림 선생님과 아이들(husniati-salma), 정원 인형들(wolfgang-vrede 둘), 장터의 짚 토끼(czeslawa-grabowska).
 
 ## 아직 사진이 없는 장면
 - 여섯 절기의 장면 열두 개와 첫 화면의 장소 네 곳에는 모두 사진이 있음.
-- 더 많은 전통 가운데 부활절 정원(garden)만 아직 비어 있음. 서울 성 니콜라스 대성당은 11월 15일에 4장을 넣음.
+- 부활절 정원(garden): 11월 15일 위키미디어 공용의 영국 교회 부활절 정원 사진 4장(garden-3~6)과 마을 부활절 벤치 사진(garden-1)을 넣음. 짚 토끼 사진(garden-2)은 뺌. 서울 성 니콜라스 대성당은 11월 15일에 4장을 넣음.
