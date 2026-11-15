@@ -1007,3 +1007,20 @@ Object.assign(FEEL_EN.ui, {
   "피모넨코 「콜랴드키」": "Pymonenko, 'Koliadky'",
   "몰도바 성탄 우표": "Christmas stamp of Moldova"
 });
+
+/* 11월 15일 추가: 아몬드 바실로피타, 서울 성 니콜라스 대성당 사진 */
+Object.assign(FEEL_EN.captions, {
+  "vasilopita-4": "A vasilopita decorated with almonds. It's baked at home and cut together as the new year begins.",
+  "stnicholas-1": "A large chandelier hangs beneath the dome, and at the front stands a wall filled with icons, called the iconostasis.",
+  "stnicholas-2": "Paintings fill the walls. At the very top is the scene of Jesus' birth. In this church, you read Bible stories in pictures.",
+  "stnicholas-3": "A golden mosaic above the door. It says 'Saint Nicholas' in Greek and in Korean. The Santa Claus story began with him, too.",
+  "stnicholas-4": "At the end of the courtyard, beyond the trees, you can see a green dome and a cross."
+});
+
+Object.assign(FEEL_EN.ui, {
+  "아몬드 바실로피타": "Almond vasilopita",
+  "성 니콜라스 대성당 안": "Inside St. Nicholas Cathedral",
+  "벽을 채운 그림": "Painted walls",
+  "성 니콜라스 모자이크": "St. Nicholas mosaic",
+  "마당과 둥근 지붕": "Courtyard and dome"
+});
