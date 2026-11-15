@@ -556,7 +556,7 @@ FEEL_EN.captions = {
   "christingle-4": "A single light on a small orange.",
   "christingle-3": "Getting one ready for every child, for the Christmas Eve service.",
   "christingle-1": "The orange is the world, the sweets are the things God made, and the candle is the light.",
-  "christingle-2": "Hands cupped around a small light, faces glowing in it.",
+  "christingle-2": "One small candle, and a face glowing in its light.",
   "carol-3": "At an elder's front door. Take a breath, and start the first line.",
   "carol-1": "In some towns, people dress in old-fashioned clothes and sing carols in the street.",
   "carol-2": "One candle each, and our voices together.",
@@ -567,7 +567,7 @@ FEEL_EN.captions = {
   "honey-1": "A drop of honey on the letters.",
   "honey-2": "They say the children got honey cakes with Bible verses on them, too.",
   "lantern-1": "In the dark, even a small lantern can be seen from far away.",
-  "lantern-3": "Such a joyful face over one small lantern.",
+  "lantern-3": "Hang the lantern up high. Even one small light brightens everything around it.",
   "lantern-2": "A small light in everyone's hands.",
   "lentbox-1": "Forty days of collecting, one coin at a time, with small hands.",
   "lentbox-2": "Families fill one at home, too.",
@@ -604,7 +604,8 @@ FEEL_EN.captions = {
   "cheongna-1": "A missionary house of red brick under a Korean tiled roof, with church spires behind it.",
   "cheongna-2": "Follow the stone path to missionary homes more than a hundred years old.",
   "cheongna-3": "A sunny glassed-in room in the house where a missionary family lived.",
-  "cheongna-4": "A short rest in front of an ivy-covered brick wall.",
+  "cheongna-4": "The March 1st Movement Road by the ivy wall, where students walked to join the 1919 protests.",
+  "cheongna-5": "Eunhye ('Grace') Garden, where missionaries and their families rest. Read the names and verses on the stones.",
   "kwon-1": "Mongsil, stepped out of the book, greets you at the door.",
   "kwon-2": "Rubber shoes in front of a small house. The exhibit tells the life of the author, who wrote stories while serving as a church bell-ringer.",
   "kwon-3": "'To every doggy poo in the world, a dandelion seed.' A hall that follows his life.",
@@ -702,7 +703,7 @@ FEEL_EN.ui = {
   "저작자와 이용 조건은 링크에서": "see the links for authors and terms of use",
   "사진": "Photos",
   "분위기를 보여 주는 예시예요.": "They are examples to show the feel of the scene.",
-  "사진: 한국관광공사(TourAPI, 공공누리). 워터마크와 함께 원본 그대로 실었습니다.": "Photos: Korea Tourism Organization (TourAPI, Korea Open Government License). Shown as they are, with the watermark.",
+  "사진: 한국관광공사(TourAPI·포토코리아, 공공누리). 받은 사진을 자르거나 고치지 않고 크기만 줄여 실었습니다.": "Photos: Korea Tourism Organization (TourAPI and Photo Korea, Korea Open Government License). Not cropped or edited, only resized.",
   "위키미디어 공용 원본": "the original on Wikimedia Commons",
   "사진: Unsplash 무료 사진.": "Photos: free photos from Unsplash.",
   "(저작자와 이용 조건은 링크에서. 크기를 줄여 실었습니다.)": "(See the link for the author and terms of use. Resized for this page.)",
@@ -828,8 +829,8 @@ FEEL_EN.ui = {
 };
 
 Object.assign(FEEL_EN.captions, {
-  "jeongdong-1": "Jeongdong-gil runs along the stone wall of Deoksugung Palace, shaded by a long line of trees.",
-  "jeongdong-2": "Follow this road and you'll come to the red-brick chapel and Pai Chai Hakdang, one after the other.",
+  "jeongdong-1": "Jeongdong-gil runs along Deoksugung Palace's stone wall. In autumn, ginkgo leaves turn it yellow.",
+  "jeongdong-2": "The Jeongdong-gil sign. This road leads to the red-brick chapel and Pai Chai Hakdang.",
   "macau-1": "St. Paul's lost everything but its front wall to a fire in 1835. Today it is the best-known sight in Macau.",
   "macau-2": "Climb the wide stone steps, and the facade stands alone against the sky.",
   "macau-3": "Up close, the stone is full of carvings, where the skills of East and West come together.",
@@ -842,7 +843,7 @@ Object.assign(FEEL_EN.captions, {
   "potsdam-2": "Climb the vineyard terraces to the palace. The Picture Gallery with 'The Incredulity of Saint Thomas' is right next to it.",
   "potsdam-3": "At the western end of the large park stands the red New Palace.",
   "potsdam-4": "Arches and flower beds go on all through the park. Allow a whole day to walk it.",
-  "jeongdong-3": "On a clear day, the stone-wall road makes a perfect walk.",
+  "jeongdong-3": "A long ginkgo-lined road beside the stone wall, good for walking slowly and talking.",
   "geumsan-1": "An L-shaped hanok chapel, built in the days when men and women sat apart.",
   "geumsan-2": "A wooden bell tower and a cross in the yard, with the new church beside the old chapel.",
   "geumsan-3": "Inside the old chapel, Bibles and records from those days lie under the heavy beams.",
@@ -851,7 +852,8 @@ Object.assign(FEEL_EN.captions, {
   "yangnim-2": "Missionary Owen's gravestone, carved 吳牧師 ('Pastor O'), and the gravestone of Eugene Bell.",
   "yangnim-3": "A memorial wall carved with years and faces. You can walk along the history of the mission here.",
   "yangnim-4": "A gravestone carved with words from Psalm 116: God counts the death of his faithful people as precious.",
-  "yangnim-5": "A round memorial space in the woods. Sit on a bench and rest for a while."
+  "yangnim-5": "A round memorial space in the woods. Sit on a bench and rest for a while.",
+  "yangnim-6": "Brick houses where missionaries once lived still stand in the old village near the cemetery."
 });
 
 Object.assign(FEEL_EN.captions, {
@@ -1093,5 +1095,14 @@ Object.assign(FEEL_EN.captions, {
   "tongues-4": "Clap hands together to say hello. Even if the words come out clumsy, smiles get through.",
   "tongues-5": "Different hands laid together on a world map. The Holy Spirit came to everyone in their own language.",
   "garden-1": "A village green in England. At Easter, people decorate the bench with knitted flowers and chicks. The Easter garden is also a tradition many English churches keep.",
-  "garden-2": "Spring has come to the sunny yard. In the middle of our little garden, we make a tomb closed with a stone."
+  "garden-3": "A wide bowl filled with soil holds three wooden crosses, a tomb with its stone rolled away, and spring flowers. This is an Easter garden.",
+  "garden-4": "Under a handmade 'EASTER GARDEN' sign, a path of colorful stones leads to a little tomb.",
+  "garden-5": "Inside an old church, an Easter garden laid out on green cloth. A white stone path winds through it.",
+  "garden-6": "Beside a cathedral wall, there is even a large Easter garden with a tomb built from big stones."
+});
+Object.assign(FEEL_EN.ui, {
+  "피크커크 성 페가 교회의 작은 부활절 정원": "St. Pega's Church, Peakirk: a miniature Easter garden",
+  "프레던 교회의 부활절 정원": "Easter garden at Fretherne",
+  "크라이스트처치 수도원 교회의 부활절 정원": "The Easter garden at Christchurch Priory",
+  "솔즈베리 대성당의 부활절 정원": "Easter garden at Salisbury Cathedral"
 });
