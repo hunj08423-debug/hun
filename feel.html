@@ -197,7 +197,22 @@ details.fold[open]>summary::after{content:var(--l-close,"접기")}
 dialog.sheet{width:min(560px,100%);max-width:100%;max-height:92dvh;margin:auto auto 0;padding:0;border:0;border-radius:22px 22px 0 0;background:var(--surface);color:var(--ink);overflow:hidden}
 dialog.sheet::backdrop{background:rgba(20,16,12,.5)}
 @media (min-width:700px){dialog.sheet{margin:auto;border-radius:22px;max-height:88dvh}}
-.sh{display:flex;flex-direction:column;max-height:92dvh}
+.sh{display:flex;flex-direction:column;max-height:inherit}
+/* 글자 크게(zoom 1.14)일 때 창이 화면 밖으로 넘치지 않게 */
+html.big dialog.sheet{max-height:calc(92dvh / 1.14)}
+@media (min-width:700px){html.big dialog.sheet{max-height:calc(88dvh / 1.14)}}
+/* 크게 보기: 넓은 화면에서 노트 창을 넓게. 글은 읽기 좋은 폭으로 가운데, 사진·그림은 크게 */
+.sh-tools{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.sh-top .wide-btn{display:none;min-height:40px;padding:0 14px;white-space:nowrap}
+@media (min-width:700px){
+ .sh-top .wide-btn{display:inline-flex;align-items:center}
+ dialog.sheet.wide{width:min(1040px,96vw);max-height:96dvh}
+ html.big dialog.sheet.wide{width:min(912px,calc(96vw / 1.14));max-height:calc(96dvh / 1.14)}
+ dialog.sheet.wide .sh-body>*:not(.full){width:min(720px,calc(100% - 40px));margin-left:auto;margin-right:auto}
+ dialog.sheet.wide .sh-body .reel.full{width:min(100%,calc(66dvh * 4 / 3));margin-left:auto;margin-right:auto}
+ dialog.sheet.wide .sh-body .reel.full.whole{width:min(100%,calc(66dvh * 3 / 2))}
+ dialog.sheet.wide .sh-body img.full{max-height:72dvh;object-fit:contain;background:var(--deep)}
+}
 .sh-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 12px 10px 20px;border-bottom:1px solid var(--line2)}
 .x{width:44px;height:44px;border-radius:50%;border:0;background:var(--chip);font-size:20px;line-height:1;cursor:pointer;flex:0 0 44px}
 .sh-body{overflow-y:auto;padding:0 0 calc(28px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:18px}
@@ -340,7 +355,7 @@ dialog.show::backdrop{background:#000}
   </footer>
 </div>
 
-<dialog class="sheet" id="sheet" aria-labelledby="shTitle"><div class="sh"><div class="sh-top"><b id="shTitle" class="serif" style="font-size:18px"></b><button class="x" type="button" data-close aria-label="닫기" data-ta>×</button></div><div class="sh-body" id="shBody"></div></div></dialog>
+<dialog class="sheet" id="sheet" aria-labelledby="shTitle"><div class="sh"><div class="sh-top"><b id="shTitle" class="serif" style="font-size:18px"></b><span class="sh-tools"><button class="pill wide-btn" type="button" data-wide aria-pressed="false">크게 보기</button><button class="x" type="button" data-close aria-label="닫기" data-ta>×</button></span></div><div class="sh-body" id="shBody"></div></div></dialog>
 <dialog class="show" id="show" aria-label="아이에게 보여 주기" data-ta><div class="sw" id="sw"></div></dialog>
 <div id="printBook"></div>
 <input type="file" id="ownFile" accept="image/*" multiple hidden>
@@ -978,7 +993,10 @@ function renderStamps(){
 
 /* ---------- 자세히 보기 ---------- */
 let lastFocus=null;
-function openSheet(title,html){const d=$("#sheet");$("#shTitle").textContent=title;$("#shBody").innerHTML=html;$("#shBody").scrollTop=0;guardImgs($("#shBody"));lastFocus=document.activeElement;if(!d.open){try{d.showModal();}catch(e){d.setAttribute("open","");}}}
+/* 크게 보기: 고른 상태는 이 기기에만 기억(넓은 화면에서만 단추가 보여요) */
+let WIDE=false;try{WIDE=localStorage.getItem("feel-wide")==="1";}catch(e){}
+function applyWide(){const d=$("#sheet"),b=d.querySelector("[data-wide]");d.classList.toggle("wide",WIDE);if(b){b.setAttribute("aria-pressed",WIDE?"true":"false");b.textContent=WIDE?t("작게 보기"):t("크게 보기");}}
+function openSheet(title,html){const d=$("#sheet");applyWide();$("#shTitle").textContent=title;$("#shBody").innerHTML=html;$("#shBody").scrollTop=0;guardImgs($("#shBody"));lastFocus=document.activeElement;if(!d.open){try{d.showModal();}catch(e){d.setAttribute("open","");}}}
 const blk=(h,b)=>b?`<div class="blk"><h5>${h}</h5>${b}</div>`:"";
 const ul=a=>`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`, ol=a=>`<ol>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>`;
 const srcs=a=>a&&a.length?`<p class="src">${t("더 알아보기")}: ${a.map(([tt,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(t(tt))}</a>`).join(" · ")}</p>`:"";
@@ -1197,6 +1215,7 @@ document.addEventListener("click",e=>{
   if(ds.copy){const [k,id]=ds.copy.split(":");copy(k==="make"?makeText(findMake(id)):goText(findPlace(id)));return;}
   if(ds.stamp){if(stamps[ds.stamp])delete stamps[ds.stamp];else stamps[ds.stamp]=true;store.set("feel-stamps",stamps);renderStamps();return;}
   if(ds.stampOpen){stamps[ds.stampOpen]=true;store.set("feel-stamps",stamps);renderStamps();el.textContent=t("도장 찍었어요");toast(t("순례 수첩에 도장을 찍었어요."));return;}
+  if("wide" in ds){WIDE=!WIDE;try{localStorage.setItem("feel-wide",WIDE?"1":"0");}catch(e){}applyWide();return;}
   if("close" in ds){const d=el.closest("dialog");if(d)d.close();return;}
 });
 document.querySelectorAll("dialog").forEach(d=>{d.addEventListener("click",e=>{if(e.target===d)d.close();});d.addEventListener("close",()=>{if(lastFocus&&lastFocus.focus)lastFocus.focus();});});

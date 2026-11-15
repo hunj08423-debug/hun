@@ -1022,5 +1022,7 @@ Object.assign(FEEL_EN.ui, {
   "성 니콜라스 대성당 안": "Inside St. Nicholas Cathedral",
   "벽을 채운 그림": "Painted walls",
   "성 니콜라스 모자이크": "St. Nicholas mosaic",
-  "마당과 둥근 지붕": "Courtyard and dome"
+  "마당과 둥근 지붕": "Courtyard and dome",
+  "크게 보기": "Expand",
+  "작게 보기": "Shrink"
 });
