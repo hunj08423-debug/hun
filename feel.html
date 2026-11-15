@@ -862,7 +862,7 @@ const use = id => `<svg viewBox="0 0 48 48" aria-hidden="true"><use href="#e-${i
 const lb = (emb, cls="") => `<div class="lb ${cls}" aria-hidden="true">${use(emb)}</div>`;
 const store = {get(k,v){try{const x=localStorage.getItem(k);return x==null?v:JSON.parse(x);}catch(e){return v;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
 const findArt = id => ART.find(a => a.id === id), findMake = id => MAKE.find(m => m.id === id), findPlace = id => PLACES.find(p => p.id === id);
-const practiceHref = a => PRACTICE_URL + (a && a.scene ? `?scene=${a.scene}` : "");
+const practiceHref = a => { const q = [a && a.scene ? `scene=${a.scene}` : "", EN ? "lang=en" : ""].filter(Boolean).join("&"); return PRACTICE_URL + (q ? `?${q}` : ""); }; /* 영어판이면 연습하기 방도 영어판으로 */
 function toast(msg){const el=document.createElement("div");el.className="toast";el.setAttribute("role","status");el.textContent=msg;document.body.appendChild(el);setTimeout(()=>el.remove(),2200);}
 function guardImgs(root){root.querySelectorAll("img[data-emb]").forEach(i=>{const swap=()=>{const d=document.createElement("div");d.innerHTML=lb(i.dataset.emb,i.className);i.replaceWith(d.firstChild);};if(i.complete&&i.naturalWidth===0)swap();else i.addEventListener("error",swap,{once:true});});}
 async function copy(text){try{await navigator.clipboard.writeText(text);toast(t("복사했어요. 단톡방이나 문서에 붙여 넣으세요."));}catch(e){openSheet(t("복사할 내용"),`<p class="small muted">${t("자동 복사가 막혀 있어요. 아래 글을 길게 눌러 모두 선택한 뒤 복사해 주세요.")}</p><textarea readonly style="min-height:260px;border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit;font-size:14px;background:var(--bg);color:var(--ink)">${esc(text)}</textarea>`);}}
@@ -995,8 +995,16 @@ function renderStamps(){
 let lastFocus=null;
 /* 크게 보기: 고른 상태는 이 기기에만 기억(넓은 화면에서만 단추가 보여요) */
 let WIDE=false;try{WIDE=localStorage.getItem("feel-wide")==="1";}catch(e){}
-function applyWide(){const d=$("#sheet"),b=d.querySelector("[data-wide]");d.classList.toggle("wide",WIDE);if(b){b.setAttribute("aria-pressed",WIDE?"true":"false");b.textContent=WIDE?t("작게 보기"):t("크게 보기");}}
-function openSheet(title,html){const d=$("#sheet");applyWide();$("#shTitle").textContent=title;$("#shBody").innerHTML=html;$("#shBody").scrollTop=0;guardImgs($("#shBody"));lastFocus=document.activeElement;if(!d.open){try{d.showModal();}catch(e){d.setAttribute("open","");}}}
+function applyWide(){const d=$("#sheet"),b=d.querySelector("[data-wide]");d.classList.toggle("wide",WIDE);if(b){b.setAttribute("aria-pressed",WIDE?"true":"false");b.textContent=WIDE?t("작게 보기"):t("크게 보기");}capWide();}
+/* 크게 보기에서 사진을 원래 크기보다 많이 늘리지 않습니다(작은 사진이 흐려 보이지 않게). 큰 사진만 크게 보입니다 */
+function capWide(){const d=$("#sheet");if(!d)return;
+  d.querySelectorAll(".sh-body .reel.full").forEach(r=>{const imgs=[...r.querySelectorAll("figure img")];
+    const fit=()=>{if(!WIDE){r.style.maxWidth="";return;}let cap=Infinity;const whole=r.classList.contains("whole");
+      for(const im of imgs){if(!im.naturalWidth)continue;const w=im.naturalWidth,h=im.naturalHeight;cap=Math.min(cap,(whole?Math.max(w,h*1.5):Math.min(w,h*4/3))*1.15);}
+      r.style.maxWidth=isFinite(cap)?Math.round(Math.max(cap,320))+"px":"";};
+    imgs.forEach(im=>{if(!im.complete)im.addEventListener("load",fit,{once:true});});fit();});
+  d.querySelectorAll(".sh-body img.full").forEach(im=>{const fit=()=>{im.style.maxWidth=WIDE&&im.naturalWidth?Math.round(im.naturalWidth*1.15)+"px":"";if(WIDE)im.style.marginInline="auto";};if(!im.complete)im.addEventListener("load",fit,{once:true});fit();});}
+function openSheet(title,html){const d=$("#sheet");applyWide();$("#shTitle").textContent=title;$("#shBody").innerHTML=html;capWide();$("#shBody").scrollTop=0;guardImgs($("#shBody"));lastFocus=document.activeElement;if(!d.open){try{d.showModal();}catch(e){d.setAttribute("open","");}}}
 const blk=(h,b)=>b?`<div class="blk"><h5>${h}</h5>${b}</div>`:"";
 const ul=a=>`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`, ol=a=>`<ol>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>`;
 const srcs=a=>a&&a.length?`<p class="src">${t("더 알아보기")}: ${a.map(([tt,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(t(tt))}</a>`).join(" · ")}</p>`:"";
@@ -1081,7 +1089,7 @@ function goHtml(p){
 
 let SHEET=null;
 function sheetHtml(k,id){if(k==="art"){const a=findArt(id);return [a.title,artHtml(a,true)];}if(k==="make"){const m=findMake(id);return [m.name,makeHtml(m)];}const p=findPlace(id);return [p.name,goHtml(p)];}
-function refreshSheet(){if(!$("#sheet").open||!SHEET||SHEET.k==="art")return;const b=$("#shBody"),y=b.scrollTop,[ti,h]=sheetHtml(SHEET.k,SHEET.id);$("#shTitle").textContent=ti;b.innerHTML=h;guardImgs(b);b.scrollTop=y;}
+function refreshSheet(){if(!$("#sheet").open||!SHEET||SHEET.k==="art")return;const b=$("#shBody"),y=b.scrollTop,[ti,h]=sheetHtml(SHEET.k,SHEET.id);$("#shTitle").textContent=ti;b.innerHTML=h;capWide();guardImgs(b);b.scrollTop=y;}
 
 /* ---------- 우리 교회 사진: 이 기기의 이 브라우저(IndexedDB)에만 저장하고 어디에도 올리지 않습니다 ---------- */
 const OWN=new Map();               // "make:id" 또는 "place:id" → [{id, url, cap, order}]
@@ -1208,7 +1216,7 @@ document.addEventListener("click",e=>{
   if(ds.open){const [k,id]=ds.open.split(":");
     SHEET={k,id};const [ti,h]=sheetHtml(k,id);openSheet(ti,h);
     return;}
-  if(ds.wing){const [id,o]=ds.wing.split(":");$("#shBody").innerHTML=artHtml(findArt(id),o==="1");guardImgs($("#shBody"));return;}
+  if(ds.wing){const [id,o]=ds.wing.split(":");$("#shBody").innerHTML=artHtml(findArt(id),o==="1");guardImgs($("#shBody"));capWide();return;}
   if(ds.show){openShow(ds.show);return;}
   if(ds.swing){showState.open=ds.swing==="1";renderShow();return;}
   if(ds.step){const n=showState.a.look.length+1;showState.i=ds.step==="1"?(showState.i+1)%n:Math.max(0,showState.i-1);renderShow();return;}
@@ -1228,7 +1236,7 @@ applySize(String(store.get("qp-big","0"))==="1");
 sizeBtn.addEventListener("click",()=>{const big=!document.documentElement.classList.contains("big");applySize(big);try{localStorage.setItem("qp-big",big?"1":"0");}catch(e){}});
 if(EN){document.documentElement.lang="en";document.querySelectorAll("[data-t]").forEach(el=>{const k=el.innerHTML.trim();if(EN.ui[k])el.innerHTML=EN.ui[k];});document.querySelectorAll("[data-ta]").forEach(el=>el.setAttribute("aria-label",t(el.getAttribute("aria-label"))));const rs=document.documentElement.style;rs.setProperty("--l-open",JSON.stringify(t("펼치기")));rs.setProperty("--l-close",JSON.stringify(t("접기")));const lb_=$("#langBtn");lb_.setAttribute("href","#ko");lb_.hreflang="ko";lb_.lang="ko";lb_.textContent="한국어";document.title=t("함께 느끼는 방");}
 addEventListener("hashchange",()=>{if(/^#(en|ko)?$/.test(location.hash))location.reload();});
-document.querySelectorAll("[data-practice]").forEach(a=>a.setAttribute("href",PRACTICE_URL));
+document.querySelectorAll("[data-practice]").forEach(a=>a.setAttribute("href",practiceHref(null)));
 document.querySelectorAll("[data-practice-scene]").forEach(a=>a.setAttribute("href",practiceHref({scene:a.dataset.practiceScene})));
 renderAll();renderGo();renderPlan();renderStamps();renderOwnAll();
 loadOwn().then(()=>{if(OWN.size){renderAll();renderGo();renderPlan();}renderOwnAll();});

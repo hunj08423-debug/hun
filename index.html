@@ -86,6 +86,11 @@ button:focus-visible, textarea:focus-visible, select:focus-visible, a:focus-visi
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .btn-row .btn { flex: 1 1 12rem; }
 .size-btn { min-height: 2.6rem; padding: 0.3rem 0.9rem; font-size: 0.95rem; border-radius: 2rem; border: 2px solid var(--line); background: var(--surface); color: var(--ink); font-weight: 700; }
+.top-tools { display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0; }
+.top .brand { text-align: left; }
+@media (max-width: 420px) { .top .brand { font-size: 0.98rem; } }
+.lang-btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 2.6rem; min-height: 0; line-height: 1; white-space: nowrap; text-decoration: none; font-size: 0.85rem; padding: 0 0.7rem; }
+@media print { .lang-btn { display: none !important; } }
 .back { align-self: flex-start; background: none; border: none; color: var(--accent); font-weight: 700; padding: 0.4rem 0; min-height: 2.6rem; }
 .rooms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; background: var(--line); border-radius: 14px; }
 .rooms a { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 46px; border-radius: 10px; color: var(--ink); font-weight: 500; text-decoration: none; }
@@ -228,7 +233,7 @@ details.guide .g-h { font-weight: 700; font-size: 0.85rem; color: var(--muted); 
 <div class="wrap">
   <header class="top">
     <button class="brand" type="button" id="brandBtn">질문 받기 연습실</button>
-    <button class="size-btn" id="sizeBtn" type="button" aria-pressed="false">글자 크게</button>
+    <span class="top-tools"><a class="size-btn lang-btn" id="langBtn" href="?lang=en" lang="en" hreflang="en">English</a><button class="size-btn" id="sizeBtn" type="button" aria-pressed="false">글자 크게</button></span>
   </header>
   <main id="app" aria-live="polite"></main>
   <footer class="foot">3분 신학 도서관 · 체험판 · 감수 전입니다. 쓰신 대답과 대화는 이 페이지에 저장되지 않으며, 화면을 닫으면 사라집니다. AI 기능을 쓰면 답을 만들기 위해 쓰신 글이 Claude로 보내집니다. 아이를 알아볼 수 있는 정보(이름, 학교 등)는 넣지 마세요. <button class="foot-link" type="button" data-go="about">이용 안내</button></footer>
@@ -540,8 +545,9 @@ function viewHome() {
         </ul>
         <p>돌아보기 기준 네 가지(질문과 마음을 반기기, 확실한 것과 갈리는 것 나누기, 자기 믿음을 정직하게 말하기, 다음 대화의 문 열어 두기)는 누구도 바꿀 수 없도록 고정되어 있습니다. 쓰신 내용은 저장되지 않습니다.</p>
         <p>교사 모임에서 함께 쓰실 때는 '선생님의 마음과 교회의 자리' 맨 아래의 <b>30분 진행 순서</b>를 참고하세요.</p>
-        <p><b>최근 바뀐 점 (2026년 11월 14일)</b></p>
+        <p><b>최근 바뀐 점 (2026년 11월 15일)</b></p>
         <ul>
+          <li><b>영어판을 열었습니다.</b> 맨 위의 'English'를 누르면 연습하기 방 전체(장면 20개, 자료 길잡이, AI 연습)를 영어로 볼 수 있습니다. 영어판의 위기 상담 안내는 사는 곳의 창구로 바꿨습니다.</li>
           <li><b>새 방 '함께 느끼기'를 열었습니다.</b> 교회 달력을 따라 색이 바뀌고, 그림으로 여는 질문 3점, 절기 전통 28가지(유대 전통·정교회·가톨릭·개신교·한국 교회), 함께 가 볼 곳 12곳, 순례 수첩이 있습니다. 행사 준비물과 보호자 안내문을 바로 복사할 수 있습니다.</li>
           <li>자료 길잡이에 '학문으로 보는 성경·종교' 주제와 '교회 말에 거부감이 큰 사람과 이야기할 때' 상황을 더했습니다. 쓰기 까다로운 자료에는 <b>처음 쓰는 법</b>(영어인지, 가입이 필요한지, 찾는 법, 건넬 때 보낼 말)을 붙였습니다.</li>
           <li>직접 대답 연습에서 아이를 위험하게 할 수 있는 말(연락처·사진 묻기, 둘이서만 만나기, 비밀로 하자는 말, 성적인 말, 욕설·위협)은 아이에게 보내지 않고 이유를 알려 드립니다.</li>
@@ -584,6 +590,7 @@ function scenIsKid(s) { return /초등/.test(s.grade || ""); }
 /* 질문한 사람이 누구인지: 아이(초등·중고등), 청년, 부모님, 그 밖의 어른 */
 function roleOf(p) {
   if (!p) return "teen";
+  if (p.role) return p.role; /* 영어판: 이름·학년을 영어로 바꾸기 전에 붙잡아 둔 역할 */
   if (p.who === "부모님" || /부모님/.test(p.name || "")) return "parent";
   if (p.who === "청년" || /청년/.test(p.grade || "")) return "youth";
   if (/어른/.test(p.grade || "") || /어른/.test(p.name || "")) return "adult";
