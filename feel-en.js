@@ -52,16 +52,16 @@ FEEL_EN.art = {
     alt2: "The resurrection from the Isenheim Altarpiece. Jesus rises with raised arms inside a round light, while the soldiers guarding the tomb tumble to the ground."
   },
   angelico: {
-    title: "The Annunciation", artist: "Fra Angelico", year: "1440s", where: "Convent of San Marco, Florence, Italy",
+    title: "The Annunciation", artist: "Fra Angelico", year: "c. 1425–1426", where: "Museo del Prado, Madrid, Spain",
     line: "The angel kneels, and Mary bows too. It's a silent painting, yet you can almost hear it.",
     q: "How does God speak?",
-    story: ["One day the angel Gabriel came to Mary, a young woman in Nazareth, and told her she would give birth to the Son of God.", "Fra Angelico painted this scene on the wall at the top of the convent stairs. The friars passed it every time they went up or down.", "Facing this astonishing news, Mary said yes and asked that it happen just as God had said."],
-    look: ["Who is bowing lower, the angel or Mary?", "How many colors can you find in the angel's wings?", "Look at the empty space between them. What is passing between them?"],
+    story: ["One day the angel Gabriel came to Mary, a young woman in Nazareth, and told her she would give birth to the Son of God.", "Fra Angelico painted this for the altar of a convent church. In the garden on the left, Adam and Eve are being sent out of Eden. It is news that the One who will restore what was lost is coming.", "Facing this astonishing news, Mary said yes and asked that it happen just as God had said."],
+    look: ["Who is bowing lower, the angel or Mary?", "Follow the beam of light from the top left. What is flying down along it?", "Find the little bird hidden in the painting."],
     ask: "If someone brought you amazing news, what would your face look like?",
     root: "Waiting begins with God speaking to us first.",
     care: "Catholics and Protestants understand the honor given to Mary differently. Introduce it as the story of God coming to people first.",
-    credit: "Fra Angelico, The Annunciation, 1440s, Convent of San Marco, Florence. Photo: Wikimedia Commons (public domain).",
-    alt: "Fra Angelico's painting. A winged angel kneels, and Mary, seated on a stool, folds her arms and bows."
+    credit: "Fra Angelico, The Annunciation, c. 1425–1426, Museo del Prado, Madrid. Photo: Wikimedia Commons (public domain).",
+    alt: "Fra Angelico's painting. An angel with golden wings bows, and Mary in a blue robe folds her arms and bows her head. In the garden on the left, Adam and Eve are sent away."
   },
   latour: {
     title: "The Newborn", artist: "Georges de La Tour", year: "1640s", where: "Museum of Fine Arts, Rennes, France",
@@ -1086,4 +1086,12 @@ Object.assign(FEEL_EN.captions, {
   "potsdam-5": "Up close, you can see the words 'SANS SOUCI' beneath the roof. It was the palace where the king spent his summers.",
   "macau-4": "Seen from above, the lone facade stands in the middle of the crowded city.",
   "sagrada-5": "It's still being built, so cranes stand alongside it. When it's finished, it will have eighteen towers."
+});
+
+/* 11월 15일 저녁: 여러 나라 말로 인사하기·부활절 정원 사진 영어 설명 */
+Object.assign(FEEL_EN.captions, {
+  "tongues-4": "Clap hands together to say hello. Even if the words come out clumsy, smiles get through.",
+  "tongues-5": "Different hands laid together on a world map. The Holy Spirit came to everyone in their own language.",
+  "garden-1": "A village green in England. At Easter, people decorate the bench with knitted flowers and chicks. The Easter garden is also a tradition many English churches keep.",
+  "garden-2": "Spring has come to the sunny yard. In the middle of our little garden, we make a tomb closed with a stone."
 });
