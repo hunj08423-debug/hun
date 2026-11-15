@@ -22,11 +22,11 @@
 ## 장소 사진 (한국관광공사 TourAPI, 공공누리. 출처 표시 필수. 워터마크와 함께 원본 그대로, 잘라 내지 않음)
 2026년 11월 14일 한국관광공사 관광정보(api.visitkorea.or.kr)에서 받은 사진.
 - ganghwa-1.jpg ~ ganghwa-7.jpg — 대한성공회 강화성당 (정면 천주성전, 돌계단 대문, 지붕 십자가, 옆모습, 돌 세례대, 예배당 안, 제단 만유진원)
-- jeongdong-1.jpg ~ jeongdong-3.jpg — 정동길·덕수궁 돌담길 (사진 속 표시: 트래블리더 13기 정다은)
+- jeongdong-1.jpg ~ jeongdong-3.jpg — 정동길·덕수궁 돌담길 (사진 속 표시: 트래블리더 13기 정다은). 11월 16일 세 장 모두 고화질 사진으로 바꿈(아래 11월 16일 목록)
 - geumsan-1.jpg ~ geumsan-4.jpg — 김제 금산교회 (ㄱ자 예배당, 종탑, 예배당 안, 벽의 초상)
-- yangnim-1.jpg ~ yangnim-5.jpg — 광주 양림동 선교사 묘원 (언덕, 오웬·유진 벨 비석, 기념 벽, 시편 비석, 둥근 기념 공간)
+- yangnim-1.jpg ~ yangnim-5.jpg — 광주 양림동 선교사 묘원 (언덕, 오웬·유진 벨 비석, 기념 벽, 시편 비석, 둥근 기념 공간). 11월 16일 yangnim-1, yangnim-4를 고화질 사진으로 바꿈
 - yanghwajin-1.jpg ~ yanghwajin-3.jpg — 양화진외국인선교사묘원 (언더우드 가족 묘역, 묘원, 곁의 예배당)
-- cheongna-1.jpg ~ cheongna-4.jpg — 동산 청라언덕 선교사 주택 (교회 첨탑과 주택, 돌길, 유리창 방, 담쟁이 벽)
+- cheongna-1.jpg ~ cheongna-4.jpg — 동산 청라언덕 선교사 주택 (교회 첨탑과 주택, 돌길, 유리창 방, 담쟁이 벽). 11월 16일 네 장 모두 고화질 사진으로 바꿈
 - kwon-1.jpg ~ kwon-4.jpg — 권정생동화나라 (몽실 언니 조형물, 작은 집 전시, 전시실, 놀이 공간)
 
 ## 해외 장소 사진 (Unsplash. 무료로 쓸 수 있고 출처 표기 의무는 없음)
@@ -234,3 +234,35 @@
 ## 아직 사진이 없는 장면
 - 여섯 절기의 장면 열두 개와 첫 화면의 장소 네 곳에는 모두 사진이 있음.
 - 부활절 정원(garden): 11월 15일 위키미디어 공용의 영국 교회 부활절 정원 사진 4장(garden-3~6)과 마을 부활절 벤치 사진(garden-1)을 넣음. 짚 토끼 사진(garden-2)은 뺌. 서울 성 니콜라스 대성당은 11월 15일에 4장을 넣음.
+
+## 11월 16일 고화질로 바꾼 사진
+원본을 다시 찾았거나, 원본을 못 찾아 분위기가 비슷한 고화질 사진을 받아 둔 것 중에서 고름. 큰 사진은 긴 쪽 1600px, 작은 사본(-s.jpg)은 640px. 옛 파일은 feel/assets-lowres-backup에 둠.
+
+Unsplash (무료로 쓸 수 있고 출처 표기 의무는 없음. 찍은 사람은 내려받은 파일 이름 그대로 적음)
+- animals-4.jpg — hannah-lim — https://unsplash.com/photos/U6nlG0Y5sfs (원본으로 바꿈)
+- treasure-1.jpg — bobbie-wallace — https://unsplash.com/photos/F_nrpEESc0k (원본으로 바꿈)
+- sukkot-2.jpg — ian-battaglia — https://unsplash.com/photos/LmQpAJmUZ9k (원본으로 바꿈)
+- sukkot-3.jpg — jordan-arnold — https://unsplash.com/photos/Ul07QK2AR-0 (원본으로 바꿈)
+- nicholas-4.jpg — nick-fewings — https://unsplash.com/photos/H7YIXG86STo (원본으로 바꿈)
+- questions-3.jpg — anna-khromova — https://unsplash.com/photos/HK5l9f0ANwQ (같은 자리 바꿈: 쌍안경을 든 아이)
+- carol-3.jpg — katarzyna-pracuch — https://unsplash.com/photos/NbDLFv8t_u0 (같은 자리 바꿈: 화환 걸린 파란 현관문)
+- christingle-2.jpg — abeer-graphis — https://unsplash.com/photos/bLnIJAoCVRo (같은 자리 바꿈: 촛불에 환해진 아이 얼굴. 자막도 고침)
+- lantern-3.jpg — declan-sun — https://unsplash.com/photos/47zcaZrKOEA (같은 자리 바꿈: 등불을 거는 사람. 자막도 고침)
+- birthday-3.jpg — leoon-liang — https://unsplash.com/photos/W7wt3DRPWYM (같은 자리 바꿈: 돗자리에 모인 사람들)
+- birthday-4.jpg — samantha-fernandes — https://unsplash.com/photos/dTb9QbtjaWM (같은 자리 바꿈: 위에서 본 소풍 상)
+- treasure-4.jpg — haberdoedas — https://unsplash.com/photos/qZKSW7vf2YM (같은 자리 바꿈: 예배당의 촛대. 세로 사진이라 흐린 배경과 함께 통째로 보여 줌)
+- carol-2.jpg — duane-loux — https://unsplash.com/photos/ySUPWAS5i70 (같은 자리 바꿈: 촛불을 든 사람들)
+
+한국관광공사 포토코리아(Photo Korea) 영문판 사진 (2026년 11월 16일 받음. 공공누리, 출처 표시. 받은 파일을 자르지 않고 크기만 줄임. 페이지에는 '한국관광공사(TourAPI·포토코리아)'로 밝힘. 포토코리아는 2026년 11월 통합·종료 예정이라 원래 사진 페이지는 곧 없어질 수 있어 받은 파일 이름을 함께 적어 둠)
+- cheongna-1.jpg — 선교사 주택과 뒤의 교회 첨탑 — 받은 파일 이름 Cheongna Hill.jpg
+- cheongna-2.jpg — '청라언덕' 나무 표지와 돌길 — 받은 파일 이름 Cheongna Hill (7).jpg
+- cheongna-3.jpg — 유리창 방이 있는 선교사 주택 — 받은 파일 이름 Dongsan Cheongna Hill (3).jpg
+- cheongna-4.jpg — 담쟁이 돌담 옆 3·1만세운동길 계단 — 받은 파일 이름 Dongsan Cheongna Hill (6).jpg (자막도 고침)
+- cheongna-5.jpg — 선교사와 가족들의 묘지(은혜정원) — 받은 파일 이름 Cheongna Hill (2).jpg (새로 더함)
+- jeongdong-1.jpg — 덕수궁 돌담과 은행나무 길 — 받은 파일 이름 Deoksugung Sidewalk .jpg (자막도 고침)
+- jeongdong-2.jpg — '정동길' 표지판 — 받은 파일 이름 Deoksugung Sidewalk.jpg (자막도 고침)
+- jeongdong-3.jpg — 길게 이어진 돌담과 가을 나무 — 받은 파일 이름 Deoksugung Sidewalk  (1).jpg (자막도 고침)
+- yangnim-1.jpg — 가을의 선교사 묘지 — 받은 파일 이름 Yangnim-dong Missionary Cemetery.jpg
+- yangnim-4.jpg — 시편 116편 15절을 새긴 비석(헌틀리 선교사) — 받은 파일 이름 Yangnim-dong Missionary Cemetery (1).jpg
+- yangnim-6.jpg — 옛 선교사 마을의 벽돌 사택 — 받은 파일 이름 Yangnim History & Culture Village (1).jpg (새로 더함)
+- 참고: 자막의 3·1만세운동길 내용은 한국관광공사 관광 정보(https://www.ktriptips.com/kor/tourspot/2931898)를 따름
