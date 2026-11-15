@@ -9,7 +9,9 @@
 <meta property="og:title" content="함께 느끼는 방 · 질문 받기 연습실">
 <meta property="og:description" content="교회 달력을 따라 아이들과 함께 보고, 만들고, 가 보는 신앙. 그림으로 여는 질문, 절기 전통 만들기, 함께 가 볼 곳, 순례 수첩.">
 <meta property="og:url" content="https://hunj08423-debug.github.io/hun/feel.html">
-<meta property="og:image" content="https://hunj08423-debug.github.io/hun/img/isenheim-rise.jpg">
+<meta property="og:image" content="https://hunj08423-debug.github.io/hun/og-feel.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="theme-color" content="#F8F7F4">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,6 +62,10 @@ p{margin:0}
 .stage h1{font-size:34px;line-height:1.2;letter-spacing:-.02em}
 .stage .color{font-size:14px;color:var(--muted);margin-top:4px}
 .stage .dates{font-size:13px;font-weight:700;color:var(--accent);margin-top:6px}
+/* 좁은 휴대폰(320~400px)이나 글자 크게에서 절기 이름이 화면 밖으로 밀리지 않게 */
+.stage-top>div{min-width:0}.stage h1{overflow-wrap:anywhere}
+@media (max-width:400px){.ring{flex-basis:96px;width:96px;height:96px}.ring text:first-of-type{font-size:12.5px}.stage-top{gap:14px}.stage h1{font-size:28px}}
+@media (max-width:340px){.ring{flex-basis:84px;width:84px;height:84px}.ring text:first-of-type{font-size:13.5px}.stage h1{font-size:26px}}
 .stage-line{font-family:var(--serif);font-size:18px;line-height:1.7;font-weight:600;color:var(--ink2)}
 .hero{position:relative;display:block;width:100%;padding:0;border:0;border-radius:22px;overflow:hidden;background:var(--deep);cursor:pointer;text-align:left}
 .hero img{display:block;width:100%;max-height:440px;object-fit:cover}
@@ -122,6 +128,7 @@ button.bd:focus-visible{outline-offset:-4px}
 .reel .own-badge{position:absolute;top:18px;left:12px;z-index:2;background:rgba(251,246,236,.92);color:#1C1A17;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px}
 .reel.whole figure.own img{object-fit:cover}
 .reel.whole figure{aspect-ratio:3/2}.reel.whole figure img{object-fit:contain}.reel.whole figure.on img{transform:none}
+.reel figure.tall{background:#14110d}.reel figure.tall::before{content:"";position:absolute;inset:-30px;background:var(--tall) center/cover no-repeat;filter:blur(22px) brightness(.5)}.reel figure.tall img{position:relative;object-fit:contain}.reel figure.tall.on img{transform:none}
 .reel figure.fit img{object-fit:contain;box-sizing:border-box;padding:26px 12px 74px}.reel.big figure.fit img{padding-bottom:92px}.reel figure.fit.on img{transform:none}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
@@ -222,7 +229,7 @@ html.big dialog.sheet{max-height:calc(92dvh / 1.14)}
 .sh-body .full{width:100%}
 .sh-body>*{flex-shrink:0}
 .sh-body .full.lb{aspect-ratio:16/9}
-.sh-body img.full{display:block;max-height:380px;object-fit:cover}
+.sh-body img.full{display:block;max-height:min(600px,62dvh);object-fit:contain;background:var(--deep)}
 .sh-feel{font-family:var(--serif);font-size:18px;line-height:1.75;font-weight:600}
 .note{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:14px}
 .note>h4{margin:0;font-size:12.5px;letter-spacing:.08em;color:var(--muted)}
@@ -390,7 +397,7 @@ const ART = [
   care:"교회를 떠난 누군가를 '탕자'라고 부르는 데 쓰지 마세요. 아이가 자기나 가족을 떠올리며 상처받을 수 있어요.",
   more:"헨리 나우웬이 이 그림 하나를 오래 바라보며 쓴 책 『탕자의 귀향』이 있습니다. 선생님이 먼저 읽기 좋아요.",
   credit:"렘브란트, 「탕자의 귀향」, 1660년대 후반, 상트페테르부르크 에르미타주 미술관. 사진: 위키미디어 공용(저작권 만료)."},
- {id:"isenheim",scene:"suffer",cover:"img/isenheim-rise.jpg",img:"img/isenheim-cross.jpg",img2:"img/isenheim-rise.jpg",pos:"50% 40%",alt:"그뤼네발트의 이젠하임 제단화 가운데 십자가 처형. 상처로 뒤덮인 예수의 몸과 슬퍼하는 사람들.",alt2:"이젠하임 제단화 가운데 부활. 둥근 빛 속에서 예수가 두 팔을 들고 솟아오르고, 무덤을 지키던 군인들이 넘어져 있다.",
+ {id:"isenheim",scene:"suffer",cover:"img/isenheim-rise.jpg",img:"img/isenheim-cross.jpg",img2:"img/isenheim-rise.jpg",pos:"50% 2%",alt:"그뤼네발트의 이젠하임 제단화 가운데 십자가 처형. 상처로 뒤덮인 예수의 몸과 슬퍼하는 사람들.",alt2:"이젠하임 제단화 가운데 부활. 둥근 빛 속에서 예수가 두 팔을 들고 솟아오르고, 무덤을 지키던 군인들이 넘어져 있다.",
   title:"이젠하임 제단화",artist:"마티아스 그뤼네발트",year:"1512~1516년",where:"프랑스 콜마르, 운터린덴 미술관",
   line:"아픈 사람들이 머물던 병원에 걸려 있던 그림입니다. 문처럼 열리기도 해요.",q:"하나님은 왜 아픈 사람을 안 고쳐 주세요?",
   story:["500년 전, 피부가 짓무르는 병을 앓는 사람들을 돌보던 수도원 병원이 있었어요.","화가는 그 병원 제단에 놓을 그림 속 예수님의 몸에, 환자들처럼 상처를 그려 넣었어요. 환자들은 이 그림 앞에서 기도했습니다.","이 그림에는 날개가 달려 있어서, 축일이 되면 문을 열듯 펼쳐 환한 부활 장면을 보여 주었어요."],
@@ -401,7 +408,7 @@ const ART = [
   credit:"마티아스 그뤼네발트, 이젠하임 제단화 「십자가 처형」·「부활」, 1512~1516년, 콜마르 운터린덴 미술관. 사진: 위키미디어 공용(저작권 만료)."}
 ];
 const ART_EXTRA = [
- {id:"angelico",img:"img/angelico.jpg",scene:"prayer",alt:"프라 안젤리코의 그림. 금빛 날개의 천사가 몸을 숙이고, 파란 옷의 마리아가 두 팔을 모아 고개를 숙인다. 왼쪽 정원에서는 아담과 하와가 쫓겨난다.",
+ {id:"angelico",img:"img/angelico.jpg",pos:"94% 45%",scene:"prayer",alt:"프라 안젤리코의 그림. 금빛 날개의 천사가 몸을 숙이고, 파란 옷의 마리아가 두 팔을 모아 고개를 숙인다. 왼쪽 정원에서는 아담과 하와가 쫓겨난다.",
   title:"수태고지",artist:"프라 안젤리코",year:"1425~1426년 무렵",where:"스페인 마드리드, 프라도 미술관",
   line:"천사가 무릎을 꿇고, 마리아도 몸을 숙입니다. 소리 없는 그림인데 들리는 것 같지요.",q:"하나님은 어떻게 말씀하세요?",
   story:["어느 날 천사 가브리엘이 나사렛의 젊은 여인 마리아를 찾아와, 하나님의 아들을 낳게 되리라고 알렸어요.","프라 안젤리코는 이 그림을 수도원 성당 제단에 놓으려고 그렸어요. 왼쪽 정원에는 에덴동산에서 쫓겨나는 아담과 하와가 있어요. 잃어버린 것을 되찾아 주실 분이 오신다는 소식이지요.","놀라운 소식 앞에서 마리아는 말씀대로 이루어지기를 바란다며 받아들였어요."],
@@ -410,7 +417,7 @@ const ART_EXTRA = [
   root:"기다림은 하나님이 먼저 말을 걸어오시는 데서 시작됩니다.",
   care:"마리아를 높이는 가톨릭의 방식과 개신교의 이해는 달라요. '하나님이 사람에게 먼저 다가오신 이야기'로 소개하면 좋아요.",
   credit:"프라 안젤리코, 「수태고지」, 1425~1426년 무렵, 마드리드 프라도 미술관. 사진: 위키미디어 공용(저작권 만료)."},
- {id:"latour",img:"img/latour.jpg",scene:"",alt:"조르주 드 라 투르의 그림. 어두운 방에서 여인이 갓난아기를 안고 있고, 옆의 여인이 손으로 촛불을 가리고 있다.",
+ {id:"latour",img:"img/latour.jpg",pos:"42% 45%",scene:"",alt:"조르주 드 라 투르의 그림. 어두운 방에서 여인이 갓난아기를 안고 있고, 옆의 여인이 손으로 촛불을 가리고 있다.",
   title:"갓난아기",artist:"조르주 드 라 투르",year:"1640년대",where:"프랑스 렌, 렌 미술관",
   line:"촛불 하나가 아기의 얼굴을 비춥니다. 아기를 안은 엄마도, 촛불을 가린 여인도 숨을 죽이고 있어요.",q:"예수님은 왜 아기로 오셨어요?",
   story:["어두운 방, 한 엄마가 갓 태어난 아기를 안고 있고 옆의 여인이 손으로 촛불을 가리고 있어요.","제목에는 마리아나 예수라는 이름이 없지만, 많은 사람이 이 그림에서 성탄을 떠올려요.","라 투르는 어둠 속 촛불 하나로 사람의 얼굴을 비추는 그림을 즐겨 그린 화가예요."],
@@ -418,7 +425,7 @@ const ART_EXTRA = [
   ask:"갓난아기를 안아 본 적 있니? 그때 어떤 마음이 들었어?",
   root:"하나님이 가장 작고 연약한 모습으로 우리 곁에 오셨다는 성탄의 이야기.",
   care:"",credit:"조르주 드 라 투르, 「갓난아기」, 1640년대, 렌 미술관. 사진: 위키미디어 공용(저작권 만료)."},
- {id:"elgreco",img:"img/elgreco.jpg",scene:"tongues",alt:"엘 그레코의 그림. 사람들이 손을 들고 위를 올려다보고, 머리 위마다 작은 불꽃이 있으며 맨 위에 하얀 비둘기가 있다.",
+ {id:"elgreco",img:"img/elgreco.jpg",pos:"50% 2%",scene:"tongues",alt:"엘 그레코의 그림. 사람들이 손을 들고 위를 올려다보고, 머리 위마다 작은 불꽃이 있으며 맨 위에 하얀 비둘기가 있다.",
   title:"성령 강림",artist:"엘 그레코",year:"1600년 무렵",where:"스페인 마드리드, 프라도 미술관",
   line:"머리 위마다 작은 불꽃. 놀란 얼굴, 들린 손. 그날 교회가 태어났습니다.",q:"성령은 어떻게 느껴요?",
   story:["예수님이 하늘로 오르신 뒤, 제자들은 한곳에 모여 기도하고 있었어요.","갑자기 세찬 바람 같은 소리가 나고, 불꽃 같은 혀가 사람들 머리 위에 하나씩 내려앉았어요(사도행전 2장).","엘 그레코는 놀라고, 손을 들고, 하늘을 올려다보는 사람들을 길게 늘인 몸으로 그렸어요."],
@@ -614,7 +621,7 @@ const PLACES = [
   feel:"광주와 전남에 기독교를 전한 선교사 23명이 잠든 묘지예요. 가까이에 오웬기념각 같은 옛 건물이 있어요.",kids:"옛 선교사 마을 길을 걸으며 오래된 건물을 찾아보세요.",
   how:"문의 062-607-2333",with:"",keep:"마을 지도에 다녀온 곳 표시하기",care:"",
   src:[["한국관광공사 정보(K-Trip Tips)","https://www.ktriptips.com/eng/tourspot/1629290"]]},
- {id:"macau",emb:"facade",img:"img/macau.jpg",credit:"https://commons.wikimedia.org/wiki/File:Ruins_Of_St_Paul%27s_Cathedral,_Macau.jpg",name:"마카오 성 바울 성당 유적",region:"해외",area:"마카오",line:"김대건 신부가 공부한 도시",addr:"",
+ {id:"macau",emb:"facade",img:"img/macau-1.jpg",credit:"https://commons.wikimedia.org/wiki/File:Ruins_Of_St_Paul%27s_Cathedral,_Macau.jpg",name:"마카오 성 바울 성당 유적",region:"해외",area:"마카오",line:"김대건 신부가 공부한 도시",addr:"",
   feel:"1835년 불에 타고 앞면만 남은 성당 유적이에요. 성 안토니오 성당에는 김대건 신부의 목상과 유해 일부가 있어요.",kids:"까모에스 공원에서 한국 천주교가 세운 김대건 신부 조각상을 찾아보세요.",
   how:"가족 여행이나 청년부 여행 때 들르기 좋아요. 떠나기 전에 외교부 해외안전여행을 확인하세요.",with:"",keep:"김대건 신부 조각상 앞 사진",care:"",
   src:[["서울신문: 마카오, 성 안토니오와 동서양의 조우","https://m.seoul.co.kr/news/2015/10/07/20151007500423"]]},
@@ -662,28 +669,28 @@ MAKE.push(
   steps:["낮에 다 함께 초막 뼈대를 세우고 지붕을 나뭇가지로 덮습니다. 별이 보이게 듬성듬성!","초막을 과일과 그림으로 꾸밉니다.","저녁에 초막 안에서 밥을 먹고 광야 이야기와 감사를 나눕니다.","하룻밤을 지낸다면 보호자와 어른이 충분히 함께합니다."],
   church:"추수감사절 행사로 하면 한 해의 감사와 자연스럽게 이어져요. 행사 이름에는 '초막절'을 쓰지 말고 '추수감사 캠프'라고 부르세요. 구약의 절기는 그리스도를 가리키는 그림자이고, 지켜야 구원받는 규칙이 아니라는 것(골로새서 2장)도 함께 이야기해 주세요.",care:"구약 절기를 지켜야 구원받는다고 가르치는 단체가 있어서, 절기 이름을 내건 행사는 오해를 살 수 있어요. 밤을 지낼 때는 보호자 동의와 어른 동행이 꼭 필요해요. 초막 안에서는 불 대신 랜턴을 쓰고, 마당에서 불을 피운다면 어른이 곁을 지키고 소화기를 둡니다."}
 );
-/* 사진 이야기: 장면마다 옆으로 넘겨 보는 사진과 한 줄. [img 폴더의 파일 이름, 사진에서 보일 곳("fit"이면 자르지 않고 통째로), 한 줄]
+/* 사진 이야기: 장면마다 옆으로 넘겨 보는 사진과 한 줄. [img 폴더의 파일 이름, 사진에서 보일 곳("fit"이면 여백을 두고, "tall"이면 흐린 배경 위에 자르지 않고 통째로), 한 줄]
    사진은 Unsplash의 무료 사진(분위기를 보여 주는 예시). 위키미디어 공용 사진은 네 번째 칸에 [원본 페이지 주소, 이름, 찍은 사람, 라이선스("PD"는 퍼블릭 도메인)]을 적습니다.
    새 사진은 img 폴더에 넣고 여기 한 줄을 더하면 됩니다. */
 const GALLERY = {
   christingle:[["christingle-4","50% 45%","작은 오렌지 위에 켜진 빛 하나.",["https://commons.wikimedia.org/wiki/File:Christingle_reinvented._(8304327645).jpg","마시멜로 크리스팅글","vincent Angler","CC BY 2.0"]],["christingle-3","50% 50%","성탄 전야 예배를 위해, 아이들 몫을 하나씩 준비해요.",["https://commons.wikimedia.org/wiki/File:Christingles_(3182614809).jpg","상자에 담긴 크리스팅글","Andrew Fogg","CC BY 2.0"]],["christingle-1","58% 50%","오렌지는 세상, 꽂은 간식은 하나님이 지으신 것들, 초는 빛이에요."],["christingle-5","50% 58%","어두운 예배당, 손바닥 위 오렌지에 작은 불이 켜졌어요."],["christingle-2","50% 40%","작은 빛을 감싼 손, 그 빛에 환해지는 얼굴."],["christingle-6","50% 50%","불을 끄면 예배당 가득 작은 빛들이 떠올라요."],["christingle-7","50% 30%","작은 빛들이 모이면 예배당이 환해져요. 그 빛 너머로 십자가가 보여요."]],
   wreath:[["wreath-1","50% 42%","성냥 긋는 소리에 아이들이 숨을 죽여요."],["wreath-2","50% 52%","한 주에 하나씩, 기다림이 조금씩 밝아져요."],["wreath-4","50% 55%","푸른 저녁, 초에 불이 켜지면 기다림도 따뜻해져요."],["wreath-5","50% 50%","보랏빛 초들이 켜졌어요. 보라는 기다리며 준비하는 대림절의 색이에요."],["wreath-6","50% 60%","집 식탁에도 솔방울과 리본으로 꾸민 화환을 두어요. 아직은 네 초 모두 꺼져 있어요."],["wreath-3","50% 55%","넷째 주일 저녁, 집 식탁에도 초 네 개가 다 켜졌어요."]],
   livenativity:[["nativity-1","45% 45%","그날 밤, 마구간에서 아기가 태어났어요."],["nativity-2","50% 55%","짚 지붕 아래, 이번엔 인형 대신 우리가 들어가요."],["nativity-3","50% 50%","아기 예수 앞에서 아이가 한참을 머물러요."]],
-  dawn:[["carol-3","50% 28%","어르신 댁 문 앞. 숨을 한 번 고르고, 첫 소절을 시작해요."],["carol-5","60% 50%","추운 새벽, 손에 든 작은 등불이 얼굴을 비춰요."],["carol-1","50% 52%","옛날 옷을 차려입고 거리에서 캐럴을 부르는 마을도 있어요."],["carol-6","55% 50%","악보를 하나씩 펴 들고, 한 목소리로 불러요."],["carol-2","50% 45%","촛불 하나씩 들고, 목소리를 모아요."],["carol-7","90% 50%","성탄 새벽, 불빛을 두른 예배당 위로 별 하나가 떠 있어요."]],
+  dawn:[["carol-3","50% 28%","어르신 댁 문 앞. 숨을 한 번 고르고, 첫 소절을 시작해요."],["carol-5","60% 50%","추운 새벽, 손에 든 작은 등불이 얼굴을 비춰요."],["carol-1","50% 52%","옛날 옷을 차려입고 거리에서 캐럴을 부르는 마을도 있어요."],["carol-6","55% 50%","악보를 하나씩 펴 들고, 한 목소리로 불러요."],["carol-2","20% 45%","촛불 하나씩 들고, 목소리를 모아요."],["carol-7","90% 50%","성탄 새벽, 불빛을 두른 예배당 위로 별 하나가 떠 있어요."]],
   sunrise:[["sunrise-1","50% 40%","바닷가든 뒷산이든, 동쪽이 트인 곳이면 돼요."],["sunrise-4","50% 60%","돗자리를 펴고 언덕에 둘러앉아 해를 기다려요."],["sunrise-2","50% 45%","새들이 먼저 깨어 날아오르는 시간."],["sunrise-5","50% 55%","산등성이 너머로 첫 햇살이 번져 와요."],["sunrise-6","50% 50%","들판 끝에서 해가 떠올라요. 그 아침, 무덤은 비어 있었어요."],["sunrise-3","28% 50%","빈 십자가 뒤로 아침 빛이 번져요."]],
-  garden:[["garden-1","50% 50%","영국의 한 마을 풀밭. 부활절이 오면 뜨개 꽃과 병아리로 벤치를 꾸며요. 부활절 정원도 영국 교회에서 널리 하는 전통이에요."],["garden-2","50% 40%","볕 드는 마당에 봄이 왔어요. 우리 작은 정원 한가운데에는 돌로 막은 무덤을 만들어요."]],
+  garden:[["garden-3","50% 50%","넓은 화분에 흙을 담고, 나무 십자가 셋과 돌을 굴려 놓은 무덤, 봄꽃을 놓았어요. 이게 바로 부활절 정원이에요.",["https://commons.wikimedia.org/wiki/File:Miniature_Easter_garden_at_St._Pega%27s_church,_Peakirk_-_geograph.org.uk_-_8293472.jpg","피크커크 성 페가 교회의 작은 부활절 정원","Paul Bryan","CC BY-SA 2.0"]],["garden-4","50% 50%","손으로 만든 'EASTER GARDEN' 글씨 아래, 알록달록한 돌길이 작은 무덤까지 이어져요.",["https://commons.wikimedia.org/wiki/File:Easter_Garden,_Fretherne_-_geograph.org.uk_-_7476025.jpg","프레던 교회의 부활절 정원","Neil Owen","CC BY-SA 2.0"]],["garden-5","50% 50%","오래된 교회 안, 초록 천 위에 꾸민 부활절 정원. 하얀 돌길이 굽이굽이 이어져요.",["https://commons.wikimedia.org/wiki/File:Christchurch_Priory,_The_Easter_Garden_-_geograph.org.uk_-_8064344.jpg","크라이스트처치 수도원 교회의 부활절 정원","Michael Garlick","CC BY-SA 2.0"]],["garden-6","50% 50%","대성당 담장 옆에는 큰 돌을 쌓아 무덤을 만든 커다란 부활절 정원도 있어요.",["https://commons.wikimedia.org/wiki/File:Easter_Garden,_Salisbury_Cathedral_1.jpg","솔즈베리 대성당의 부활절 정원","Richard Avery","CC BY-SA 4.0"]],["garden-1","50% 50%","영국의 한 마을 풀밭. 부활절이 오면 뜨개 꽃과 병아리로 벤치를 꾸며요. 부활절 정원도 영국 교회에서 널리 하는 전통이에요."]],
   eggs:[["eggs-1","50% 92%","봄볕 아래, 물들인 달걀 한 바구니."],["eggs-5","50% 100%","정교회처럼 빨갛게 물들인 달걀. 톡 부딪치며 부활 인사를 나눠요."],["eggs-8","50% 45%","달걀을 하나씩 쥐고 톡! '그리스도께서 부활하셨어요!' '참으로 부활하셨어요!'"],["eggs-2","40% 50%","아이마다 자기 달걀에 색을 입혀요."],["eggs-6","50% 60%","풀숲 곳곳에 달걀을 숨겨 두면,"],["eggs-7","50% 45%","바구니를 든 아이들이 달걀을 찾아 나서요."],["eggs-3","50% 50%","마지막 달걀은 비어 있어요. 무덤이 비어 있었던 것처럼."],["eggs-4","50% 12%","몇 개는 이웃 문 앞에. 부활의 기쁜 소식도 함께 두고 와요."]],
   martin:[["lantern-1","50% 50%","어둠 속에서는 작은 등불 하나도 멀리 보여요."],["lantern-3","45% 40%","작은 등불 하나에 이렇게 기뻐하는 얼굴."],["lantern-2","50% 50%","모두의 손에 작은 불빛 하나씩."],["lantern-4","50% 55%","흐린 저녁 들판에 등불이 하나둘 모였어요. 이제 노래하며 함께 걸어요."]],
   sukkot:[["sukkot-4","50% 80%","별이 보이는 밤, 둘러앉아 광야 이야기를 나눠요."],["sukkot-1","50% 50%","낮에는 다 함께 초막을 세우고, 저녁을 준비해요."],["sukkot-5","50% 65%","길게 이어 붙인 식탁에 모두 함께 앉아요. 한 해의 열매를 나누는 저녁이에요."],["sukkot-3","50% 50%","초록 잎을 두른 식탁에 한 해의 감사를 차려요."],["sukkot-2","50% 60%","해가 지면 지붕 위로 불빛이 하나둘 켜져요."],["sukkot-6","50% 55%","줄 전구를 두른 마당에 모닥불이 피어올라요. 둘러앉을 의자도 놓였어요."],["sukkot-7","50% 40%","깊은 밤, 하늘 가득 별이 쏟아져요. 아브라함이 세어 보던 별도 이랬을까요?"]],
   alleluia:[["alleluia-1","50% 50%","사순절이 오기 전 주일, 아이들이 '할렐루야'를 마음껏 꾸며요."],["alleluia-2","58% 50%","꾸민 깃발은 상자 속으로. 부활절 아침까지 할렐루야는 잠들어요."],["alleluia-3","30% 50%","부활절 아침, 상자가 열리면 다 함께 외쳐요. 할렐루야!"]],
-  lentbox:[["lentbox-1","50% 64%","작은 손으로 하나씩 모으는 사십 일."],["lentbox-4","50% 50%","간식을 하나 덜 산 날, 남은 동전은 병 속으로."],["lentbox-2","50% 50%","집에서도 가족이 함께 채워 가요."],["lentbox-5","50% 50%","조금씩 채운 병을 두 손으로 내밀어요. 덜어 낸 만큼 이웃에게 가요."],["lentbox-6","45% 55%","병을 쏟아 함께 세어 봐요. 누구와 나눌지도 같이 정해요."],["lentbox-3","50% 62%","사십 일 뒤 한데 모으면, 누군가의 하루가 따뜻해져요."]],
+  lentbox:[["lentbox-1","50% 54%","작은 손으로 하나씩 모으는 사십 일."],["lentbox-4","50% 50%","간식을 하나 덜 산 날, 남은 동전은 병 속으로."],["lentbox-2","50% 50%","집에서도 가족이 함께 채워 가요."],["lentbox-5","50% 50%","조금씩 채운 병을 두 손으로 내밀어요. 덜어 낸 만큼 이웃에게 가요."],["lentbox-6","45% 55%","병을 쏟아 함께 세어 봐요. 누구와 나눌지도 같이 정해요."],["lentbox-3","50% 62%","사십 일 뒤 한데 모으면, 누군가의 하루가 따뜻해져요."]],
   birthday:[["birthday-1","50% 8%","붉은 빛이 번진 예배당 벽의 십자가. 오늘은 교회의 생일이에요."],["birthday-6","40% 50%","성령께서 오신 날을 기억하며, 온 교회가 함께 찬양해요."],["birthday-2","50% 55%","생일에 케이크가 빠질 수 없지요."],["birthday-3","50% 60%","예배가 끝나면 마당에 돗자리를 펴요."],["birthday-4","50% 50%","저마다 싸 온 것을 펼치면 잔칫상이 돼요."],["pinwheel-1","50% 45%","보이지 않아도 느낄 수 있는 바람. 바람개비가 돌아요."],["birthday-5","35% 50%","해 질 녘, 생일을 맞은 교회 위로 노을이 내려요."]],
   pinwheel:[["pinwheel-1","50% 45%","보이지 않아도 느낄 수 있는 바람. 바람개비가 돌아요."]],
   star:[["star-1","50% 72%","뾰족한 꼭지가 사방으로 뻗은 헤른후트 별. 모라비아 교회에서 시작된 대림절 별이에요."],["star-4","60% 50%","빨강과 노랑으로 빛나는 헤른후트 별. 뾰족한 꼭지가 스물다섯 개예요."],["star-2","50% 45%","창가에 건 종이 별. 불빛이 비치면 종이 너머로 빛이 은은하게 번져요."],["star-5","50% 35%","흰 종이 별을 창가에 여러 개 걸면, 밤길을 지나는 사람에게도 보여요."],["star-6","50% 40%","줄줄이 매단 별 등. 어두워질수록 더 밝게 빛나요."],["star-7","50% 45%","해 질 녘에 건 별 하나. 동방박사들도 이런 별을 따라 길을 떠났을까요?"],["star-3","50% 45%","동방박사들을 이끈 베들레헴의 별을 기억하며, 성탄 나무 꼭대기에도 별을 달아요."]],
   manger:[["manger-1","50% 55%","성탄 밤, 불을 밝힌 마구간. 빈 마구간에 하나씩 채워 온 기다림이 완성돼요."],["manger-2","50% 60%","양 떼와 목자, 그리고 마구간의 작은 가족. 가까이 들여다볼수록 이야기가 보여요."],["manger-5","50% 55%","천사와 목자, 소와 양까지. 모두가 구유의 아기를 바라봐요."],["manger-6","55% 50%","나무로 지은 마구간 안, 등불 아래에서 마리아와 요셉이 아기를 바라봐요."],["manger-3","40% 60%","프랑스 남부에서는 빵 굽는 사람까지 온 마을이 인형이 되어 구유를 찾아와요."],["manger-4","50% 45%","색색 전구와 양 떼로 꾸민 구유. 집집마다, 교회마다 모양이 다 달라요."],["manger-7","40% 55%","성탄 나무 사이에 꾸민 커다란 구유. 멀리서 온 손님들도 아기 앞에 무릎을 꿇어요."]],
   handwash:[["handwash-1","50% 60%","두 손 가득 받은 물. 짝의 손에 이 물을 천천히 부어 주세요."],["handwash-3","60% 50%","손바닥에 물이 떨어지는 소리까지 들려요."],["handwash-2","50% 50%","물이 손가락 사이로 흘러내려요. 서로의 손을 씻기는 동안엔 모두 조용해져요."],["handwash-4","50% 55%","예수님이 제자들의 발을 씻기신 것처럼, 우리도 서로를 섬겨요."]],
   tongues:[["tongues-1","50% 50%","지구본을 돌리며 '하나님이 너를 사랑해'를 어느 나라 말로 읽을지 골라요."],["tongues-2","45% 50%","찾았다! 그 나라 말로 인사를 건네 봐요."],["tongues-4","45% 40%","손뼉을 마주치며 인사해요. 말이 서툴러도 웃음은 통해요."],["tongues-3","50% 50%","지도 위 나라마다, 그 나라 말로 '사랑해'를 적어 넣어요."],["tongues-5","50% 50%","세계 지도 위에 포갠 서로 다른 손. 성령께서는 모든 사람에게 저마다의 말로 다가오셨어요."]],
-  thanks:[["thanks-1","50% 55%","한 해 동안 받은 것을 바구니에 가득 담아요."],["thanks-4","50% 40%","햇볕 아래 거둔 열매. 한 바구니에 한 해의 수고와 은혜가 담겼어요."],["thanks-2","50% 45%","고마운 일 하나에 과일 하나. 바구니가 조금씩 채워져요."],["thanks-5","50% 50%","빨간 사과가 가득한 바구니. 사과마다 고마운 일을 하나씩 적어 붙여요."],["thanks-6","50% 50%","해바라기 곁의 배 바구니. 가을이 바구니 안에 들어왔어요."],["thanks-7","50% 60%","작은 호박 두 개와 소박한 바구니 하나. 크기보다 감사하는 마음이 중요해요."],["thanks-3","50% 55%","예배가 끝나면 바구니의 과일을 이웃과 함께 나눠 먹어요."]],
+  thanks:[["thanks-1","50% 55%","한 해 동안 받은 것을 바구니에 가득 담아요."],["thanks-4","50% 30%","햇볕 아래 거둔 열매. 한 바구니에 한 해의 수고와 은혜가 담겼어요."],["thanks-2","50% 45%","고마운 일 하나에 과일 하나. 바구니가 조금씩 채워져요."],["thanks-5","50% 50%","빨간 사과가 가득한 바구니. 사과마다 고마운 일을 하나씩 적어 붙여요."],["thanks-6","50% 50%","해바라기 곁의 배 바구니. 가을이 바구니 안에 들어왔어요."],["thanks-7","50% 60%","작은 호박 두 개와 소박한 바구니 하나. 크기보다 감사하는 마음이 중요해요."],["thanks-3","50% 55%","예배가 끝나면 바구니의 과일을 이웃과 함께 나눠 먹어요."]],
   illum:[["illum-1","30% 50%","손으로 쓴 옛 예배 책 한 장. 첫 글자에 금빛을 입혔어요."],["illum-2","40% 50%","장마다 첫 글자는 빨간 잉크로 크게. 어디서 새 이야기가 시작되는지 한눈에 보여요."],["illum-3","50% 45%","인쇄기가 없던 시절에는 책 한 권도 모두 손으로 베껴 썼어요."],["illum-5","50% 50%","한 장 한 장 손으로 써 내려간 오래된 책. 펜이 지나간 자리마다 정성이 남아 있어요."],["illum-4","50% 50%","깃펜으로 한 글자씩. 우리도 좋아하는 구절 한 줄을 정성껏 써 봐요."]],
   treasure:[["treasure-1","50% 55%","강단 위의 성경과 성찬 그릇. 우리 교회 성찬상에는 어떤 말씀이 새겨져 있을까요?"],["treasure-6","60% 55%","펼친 성경 곁의 금빛 잔과 빵 접시. 성찬상을 가까이에서 보면 처음 보는 것들이 보여요."],["treasure-2","50% 60%","뚜껑을 덮은 은빛 성찬 그릇과 잔. 이 그릇으로 몇 번의 성찬을 나눴을까요?"],["treasure-7","40% 55%","무늬를 새긴 은잔 위에 덮은 하얀 천. 천에 수놓은 무늬에도 뜻이 있어요."],["treasure-3","50% 50%","오래 쓴 잔에는 긁힌 자국마다 이야기가 있어요."],["treasure-4","50% 45%","강단의 촛대 하나에도 누가 언제 드렸는지 이야기가 있어요. 목사님께 여쭤보세요."],["treasure-5","50% 55%","작은 잔을 하나하나 채워 준비하는 손. 보이지 않는 곳에서 섬기는 분들의 이야기도 들어 보세요."]],
   creation:[["creation-1","50% 55%","낙엽 위에서 마음에 드는 잎을 하나씩 골라요."],["creation-5","50% 55%","바스락바스락, 낙엽 밟는 소리에 웃음이 나요."],["creation-2","50% 40%","붉게 물든 단풍가지. 누가 이렇게 고운 색을 칠했을까요?"],["creation-3","50% 40%","고개를 들면 하늘과 나무가, 고개를 숙이면 낙엽이 보여요."],["creation-6","50% 60%","몸을 낮추면 잎 하나하나의 색과 무늬가 보여요."],["creation-7","50% 60%","두 손 가득 낙엽을 하늘로! 하나님이 지으신 가을을 온몸으로 느껴요."],["creation-4","50% 50%","천천히 걸을수록 더 많은 것이 보여요."]],
@@ -694,7 +701,7 @@ const GALLERY = {
   lucia:[["lucia-1","50% 40%","스웨덴의 한 교회. 촛불 관을 쓴 루치아를 따라 흰 옷의 아이들이 노래해요.",["https://commons.wikimedia.org/wiki/File:Lucia-13.12.06.jpg","스웨덴 교회의 루치아 축제","Claudia Gründer","CC BY-SA 3.0"]],["lucia-2","50% 62%","불을 끈 강당, 초를 든 행렬이 천천히 걸어 들어와요.",["https://commons.wikimedia.org/wiki/File:Right_Livelihood_Award_2009-award_ceremony-31.jpg","루치아 행렬","Prolineserver","CC BY-SA 3.0"]],["lucia-3","50% 50%","빨간 띠를 두른 흰 옷, 손마다 작은 불빛. 어린 동생도 함께 서 있어요.",["https://commons.wikimedia.org/wiki/File:Lucia_in_Vienna_2.jpg","빈의 루치아 축제","N_Creatures","CC BY 2.0"]],["lucia-4","50% 50%","사람들로 가득한 예배당 앞에서, 흰 옷의 아이들이 촛불을 들고 노래해요.",["https://commons.wikimedia.org/wiki/File:St._Lucia%27s_Day_celebration_in_the_church_of_Borgholm,_Sweden.jpg","보리홀름 교회의 루치아 축제","Stefan Källroos","CC BY-SA 4.0"]],["lucia-5","50% 60%","사프란을 넣어 노랗게 구운 '루세카트' 빵. 행렬이 끝나면 함께 나눠 먹어요.",["https://commons.wikimedia.org/wiki/File:Lussekatter.jpg","루세카트 빵","Joel.e.lundberg","CC0"]]],
   nicholas:[["nicholas-1","fit","우크라이나의 성탄 우표(2006년). 선물 자루를 멘 성 니콜라오가 노래하는 아이들에게 날아와요.",["https://commons.wikimedia.org/wiki/File:Christmas_Stamp_of_Ukraine_2006_2.jpg","우크라이나 성탄 우표","Ukrposhta","PD"]],["nicholas-2","50% 40%","네덜란드의 '신터클라스'. 주교 모자를 쓴 니콜라오가 12월 5일 밤 선물을 가져온다고 해요.",["https://commons.wikimedia.org/wiki/File:Sinterklaas_2007.jpg","신터클라스","CrazyPhunk(nl.wikipedia)","CC BY-SA 3.0"]],["nicholas-5","50% 70%","주교 모자를 쓰고 지팡이를 든 니콜라오 인형. 산타보다 먼저 있던 모습이에요."],["nicholas-3","50% 50%","바다를 건너 미국에 간 이 이야기는 훗날 산타클로스가 되었어요."],["nicholas-4","50% 50%","손으로 그린 작은 장식. 몰래 건넬 선물은 이만큼 작아도 충분해요."]],
   starsingers:[["starsingers-1","50% 40%","피모넨코의 그림 「콜랴드키」(1880년대). 별을 든 아이들이 집에 들어와 성탄 노래를 불러요.",["https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B8%D0%BC%D0%BE%D0%BD%D0%B5%D0%BD%D0%BA%D0%BE_%D0%9A%D0%BE%D0%BB%D1%8F%D0%B4%D0%BA%D0%B8_1880.jpg","피모넨코 「콜랴드키」","Mykola Pymonenko","PD"]],["starsingers-2","fit","몰도바의 성탄 우표(1996년). 커다란 별을 들고 노래하러 다니는 아이들이에요.",["https://commons.wikimedia.org/wiki/File:Stamp_of_Moldova_341.gif","몰도바 성탄 우표","Post of Moldova","PD"]],["starsingers-3","40% 50%","전통 옷을 차려입은 아이들이 성탄 노래를 불러요. 뒤에 걸린 별이 보이나요?"]],
-  animals:[["animals-1","50% 50%","강아지와 함께 온 가족들로 예배당이 북적여요."],["animals-6","60% 40%","예배당 의자에 함께 앉은 강아지. 오늘은 함께 예배드리는 날이에요."],["animals-2","45% 92%","의자 사이 통로에서 기다리는 강아지. 곧 이름이 불릴 차례예요."],["animals-7","50% 70%","알록달록한 목걸이를 걸고 온 강아지. 오늘은 모두가 귀한 손님이에요."],["animals-3","50% 50%","마당에 의자를 둥글게 놓고, 한 마리씩 쓰다듬으며 인사해요."],["animals-4","50% 92%","크기도 생김새도 다른 친구들이 한 줄로. 모두 하나님이 지으셨어요."],["animals-5","50% 62%","반려동물이 없는 아이는 좋아하는 동물 인형이나 그림을 가져와도 돼요."]],
+  animals:[["animals-1","50% 50%","강아지와 함께 온 가족들로 예배당이 북적여요."],["animals-6","60% 40%","예배당 의자에 함께 앉은 강아지. 오늘은 함께 예배드리는 날이에요."],["animals-2","tall","의자 사이 통로에서 기다리는 강아지. 곧 이름이 불릴 차례예요."],["animals-7","50% 70%","알록달록한 목걸이를 걸고 온 강아지. 오늘은 모두가 귀한 손님이에요."],["animals-3","50% 50%","마당에 의자를 둥글게 놓고, 한 마리씩 쓰다듬으며 인사해요."],["animals-4","50% 92%","크기도 생김새도 다른 친구들이 한 줄로. 모두 하나님이 지으셨어요."],["animals-5","50% 62%","반려동물이 없는 아이는 좋아하는 동물 인형이나 그림을 가져와도 돼요."]],
   questions:[["questions-1","50% 5%","손을 번쩍! 궁금한 것이 생겼어요."],["questions-2","55% 50%","누구의 질문이든 귀하게. 가장 어린 아이의 질문부터 시작해요."],["questions-3","50% 50%","질문은 자세히 들여다보는 데서 시작돼요."]]
 };
 MAKE.forEach(m => {
@@ -868,7 +875,7 @@ const store = {get(k,v){try{const x=localStorage.getItem(k);return x==null?v:JSO
 const findArt = id => ART.find(a => a.id === id), findMake = id => MAKE.find(m => m.id === id), findPlace = id => PLACES.find(p => p.id === id);
 const practiceHref = a => { const q = [a && a.scene ? `scene=${a.scene}` : "", EN ? "lang=en" : ""].filter(Boolean).join("&"); return PRACTICE_URL + (q ? `?${q}` : ""); }; /* 영어판이면 연습하기 방도 영어판으로 */
 function toast(msg){const el=document.createElement("div");el.className="toast";el.setAttribute("role","status");el.textContent=msg;document.body.appendChild(el);setTimeout(()=>el.remove(),2200);}
-function guardImgs(root){root.querySelectorAll("img[data-emb]").forEach(i=>{const swap=()=>{const d=document.createElement("div");d.innerHTML=lb(i.dataset.emb,i.className);i.replaceWith(d.firstChild);};if(i.complete&&i.naturalWidth===0)swap();else i.addEventListener("error",swap,{once:true});});}
+function guardImgs(root){root.querySelectorAll("img[data-emb]:not([data-lazy])").forEach(i=>{const swap=()=>{const d=document.createElement("div");d.innerHTML=lb(i.dataset.emb,i.className);i.replaceWith(d.firstChild);};if(i.complete&&i.naturalWidth===0)swap();else i.addEventListener("error",swap,{once:true});});}
 async function copy(text){try{await navigator.clipboard.writeText(text);toast(t("복사했어요. 단톡방이나 문서에 붙여 넣으세요."));}catch(e){openSheet(t("복사할 내용"),`<p class="small muted">${t("자동 복사가 막혀 있어요. 아래 글을 길게 눌러 모두 선택한 뒤 복사해 주세요.")}</p><textarea readonly style="min-height:260px;border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit;font-size:14px;background:var(--bg);color:var(--ink)">${esc(text)}</textarea>`);}}
 
 /* ---------- 상태 ---------- */
@@ -902,18 +909,25 @@ function renderStage(){
     ${cur ? "" : `<div class="preview"><span>${t("미리 보는 중")} · ${esc(s.name)}</span><button class="btn line" type="button" data-today style="min-height:38px">${t("오늘로 돌아가기")}</button></div>`}
     <div class="stage-top">${ringSvg()}<div><p class="eyebrow">${cur ? t("지금은") : t("이번 교회력의")}</p><h1>${esc(name)}</h1><p class="color">${t("{color}의 계절",{color:esc(s.color)})}</p><p class="dates">${esc(dates)}</p></div></div>
     <p class="stage-line">${esc(s.line)}</p>
-    <button class="hero" type="button" data-open="art:${a.id}"><img src="${thumb(a.cover||a.img)}" alt="${esc(a.alt)}" data-emb="${s.emb}" style="object-position:${a.pos||"50% 45%"}"><span class="cap"><b>${esc(a.title)}</b><span>${esc(a.artist)} · ${esc(a.year)} · ${t("눌러서 그림 이야기 보기")}</span></span></button>
+    <button class="hero" type="button" data-open="art:${a.id}"><img src="${a.cover||a.img}" alt="${esc(a.alt)}" data-emb="${s.emb}" style="object-position:${a.pos||"50% 45%"}"><span class="cap"><b>${esc(a.title)}</b><span>${esc(a.artist)} · ${esc(a.year)} · ${t("눌러서 그림 이야기 보기")}</span></span></button>
     <div class="ask"><b>${t("이 그림이 여는 질문")}</b><p>“${esc(a.q)}”</p></div>${soon}`;
-  guardImgs($("#stage"));
+  guardImgs($("#stage")); deferReels($("#stage"));
 }
 /* 큰 사진(가로 1600px 안팎)은 목록·카드에서 작은 판(-s, 640px)을 씁니다. 장면 창과 크게 보기에서는 큰 판 */
-const BIGPIC = new Set("alleluia-1 alleluia-2 alleluia-3 angelico animals-1 animals-2 animals-5 animals-6 animals-7 birthday-1 birthday-2 birthday-5 birthday-6 carol-1 carol-5 carol-6 carol-7 christingle-1 christingle-4 christingle-5 christingle-6 christingle-7 colmar-1 colmar-2 colmar-3 colmar-5 creation-1 creation-5 creation-6 creation-7 eggs-1 eggs-2 eggs-3 eggs-5 eggs-6 eggs-8 elgreco garden-1 garden-2 handwash-2 handwash-3 handwash-4 honey-1 honey-3 honey-4 honey-5 illum-1 illum-2 illum-3 illum-5 isenheim-rise lantern-1 lantern-2 lantern-4 latour lentbox-3 lentbox-4 lentbox-5 lentbox-6 lucia-1 lucia-2 lucia-3 lucia-4 lucia-5 macau-1 macau-2 macau-3 macau-4 manger-4 manger-5 manger-6 manger-7 millet nativity-1 nativity-2 nicholas-1 nicholas-5 palm-1 palm-2 palm-3 palm-5 palm-6 pinwheel-1 potsdam-1 potsdam-2 potsdam-3 potsdam-4 potsdam-5 pretzel-2 pretzel-3 pretzel-4 pretzel-5 pretzel-6 prodigal questions-1 questions-2 sagrada-1 sagrada-2 sagrada-3 sagrada-4 sagrada-5 star-1 star-2 star-4 star-5 star-6 star-7 starsingers-1 starsingers-3 sukkot-4 sukkot-5 sukkot-6 sukkot-7 sunrise-1 sunrise-2 sunrise-3 sunrise-4 sunrise-5 sunrise-6 thanks-1 thanks-2 thanks-3 thanks-4 thanks-5 thanks-6 thanks-7 thomas tongues-1 tongues-2 tongues-4 tongues-5 treasure-6 treasure-7 vasilopita-4 wreath-1 wreath-3 wreath-4 wreath-5 wreath-6".split(" "));
+const BIGPIC = new Set("alleluia-1 alleluia-2 alleluia-3 angelico animals-1 animals-2 animals-5 animals-6 animals-7 birthday-1 birthday-2 birthday-5 birthday-6 carol-1 carol-5 carol-6 carol-7 christingle-1 christingle-4 christingle-5 christingle-6 christingle-7 colmar-1 colmar-2 colmar-3 colmar-5 creation-1 creation-5 creation-6 creation-7 eggs-1 eggs-2 eggs-3 eggs-5 eggs-6 eggs-8 elgreco garden-1 garden-3 garden-4 garden-5 garden-6 handwash-2 handwash-3 handwash-4 honey-1 honey-3 honey-4 honey-5 illum-1 illum-2 illum-3 illum-5 isenheim-rise lantern-1 lantern-2 lantern-4 latour lentbox-3 lentbox-4 lentbox-5 lentbox-6 lucia-1 lucia-2 lucia-3 lucia-4 lucia-5 macau-1 macau-2 macau-3 macau-4 manger-1 manger-4 manger-5 manger-6 manger-7 millet nativity-1 nativity-2 nicholas-1 nicholas-5 palm-1 palm-2 palm-3 palm-5 palm-6 pinwheel-1 potsdam-1 potsdam-2 potsdam-3 potsdam-4 potsdam-5 pretzel-2 pretzel-3 pretzel-4 pretzel-5 pretzel-6 prodigal questions-1 questions-2 sagrada-1 sagrada-2 sagrada-3 sagrada-4 sagrada-5 star-1 star-2 star-4 star-5 star-6 star-7 starsingers-1 starsingers-3 stnicholas-1 sukkot-4 sukkot-5 sukkot-6 sukkot-7 sunrise-1 sunrise-2 sunrise-3 sunrise-4 sunrise-5 sunrise-6 thanks-1 thanks-2 thanks-3 thanks-4 thanks-5 thanks-6 thanks-7 thomas tongues-1 tongues-2 tongues-4 tongues-5 treasure-6 treasure-7 vasilopita-4 wreath-1 wreath-3 wreath-4 wreath-5 wreath-6".split(" "));
 function thumb(s){const m=/^img\/([^/]+)\.jpg$/.exec(s||"");return m&&BIGPIC.has(m[1])?`img/${m[1]}-s.jpg`:s;}
+/* 사진에서 보일 곳. "fit"(여백 두고 통째로)과 "tall"(흐린 배경 위에 통째로)은 자르지 않습니다 */
+const posOf=p=>p&&p.pos&&p.pos!=="fit"&&p.pos!=="tall"?p.pos:"50% 50%";
 function reel(g, emb, cls=""){
-  const n=g.length, many=n>1;
-  return `<div class="reel ${cls}">${many?`<div class="bars" aria-hidden="true">${g.map((_,i)=>`<i class="${i===0?"on":""}"></i>`).join("")}</div>`:""}<div class="track"${many?` tabindex="0" role="group" aria-label="${t("사진 {n}장. 옆으로 넘기거나 사진을 누르면 다음 사진이 나와요.",{n})}"`:""}>${g.map((p,i)=>`<figure class="${i===0?"on":""}${p.own?" own":""}${p.pos==="fit"?" fit":""}"><img src="${p.src}" alt=""${i?' loading="lazy"':""} style="object-position:${p.pos&&p.pos!=="fit"?p.pos:"50% 50%"}" data-emb="${emb}">${p.own?`<span class="own-badge">${t("우리 교회")}</span>`:""}${p.cap?`<figcaption>${esc(p.cap)}</figcaption>`:""}</figure>`).join("")}</div>${many?`<button class="nav prev" type="button" data-reel-step="-1" aria-label="${t("이전 사진")}" hidden>‹</button><button class="nav next" type="button" data-reel-step="1" aria-label="${t("다음 사진")}">›</button>`:""}</div>`;
+  const n=g.length, many=n>1, later=!/\bfull\b/.test(cls);
+  return `<div class="reel ${cls}">${many?`<div class="bars" aria-hidden="true">${g.map((_,i)=>`<i class="${i===0?"on":""}"></i>`).join("")}</div>`:""}<div class="track"${many?` tabindex="0" role="group" aria-label="${t("사진 {n}장. 옆으로 넘기거나 사진을 누르면 다음 사진이 나와요.",{n})}"`:""}>${g.map((p,i)=>`<figure class="${i===0?"on":""}${p.own?" own":""}${p.pos==="fit"?" fit":""}${p.pos==="tall"?" tall":""}"${p.pos==="tall"?` style="--tall:url('${p.src}')"`:""}><img ${i&&later&&p.pos!=="tall"?`data-lazy="${p.src}"`:`src="${p.src}"`} alt=""${i?' loading="lazy"':""} style="object-position:${posOf(p)}" data-emb="${emb}">${p.own?`<span class="own-badge">${t("우리 교회")}</span>`:""}${p.cap?`<figcaption>${esc(p.cap)}</figcaption>`:""}</figure>`).join("")}</div>${many?`<button class="nav prev" type="button" data-reel-step="-1" aria-label="${t("이전 사진")}" hidden>‹</button><button class="nav next" type="button" data-reel-step="1" aria-label="${t("다음 사진")}">›</button>`:""}</div>`;
 }
+/* 카드의 사진 띠는 화면 가까이 오면(또는 넘기기 시작하면) 나머지 사진을 받습니다 */
+function wakeReel(r){if(!r)return;r.querySelectorAll("img[data-lazy]").forEach(im=>{im.src=im.dataset.lazy;im.removeAttribute("data-lazy");});guardImgs(r);}
+const REEL_IO="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){REEL_IO.unobserve(e.target);wakeReel(e.target);}}),{rootMargin:"300px 0px"}):null;
+function deferReels(root){root.querySelectorAll(".reel").forEach(r=>{if(!r.querySelector("img[data-lazy]"))return;if(REEL_IO)REEL_IO.observe(r);else wakeReel(r);});}
 function syncReel(track){
+  if(track.querySelector("img[data-lazy]"))wakeReel(track.closest(".reel"));
   const r=track.closest(".reel"), n=track.children.length, i=Math.max(0,Math.min(n-1,Math.round(track.scrollLeft/(track.clientWidth||1))));
   if(!r||r.dataset.i===String(i))return; r.dataset.i=i;
   [...track.children].forEach((f,k)=>f.classList.toggle("on",k===i));
@@ -933,18 +947,18 @@ function renderScenes(){
   const s=SEASONS[view];
   $("#scTitle").textContent = t("{name}에 해 볼 장면",{name:s.name});
   let html = sceneCard(s.together,t("온 교회가 함께")) + sceneCard(s.hand,t("우리 반에서"));
-  if (s.art2){ const b=findArt(s.art2); html += `<button class="scene" type="button" data-open="art:${b.id}"><img src="${thumb(b.img)}" alt="${esc(b.alt)}" data-emb="${s.emb}" style="object-position:${b.pos||"50% 45%"}"><span class="bd"><span class="kind">${t("또 한 점의 그림")}</span><h3>${esc(b.title)}</h3><span class="feel">${esc(b.line)}</span><span class="go">${t("그림 이야기 보기")} ›</span></span></button>`; }
-  $("#scList").innerHTML = html; guardImgs($("#scList"));
+  if (s.art2){ const b=findArt(s.art2); html += `<button class="scene" type="button" data-open="art:${b.id}"><img src="${b.img}" alt="${esc(b.alt)}" data-emb="${s.emb}" style="object-position:${b.pos||"50% 45%"}"><span class="bd"><span class="kind">${t("또 한 점의 그림")}</span><h3>${esc(b.title)}</h3><span class="feel">${esc(b.line)}</span><span class="go">${t("그림 이야기 보기")} ›</span></span></button>`; }
+  $("#scList").innerHTML = html; guardImgs($("#scList")); deferReels($("#scList"));
 }
 function renderYear(){
   $("#yearRail").innerHTML = Object.entries(SEASONS).map(([k,s])=>{const a=findArt(s.art);return `<button class="yr s-${k}" type="button" data-season="${k}" aria-pressed="${k===view}"><span class="pic"><img src="${thumb(a.cover||a.img)}" alt="" data-emb="${s.emb}" style="object-position:${a.pos||"50% 45%"}"><i class="band" style="background:${s.bar}"></i></span><b>${esc(s.name)}${k===CUR.key?" · "+t("지금"):""}</b><span>${esc(s.color)} · ${esc(FEEL[s.hand]?FEEL[s.hand][0]:"")}</span></button>`;}).join("");
   guardImgs($("#yearRail"));
 }
 function placeExamples(p){ return p.gallery || (p.img ? [{src:p.img, pos:"50% 50%", cap:""}] : []); }
-function placeVisual(p, cls){ const g=galleryOf("place:"+p.id, placeExamples(p)); return g.length ? `<img class="${cls}" src="${thumb(g[0].src)}" alt="${esc(p.name)}" data-emb="${p.emb||"hanok"}">` : lb(p.emb||"hanok", cls); }
+function placeVisual(p, cls){ const g=galleryOf("place:"+p.id, placeExamples(p)); return g.length ? `<img class="${cls}" src="${thumb(g[0].src)}" style="object-position:${posOf(g[0])}" loading="lazy" alt="${esc(p.name)}" data-emb="${p.emb||"hanok"}">` : lb(p.emb||"hanok", cls); }
 function renderGo(){
   $("#goCards").innerHTML = FRONT_PLACES.map(id=>{const p=findPlace(id);return `<button class="post" type="button" data-open="go:${p.id}">${placeVisual(p,"")}<span class="bd"><b>${esc(p.name.replace("대한성공회 ",""))}</b><span>${esc(p.area)} · ${esc(p.line)}</span></span></button>`;}).join("");
-  $("#goMore").innerHTML = PLACES.filter(p=>!FRONT_PLACES.includes(p.id)).map(p=>`<button class="row" type="button" data-open="go:${p.id}">${galleryOf("place:"+p.id, placeExamples(p)).length?`<img class="th" src="${thumb(galleryOf("place:"+p.id, placeExamples(p))[0].src)}" alt="">`:`<span class="tile">${use(p.emb)}</span>`}<span class="tx"><span class="n">${esc(p.name)}</span><span class="s">${esc(p.area)} · ${esc(p.line)}</span></span><span class="chev" aria-hidden="true">›</span></button>`).join("");
+  $("#goMore").innerHTML = PLACES.filter(p=>!FRONT_PLACES.includes(p.id)).map(p=>`<button class="row" type="button" data-open="go:${p.id}">${galleryOf("place:"+p.id, placeExamples(p)).length?`<img class="th" src="${thumb(galleryOf("place:"+p.id, placeExamples(p))[0].src)}" style="object-position:${posOf(galleryOf("place:"+p.id, placeExamples(p))[0])}" alt="" loading="lazy">`:`<span class="tile">${use(p.emb)}</span>`}<span class="tx"><span class="n">${esc(p.name)}</span><span class="s">${esc(p.area)} · ${esc(p.line)}</span></span><span class="chev" aria-hidden="true">›</span></button>`).join("");
   guardImgs($("#goCards"));
 }
 /* ---------- 취향대로 고르는 한 해 행사 · 계획표 (고른 것은 이 기기에만 저장) ---------- */
@@ -970,7 +984,7 @@ function renderPlan(){
     if (head!==last){ html += `<p class="mhead">${esc(head)}</p>`; last=head; }
     const g=galleryOf("make:"+m.id, m.gallery), b=BORROW[m.id], on=inPlan(m.id);
     const sub=[d?dayLabel(d):t("언제든"), (TASTE[m.id]||[]).map(tasteName).join(", "), b&&b[0]!==m.name?t("우리 교회식 '{as}'",{as:b[0]}):""].filter(Boolean).join(" · ");
-    html += `<div class="prow"><button class="row" type="button" data-open="make:${m.id}">${g.length?`<img class="th" src="${thumb(g[0].src)}" alt="" loading="lazy">`:`<span class="tile">${use(m.emb)}</span>`}<span class="tx"><span class="n">${esc(m.name)}</span><span class="s">${esc(sub)}</span></span></button><button class="pick" type="button" data-plan-toggle="${m.id}" aria-pressed="${on}" aria-label="${esc(on?t("{name} 계획표에서 빼기",{name:m.name}):t("{name} 계획표에 넣기",{name:m.name}))}">${on?t("✓ 넣음"):t("＋ 계획")}</button></div>`;
+    html += `<div class="prow"><button class="row" type="button" data-open="make:${m.id}">${g.length?`<img class="th" src="${thumb(g[0].src)}" style="object-position:${posOf(g[0])}" alt="" loading="lazy">`:`<span class="tile">${use(m.emb)}</span>`}<span class="tx"><span class="n">${esc(m.name)}</span><span class="s">${esc(sub)}</span></span></button><button class="pick" type="button" data-plan-toggle="${m.id}" aria-pressed="${on}" aria-label="${esc(on?t("{name} 계획표에서 빼기",{name:m.name}):t("{name} 계획표에 넣기",{name:m.name}))}">${on?t("✓ 넣음"):t("＋ 계획")}</button></div>`;
   }
   $("#planList").innerHTML = html;
   renderPlanBox();

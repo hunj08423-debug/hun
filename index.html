@@ -101,7 +101,9 @@ button:focus-visible, textarea:focus-visible, select:focus-visible, a:focus-visi
 .promise b { color: var(--accent); }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 1.1rem 1.15rem; display: flex; flex-direction: column; gap: 0.8rem; min-width: 0; }
 .label { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.03em; color: var(--muted); }
-.tag { display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.02em; padding: 0.05rem 0.6rem; border-radius: 1rem; background: var(--accent-soft); color: var(--accent); margin-right: 0.4rem; white-space: nowrap; }
+.tag { display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.02em; padding: 0.05rem 0.6rem; border-radius: 1rem; background: var(--accent-soft); color: var(--accent); margin-right: 0.4rem; white-space: nowrap; max-width: 100%; }
+/* 영어판의 긴 꼬리표가 좁은 휴대폰에서 화면 밖으로 나가지 않게: 넘칠 때만 줄을 바꿉니다 */
+.tag { white-space: normal; overflow-wrap: anywhere; }
 .tag.warn { background: var(--low-soft); color: var(--low); }
 .tag.mid { background: var(--mid-soft); color: var(--mid); }
 .mode-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
