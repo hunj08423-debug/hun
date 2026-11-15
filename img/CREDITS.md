@@ -13,6 +13,11 @@
 - millet.jpg — 장프랑수아 밀레, 「만종」 — https://commons.wikimedia.org/wiki/File:Jean-Fran%C3%A7ois_Millet_-_The_Angelus_-_Google_Art_Project.jpg
 
 ## 장소 사진 (위키미디어 공용. 저작자와 이용 조건은 원본 페이지에 있음. 크기를 줄여 실음)
+2026년 11월 15일 위키미디어 공용 API로 찍은 사람과 라이선스를 확인함. 페이지의 사진 출처 줄에도 밝힘.
+- stnicholas-1.jpg — 서울 성 니콜라스 대성당 안(샹들리에와 이코노스타시스) — Gre regiment, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:St._Nicholas_Cathedral_(Seoul)_7.jpg
+- stnicholas-2.jpg — 벽을 채운 그림(맨 위 예수 탄생 장면) — Gre regiment, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:St._Nicholas_Cathedral_(Seoul)_9.jpg
+- stnicholas-3.jpg — 문 위 성 니콜라스 모자이크 — Gre regiment, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:St._Nicholas_Cathedral_(Seoul)_4.jpg
+- stnicholas-4.jpg — 마당과 초록 둥근 지붕 — Himuka tachibana, CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Seoul_St.Nicholas_Cathedral_Inter.jpg
 
 ## 장소 사진 (한국관광공사 TourAPI, 공공누리. 출처 표시 필수. 워터마크와 함께 원본 그대로, 잘라 내지 않음)
 2026년 11월 14일 한국관광공사 관광정보(api.visitkorea.or.kr)에서 받은 사진.
@@ -66,6 +71,7 @@
 - vasilopita-1.jpg — 초콜릿 바실로피타 — Γιώτα Βαρβ, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Παραδοσιακή_βασιλόπιτα.jpg
 - vasilopita-2.jpg — 위키백과 학교의 바실로피타 — Ανώνυμος Βικιπαιδιστής, CC BY-SA 3.0 GR — https://commons.wikimedia.org/wiki/File:Wikipedia_School_vasilopita.jpg
 - vasilopita-3.jpg — 빵에 넣는 동전 — Μυρμηγκάκι, 퍼블릭 도메인 — https://commons.wikimedia.org/wiki/File:Flouri_Vasilopita.JPG
+- vasilopita-4.jpg — 아몬드 바실로피타 — Alexander Baxevanis, CC BY 2.0 — https://commons.wikimedia.org/wiki/File:Vasilopita.jpg (Flickr 원본 https://www.flickr.com/photos/futureshape/6608345117/)
 - lucia-1.jpg — 스웨덴 교회의 루치아 축제 — Claudia Gründer, CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Lucia-13.12.06.jpg
 - lucia-2.jpg — 루치아 행렬(2009 바른생활상 시상식) — Prolineserver, CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Right_Livelihood_Award_2009-award_ceremony-31.jpg
 - lucia-3.jpg — 빈의 루치아 축제 — N_Creatures, CC BY 2.0 — https://commons.wikimedia.org/wiki/File:Lucia_in_Vienna_2.jpg
@@ -85,6 +91,11 @@
 - 마케도니아 성탄 전야 식탁, 세르비아 슬라바 빵과 초 — 다른 명절이라 장면과 맞지 않음
 - 고양이를 안은 아이들 파티, 태국 행사의 강아지, 성탄 전구 앞 아기, 손 든 아시아 아이들 — 장면과 덜 맞거나 겹침
 
+## 받았지만 쓰지 않은 사진 (11월 15일)
+- Flickr 바실로피타 5장 — 6629471153·3158218208(Elly), 15532837193·15966818167·16150672871(Kilted Olive) — 모두 '모든 권리 보유'라 쓸 수 없음
+- Flickr 2182472824(are you gonna eat that) — CC BY-NC-ND 2.0(비영리·변경 금지)이고 사람 이름을 쓴 깃발이 보임
+- St. Nicholas Cathedral (Seoul) 2 — 대교구청 건물 입구 사진이라 성당 모습이 잘 보이지 않음
+
 ## 아직 사진이 없는 장면
 - 여섯 절기의 장면 열두 개와 첫 화면의 장소 네 곳에는 모두 사진이 있음.
-- 더 많은 전통 가운데 부활절 정원(garden)과, 더 많은 곳 가운데 서울 성 니콜라스 대성당(위키미디어 공용 'Saint Nicholas Orthodox cathedral in Seoul' 분류에 20장)이 아직 비어 있음.
+- 더 많은 전통 가운데 부활절 정원(garden)만 아직 비어 있음. 서울 성 니콜라스 대성당은 11월 15일에 4장을 넣음.
