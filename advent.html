@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>대림절 4주 코스 · 질문 받기 연습실</title>
+<meta name="description" content="그림 네 점으로 걷는 누가복음 1~2장. 주일마다 그림 한 점, 질문 하나. 그 땅의 옛 사진과 AI 가상 복원, 아이에게 보여 주기.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="대림절 4주 코스 · 질문 받기 연습실">
+<meta property="og:description" content="그림 네 점으로 걷는 누가복음 1~2장. 주일마다 그림 한 점, 질문 하나.">
+<meta property="og:url" content="https://hunj08423-debug.github.io/hun/advent.html">
+<meta property="og:image" content="https://hunj08423-debug.github.io/hun/og-feel.jpg">
+<meta name="theme-color" content="#2D2342">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* 대림절 4주 코스 · 함께 느끼기 방에서 이어지는 따로 페이지 (feel.html의 대림절 칸에서 들어옴)
+   VOICE everyday · 교사용 절기 카드, 조용하고 따뜻하게
+   IDEA 대림절 화환의 네 초: 주마다 초가 하나씩 더 켜지는 그림 카드
+   PICTURE 네 주의 그림을 나란히 세운 띠, 고른 주의 그림이 크게
+   COLOUR 함께 느끼기 방의 바탕과 잉크에 대림절 보라 #5B3E8C, 촛불 금빛 한 점
+   TYPE Noto Serif KR(제목·질문·뿌리) + Noto Sans KR(본문)
+   LAYOUT 넓은 화면: 네 칸 띠 아래 그림 왼쪽 고정, 글 오른쪽 / 휴대폰: 2×2 띠, 그림, 글 */
+:root{color-scheme:light dark;
+--bg:light-dark(#F8F7F4,#151311);--surface:light-dark(#FFFFFF,#1E1B18);--ink:light-dark(#1C1A17,#F1ECE4);--ink2:light-dark(#3D3A35,#D9D2C7);
+--muted:light-dark(#5F584F,#B3AA9E);--line:light-dark(#E6E1D9,#36312B);--accent:light-dark(#5B3E8C,#C2AEEB);--soft:light-dark(#F1ECF8,#2B2339);
+--deep:#2D2342;--flame:#E9B44C;--warn:light-dark(#8A4B12,#F0C38E);--warn-soft:light-dark(#FBF1E6,#33261A);
+--sand:light-dark(#F3EDE3,#25201A);--earth:light-dark(#7A4E26,#E3B98C);
+--sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--serif:"Noto Serif KR","AppleMyungjo","Batang",serif}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.7 var(--sans);word-break:keep-all;overflow-wrap:break-word;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--serif);margin:0;line-height:1.2;letter-spacing:-.02em;text-wrap:balance}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(4vw,16px)}
+.top{background:var(--deep);color:#F3EEE6;padding:28px 0 30px}
+.top .brand{font-size:14px;opacity:.82}
+.top h1{font-size:clamp(32px,5vw,46px);margin:8px 0 10px;color:#fff}
+.top .sub{font-size:17px;max-width:46em;color:#E6DEF3}
+.howto{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:14px;color:#E6DEF3}
+.howto b{color:var(--flame);font-weight:700}
+.top a.back{color:inherit;text-decoration:none}
+.top a.back:hover{text-decoration:underline}
+.top a.back:focus-visible{outline:3px solid var(--flame);outline-offset:2px;border-radius:4px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lang{flex:none;min-height:36px;padding:6px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.42);background:transparent;color:#fff;font:700 14px/1.2 var(--sans);cursor:pointer}
+.lang:hover{background:rgba(255,255,255,.12)}
+.lang:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.draft{margin-top:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 14px;font-size:14px;color:#F3EEE6}
+.weeks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:-2px 0 0;padding:22px 0 8px}
+.wk{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .2s ease,border-color .2s}
+.wk:hover{transform:translateY(-2px);border-color:var(--accent)}
+.wk:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wk[aria-current=true]{border:2px solid var(--accent);box-shadow:0 0 0 4px var(--soft)}
+.wk img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.wk .bd{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
+.wk .when{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 8px;font-size:13px;color:var(--muted)}
+.wk .when b{white-space:nowrap}
+.wk .when b{color:var(--accent);font-weight:700}
+.wk .q{font-family:var(--serif);font-weight:600;font-size:16px;line-height:1.45}
+.candles{display:inline-flex;gap:3px;align-items:flex-end;flex:none}
+.candles i{display:block;width:6px;height:15px;border-radius:2px;background:var(--line);position:relative}
+.candles i.on{background:var(--accent)}
+.candles i.on::before{content:"";position:absolute;left:50%;top:-8px;width:6px;height:7px;margin-left:-3px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:var(--flame)}
+.thread{margin:6px 0 4px;font-size:14px;color:var(--muted)}
+.thread b{color:var(--ink2)}
+.card{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,3.5vw,44px);padding:30px 0 46px;border-top:1px solid var(--line);margin-top:22px;scroll-margin-top:12px}
+.js .card{display:none}
+.js .card.on{display:grid}
+.fig{position:sticky;top:16px;align-self:start;display:flex;flex-direction:column;gap:10px}
+.fig img{width:100%;max-height:82vh;object-fit:contain;background:#0f0d0c;border-radius:14px}
+.fig .cap{font-size:13px;color:var(--muted);line-height:1.6}
+.fig .cap b{color:var(--ink2);font-weight:600}
+.txt{display:flex;flex-direction:column;gap:18px}
+.tag{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px;color:var(--muted)}
+.chip{background:var(--soft);color:var(--accent);font-weight:700;border-radius:999px;padding:4px 12px;font-size:13.5px}
+.opener{background:var(--soft);border-radius:18px;padding:18px 20px}
+.opener small{display:block;font-size:13px;font-weight:700;color:var(--accent)}
+.opener h2{font-size:clamp(25px,3.2vw,32px);margin-top:4px}
+.line{font-family:var(--serif);font-size:18.5px;line-height:1.75;font-weight:600}
+.blk h3{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--accent);letter-spacing:0;margin-bottom:6px}
+.blk p{margin:0 0 8px}
+.blk ol,.blk ul{margin:0;padding-left:21px;display:flex;flex-direction:column;gap:6px}
+/* 그 시절로 가 보기 */
+.era{background:var(--sand);border-radius:18px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:14px}
+.era>h3{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--earth);letter-spacing:0}
+.where{margin:0}
+.where b{display:block;font-family:var(--serif);font-size:17px;margin-bottom:2px}
+.ph{margin:0;display:flex;flex-direction:column;gap:8px}
+.ph img{width:100%;border-radius:12px;background:#0f0d0c}
+.ph figcaption{font-size:14.5px;line-height:1.65;color:var(--ink2)}
+.ph figcaption b{font-family:var(--serif);font-size:15.5px;color:var(--ink)}
+.imagine{margin:0;border-left:3px solid var(--flame);padding:4px 0 4px 14px;font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.75}
+.imagine small{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--earth);margin-bottom:2px}
+.go{position:relative;display:flex;flex-direction:column;gap:2px;padding:12px 16px 12px 44px;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;line-height:1.5}
+.go::before{content:"";position:absolute;left:17px;top:50%;margin-top:-7px;border-left:12px solid var(--earth);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.go small{font-weight:400;font-size:13px;color:var(--muted)}
+.go:hover{border-color:var(--earth)}
+.go:focus-visible{outline:3px solid var(--earth);outline-offset:2px}
+.old{margin:0;font-size:13px;color:var(--muted)}
+.orig{font-size:13px;color:var(--muted);white-space:nowrap}
+/* 가상 복원 보기 */
+.phw{position:relative}
+.ph[data-color] .phw{cursor:pointer}
+.tint{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:6px 13px 6px 10px;border:0;border-radius:999px;background:rgba(16,14,12,.80);color:#fff;font:700 13px/1.2 var(--sans);cursor:pointer}
+.tint::before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:conic-gradient(#E9B44C,#D2553F,#5B8C5A,#4A78B5,#E9B44C)}
+.tint[aria-pressed=true]::before{background:linear-gradient(90deg,#fff 50%,#333 50%);box-shadow:0 0 0 1px rgba(255,255,255,.6)}
+.tint:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.vr-note{display:block;margin-top:4px;font-size:12.5px;color:var(--muted)}
+.vr-note[hidden]{display:none}
+.ph.is-color .phw::after{content:"AI 가상 복원";position:absolute;right:10px;top:10px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.9);color:#1C1A17;font:700 12px/1.3 var(--sans)}
+.L[lang=en] .ph.is-color .phw::after{content:"AI colorized"}
+.sw-pic{position:relative;width:100%;height:100%}
+.sw-pic .tint{left:50%;transform:translateX(-50%);bottom:12px;font-size:14px;min-height:40px}
+/* 아이에게 보여 주기 */
+.showbtn{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;padding:12px 16px;border:0;border-radius:14px;background:var(--deep);color:#F3EEE6;font:700 16px/1.45 var(--sans);text-align:left;cursor:pointer}
+.showbtn b{display:flex;align-items:center;gap:9px}
+.showbtn b::before{content:"";border-left:11px solid var(--flame);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.showbtn span{font-weight:400;font-size:13px;color:#D8CFE9}
+.showbtn:hover{background:#3A2E55}
+.showbtn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tip{margin:10px 0 0;font-size:14px;color:#E6DEF3}
+.tip b{color:var(--flame)}
+dialog.show{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#100E0C;color:#F3EEE6}
+dialog.show::backdrop{background:#000}
+.sw{height:100%;display:flex;flex-direction:column;gap:12px;padding:12px max(14px,3vw) max(14px,env(safe-area-inset-bottom))}
+.sw-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:#BDB4A8}
+.sw-x{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:transparent;color:#F3EEE6;font-size:24px;line-height:1;cursor:pointer}
+.sw-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;touch-action:pan-y}
+.sw-stage img{width:100%;height:100%;object-fit:contain}
+.sw-dark{width:100%;height:100%;border-radius:14px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 46%,rgba(233,180,76,.30),rgba(233,180,76,0) 34%),#07060A}
+.sw-dark span{font-family:var(--serif);font-size:clamp(22px,4vw,34px);font-weight:700;color:#F6E3B8}
+.sw-q{margin:0 auto;max-width:820px;min-height:3.2em;text-align:center;font-family:var(--serif);font-weight:600;font-size:clamp(20px,3vw,28px);line-height:1.5;text-wrap:pretty}
+.sw-q small{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--flame);margin-bottom:4px}
+.sw-nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sw-nav button{min-height:48px;min-width:96px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#F3EEE6;font:700 16px var(--sans);cursor:pointer}
+.sw-nav button.next{background:var(--flame);border-color:var(--flame);color:#1C1A17}
+.sw-nav button:disabled{opacity:.35;cursor:default}
+.sw button:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.dots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25)}
+.dots i.on{background:var(--flame)}
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.ask small{font-size:13px;font-weight:700;color:var(--accent)}
+.ask p{margin:4px 0 0;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.6}
+.root{background:var(--deep);color:#F3EEE6;border-radius:14px;padding:15px 18px;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.6}
+.read{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:12px 18px;border-radius:14px;background:var(--accent);color:var(--surface);text-decoration:none;font-weight:700}
+.read:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.read span{font-weight:400;font-size:13.5px;opacity:.9}
+.aha{background:var(--soft);border-radius:14px;padding:14px 16px}
+.aha h3{margin-bottom:4px}
+.care{background:var(--warn-soft);color:var(--ink);border-radius:14px;padding:13px 16px;font-size:15px}
+.care b{color:var(--warn)}
+.more li{font-size:15px}
+.more .note{color:var(--muted);font-size:13.5px}
+details.src{border-top:1px dashed var(--line);padding-top:12px;font-size:13.5px;color:var(--muted)}
+details.src summary{cursor:pointer;font-weight:700;color:var(--ink2);min-height:32px}
+details.src ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.foot{border-top:1px solid var(--line);padding:22px 0 40px;font-size:14px;color:var(--muted)}
+.foot p{margin:0 0 6px}
+@media (max-width:900px){.card{grid-template-columns:minmax(0,1fr)}.fig{position:static}.fig img{max-height:70vh}}
+@media (max-width:600px){.weeks{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.wk .q{font-size:15px}.top .sub{font-size:16px}.line{font-size:17.5px}}
+@media (prefers-reduced-motion:reduce){.wk{transition:none}.wk:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="L" lang="ko">
+<header class="top">
+ <div class="wrap">
+  <div class="bar"><a class="brand back" href="feel.html">‹ 질문 받기 연습실 · 함께 느끼기</a><button class="lang" type="button" data-lang="en" lang="en">English</button></div>
+  <h1>대림절 4주 코스</h1>
+  <p class="sub">그림 네 점으로 걷는 누가복음 1~2장. 주일마다 그림 한 점, 질문 하나. 천사의 인사에서 목자들의 밤까지.</p>
+  <div class="howto"><span><b>1</b> 그림을 함께 보고</span><span><b>2</b> 질문을 던지고</span><span><b>3</b> 그 시절로 가 본 뒤</span><span><b>4</b> 본문을 같이 읽어요</span></div>
+  <p class="tip">그림 아래 <b>아이에게 보여 주기</b>를 누르면 그림과 그 땅의 옛 사진을 화면 가득 띄우고, 질문을 하나씩 넘길 수 있어요. 흑백 사진은 누르면 AI로 색을 입힌 <b>가상 복원</b>으로 바뀌어요.</p>
+  <div class="draft">검수 전 초안이에요. AI가 출처를 모아 쓴 글이라, 카드마다 맨 아래 ‘근거 보기’와 대조해 확인해 주세요.</div>
+ </div>
+</header>
+
+<main class="wrap">
+ <nav class="weeks" aria-label="주 고르기">
+  <a class="wk" href="#week1" data-w="week1"><img src="img/advent1-martini.jpg" alt="" style="object-position:50% 72%"><span class="bd"><span class="when"><b>1주 · <span data-wd="0">11월 29일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">마리아는 왜 몸을 움츠렸을까요?</span></span></a>
+  <a class="wk" href="#week2" data-w="week2"><img src="img/advent2-visitation.jpg" alt="" style="object-position:50% 28%"><span class="bd"><span class="when"><b>2주 · <span data-wd="1">12월 6일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">엄마 배 속 아기도 기뻐할 수 있어요?</span></span></a>
+  <a class="wk" href="#week3" data-w="week3"><img src="img/advent3-rublev.jpg" alt="" style="object-position:50% 42%"><span class="bd"><span class="when"><b>3주 · <span data-wd="2">12월 13일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">예수님은 정말 마구간에서 태어나셨어요?</span></span></a>
+  <a class="wk" href="#week4" data-w="week4"><img src="img/advent4-jacopo.jpg" alt="" style="object-position:50% 80%"><span class="bd"><span class="when"><b>4주 · <span data-wd="3">12월 20일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">왜 목자들에게 제일 먼저 알려 주셨어요?</span></span></a>
+ </nav>
+ <p class="thread">네 주를 잇는 두 말: <b>“무서워하지 말라”</b>(1:30 · 2:10), <b>“빨리”</b>(1:39 · 2:16). 천사는 마리아에게도 목자들에게도 같은 말을 했고, 마리아도 목자들도 서둘러 길을 나섰어요.</p>
+
+ <!-- 1주 -->
+ <article class="card" id="week1" data-week="week1">
+  <figure class="fig">
+   <img src="img/advent1-martini.jpg" alt="시모네 마르티니와 리포 멤미의 그림. 금빛 바탕 왼쪽에서 올리브 가지를 든 천사가 무릎을 꿇고, 오른쪽에서 파란 옷의 마리아가 옷깃을 여미며 몸을 뒤로 뺀다. 가운데 꽃병에 흰 백합이 꽂혀 있고, 맨 위에 천사들에 둘러싸인 비둘기가 있다.">
+   <figcaption class="cap"><b>「수태고지」</b> 시모네 마르티니·리포 멤미, 1333년<br>이탈리아 피렌체, 우피치 미술관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">1주 · 천사의 인사</span><span><span data-wd="0">11월 29일</span> 대림절 첫째 주일 · 누가복음 1:26~38</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>마리아는 왜 몸을 움츠렸을까요?</h2></div>
+   <p class="line">금빛 바탕 위로 천사의 인사말이 글자가 되어 날아갑니다. 마리아는 옷깃을 여미며 몸을 뒤로 뺍니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>천사의 입에서 마리아 쪽으로 이어지는 금빛 글자를 따라가 보세요.</li>
+    <li>천사가 든 나뭇가지와 가운데 꽃병의 하얀 꽃을 찾아보세요. 둘은 어떻게 다른가요?</li>
+    <li>맨 위 가운데, 천사들에게 둘러싸인 하얀 비둘기를 찾아보세요. 성령을 뜻해요(1:35).</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>천사 가브리엘이 갈릴리의 작은 마을 나사렛에 사는 마리아를 찾아와 인사했어요. “은혜를 받은 자여 평안할지어다 주께서 너와 함께 하시도다”(1:28). 마리아는 이 말을 듣고 놀랐어요(1:29).</p>
+    <p>1333년 시모네 마르티니와 처남 리포 멤미가 시에나 대성당 제단에 놓으려고 그렸어요. 천사의 인사말은 라틴어 글자로 금바탕에 도드라지게 새겨, 천사의 입에서 마리아 쪽으로 흘러가게 했어요. 700년 전의 말풍선이에요.</p>
+    <p>천사가 든 것은 백합이 아니라 올리브 가지예요. 수태고지 그림에서는 드문 일이에요. 노아의 비둘기가 물고 온 감람나무 잎(창 8:11)처럼 평화와 화해의 표시지요. 백합은 둘 사이 꽃병에 꽂혀 있어요.</p>
+   </section>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 나사렛</b>갈릴리 언덕의 작은 마을이에요. 구약 성경에도, 1세기 유대 역사가 요세푸스의 책에도 나오지 않아요. 나다나엘은 “나사렛에서 무슨 선한 것이 날 수 있느냐”고 물었지요(요 1:46).</p>
+    <figure class="ph" data-q="물동이를 머리에 인 사람이 몇 명인지 세어 보세요. 집에 수도가 없다면 물은 어디서 구했을까요?" data-color="img/vr-nazareth-spring.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 푸른 하늘 아래 초록 나무 그늘, 베이지색 돌 아치 샘터 앞에서 여인 셋이 머리에 물동이를 이고 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 너라면 여인들의 옷을 무슨 색으로 칠하고 싶어?">
+     <div class="phw"><img src="img/era1-nazareth-spring.jpg" alt="흑백 사진. 나무 그늘이 드리운 흙길에서 긴 옷을 입은 여인 셋이 머리에 물동이를 이고 있다. 뒤로 돌로 쌓은 아치 모양의 샘터와 나사렛 언덕이 보인다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>나사렛의 ‘마리아의 샘’</b> · 1930년대<br>19세기까지 마을에 하나뿐인 물터였어요. 2세기의 외경 『야고보 원복음서』에는 마리아가 물동이를 들고 물을 길으러 나갔다가 천사의 첫인사를 들었다는 이야기가 있어요. 성경에는 없는 이야기지만, 이 전승 때문에 샘물이 솟는 자리 위에 정교회의 가브리엘 성당이 서 있어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Virgin%27s_Fountain_in_Nazareth_LOC_matpc.00447.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="같은 샘을 100년도 더 전에 색으로 담은 사진이에요. 여인들의 옷은 무슨 색인가요? 물동이를 실은 나귀를 찾아보세요.">
+     <img src="img/color-w1-fountain.jpg" alt="색을 입힌 옛 인쇄 사진. 이끼 낀 돌 아치 샘터 앞에 줄무늬 옷을 입은 여인들이 물동이를 이고 서 있고, 물동이를 실은 나귀도 있다. 뒤로 나사렛의 돌집들과 언덕이 보인다." loading="lazy">
+     <figcaption><b>같은 샘 · 1890년대 컬러 인쇄본</b><br>흑백 사진보다 40여 년 앞서 같은 샘을 담았어요. 흑백 원판에, 사진가가 현장에서 적어 둔 색 메모대로 색을 입혀 찍어 낸 ‘포토크롬’이에요. 물동이를 실은 나귀도 찾아보세요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:The_virgin%27s_fountain,_Nazareth,_Holy_Land,_(i.e._Israel)-LCCN2002725047.jpg">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 수도도 전기도 없는 작은 마을이에요. 물동이를 들고 샘으로 걸어가요. 샘가에서 누구를 만날까요?"><small>눈 감고 상상해 보기</small>수도도 전기도 없는 작은 마을에서 날마다 샘에 가서 물을 길어 와야 했다면, 샘가에서 누구를 만나고 무슨 이야기를 나눴을까요?</p>
+    <a class="go" href="https://materializingthebible.com/nazareth-village.html">사진으로 둘러보기 · 1세기 나사렛을 되살린 ‘나사렛 빌리지’<small>영어 · 미국 마이애미 대학교 제임스 빌로 교수가 이끄는 연구 프로젝트 ‘Materializing the Bible’ · 나귀와 갓 태어난 양이 있는 우리, 타작마당, 올리브 짜는 틀, 목수 작업장, 회당</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“무서울 때 ‘무서워하지 마’ 하고 말해 준 사람이 있었니?”</p></div>
+   <div class="root">하나님은 놀라고 두려워하는 사람에게 먼저 “무서워하지 말라”고 말씀하십니다(1:30).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/LUK.1">이제 본문 읽기 · 누가복음 1:26~38<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 마리아를 바라보는 방식은 교회마다 달라요. ‘하나님이 한 사람을 먼저 찾아오신 이야기’로 소개하면 좋아요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>함께 느끼기 방의 프라 안젤리코 「수태고지」와 나란히 보세요. 같은 장면인데 마리아의 몸짓이 어떻게 다른가요?</li>
+    <li><a href="https://thevcs.org/annunciation">VCS 전시 「The Annunciation」</a> <span class="note">영어 · 로세티, 필리포 리피의 수태고지도 함께</span></li>
+    <li><a href="https://bible.bskorea.or.kr/resources/handbook/biblelands/nazareth">대한성서공회 「성서의 땅을 찾아서」 ‘나사렛과 갈릴래아 북쪽’</a> <span class="note">동영상 · 성경플랫폼 회원 로그인</span></li>
+    <li><a href="https://bible.bskorea.or.kr/resources/handbook/biblelands/olives-2">대한성서공회 ‘올리브와 올리브기름’</a> <span class="note">동영상 · 회원 로그인</span></li>
+    <li><a href="https://smarthistory.org/simone-martini-annunciation">Smarthistory 「Simone Martini, Annunciation」</a> <span class="note">영어 영상 강의</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (11)</summary><ul>
+    <li><a href="https://uffizi.it/en/artworks/annunciation-with-st-margaret-and-st-ansanus">우피치 미술관 작품 설명</a>: 금바탕에 도드라지게 새긴 인사말</li>
+    <li><a href="https://artsandculture.google.com/asset/annunciation/IgHn22QncTFgPA">Google Arts &amp; Culture(우피치)</a>: 1333년 서명, 시에나 대성당 성 안사노 제단</li>
+    <li><a href="https://smarthistory.org/simone-martini-annunciation">Smarthistory</a>: 올리브 가지(평화), 백합 꽃병</li>
+    <li><a href="https://christianiconography.info/Florence/Uffizi%20Gallery/annunciationMartiniMemmi.html">Christian Iconography</a>: 수태고지에서 드문 올리브 가지, 노아 이야기와의 연결</li>
+    <li><a href="https://freely-given.org/OBD/dct/Nazareth.htm">Tyndale Open Bible Dictionary ‘Nazareth’</a>: 구약·요세푸스에 나오지 않는 작은 마을</li>
+    <li><a href="https://en.wikipedia.org/wiki/Mary%27s_Well">Wikipedia ‘Mary's Well’</a>: 19세기까지 마을의 유일한 물터, 2세기 『야고보 원복음서』의 샘 전승</li>
+    <li><a href="https://showcaves.com/english/il/subterranea/SaintGabriel.html">Showcaves ‘Saint Gabriel’</a>: 샘 위에 선 정교회 가브리엘 성당, 그 물이 남쪽 ‘마리아의 샘’으로 흐름</li>
+    <li><a href="https://en.wikipedia.org/wiki/Nazareth_Village">Wikipedia ‘Nazareth Village’</a>: 1세기 갈릴리 마을의 삶을 재현하는 야외 박물관</li>
+    <li><a href="https://materializingthebible.com/nazareth-village.html">Materializing the Bible ‘Nazareth Village’(2017)</a>: 사진 투어에 나오는 장소들</li>
+    <li><a href="https://spacesarchives.org/resources/blog/materializing-the-bible-by-james-s-bielo-miami-university">SPACES ‘Materializing the Bible’</a>: 프로젝트를 이끄는 제임스 빌로(마이애미 대학교)</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/LUK.1">개역개정 본문(대한성서공회)</a>: 눅 1:28~30, 35 · 창 8:11 · 요 1:46</li>
+   </ul><p>그림: 시모네 마르티니·리포 멤미, 「수태고지」, 1333년, 피렌체 우피치 미술관. 사진: 위키미디어 공용(Google Art Project, 저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Virgin%27s_Fountain_in_Nazareth_LOC_matpc.00447.jpg">‘Virgin's Fountain in Nazareth’</a>(1930년대, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:The_virgin%27s_fountain,_Nazareth,_Holy_Land,_(i.e._Israel)-LCCN2002725047.jpg">‘The virgin's fountain, Nazareth’</a>(위키미디어 공용, 알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 2주 -->
+ <article class="card" id="week2" data-week="week2">
+  <figure class="fig">
+   <img src="img/advent2-visitation.jpg" alt="나무 조각. 금빛 옷을 입은 두 여인이 마주 서서 손을 맞잡고 있고, 두 사람의 배에 타원형 수정이 박혀 반짝인다.">
+   <figcaption class="cap"><b>「방문」</b> 콘스탄츠의 하인리히 장인(으로 전해짐), 1310~1320년 무렵<br>호두나무에 채색·금박, 수정 · 미국 뉴욕, 메트로폴리탄 미술관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>조각과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">2주 · 두 엄마의 만남</span><span><span data-wd="1">12월 6일</span> 대림절 둘째 주일 · 누가복음 1:39~45</span></div>
+   <div class="opener"><small>이 조각이 여는 질문</small><h2>엄마 배 속 아기도 기뻐할 수 있어요?</h2></div>
+   <p class="line">두 엄마가 손을 맞잡았습니다. 배에 박힌 수정이 작은 창문처럼 반짝입니다.</p>
+   <section class="blk look"><h3>조각 속에서 찾아보기</h3><ol>
+    <li>두 사람의 배에서 반짝이는 수정을 찾아보세요. 그 안에 무엇이 있었을까요?</li>
+    <li>두 사람의 손을 따라가 보세요. 손이 어디에 놓여 있나요?</li>
+    <li>누가 마리아이고 누가 엘리사벳일까요? 왜 그렇게 생각해요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>천사의 소식을 들은 마리아는 빨리 유대 산골의 한 동네로 친족 엘리사벳을 찾아갔어요(1:39~40). 마리아가 문안하자 엘리사벳 배 속의 아기, 훗날의 세례 요한이 기뻐 뛰놀았어요(1:41, 44).</p>
+    <p>이 조각은 1310~1320년 무렵, 지금의 스위스 보덴 호수 근처 카타리넨탈 도미니코회 수녀원에 있던 거예요. 호두나무를 깎아 색을 칠하고 금을 입혔는데, 그 칠과 금박이 거의 그대로 남아 있어요.</p>
+    <p>두 사람의 배에 박힌 수정 안으로는 원래 아기들의 그림이 보였을 거라고 해요. 수녀들이 창문 너머를 들여다보듯 배 속의 아기를 묵상하게 돕는 장치였다고 보는 연구도 있어요.</p>
+   </section>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 유대 산골 마을</b>성경은 마을 이름 없이 ‘유대 한 동네’라고만 해요(1:39). 12세기 무렵부터 예루살렘 서쪽 마을 아인 카림(엔 케렘)을 그곳으로 여겨 왔고, 지금 그곳에 방문 기념 성당이 있어요. 나사렛에서 120킬로미터쯤 되는 먼 길이에요.</p>
+    <figure class="ph" data-q="마리아는 이런 언덕 마을에서 길을 떠났어요. 들판에 핀 꽃은 무슨 색인가요?">
+     <img src="img/color-w2-nazareth.jpg" alt="색을 입힌 옛 인쇄 사진. 들꽃이 핀 언덕 너머로 하얀 돌집이 빼곡한 나사렛 마을이 펼쳐지고, 왼쪽에 나무가 서 있다." loading="lazy">
+     <figcaption><b>떠난 곳 · 나사렛</b> · 1890년대 컬러 인쇄본<br>마리아가 길을 떠난 마을이에요. 1890년대 모습이라 예수님 시대의 작은 마을보다 훨씬 커졌어요. 흑백 원판에, 사진가가 적어 둔 색 메모대로 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:From_the_east,_Nazareth,_Holy_Land,_(i.e.,_Israel)-LCCN2002725045.jpg">원본 크게 보기</a></figcaption>
+    </figure>
+    <figure class="ph" data-q="마리아는 나사렛에서 이런 산골 마을까지 왔어요. 어떤 길이었을 것 같아요?" data-color="img/vr-ain-karim.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 누런 언덕들 사이 골짜기에 베이지색 돌집들이 모여 있고, 짙은 초록 나무들과 붉은 지붕의 종탑 교회, 앞쪽 올리브나무 밭이 보인다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 하늘, 나무, 돌집은 실제로 무슨 색이었을까?">
+     <div class="phw"><img src="img/era2-ain-karim.jpg" alt="흑백 사진. 민둥한 언덕들 사이 골짜기를 따라 하얀 돌집들이 모여 있다. 종탑이 있는 교회와 키 큰 나무들이 서 있고, 앞쪽은 나무밭이다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>도착한 곳 · 아인 카림</b> · 1925년<br>언덕과 골짜기 사이에 돌집이 모여 있는 마을이에요. 누가복음이 말하는 ‘산골’(1:39)이 어떤 곳인지 눈으로 볼 수 있어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:View_of_Ain_Karim_LOC_matpc.12392.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 자동차도 기차도 없어요. 며칠 동안 걷고 또 걸어서 엘리사벳의 집 앞에 도착했어요. 문을 두드리는 순간, 어떤 기분일까요?"><small>눈 감고 상상해 보기</small>자동차도 기차도 없이 120킬로미터를 걸어서 간다면 며칠이 걸릴까요? 밤에는 어디서 쉬었을까요? 마침내 엘리사벳의 집 문을 두드리는 순간, 마리아의 마음은 어땠을까요?</p>
+    <a class="go" href="https://www.seetheholyland.net/ein-karem/">사진으로 둘러보기 · 오늘의 아인 카림<small>영어 · See the Holy Land · 방문 기념 성당과 마을</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“기다리던 사람을 만났을 때 몸이 저절로 들썩였던 적 있니?”</p></div>
+   <div class="root">하나님이 하시는 일을 가장 먼저 알아보고 기뻐한 것은, 아직 태어나지 않은 아기였습니다(1:44).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/LUK.1">이제 본문 읽기 · 누가복음 1:39~45<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 임신, 유산, 난임을 겪은 가정이 있을 수 있어요. 엘리사벳도 오래 아이가 없던 사람이에요(1:7). 배 속 아기 이야기는 조심스럽게 꺼내 주세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li><a href="https://thevcs.org/visitation-quickening-creation">VCS 전시 「The Visitation: Quickening Creation」</a> <span class="note">영어 · 키프로스의 14세기 벽화, 폰토르모, 엘 그레코의 ‘방문’</span></li>
+    <li><a href="https://www.metmuseum.org/art/collection/search/464596">메트로폴리탄 미술관 작품 페이지</a> <span class="note">영어 · 다른 각도 사진</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (6)</summary><ul>
+    <li><a href="https://www.metmuseum.org/art/collection/search/464596">메트로폴리탄 미술관</a>: 연대, 카타리넨탈 수녀원, 남아 있는 칠과 금박, 수정 안의 아기 그림</li>
+    <li><a href="https://doaj.org/article/0106d504db48417ba5ed97aa94ad254d">Religions 15(2024) 논문</a>: 수정과 수녀들의 묵상</li>
+    <li><a href="https://artofthemiddleages.com/s/main/item/1377">Art of the Middle Ages</a>: 창문처럼 들여다보게 한 수정</li>
+    <li><a href="https://en.wikipedia.org/wiki/Carem">Wikipedia ‘Carem’</a>, <a href="https://en.wikipedia.org/wiki/Church_of_the_Visitation">‘Church of the Visitation’</a>: 12세기 이후 아인 카림 전승</li>
+    <li><a href="https://www.seetheholyland.net/ein-karem/">See the Holy Land ‘Ein Karem’</a>: 나사렛에서 약 120km</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/LUK.1">개역개정 본문(대한성서공회)</a>: 눅 1:7, 36, 39~45</li>
+   </ul><p>사진: 메트로폴리탄 미술관 공개 이미지(CC0), 위키미디어 공용.<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:View_of_Ain_Karim_LOC_matpc.12392.jpg">‘View of Ain Karim’</a>(1925년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:From_the_east,_Nazareth,_Holy_Land,_(i.e.,_Israel)-LCCN2002725045.jpg">‘From the east, Nazareth’</a>(위키미디어 공용, 알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 3주 -->
+ <article class="card" id="week3" data-week="week3">
+  <figure class="fig">
+   <img src="img/advent3-rublev.jpg" alt="러시아 이콘. 가운데 빨간 자리에 마리아가 누워 있고, 그 뒤 검은 동굴의 구유에 하얗게 싸인 아기가 있으며 소와 나귀가 아기를 들여다본다. 위쪽에는 말 탄 동방박사와 천사들, 아래쪽에는 생각에 잠긴 요셉과 아기를 씻기는 두 여인이 있다.">
+   <figcaption class="cap"><b>「그리스도의 탄생」</b> 안드레이 루블료프(로 전해짐), 1405년 무렵<br>러시아 모스크바, 크렘린 블라고베셴스키 대성당</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">3주 · 구유에 누인 아기</span><span><span data-wd="2">12월 13일</span> 대림절 셋째 주일 · 누가복음 2:1~7</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>예수님은 정말 마구간에서 태어나셨어요?</h2></div>
+   <p class="line">검은 동굴, 하얗게 싸인 아기, 그리고 구유를 들여다보는 소와 나귀.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>아기 예수가 이 그림에 두 번 나와요. 어디 어디에 있나요?</li>
+    <li>까만 동굴 속 구유를 들여다보는 동물 두 마리를 찾아보세요.</li>
+    <li>맨 위에서 길게 내려오는 빛줄기를 따라가 보세요. 어디에 닿나요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>누가복음은 아주 짧게 말해요. 마리아가 첫아들을 낳아 강보로 싸서 구유, 곧 가축의 먹이통에 뉘었다고요(2:7). ‘마구간’이라는 말은 이 이야기에 나오지 않아요.</p>
+    <p>“여관에 있을 곳이 없음이러라”의 ‘여관’(그리스어 카탈뤼마)은 예수님이 마지막 유월절을 지키신 ‘객실’(22:11)과 같은 낱말이에요. 그래서 붐비는 집의 손님방에 자리가 없었다고 읽는 학자가 많고, 요즘 영어 성경 가운데는 ‘손님방’으로 옮긴 것도 있어요.</p>
+    <p>2세기의 순교자 유스티누스는, 요셉이 마을에서 묵을 곳을 찾지 못해 근처 동굴에 머물렀다고 전했어요. 그래서 동방 교회의 성탄 이콘은 동굴을 그려요. 이 이콘은 1405년 무렵 안드레이 루블료프가 그린 것으로 전해져요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>소와 나귀는 누가복음에 나오지 않아요. “소는 그 임자를 알고 나귀는 그 주인의 구유를 알건마는”(사 1:3)에서 왔다고 보며, 4세기 무렵부터 거의 모든 성탄 그림에 들어갔어요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 베들레헴</b>예루살렘 남쪽의 작은 마을, ‘다윗의 동네’예요(2:4). 2세기부터 그리스도인들이 예수님이 나신 곳으로 기억해 온 동굴 위에 339년 첫 교회가 봉헌되었고, 6세기에 다시 지은 예수탄생교회가 지금도 서 있어요. 3세기 중엽 오리게네스도 베들레헴에 가면 그분이 나신 동굴과 동굴 안의 구유를 보여 준다고 적었어요. 2012년 유네스코 세계유산이 되었어요.</p>
+    <a class="go" href="https://www.biblicalarchaeology.org/daily/bas-onsite/church-of-the-nativity/">영상으로 가 보기 · 예수탄생교회와 그 아래 동굴<small>영어 · 성서고고학회(BAS) 현장 영상</small></a>
+    <figure class="ph" data-q="동굴 안에 등잔이 몇 개나 걸려 있는지 세어 볼까요? 그림 속 까만 동굴과 무엇이 같고 무엇이 다른가요?">
+     <img src="img/era3-grotto.jpg" alt="색을 입힌 사진. 금빛 등잔과 촛대가 가득한 동굴 안쪽에 파란 휘장을 두른 아치 모양 제단이 있고, 왼쪽에 내려오는 돌계단이 보인다." loading="lazy">
+     <figcaption><b>베들레헴 ‘탄생 동굴’</b> · 1950~70년대<br>예수탄생교회 아래, 예수님이 나신 곳으로 기억해 온 동굴이에요. 위 영상에서 이 동굴 안을 볼 수 있어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Bethlehem._Grotto_of_the_Nativity_LOC_matpc.22862.jpg">원본 크게 보기</a></figcaption>
+    </figure>
+    <figure class="ph" data-q="왼쪽에 매달린 요람 속에 누가 있나요? 바위 위에는 어떤 새가 앉아 있나요?" data-color="img/vr-manger-home.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 누런 바위 천장 아래 방에 그물 요람이 매달려 있고, 아이와 여인들이 둥근 짚 쟁반을 가운데 두고 앉아 있다. 오른쪽에 흙빛 통들과 짚 쟁반들이 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 요람 속 아기는 어떤 천에 싸여 있을까?">
+     <div class="phw"><img src="img/era3-manger-home.jpg" alt="흑백 사진. 천장이 울퉁불퉁한 바위로 된 방. 왼쪽 그물 요람에 아기가 누워 있고, 바닥에는 아이와 여인들이 둥근 짚 쟁반을 가운데 두고 앉아 있다. 오른쪽에는 흙으로 빚은 큰 통들과 둥근 짚 쟁반들이 있고, 바위 턱에 비둘기가 앉아 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><b>베들레헴의 ‘구유가 있는 집’</b> · 1920년<br>사진의 원래 제목은 ‘구유가 있는 집. 방 일부가 동굴. 강보에 싸인 아기와 비둘기 집’이에요. 그물 요람 속 아기와 바위 턱의 비둘기를 찾아보세요. 옛 시골집은 밤이면 가축을 집 안 아래쪽 칸에 들이고, 식구들이 지내는 자리 가까이에 여물통을 두었다고 보는 학자들이 있어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Bethlehem_and_surroundings._Bethlehem._A_manger_home._Room,_part_cave._Swaddled_baby_%26_dove-cote_LOC_matpc.02604.jpg">원본 크게 보기</a><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="소와 나귀가 함께 무슨 일을 하고 있나요?" data-color="img/vr-plowing.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 갈색 흙밭에서 농부가 흰 얼룩 나귀와 짙은 갈색 소를 한 멍에에 매어 쟁기질을 한다. 뒤쪽 초록 언덕 위에 돌집들이 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 다음 장의 1890년대 컬러 사진과 소와 나귀의 색을 비교해 볼까?">
+     <div class="phw"><img src="img/era3-plowing.jpg" alt="흑백 사진. 언덕 아래 밭에서 농부가 얼룩무늬 나귀와 검은 소를 한 멍에에 매어 쟁기질을 한다. 뒤쪽 언덕 위에 돌집들이 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>소와 나귀로 밭을 가는 농부</b> · 100년쯤 전<br>소는 밭을 갈고 나귀는 짐을 날랐어요. 그래서 소와 나귀는 한 집안의 귀한 재산이었어요. 욥의 재산 목록에도 소 오백 겨리와 암나귀 오백 마리가 들어 있고(욥 1:3), 십계명은 이웃의 소나 나귀를 탐내지 말라고 해요(출 20:17). <a class="orig" href="https://commons.wikimedia.org/wiki/File:Arab_plowing_w-donkey_and_cow_LOC_matpc.04786.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="소는 무슨 색이고 나귀는 무슨 색인가요? 농부는 손에 무엇을 들고 있나요?">
+     <img src="img/color-w3-plowing.jpg" alt="색을 입힌 옛 인쇄 사진. 돌이 많은 밭에서 갈색 소와 회색 나귀가 한 멍에에 매여 있고, 노란 옷에 파란 겉옷을 걸친 농부가 긴 막대를 들고 서 있다. 뒤로 올리브나무와 돌담이 보인다." loading="lazy">
+     <figcaption><b>다른 농부, 같은 모습 · 1890년대 컬러 인쇄본</b><br>흑백 사진과는 다른 농부지만, 소와 나귀를 한 멍에에 맨 같은 모습을 색으로 담았어요. 흑백 원판에, 사진가가 적어 둔 색 메모대로 색을 입혀 찍어 낸 ‘포토크롬’이에요. 흙과 옷, 소와 나귀의 색을 비교해 보세요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Native_of_Palestine_working_with_an_ox_and_an_ass,_Holy_Land-LCCN2002725074.jpg">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 작은 등잔불 하나가 켜진 돌집이에요. 한쪽에서 소와 나귀가 숨 쉬는 소리가 들려요. 이런 밤에 아기가 태어났다면?"><small>눈 감고 상상해 보기</small>해가 지면 불빛은 작은 등잔 하나. 예수님은 등불을 등경 위에 두면 집 안 모든 사람이 밝아진다고 하셨어요(마 5:15). 등불 하나로 온 식구가 환해지는 집, 한쪽에서 소와 나귀가 숨 쉬는 소리가 들린다면 어떤 밤이었을까요?</p>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“네가 태어났을 때 이야기를 들어 본 적 있니? 누가 너를 기다리고 있었대?”</p></div>
+   <div class="root">가장 높으신 분이 가장 낮은 자리, 짐승의 먹이통에 누우셨습니다.</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/LUK.2">이제 본문 읽기 · 누가복음 2:1~7<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 이콘의 구유는 돌무덤처럼, 강보는 수의처럼 보인다고 풀이하기도 해요. 어린아이에게는 ‘아기가 따뜻하게 싸여 있어요’ 정도로만 이야기해 주세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li><a href="https://thevcs.org/unto-us-child-born">VCS 전시 「Unto us a Child is Born」</a> <span class="note">영어 · 한국 화가 김기창(운보, 1914~2001)의 「예수의 탄생」이 에티오피아의 이름 모를 화가, 파울라 레구의 작품과 함께 실려 있어요. 김기창은 한국전쟁 무렵 1년 동안 예수의 생애를 수묵화 30점으로 그렸어요.</span></li>
+    <li><a href="https://bible.bskorea.or.kr/resources/handbook/things/manger">대한성서공회 「성서 속의 물건들」 ‘구유’</a> <span class="note">돌이나 나무로 만든 여물통 · 돌 구유 사진 · 회원 로그인</span></li>
+    <li><a href="https://bible.bskorea.or.kr/resources/handbook/things/guest_room">대한성서공회 ‘묵을 곳 _ 객실’</a> <span class="note">번역어에 ‘여관’과 ‘객실’이 함께 · 회원 로그인</span></li>
+    <li><a href="https://bible.bskorea.or.kr/resources/handbook/creatures/hb_cow">대한성서공회 ‘소’</a> · <a href="https://bible.bskorea.or.kr/resources/handbook/creatures/hb_donkey">‘나귀’</a> <span class="note">회원 로그인</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (10)</summary><ul>
+    <li><a href="https://logoslibrary.org/justin/trypho/078.html">유스티누스 『트리폰과의 대화』 78장</a>: 마을 근처 동굴</li>
+    <li><a href="https://www.ccel.org/ccel/schaff/anf04.vi.ix.i.lii.html">오리게네스 『켈수스 반박』 1권 51장</a>: 베들레헴에서 보여 주던 동굴과 구유</li>
+    <li><a href="https://acuresearchbank.acu.edu.au/item/8835w/the-accommodations-of-joseph-and-mary-in-bethlehem-in-luke-2-7">Carlson, New Testament Studies 56(2010)</a>: 카탈뤼마 논쟁(여관인가 손님방인가)</li>
+    <li><a href="https://www.psephizo.com/biblical-studies/jesus-was-not-born-in-a-stable/">Ian Paul, Psephizo ‘Jesus was not born in a stable’</a>: 손님방으로 읽는 근거, 눅 22:11과 같은 낱말, 밤에 가축을 집 안 아래 칸에 들이던 시골집</li>
+    <li><a href="https://www.bible.com/bible/111/LUK.2.7">NIV 누가복음 2:7</a>: ‘guest room’(손님방)으로 옮긴 영어 성경</li>
+    <li><a href="https://whc.unesco.org/en/list/1433/">유네스코 세계유산 1433</a>: 2세기 전승, 339년 첫 교회, 6세기 재건</li>
+    <li><a href="https://www.biblicalarchaeology.org/daily/bas-onsite/church-of-the-nativity/">성서고고학회(BAS)</a>: 지금 서 있는 유스티니아누스 시대 건물, 현장 영상</li>
+    <li><a href="https://orthodoxwiki.org/Nativity_Icon">OrthodoxWiki ‘Nativity icon’</a>: 동굴, 소와 나귀(사 1:3), 구유와 강보 풀이</li>
+    <li><a href="https://bible.bskorea.or.kr/resources/handbook/creatures/hb_donkey">대한성서공회 ‘나귀’</a>: 집집마다 꼭 필요한 가축</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/LUK.2">개역개정 본문(대한성서공회)</a>: 눅 2:4, 7 · 22:11 · 사 1:3 · 욥 1:3 · 출 20:17 · 마 5:15</li>
+   </ul><p>그림: 안드레이 루블료프(로 전해짐), 「그리스도의 탄생」, 1405년 무렵, 모스크바 크렘린 블라고베셴스키 대성당. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Bethlehem._Grotto_of_the_Nativity_LOC_matpc.22862.jpg">‘Grotto of the Nativity’</a>(1950~70년대), <a href="https://commons.wikimedia.org/wiki/File:Bethlehem_and_surroundings._Bethlehem._A_manger_home._Room,_part_cave._Swaddled_baby_%26_dove-cote_LOC_matpc.02604.jpg">‘A manger home’</a>(1920년), <a href="https://commons.wikimedia.org/wiki/File:Arab_plowing_w-donkey_and_cow_LOC_matpc.04786.jpg">‘Arab plowing w/donkey and cow’</a>(위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Native_of_Palestine_working_with_an_ox_and_an_ass,_Holy_Land-LCCN2002725074.jpg">‘Native of Palestine working with an ox and an ass’</a>(위키미디어 공용, 알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 4주 -->
+ <article class="card" id="week4" data-week="week4">
+  <figure class="fig">
+   <img src="img/advent4-jacopo.jpg" alt="세로로 긴 제단화. 위쪽 금빛 하늘에 천사가 나타나고, 언덕 위 목자 두 사람이 빛을 가리며 양 떼와 함께 있다. 아래쪽 나무 지붕 밑에서 파란 옷의 마리아가 빨간 천에 덮인 아기에게 손을 모으고, 소와 나귀, 악기를 켜는 천사들, 바위 뒤의 목자들, 앉아 있는 요셉이 보인다.">
+   <figcaption class="cap"><b>「그리스도의 탄생과 목자들」</b> 야코포 디 초네와 공방, 1370~1371년<br>영국 런던, 내셔널 갤러리</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">4주 · 들판의 목자들</span><span><span data-wd="3">12월 20일</span> 대림절 넷째 주일 · 누가복음 2:8~20</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>왜 목자들에게 제일 먼저 알려 주셨어요?</h2></div>
+   <p class="line">어두운 언덕 위로 빛이 쏟아지고, 양 떼를 지키던 목자들이 눈을 가립니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>언덕 위에서 눈부신 빛을 손으로 가리는 목자들을 찾아보세요. 곁에 양 떼도 있어요.</li>
+    <li>같은 목자들이 아래쪽 바위 뒤에서 한 번 더 나와요. 어디 숨어 있나요?</li>
+    <li>천사들 가운데 악기를 켜는 천사를 찾아보세요. 아기를 덮은 천은 무슨 색인가요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>밤에 들에서 양 떼를 지키던 목자들 곁에 천사가 나타났어요. 주의 영광이 두루 비치자 목자들은 크게 무서워했지요. 천사는 “무서워하지 말라”며 큰 기쁨의 좋은 소식을 전했어요(2:8~10).</p>
+    <p>표적은 ‘강보에 싸여 구유에 뉘어 있는 아기’였어요(2:12). 목자들은 빨리 가서 아기를 찾았고, 보고 들은 것을 사람들에게 전했어요(2:16~17).</p>
+    <p>야코포 디 초네와 공방이 피렌체 산 피에르 마조레 성당의 커다란 제단화 맨 위층에 그린 장면이에요. 패널화로 그린 밤 장면 가운데 가장 이른 것 가운데 하나로 꼽혀요.</p>
+   </section>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 베들레헴의 들판</b>베들레헴은 다윗이 소년 시절 아버지의 양을 치던 마을이에요(삼상 16:11; 17:15). 목동이었던 왕의 동네에서, 그날 밤 양을 치던 목자들이 ‘다윗의 동네에 구주가 나셨다’는 소식을 가장 먼저 들었어요(2:11).</p>
+    <figure class="ph" data-q="목자가 어깨에 걸친 것은 무엇일까요? 털 조끼는 무엇으로 만들었을까요?" data-color="img/vr-shepherd.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 두건을 쓰고 갈색 털 조끼에 주황빛 긴 옷을 입은 목자가 지팡이를 양어깨에 걸치고 서 있다. 발치에 크림색 양들, 뒤로 초록 올리브나무와 언덕 위 마을이 보인다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 목자의 털 조끼는 진짜 무슨 색이었을까?">
+     <div class="phw"><img src="img/era4-shepherd.jpg" alt="흑백 사진. 머리에 두건을 쓰고 털이 북슬북슬한 조끼를 입은 목자가 긴 지팡이를 양어깨에 걸치고 서 있다. 발치에 양들이 있고, 뒤로 나무 한 그루와 언덕 위 마을이 보인다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>베들레헴 근처의 목자</b> · 1925년<br>긴 지팡이를 어깨에 걸치고, 털이 북슬북슬한 조끼를 입었어요. 뒤로 언덕 위 마을과 종탑이 보여요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Shepherd_with_flock_near_Bethlehem._LOC_matpc.14106.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="이 사람들은 어떤 색 옷을 입었나요? 마음에 드는 옷을 하나 골라 보세요.">
+     <img src="img/color-w4-people.jpg" alt="색을 입힌 옛 인쇄 사진. 돌벽 앞에 두건을 쓴 남자 다섯과 소년 하나가 서 있다. 줄무늬 겉옷, 갈색과 초록 망토, 빨간 신발처럼 옷 색깔이 여러 가지다." loading="lazy">
+     <figcaption><b>베들레헴 근처 시골 사람들 · 1890년대 컬러 인쇄본</b><br>같은 고장 사람들이 입던 옷의 색을 볼 수 있어요. 두건, 겉옷, 허리띠의 색을 찾아보세요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Peasants_of_the_neighborhood_of_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002725088.jpg">원본 크게 보기</a></figcaption>
+    </figure>
+    <figure class="ph" data-q="언덕 위 마을이 보이나요? 목자들은 소식을 듣고 서둘러 저 마을로 갔어요. 거기서 무엇을 보았을까요?" data-color="img/vr-flock.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 풀빛 비탈길을 따라 크림색 양 떼가 줄지어 오고, 붉은 옷의 목자가 앞장서 걷는다. 위쪽 언덕에 돌집이 빼곡한 베들레헴 마을이 보인다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 언덕 위 마을의 돌집은 무슨 색일까?">
+     <div class="phw"><img src="img/era4-flock.jpg" alt="흑백 사진. 돌담을 낀 비탈길을 따라 양 떼가 줄지어 오고, 목자가 앞장서 걷는다. 위쪽 언덕에 돌집이 빼곡한 베들레헴 마을과 종탑이 보인다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>베들레헴과 양 떼</b> · 1940년대<br>들판에서 언덕 위 마을이 바로 올려다보여요. 목자들은 소식을 듣고 서둘러 베들레헴으로 가서 아기를 찾았어요(2:15~16). <a class="orig" href="https://commons.wikimedia.org/wiki/File:Bethlehem._The_town_with_shepherd_%26_flock_in_foreground_LOC_matpc.21865.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="같은 베들레헴을 100년도 더 전에 색으로 담았어요. 올리브나무와 계단처럼 생긴 밭을 찾아보세요.">
+     <img src="img/color-w4-bethlehem.jpg" alt="색을 입힌 옛 인쇄 사진. 앞쪽 올리브나무들과 계단식 밭 너머, 언덕 위에 베들레헴의 돌집들이 늘어서 있다." loading="lazy">
+     <figcaption><b>같은 베들레헴 · 1890년대 컬러 인쇄본</b><br>올리브나무와 계단식 밭 너머로 언덕 위 베들레헴이 보여요. 흑백 사진보다 50년쯤 앞서 같은 마을을 담았어요. 원래 제목은 ‘다윗의 우물 쪽에서 본 베들레헴’이에요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:General_view_of_the_well_of_David,_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002724966.jpg">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 전깃불이 하나도 없는 밤 들판이에요. 고개를 들면 무엇이 보일까요? 그 깜깜한 하늘이 갑자기 환해진다면?"><small>눈 감고 상상해 보기</small>전깃불이 하나도 없는 밤 들판에서 고개를 들면 무엇이 보였을까요? 다윗의 시로 전해지는 시편 8편에는 하나님이 지으신 하늘과 달과 별들을 바라보는 노래가 있어요(시 8:3). 그 깜깜한 하늘이 갑자기 환해졌다면?</p>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“아주 기쁜 소식을 들으면, 제일 먼저 누구에게 달려가 말하고 싶어?”</p></div>
+   <div class="root">좋은 소식은 밤에 깨어 일하던 평범한 사람들에게 가장 먼저 왔습니다.</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/LUK.2">이제 본문 읽기 · 누가복음 2:8~20<span>대한성서공회 개역개정</span></a>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li><a href="https://thevcs.org/adoration-shepherds">VCS 전시 「The Adoration of the Shepherds」</a> <span class="note">영어 · 같은 제단화와 함께 후안 바우티스타 마이노, 필리프 드 샹파뉴의 그림</span></li>
+    <li><a href="https://www.nationalgallery.org.uk/paintings/jacopo-di-cione-and-workshop-the-nativity-with-the-annunciation-to-the-shepherds">내셔널 갤러리 작품 페이지</a> <span class="note">영어 · 확대해서 보기</span></li>
+    <li><a href="https://bible.bskorea.or.kr/resources/handbook/creatures/hb_sheep_flock">대한성서공회 「성서 속의 동물들」 ‘양 떼’</a> <span class="note">회원 로그인</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (3)</summary><ul>
+    <li><a href="https://www.nationalgallery.org.uk/paintings/jacopo-di-cione-and-workshop-the-nativity-with-the-annunciation-to-the-shepherds">내셔널 갤러리 작품 설명</a>: 산 피에르 마조레 제단화, 가장 이른 밤 장면 가운데 하나, 빛을 가리는 목자들과 양 떼, 빨간 천</li>
+    <li><a href="https://thevcs.org/exhibitions/new-testament/Luke">VCS 누가복음 전시 목록</a>: 전시를 이루는 세 작품</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/LUK.2">개역개정 본문(대한성서공회)</a>: 눅 2:8~20 · 삼상 16:11; 17:15 · 시 8편(표제 ‘다윗의 시’, 3절)</li>
+   </ul><p>그림: 야코포 디 초네와 공방, 「그리스도의 탄생과 목자들」(원제: The Nativity with the Annunciation to the Shepherds), 1370~1371년, 런던 내셔널 갤러리. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Shepherd_with_flock_near_Bethlehem._LOC_matpc.14106.jpg">‘Shepherd with flock near Bethlehem’</a>(1925년), <a href="https://commons.wikimedia.org/wiki/File:Bethlehem._The_town_with_shepherd_%26_flock_in_foreground_LOC_matpc.21865.jpg">‘Bethlehem. The town with shepherd &amp; flock in foreground’</a>(1940년대, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Peasants_of_the_neighborhood_of_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002725088.jpg">‘Peasants of the neighborhood of Bethlehem’</a>, <a href="https://commons.wikimedia.org/wiki/File:General_view_of_the_well_of_David,_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002724966.jpg">‘General view of the well of David, Bethlehem’</a>(위키미디어 공용, 알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+  <p>그림은 저작권이 끝난 작품(퍼블릭 도메인)과 메트로폴리탄 미술관의 CC0 사진만 썼어요. ‘그 시절로 가 보기’의 옛 사진은 미국 의회도서관 <a href="https://commons.wikimedia.org/wiki/Category:Matson_Collection_in_the_Library_of_Congress">매슨 컬렉션</a>(20세기에 찍은 사진, 알려진 저작권 제한 없음)에서 가져왔어요.</p>
+  <p>‘가상 복원’은 흑백 사진에 AI 컬러화 모델 <a href="https://github.com/piddnad/ddcolor">DDColor</a>(알리바바 연구진, ICCV 2023)로 색을 입힌 것이에요. 허깅페이스에 공개된 <a href="https://huggingface.co/spaces/gudada/DDColor">DDColor 앱</a>을 썼어요. 사진의 밝기와 모양은 그대로 두고 색만 짐작해서 입히기 때문에, 그럴듯해 보여도 실제 색과 다를 수 있어요.</p>
+  <p>‘1890년대 컬러 인쇄본’은 미국 의회도서관 <a href="https://www.loc.gov/collections/photochrom-prints/about-this-collection/">포토크롬 컬렉션</a>에서 가져왔어요. 흑백 원판에, 사진가가 현장에서 적어 둔 색 메모대로 색을 입혀 찍어 낸 방식이라(<a href="https://en.wikipedia.org/wiki/Photochrom">Wikipedia ‘Photochrom’</a>) AI가 짐작한 색은 아니지만, 실제 색과 똑같다고 할 수는 없어요. 의회도서관은 이 컬렉션에 알려진 저작권 제한이 없다고 밝혀요(<a href="https://blogs.loc.gov/loc/2017/10/free-to-use-and-reuse-historical-travel-pictures/">의회도서관 블로그</a>).</p>
+  <p>이 코스는 Visual Commentary on Scripture(킹스 칼리지 런던)의 대림·성탄 전시 네 개와 같은 본문을 따라가요. VCS의 글을 옮기지는 않았어요. 허락을 받으면 번역을 더할 예정이에요.</p>
+  <p><a href="feel.html">함께 느끼기 방으로</a> · <a href="./">연습하기 방으로</a></p>
+ </div>
+</footer>
+</div>
+
+<div class="L" lang="en" hidden>
+<header class="top">
+ <div class="wrap">
+  <div class="bar"><a class="brand back" href="feel.html#en">‹ Question Practice Room · Experience Together</a><button class="lang" type="button" data-lang="ko" lang="ko">한국어</button></div>
+  <h1>Advent in Four Weeks</h1>
+  <p class="sub">Luke 1–2 through four works of art. One picture and one question each Sunday, from the angel’s greeting to the shepherds’ night.</p>
+  <div class="howto"><span><b>1</b> Look at the art together</span><span><b>2</b> Ask the question</span><span><b>3</b> Step back in time</span><span><b>4</b> Read the passage together</span></div>
+  <p class="tip">Tap <b>Show it to the children</b> under the art to fill the screen with the picture and old photos of the land, one question at a time. Tap a black-and-white photo to switch to an <b>AI-colorized</b> version.</p>
+  <div class="draft">This is a draft awaiting review. AI gathered the sources and wrote the text, so please check each card against ‘Sources’ at the bottom.</div>
+ </div>
+</header>
+
+<main class="wrap" hidden>
+ <nav class="weeks" aria-label="Choose a week">
+  <a class="wk" href="#week1" data-w="week1"><img src="img/advent1-martini.jpg" alt="" style="object-position:50% 72%"><span class="bd"><span class="when"><b>Week 1 · <span data-wd="0">Nov 29</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">Why did Mary shrink back?</span></span></a>
+  <a class="wk" href="#week2" data-w="week2"><img src="img/advent2-visitation.jpg" alt="" style="object-position:50% 28%"><span class="bd"><span class="when"><b>Week 2 · <span data-wd="1">Dec 6</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">Can a baby be glad before it is born?</span></span></a>
+  <a class="wk" href="#week3" data-w="week3"><img src="img/advent3-rublev.jpg" alt="" style="object-position:50% 42%"><span class="bd"><span class="when"><b>Week 3 · <span data-wd="2">Dec 13</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">Was Jesus really born in a stable?</span></span></a>
+  <a class="wk" href="#week4" data-w="week4"><img src="img/advent4-jacopo.jpg" alt="" style="object-position:50% 80%"><span class="bd"><span class="when"><b>Week 4 · <span data-wd="3">Dec 20</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">Why were the shepherds told first?</span></span></a>
+ </nav>
+ <p class="thread">Two phrases tie the four weeks together: <b>“Don’t be afraid”</b> (1:30 · 2:10) and <b>“with haste”</b> (1:39 · 2:16). The angel said the same words to Mary and to the shepherds, and Mary and the shepherds both set out in a hurry.</p>
+
+ <!-- Week 1 -->
+ <article class="card" data-week="week1">
+  <figure class="fig">
+   <img src="img/advent1-martini.jpg" alt="Painting by Simone Martini and Lippo Memmi. On a gold background, an angel holding an olive branch kneels at left; at right, Mary in blue pulls her cloak close and leans away. A vase of white lilies stands between them, and at the top a dove is surrounded by angels.">
+   <figcaption class="cap"><b>The Annunciation</b> Simone Martini and Lippo Memmi, 1333<br>Uffizi Gallery, Florence, Italy</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Week 1 · The angel’s greeting</span><span><span data-wd="0">Nov 29</span> · First Sunday of Advent · Luke 1:26–38</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Why did Mary shrink back?</h2></div>
+   <p class="line">Across the gold background, the angel’s greeting flies toward Mary as letters. Mary pulls her cloak close and leans away.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Follow the gold letters that run from the angel’s mouth toward Mary.</li>
+    <li>Find the branch the angel is holding and the white flowers in the vase in the middle. How are they different?</li>
+    <li>At the top in the middle, find the white dove surrounded by angels. It stands for the Holy Spirit (1:35).</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>The angel Gabriel came to Mary, who lived in Nazareth, a small town in Galilee, and greeted her: “Rejoice, you highly favored one! The Lord is with you” (1:28). Mary was “greatly troubled at the saying” (1:29).</p>
+    <p>Simone Martini and his brother-in-law Lippo Memmi painted it in 1333 for an altar in Siena Cathedral. They wrote the angel’s greeting in Latin letters raised from the gold ground, so that it flows from the angel’s mouth toward Mary. It is a speech bubble from 700 years ago.</p>
+    <p>What the angel holds is not a lily but an olive branch, which is rare in pictures of the Annunciation. Like the olive leaf the dove brought back to Noah (Gen 8:11), it is a sign of peace and reconciliation. The lilies stand in the vase between the two.</p>
+   </section>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Nazareth</b>A small village in the hills of Galilee. It is never mentioned in the Old Testament, nor in the books of the first-century Jewish historian Josephus. Nathanael asked, “Can any good thing come out of Nazareth?” (John 1:46).</p>
+    <figure class="ph" data-q="Count how many people are carrying water jars on their heads. If a house had no running water, where would people get their water?" data-color="img/vr-nazareth-spring.jpg" data-color-alt="AI-colorized version of a black-and-white photo. Under a blue sky and the green shade of trees, three women carry water jars on their heads in front of a beige stone fountain with an arch." data-color-q="AI guessed the colors in this photo. What color would you paint the women’s clothes?">
+     <div class="phw"><img src="img/era1-nazareth-spring.jpg" alt="Black-and-white photo. On a dirt path shaded by trees, three women in long robes carry water jars on their heads. Behind them are an arched stone fountain and the hills of Nazareth." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>‘Mary’s Well’ in Nazareth</b> · 1930s<br>Until the 19th century it was the village’s only water source. The second-century apocryphal <i>Protoevangelium of James</i> tells how Mary went out with a pitcher to draw water and heard the angel’s first greeting. The story is not in the Bible, but because of this tradition the Orthodox Church of St. Gabriel stands over the spring. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Virgin%27s_Fountain_in_Nazareth_LOC_matpc.00447.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="This is the same well, photographed in color more than 100 years ago. What colors are the women’s clothes? Find the donkey carrying water jars.">
+     <img src="img/color-w1-fountain.jpg" alt="Old color print. In front of a mossy stone fountain with an arch, women in striped clothes stand with water jars on their heads, and a donkey carries water jars. Behind them are the stone houses and hills of Nazareth." loading="lazy">
+     <figcaption><b>The same well · 1890s color print</b><br>Taken some 40 years before the black-and-white photo. It is a ‘photochrom’: color was added to a black-and-white negative, following color notes the photographer made on the spot, and then printed. Look for the donkey carrying water jars too. <a class="orig" href="https://commons.wikimedia.org/wiki/File:The_virgin%27s_fountain,_Nazareth,_Holy_Land,_(i.e._Israel)-LCCN2002725047.jpg">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. It’s a small village with no running water and no electricity. You walk to the spring carrying a water jar. Who will you meet at the spring?"><small>Close your eyes and imagine</small>If you lived in a small village with no running water or electricity and had to fetch water from the spring every day, who would you meet there, and what would you talk about?</p>
+    <a class="go" href="https://materializingthebible.com/nazareth-village.html">Take a photo tour · Nazareth Village, a re-created first-century Nazareth<small>‘Materializing the Bible’, a research project led by James Bielo (Miami University) · a pen with a donkey and newborn lambs, a threshing floor, an olive press, a carpenter’s workshop, a synagogue</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“When you were scared, has anyone ever told you, ‘Don’t be afraid’?”</p></div>
+   <div class="root">To people who are startled and afraid, God first says, “Don’t be afraid” (1:30).</div>
+   <a class="read" href="https://biblehub.com/web/luke/1.htm">Now read the passage · Luke 1:26–38<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Churches see Mary in different ways. It helps to introduce this as ‘the story of God coming first to one person.’</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>Compare it with Fra Angelico’s <i>Annunciation</i> in the Experience Together room. It is the same scene, but how is Mary’s posture different?</li>
+    <li><a href="https://thevcs.org/annunciation">VCS exhibition <i>The Annunciation</i></a> <span class="note">Also with Annunciations by Rossetti and Filippo Lippi</span></li>
+    <li><a href="https://smarthistory.org/simone-martini-annunciation">Smarthistory, <i>Simone Martini, Annunciation</i></a> <span class="note">Video lesson</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (11)</summary><ul>
+    <li><a href="https://uffizi.it/en/artworks/annunciation-with-st-margaret-and-st-ansanus">Uffizi Gallery artwork page</a>: the greeting raised from the gold ground</li>
+    <li><a href="https://artsandculture.google.com/asset/annunciation/IgHn22QncTFgPA">Google Arts &amp; Culture (Uffizi)</a>: signed 1333, the St. Ansanus altar in Siena Cathedral</li>
+    <li><a href="https://smarthistory.org/simone-martini-annunciation">Smarthistory</a>: the olive branch (peace), the vase of lilies</li>
+    <li><a href="https://christianiconography.info/Florence/Uffizi%20Gallery/annunciationMartiniMemmi.html">Christian Iconography</a>: an olive branch is rare in Annunciations; the link to the Noah story</li>
+    <li><a href="https://freely-given.org/OBD/dct/Nazareth.htm">Tyndale Open Bible Dictionary, ‘Nazareth’</a>: a small village not mentioned in the Old Testament or in Josephus</li>
+    <li><a href="https://en.wikipedia.org/wiki/Mary%27s_Well">Wikipedia, ‘Mary’s Well’</a>: the village’s only water source until the 19th century; the spring tradition in the <i>Protoevangelium of James</i></li>
+    <li><a href="https://showcaves.com/english/il/subterranea/SaintGabriel.html">Showcaves, ‘Saint Gabriel’</a>: the Orthodox Church of St. Gabriel over the spring, whose water flows south to Mary’s Well</li>
+    <li><a href="https://en.wikipedia.org/wiki/Nazareth_Village">Wikipedia, ‘Nazareth Village’</a>: an open-air museum re-creating first-century village life in Galilee</li>
+    <li><a href="https://materializingthebible.com/nazareth-village.html">Materializing the Bible, ‘Nazareth Village’ (2017)</a>: the places in the photo tour</li>
+    <li><a href="https://spacesarchives.org/resources/blog/materializing-the-bible-by-james-s-bielo-miami-university">SPACES, ‘Materializing the Bible’</a>: the project is led by James S. Bielo (Miami University)</li>
+    <li><a href="https://biblehub.com/web/luke/1.htm">World English Bible</a>: Luke 1:28–30, 35 · Gen 8:11 · John 1:46</li>
+   </ul><p>Painting: Simone Martini and Lippo Memmi, <i>The Annunciation</i>, 1333, Uffizi Gallery, Florence. Photo: Wikimedia Commons (Google Art Project, public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Virgin%27s_Fountain_in_Nazareth_LOC_matpc.00447.jpg">‘Virgin’s Fountain in Nazareth’</a> (1930s, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://commons.wikimedia.org/wiki/File:The_virgin%27s_fountain,_Nazareth,_Holy_Land,_(i.e._Israel)-LCCN2002725047.jpg">‘The virgin’s fountain, Nazareth’</a> (Wikimedia Commons, no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Week 2 -->
+ <article class="card" data-week="week2">
+  <figure class="fig">
+   <img src="img/advent2-visitation.jpg" alt="Wood sculpture. Two women in gold robes stand face to face, holding hands. Oval crystals set into their bellies sparkle.">
+   <figcaption class="cap"><b>The Visitation</b> attributed to Master Heinrich of Constance, about 1310–20<br>Walnut, paint, gilding, rock crystal · The Metropolitan Museum of Art, New York, USA</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The sculpture and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Week 2 · Two mothers meet</span><span><span data-wd="1">Dec 6</span> · Second Sunday of Advent · Luke 1:39–45</span></div>
+   <div class="opener"><small>The question this sculpture opens</small><h2>Can a baby be glad before it is born?</h2></div>
+   <p class="line">Two mothers hold hands. The crystals on their bellies sparkle like little windows.</p>
+   <section class="blk look"><h3>Things to find in the sculpture</h3><ol>
+    <li>Find the crystals sparkling on their bellies. What might have been inside them?</li>
+    <li>Follow the two women’s hands. Where are they resting?</li>
+    <li>Which one is Mary and which one is Elizabeth? Why do you think so?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>After hearing the angel’s news, Mary went “into the hill country with haste, into a city of Judah” to visit her relative Elizabeth (1:39–40). When Mary greeted her, the baby in Elizabeth’s womb, who would grow up to be John the Baptist, leaped for joy (1:41, 44).</p>
+    <p>Around 1310–20 this sculpture belonged to the Dominican convent of Katharinental, near Lake Constance in today’s Switzerland. It was carved from walnut, then painted and gilded, and the paint and gold survive almost intact.</p>
+    <p>The crystals on their bellies probably once showed pictures of the babies inside. Some scholars think they helped the nuns meditate on the unborn babies, as if looking through a window.</p>
+   </section>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · a town in the hills of Judah</b>Luke gives no name; he says only “a city of Judah” (1:39). Since around the 12th century, the village of Ain Karim (Ein Karem), west of Jerusalem, has been remembered as the place, and a Church of the Visitation stands there today. It is a long way from Nazareth: about 120 kilometers (75 miles).</p>
+    <figure class="ph" data-q="Mary set out from a hill town like this. What color are the flowers in the field?">
+     <img src="img/color-w2-nazareth.jpg" alt="Old color print. Beyond a hillside of wildflowers, the white stone houses of Nazareth crowd together, with a tree on the left." loading="lazy">
+     <figcaption><b>Where she set out · Nazareth</b> · 1890s color print<br>The village Mary left. By the 1890s it had grown much bigger than the small village of Jesus’ day. It is a ‘photochrom’: color was added to a black-and-white negative, following the photographer’s color notes, and then printed. <a class="orig" href="https://commons.wikimedia.org/wiki/File:From_the_east,_Nazareth,_Holy_Land,_(i.e.,_Israel)-LCCN2002725045.jpg">View the original</a></figcaption>
+    </figure>
+    <figure class="ph" data-q="Mary came all the way from Nazareth to a hill village like this. What do you think the road was like?" data-color="img/vr-ain-karim.jpg" data-color-alt="AI-colorized version of a black-and-white photo. Beige stone houses cluster in a valley between yellowish hills, with dark green trees, a church whose bell tower has a red roof, and an olive grove in front." data-color-q="AI guessed the colors in this photo. What color do you think the sky, the trees and the stone houses really were?">
+     <div class="phw"><img src="img/era2-ain-karim.jpg" alt="Black-and-white photo. White stone houses cluster along a valley between bare hills. A church with a bell tower and tall trees stand among them, with an orchard in front." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>Where she arrived · Ain Karim</b> · 1925<br>A village of stone houses gathered among hills and valleys. Here you can see what Luke’s “hill country” (1:39) looks like. <a class="orig" href="https://commons.wikimedia.org/wiki/File:View_of_Ain_Karim_LOC_matpc.12392.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. There are no cars and no trains. You walk and walk for days, and at last you reach Elizabeth’s door. How do you feel as you knock?"><small>Close your eyes and imagine</small>With no car and no train, how many days would it take to walk 120 kilometers? Where would Mary have rested at night? And when she finally knocked on Elizabeth’s door, how did she feel?</p>
+    <a class="go" href="https://www.seetheholyland.net/ein-karem/">Take a photo tour · Ain Karim today<small>See the Holy Land · the Church of the Visitation and the village</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“Have you ever been so happy to see someone you were waiting for that you couldn’t keep still?”</p></div>
+   <div class="root">The first to recognize what God was doing, and to rejoice, was a baby not yet born (1:44).</div>
+   <a class="read" href="https://biblehub.com/web/luke/1.htm">Now read the passage · Luke 1:39–45<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Some families may have been through pregnancy, miscarriage or infertility. Elizabeth, too, had long been without a child (1:7). Bring up the story of the unborn baby gently.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li><a href="https://thevcs.org/visitation-quickening-creation">VCS exhibition <i>The Visitation: Quickening Creation</i></a> <span class="note">A 14th-century fresco from Cyprus, and Visitations by Pontormo and El Greco</span></li>
+    <li><a href="https://www.metmuseum.org/art/collection/search/464596">The Met artwork page</a> <span class="note">Photos from other angles</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (6)</summary><ul>
+    <li><a href="https://www.metmuseum.org/art/collection/search/464596">The Metropolitan Museum of Art</a>: date, the Katharinental convent, surviving paint and gilding, pictures of the babies inside the crystals</li>
+    <li><a href="https://doaj.org/article/0106d504db48417ba5ed97aa94ad254d"><i>Religions</i> 15 (2024)</a>: the crystals and the nuns’ meditation</li>
+    <li><a href="https://artofthemiddleages.com/s/main/item/1377">Art of the Middle Ages</a>: crystals to look into like windows</li>
+    <li><a href="https://en.wikipedia.org/wiki/Carem">Wikipedia, ‘Carem’</a>, <a href="https://en.wikipedia.org/wiki/Church_of_the_Visitation">‘Church of the Visitation’</a>: the Ain Karim tradition since the 12th century</li>
+    <li><a href="https://www.seetheholyland.net/ein-karem/">See the Holy Land, ‘Ein Karem’</a>: about 120 km from Nazareth</li>
+    <li><a href="https://biblehub.com/web/luke/1.htm">World English Bible</a>: Luke 1:7, 36, 39–45</li>
+   </ul><p>Photo: The Metropolitan Museum of Art Open Access (CC0), Wikimedia Commons.<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:View_of_Ain_Karim_LOC_matpc.12392.jpg">‘View of Ain Karim’</a> (1925, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://commons.wikimedia.org/wiki/File:From_the_east,_Nazareth,_Holy_Land,_(i.e.,_Israel)-LCCN2002725045.jpg">‘From the east, Nazareth’</a> (Wikimedia Commons, no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Week 3 -->
+ <article class="card" data-week="week3">
+  <figure class="fig">
+   <img src="img/advent3-rublev.jpg" alt="Russian icon. In the center, Mary lies on a red mat. Behind her, in a black cave, the baby lies in a manger wrapped in white while an ox and a donkey look in. Above are the Magi on horseback and angels; below, Joseph sits deep in thought and two women bathe the baby.">
+   <figcaption class="cap"><b>The Nativity of Christ</b> attributed to Andrei Rublev, about 1405<br>Cathedral of the Annunciation, Moscow Kremlin, Russia</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The icon and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Week 3 · The baby in the manger</span><span><span data-wd="2">Dec 13</span> · Third Sunday of Advent · Luke 2:1–7</span></div>
+   <div class="opener"><small>The question this icon opens</small><h2>Was Jesus really born in a stable?</h2></div>
+   <p class="line">A black cave, a baby wrapped in white, and an ox and a donkey peering into the manger.</p>
+   <section class="blk look"><h3>Things to find in the icon</h3><ol>
+    <li>Baby Jesus appears twice in this icon. Where is he?</li>
+    <li>Find the two animals looking into the manger inside the black cave.</li>
+    <li>Follow the long ray of light coming down from the very top. Where does it land?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>Luke tells it very briefly: Mary “wrapped him in bands of cloth and laid him in a feeding trough” (2:7), a manger where animals eat. The word “stable” never appears in the story.</p>
+    <p>In “there was no room for them in the inn,” the word for “inn” (Greek <i>katalyma</i>) is the same word Luke uses for the “guest room” where Jesus kept his last Passover (22:11). So many scholars read it as no room in the guest room of a crowded house, and some modern English Bibles, such as the NIV, translate it “guest room.”</p>
+    <p>In the second century, Justin Martyr wrote that Joseph could find no lodging in the village and stayed in a cave nearby. That is why Nativity icons of the Eastern churches show a cave. This icon is said to have been painted by Andrei Rublev around 1405.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Did you know?</h3>The ox and the donkey are not in Luke. They are thought to come from “The ox knows his owner, and the donkey his master’s crib” (Isa 1:3), and since around the fourth century they have appeared in almost every picture of the Nativity.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Bethlehem</b>A small town south of Jerusalem, “the city of David” (2:4). Since the second century, Christians have remembered a cave here as the place where Jesus was born. The first church over it was dedicated in 339, and the Church of the Nativity, rebuilt in the sixth century, still stands. In the middle of the third century Origen also wrote that in Bethlehem people would show you the cave where he was born and the manger inside it. It became a UNESCO World Heritage Site in 2012.</p>
+    <a class="go" href="https://www.biblicalarchaeology.org/daily/bas-onsite/church-of-the-nativity/">Watch the video · The Church of the Nativity and the cave beneath it<small>Biblical Archaeology Society (BAS) on-site video</small></a>
+    <figure class="ph" data-q="Can you count how many lamps hang in the cave? What is the same as the black cave in the icon, and what is different?">
+     <img src="img/era3-grotto.jpg" alt="Color photo. Deep in a cave full of golden lamps and candlesticks is an arched altar hung with blue curtains, with stone steps coming down on the left." loading="lazy">
+     <figcaption><b>The ‘Grotto of the Nativity’ in Bethlehem</b> · 1950s–70s<br>The cave beneath the Church of the Nativity, remembered as the place where Jesus was born. You can see inside it in the video above. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Bethlehem._Grotto_of_the_Nativity_LOC_matpc.22862.jpg">View the original</a></figcaption>
+    </figure>
+    <figure class="ph" data-q="Who is in the cradle hanging on the left? What bird is sitting on the rock?" data-color="img/vr-manger-home.jpg" data-color-alt="AI-colorized version of a black-and-white photo. In a room under a yellowish rock ceiling, a net cradle hangs, and a child and women sit around a round straw tray. On the right are earth-colored jars and straw trays." data-color-q="AI guessed the colors in this photo. What kind of cloth is the baby in the cradle wrapped in?">
+     <div class="phw"><img src="img/era3-manger-home.jpg" alt="Black-and-white photo. A room with a rough rock ceiling. On the left a baby lies in a net cradle; on the floor a child and women sit around a round straw tray. On the right are large clay jars and round straw trays, and a dove sits on a rock ledge." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><b>‘A manger home’ in Bethlehem</b> · 1920<br>The photo’s original title is ‘A manger home. Room, part cave. Swaddled baby &amp; dove-cote.’ Find the baby in the net cradle and the dove on the rock ledge. Some scholars think that in old village houses, animals were brought into a lower part of the house at night, with a feeding trough close to where the family lived. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Bethlehem_and_surroundings._Bethlehem._A_manger_home._Room,_part_cave._Swaddled_baby_%26_dove-cote_LOC_matpc.02604.jpg">View the original</a><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="What are the ox and the donkey doing together?" data-color="img/vr-plowing.jpg" data-color-alt="AI-colorized version of a black-and-white photo. In a brown field, a farmer plows with a white-spotted donkey and a dark brown ox under one yoke. Stone houses sit on a green hill behind." data-color-q="AI guessed the colors in this photo. Compare the ox and the donkey with the 1890s color photo that comes next.">
+     <div class="phw"><img src="img/era3-plowing.jpg" alt="Black-and-white photo. In a field below a hill, a farmer plows with a spotted donkey and a black ox under one yoke. Stone houses sit on the hill behind." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>A farmer plowing with an ox and a donkey</b> · about 100 years ago<br>The ox plowed and the donkey carried loads, so they were a household’s precious wealth. Job’s riches include five hundred yoke of oxen and five hundred female donkeys (Job 1:3), and the Ten Commandments say not to covet your neighbor’s ox or donkey (Exod 20:17). <a class="orig" href="https://commons.wikimedia.org/wiki/File:Arab_plowing_w-donkey_and_cow_LOC_matpc.04786.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="What color is the ox, and what color is the donkey? What is the farmer holding?">
+     <img src="img/color-w3-plowing.jpg" alt="Old color print. In a stony field, a brown ox and a gray donkey are yoked together, and a farmer in yellow with a blue outer robe stands holding a long stick. Olive trees and a stone wall are behind." loading="lazy">
+     <figcaption><b>A different farmer, the same sight · 1890s color print</b><br>Not the farmer in the black-and-white photo, but the same sight of an ox and a donkey under one yoke, in color. It is a ‘photochrom’: color was added to a black-and-white negative, following the photographer’s color notes, and then printed. Compare the colors of the soil, the clothes, the ox and the donkey. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Native_of_Palestine_working_with_an_ox_and_an_ass,_Holy_Land-LCCN2002725074.jpg">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. It’s a stone house lit by one small oil lamp. From one corner you can hear an ox and a donkey breathing. What if a baby were born on a night like this?"><small>Close your eyes and imagine</small>After sunset, the only light was one small oil lamp. Jesus said that a lamp put on a stand gives light to everyone in the house (Matt 5:15). Picture a house made bright by a single lamp, with an ox and a donkey breathing in one corner. What kind of night would it have been?</p>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“Have you heard the story of when you were born? Who was waiting for you?”</p></div>
+   <div class="root">The Most High lay down in the lowest place: an animals’ feeding trough.</div>
+   <a class="read" href="https://biblehub.com/web/luke/2.htm">Now read the passage · Luke 2:1–7<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Some read the manger in this icon as a stone tomb and the swaddling cloths as a burial shroud. With young children, just say, ‘The baby is wrapped up warm.’</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li><a href="https://thevcs.org/unto-us-child-born">VCS exhibition <i>Unto Us a Child Is Born</i></a> <span class="note">Includes <i>The Birth of Jesus</i> by the Korean painter Kim Ki-chang (Unbo, 1914–2001), alongside work by an unknown Ethiopian artist and by Paula Rego. Around the time of the Korean War, Kim painted the life of Jesus in 30 ink paintings over one year.</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (10)</summary><ul>
+    <li><a href="https://logoslibrary.org/justin/trypho/078.html">Justin Martyr, <i>Dialogue with Trypho</i> 78</a>: a cave near the village</li>
+    <li><a href="https://www.ccel.org/ccel/schaff/anf04.vi.ix.i.lii.html">Origen, <i>Against Celsus</i> 1.51</a>: the cave and the manger shown in Bethlehem</li>
+    <li><a href="https://acuresearchbank.acu.edu.au/item/8835w/the-accommodations-of-joseph-and-mary-in-bethlehem-in-luke-2-7">Carlson, <i>New Testament Studies</i> 56 (2010)</a>: the <i>katalyma</i> debate (inn or guest room)</li>
+    <li><a href="https://www.psephizo.com/biblical-studies/jesus-was-not-born-in-a-stable/">Ian Paul, Psephizo, ‘Jesus was not born in a stable’</a>: reasons to read ‘guest room’; the same word in Luke 22:11; village houses that brought animals into a lower level at night</li>
+    <li><a href="https://www.bible.com/bible/111/LUK.2.7">NIV, Luke 2:7</a>: an English Bible that translates it ‘guest room’</li>
+    <li><a href="https://whc.unesco.org/en/list/1433/">UNESCO World Heritage 1433</a>: second-century tradition, first church in 339, sixth-century rebuilding</li>
+    <li><a href="https://www.biblicalarchaeology.org/daily/bas-onsite/church-of-the-nativity/">Biblical Archaeology Society (BAS)</a>: the Justinian-era building that still stands; on-site video</li>
+    <li><a href="https://orthodoxwiki.org/Nativity_Icon">OrthodoxWiki, ‘Nativity icon’</a>: the cave, the ox and the donkey (Isa 1:3), readings of the manger and the swaddling cloths</li>
+    <li><a href="https://bible.bskorea.or.kr/resources/handbook/creatures/hb_donkey">Korean Bible Society, ‘Donkey’</a> (in Korean): an animal every household needed</li>
+    <li><a href="https://biblehub.com/web/luke/2.htm">World English Bible</a>: Luke 2:4, 7 · 22:11 · Isa 1:3 · Job 1:3 · Exod 20:17 · Matt 5:15</li>
+   </ul><p>Painting: attributed to Andrei Rublev, <i>The Nativity of Christ</i>, about 1405, Cathedral of the Annunciation, Moscow Kremlin. Photo: Wikimedia Commons (public domain).<br>Old photos: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Bethlehem._Grotto_of_the_Nativity_LOC_matpc.22862.jpg">‘Grotto of the Nativity’</a> (1950s–70s), <a href="https://commons.wikimedia.org/wiki/File:Bethlehem_and_surroundings._Bethlehem._A_manger_home._Room,_part_cave._Swaddled_baby_%26_dove-cote_LOC_matpc.02604.jpg">‘A manger home’</a> (1920), <a href="https://commons.wikimedia.org/wiki/File:Arab_plowing_w-donkey_and_cow_LOC_matpc.04786.jpg">‘Arab plowing w/donkey and cow’</a> (Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://commons.wikimedia.org/wiki/File:Native_of_Palestine_working_with_an_ox_and_an_ass,_Holy_Land-LCCN2002725074.jpg">‘Native of Palestine working with an ox and an ass’</a> (Wikimedia Commons, no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Week 4 -->
+ <article class="card" data-week="week4">
+  <figure class="fig">
+   <img src="img/advent4-jacopo.jpg" alt="Tall altarpiece. In the gold sky at the top an angel appears, and two shepherds on a hill shield their eyes from the light, with their flock beside them. Below, under a wooden roof, Mary in blue folds her hands toward the baby covered in red cloth. There are an ox and a donkey, angels playing instruments, shepherds behind a rock, and Joseph sitting.">
+   <figcaption class="cap"><b>The Nativity with the Annunciation to the Shepherds</b> Jacopo di Cione and workshop, 1370–71<br>The National Gallery, London, UK</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Week 4 · Shepherds in the fields</span><span><span data-wd="3">Dec 20</span> · Fourth Sunday of Advent · Luke 2:8–20</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Why were the shepherds told first?</h2></div>
+   <p class="line">Light pours over the dark hill, and the shepherds keeping watch over their flock shield their eyes.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find the shepherds on the hill shielding their eyes from the dazzling light. Their flock is beside them.</li>
+    <li>The same shepherds appear again behind a rock lower down. Where are they hiding?</li>
+    <li>Find the angel playing an instrument. What color is the cloth covering the baby?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>One night, as shepherds kept watch over their flock in the fields, an angel appeared. The glory of the Lord shone around them, and they were terrified. The angel said, “Don’t be afraid, for behold, I bring you good news of great joy” (2:8–10).</p>
+    <p>The sign was “a baby wrapped in strips of cloth, lying in a feeding trough” (2:12). The shepherds went with haste and found the baby, and they told others what they had seen and heard (2:16–17).</p>
+    <p>Jacopo di Cione and his workshop painted this scene at the top of a huge altarpiece for the church of San Pier Maggiore in Florence. It is counted among the earliest night scenes painted on panel.</p>
+   </section>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · the fields of Bethlehem</b>Bethlehem is the town where David kept his father’s sheep as a boy (1 Sam 16:11; 17:15). In the hometown of the shepherd who became king, the shepherds keeping their sheep that night were the first to hear: “There is born to you, this day, in the city of David, a Savior” (2:11).</p>
+    <figure class="ph" data-q="What is the shepherd carrying across his shoulders? What do you think his woolly vest is made of?" data-color="img/vr-shepherd.jpg" data-color-alt="AI-colorized version of a black-and-white photo. A shepherd in a head cloth, a brown fleece vest and a long orange robe stands with a staff across his shoulders. Cream-colored sheep are at his feet, with green olive trees and a hilltop village behind." data-color-q="AI guessed the colors in this photo. What color do you think the shepherd’s woolly vest really was?">
+     <div class="phw"><img src="img/era4-shepherd.jpg" alt="Black-and-white photo. A shepherd wearing a head cloth and a shaggy fleece vest stands with a long staff across his shoulders. Sheep are at his feet; behind him are a tree and a village on a hill." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>A shepherd near Bethlehem</b> · 1925<br>He carries a long staff across his shoulders and wears a shaggy fleece vest. Behind him you can see a hilltop village and a bell tower. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Shepherd_with_flock_near_Bethlehem._LOC_matpc.14106.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="What colors are these people wearing? Pick one outfit you like.">
+     <img src="img/color-w4-people.jpg" alt="Old color print. Five men in head cloths and a boy stand in front of a stone wall, dressed in many colors: striped robes, brown and green cloaks, red shoes." loading="lazy">
+     <figcaption><b>Country people near Bethlehem · 1890s color print</b><br>Here you can see the colors of the clothes people wore in this region. Look for the colors of the head cloths, robes and sashes. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Peasants_of_the_neighborhood_of_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002725088.jpg">View the original</a></figcaption>
+    </figure>
+    <figure class="ph" data-q="Can you see the town on the hill? After hearing the news, the shepherds hurried to that town. What did they see there?" data-color="img/vr-flock.jpg" data-color-alt="AI-colorized version of a black-and-white photo. A flock of cream-colored sheep comes along a grassy slope, led by a shepherd in red. Above on the hill, the stone houses of Bethlehem crowd together." data-color-q="AI guessed the colors in this photo. What color are the stone houses in the town on the hill?">
+     <div class="phw"><img src="img/era4-flock.jpg" alt="Black-and-white photo. A flock of sheep comes along a sloping path beside a stone wall, led by a shepherd. Above on the hill are the crowded stone houses of Bethlehem and a bell tower." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>Bethlehem and a flock</b> · 1940s<br>From the fields you can look straight up at the town on the hill. After hearing the news, the shepherds hurried to Bethlehem and found the baby (2:15–16). <a class="orig" href="https://commons.wikimedia.org/wiki/File:Bethlehem._The_town_with_shepherd_%26_flock_in_foreground_LOC_matpc.21865.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="This is the same Bethlehem in color, more than 100 years ago. Find the olive trees and the fields shaped like steps.">
+     <img src="img/color-w4-bethlehem.jpg" alt="Old color print. Beyond olive trees and terraced fields in front, the stone houses of Bethlehem line the hill." loading="lazy">
+     <figcaption><b>The same Bethlehem · 1890s color print</b><br>Bethlehem on its hill, seen beyond olive trees and terraced fields. Taken about 50 years before the black-and-white photo of the same town. Its original title is ‘General view of the well of David, Bethlehem.’ <a class="orig" href="https://commons.wikimedia.org/wiki/File:General_view_of_the_well_of_David,_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002724966.jpg">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. It’s a field at night, without a single electric light. If you look up, what will you see? What if that dark sky suddenly lit up?"><small>Close your eyes and imagine</small>In a field at night without a single electric light, what would you see when you looked up? Psalm 8, which the Bible attributes to David, sings of gazing at the heavens, the moon and the stars that God made (Ps 8:3). What if that dark sky suddenly lit up?</p>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“When you hear really happy news, who is the first person you want to run and tell?”</p></div>
+   <div class="root">The good news came first to ordinary people who were awake and at work in the night.</div>
+   <a class="read" href="https://biblehub.com/web/luke/2.htm">Now read the passage · Luke 2:8–20<span>World English Bible</span></a>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li><a href="https://thevcs.org/adoration-shepherds">VCS exhibition <i>The Adoration of the Shepherds</i></a> <span class="note">The same altarpiece, with paintings by Juan Bautista Maíno and Philippe de Champaigne</span></li>
+    <li><a href="https://www.nationalgallery.org.uk/paintings/jacopo-di-cione-and-workshop-the-nativity-with-the-annunciation-to-the-shepherds">The National Gallery artwork page</a> <span class="note">Zoom in on the details</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (3)</summary><ul>
+    <li><a href="https://www.nationalgallery.org.uk/paintings/jacopo-di-cione-and-workshop-the-nativity-with-the-annunciation-to-the-shepherds">The National Gallery</a>: the San Pier Maggiore altarpiece, among the earliest night scenes, the shepherds shielding their eyes and the flock, the red cloth</li>
+    <li><a href="https://thevcs.org/exhibitions/new-testament/Luke">VCS, exhibitions on Luke</a>: the three works in the exhibition</li>
+    <li><a href="https://biblehub.com/web/luke/2.htm">World English Bible</a>: Luke 2:8–20 · 1 Sam 16:11; 17:15 · Psalm 8 (heading names David; verse 3)</li>
+   </ul><p>Painting: Jacopo di Cione and workshop, <i>The Nativity with the Annunciation to the Shepherds</i>, 1370–71, The National Gallery, London. Photo: Wikimedia Commons (public domain).<br>Old photos: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Shepherd_with_flock_near_Bethlehem._LOC_matpc.14106.jpg">‘Shepherd with flock near Bethlehem’</a> (1925), <a href="https://commons.wikimedia.org/wiki/File:Bethlehem._The_town_with_shepherd_%26_flock_in_foreground_LOC_matpc.21865.jpg">‘Bethlehem. The town with shepherd &amp; flock in foreground’</a> (1940s, Wikimedia Commons, no known restrictions).<br>1890s color prints: Library of Congress Photochrom Collection, <a href="https://commons.wikimedia.org/wiki/File:Peasants_of_the_neighborhood_of_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002725088.jpg">‘Peasants of the neighborhood of Bethlehem’</a>, <a href="https://commons.wikimedia.org/wiki/File:General_view_of_the_well_of_David,_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002724966.jpg">‘General view of the well of David, Bethlehem’</a> (Wikimedia Commons, no known restrictions).</p></details>
+  </div>
+ </article>
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+  <p>The paintings are public-domain works, plus a CC0 photo from The Metropolitan Museum of Art. The old photos in ‘Step back in time’ come from the Library of Congress <a href="https://commons.wikimedia.org/wiki/Category:Matson_Collection_in_the_Library_of_Congress">Matson Collection</a> (20th-century photos, no known copyright restrictions).</p>
+  <p>The ‘AI colorized’ photos were colored with the AI colorization model <a href="https://github.com/piddnad/ddcolor">DDColor</a> (Alibaba researchers, ICCV 2023), using the public <a href="https://huggingface.co/spaces/gudada/DDColor">DDColor app</a> on Hugging Face. It keeps the photo’s brightness and shapes and only guesses the colors, so even when the result looks convincing, the colors may differ from the real ones.</p>
+  <p>The ‘1890s color prints’ come from the Library of Congress <a href="https://www.loc.gov/collections/photochrom-prints/about-this-collection/">Photochrom Collection</a>. Color was added to a black-and-white negative following color notes the photographer made on the spot (<a href="https://en.wikipedia.org/wiki/Photochrom">Wikipedia, ‘Photochrom’</a>), so the colors are not AI guesses, but they cannot be called exactly true to life either. The Library of Congress says there are no known copyright restrictions on this collection (<a href="https://blogs.loc.gov/loc/2017/10/free-to-use-and-reuse-historical-travel-pictures/">Library of Congress blog</a>).</p>
+  <p>Bible quotations are from the World English Bible (WEB), which is in the public domain.</p>
+  <p>This course follows the same passages as four Advent and Christmas exhibitions of The Visual Commentary on Scripture (King’s College London), without reproducing VCS’s text.</p>
+  <p><a href="feel.html#en">Back to Experience Together</a> · <a href="./?lang=en">Practice Room</a></p>
+ </div>
+</footer>
+</div>
+
+<dialog class="show" id="show" aria-label="아이에게 보여 주기">
+ <div class="sw">
+  <div class="sw-top"><span id="swTitle"></span><button class="sw-x" type="button" data-close aria-label="닫기">×</button></div>
+  <div class="sw-stage" id="swStage"></div>
+  <p class="sw-q" id="swQ" aria-live="polite"></p>
+  <div class="sw-nav"><button type="button" data-step="-1">이전</button><span class="dots" id="swDots" aria-hidden="true"></span><button type="button" class="next" data-step="1">다음</button></div>
+ </div>
+</dialog>
+
+<script>
+/* 화면 글자: 한국어 / English */
+const T={
+ ko:{look:"찾아보기",photo:"그 시절 사진",imagine:"눈 감고 상상해 보기",vr:"AI 가상 복원 · 실제 색과 다를 수 있어요",toColor:"가상 복원으로 보기",toBw:"흑백 원본으로",prev:"이전",next:"다음",again:"처음으로",close:"닫기",dlg:"아이에게 보여 주기",title:"대림절 4주 코스 · 질문 받기 연습실"},
+ en:{look:"Things to find",photo:"A photo from those days",imagine:"Close your eyes and imagine",vr:"AI colorized · the real colors may differ",toColor:"See in color (AI)",toBw:"Back to black and white",prev:"Previous",next:"Next",again:"Start over",close:"Close",dlg:"Show it to the children",title:"Advent in Four Weeks · Question Practice Room"}
+};
+const langOf=el=>{const b=el&&el.closest(".L");return b&&b.lang==="en"?"en":"ko";};
+{
+ /* 한국어 ↔ English. 고른 언어는 이 브라우저에 기억해요. 주소 끝에 #en 또는 ?lang=en을 붙여도 영어판으로 열려요 */
+ const KEY="advent-lang",boxes=[...document.querySelectorAll(".L")];
+ const setLang=(l,save)=>{
+  l=l==="en"?"en":"ko";
+  boxes.forEach(b=>{const off=b.lang!==l;b.hidden=off;const m=b.querySelector("main");if(m)m.hidden=off;});
+  document.documentElement.lang=l;
+  document.title=T[l].title;
+  if(save)try{localStorage.setItem(KEY,l);}catch(e){}
+ };
+ const h=location.hash.slice(1),q=new URLSearchParams(location.search).get("lang");
+ let first="ko";
+ if(h==="en"||h==="ko")first=h;
+ else if(q==="en"||q==="ko")first=q;
+ else try{first=localStorage.getItem(KEY)||"ko";}catch(e){}
+ setLang(first,h==="en"||h==="ko");
+ document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-lang]");
+  if(!b)return;
+  const l=b.dataset.lang==="en"?"en":"ko";
+  setLang(l,true);
+  const o=document.querySelector(`.L[lang="${l}"] [data-lang]`);
+  if(o)o.focus();
+ });
+ addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(h==="en"||h==="ko")setLang(h,true);});
+}
+{
+ /* 주 고르기: #week1~4, 없으면 오늘 날짜에 맞는 주 */
+ const W=["week1","week2","week3","week4"];
+ /* 대림절 첫 주일 = 성탄 전 넷째 주일. 성탄이 지나면 다음 해 대림절. 주마다 날짜도 해마다 맞춰 바꿔요 */
+ const adv1=y=>{const c=new Date(y,11,25),w=c.getDay();return new Date(y,11,25-(w===0?7:w)-21);};
+ const now=new Date(),yy=now.getFullYear(),a1=now>new Date(yy,11,24,23,59,59)?adv1(yy+1):adv1(yy);
+ const starts=[0,1,2,3].map(k=>new Date(a1.getFullYear(),a1.getMonth(),a1.getDate()+7*k));
+ const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+ document.querySelectorAll("[data-wd]").forEach(el=>{const d=starts[+el.dataset.wd],b=el.closest(".L");el.textContent=b&&b.lang==="en"?`${MON[d.getMonth()]} ${d.getDate()}`:`${d.getMonth()+1}월 ${d.getDate()}일`;});
+ const today=()=>{const n=new Date();let i=0;starts.forEach((d,k)=>{if(n>=d)i=k;});return W[i];};
+ let cur=null;
+ const show=scroll=>{
+  const h=location.hash.slice(1);
+  cur=W.includes(h)?h:(cur||today());
+  document.querySelectorAll(".card").forEach(c=>c.classList.toggle("on",c.dataset.week===cur));
+  document.querySelectorAll(".wk").forEach(t=>t.setAttribute("aria-current",String(t.dataset.w===cur)));
+  if(scroll){const c=document.querySelector(`.L:not([hidden]) .card[data-week="${cur}"]`);if(c)c.scrollIntoView({block:"start"});}
+ };
+ document.documentElement.classList.add("js");
+ show(false);
+ addEventListener("hashchange",()=>show(W.includes(location.hash.slice(1))));
+}
+{
+ /* 아이에게 보여 주기: 그림 → 찾아보기 → 옛 사진 → 눈 감고 상상 → 물어볼 것 */
+ const dlg=document.getElementById("show");
+ const stage=document.getElementById("swStage"),qEl=document.getElementById("swQ"),dots=document.getElementById("swDots"),title=document.getElementById("swTitle");
+ const prev=dlg.querySelector('[data-step="-1"]'),next=dlg.querySelector('[data-step="1"]'),closeBtn=dlg.querySelector("[data-close]");
+ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+ let steps=[],at=0,tinted=false,tx=T.ko;
+ const build=card=>{
+  const art=card.querySelector(".fig img"),s=[];
+  const pic={img:art.src,alt:art.alt};
+  s.push({...pic,label:card.querySelector(".opener small").textContent,text:card.querySelector(".opener h2").textContent});
+  card.querySelectorAll(".look li").forEach(li=>s.push({...pic,label:tx.look,text:li.textContent}));
+  card.querySelectorAll(".era .ph").forEach(f=>{
+   const im=f.querySelector("img"),abs=u=>new URL(u,location.href).href;
+   const bw=f.dataset.bw?{src:f.dataset.bw,alt:f.dataset.bwAlt}:{src:im.getAttribute("src"),alt:im.alt};
+   s.push({img:abs(bw.src),alt:bw.alt,label:tx.photo,text:f.dataset.q,
+    color:f.dataset.color?{img:abs(f.dataset.color),alt:f.dataset.colorAlt,text:f.dataset.colorQ}:null});
+  });
+  const im=card.querySelector(".imagine");
+  if(im)s.push({img:null,label:tx.imagine,text:im.dataset.kid});
+  s.push({...pic,label:card.querySelector(".ask small").textContent,text:card.querySelector(".ask p").textContent});
+  return s;
+ };
+ const render=()=>{
+  const s=steps[at],c=s.color&&tinted?s.color:null;
+  const src=c?c.img:s.img,alt=c?c.alt:s.alt,text=c?c.text:s.text,label=c?tx.vr:s.label;
+  stage.innerHTML=s.img?`<div class="sw-pic"><img src="${esc(src)}" alt="${esc(alt)}">${s.color?`<button class="tint" type="button" data-tint aria-pressed="${tinted}">${esc(tinted?tx.toBw:tx.toColor)}</button>`:""}</div>`:`<div class="sw-dark"><span>${esc(s.label)}</span></div>`;
+  qEl.innerHTML=`<small>${esc(label)}</small>${esc(text)}`;
+  dots.innerHTML=steps.map((_,i)=>`<i class="${i===at?"on":""}"></i>`).join("");
+  prev.disabled=at===0;
+  next.textContent=at===steps.length-1?tx.again:tx.next;
+ };
+ const go=d=>{at=(d>0&&at===steps.length-1)?0:Math.max(0,Math.min(steps.length-1,at+d));tinted=false;render();};
+ const tint=()=>{if(!steps[at].color)return;tinted=!tinted;render();const b=stage.querySelector("[data-tint]");if(b)b.focus();};
+ if(typeof dlg.showModal!=="function"){document.querySelectorAll("[data-show]").forEach(b=>b.hidden=true);}
+ document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-show]");
+  if(!b)return;
+  const card=b.closest(".card"),l=langOf(card);
+  tx=T[l];
+  dlg.lang=l;dlg.setAttribute("aria-label",tx.dlg);closeBtn.setAttribute("aria-label",tx.close);prev.textContent=tx.prev;
+  steps=build(card);at=0;tinted=false;
+  title.textContent=card.querySelector(".chip").textContent;
+  render();dlg.showModal();next.focus();
+ });
+ dlg.addEventListener("click",e=>{
+  if(e.target.closest("[data-close]")){dlg.close();return;}
+  if(e.target.closest("[data-tint]")){tint();return;}
+  const st=e.target.closest("[data-step]");
+  if(st)go(+st.dataset.step);
+ });
+ document.addEventListener("keydown",e=>{
+  if(!dlg.open)return;
+  if(e.key==="ArrowRight"){e.preventDefault();go(1);}
+  else if(e.key==="ArrowLeft"){e.preventDefault();go(-1);}
+ });
+ let x0=null;
+ stage.addEventListener("pointerdown",e=>{x0=e.clientX;});
+ stage.addEventListener("pointerup",e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;if(Math.abs(dx)>50)go(dx<0?1:-1);else if(Math.abs(dx)<8&&e.target.tagName==="IMG")tint();});
+}
+{
+ /* 카드 속 흑백 사진: 누르면 흑백 원본 ↔ 가상 복원(같은 사진에 색을 입힌 것) */
+ const swap=(fig,on)=>{
+  const tx=T[langOf(fig)],img=fig.querySelector(".phw img"),btn=fig.querySelector(".tint");
+  if(!fig.dataset.bw){fig.dataset.bw=img.getAttribute("src");fig.dataset.bwAlt=img.alt;}
+  const src=on?fig.dataset.color:fig.dataset.bw,pre=new Image();
+  pre.src=src;
+  (pre.decode?pre.decode():Promise.resolve()).catch(()=>{}).then(()=>{
+   img.src=src;img.alt=on?fig.dataset.colorAlt:fig.dataset.bwAlt;
+   btn.setAttribute("aria-pressed",String(on));
+   btn.textContent=on?tx.toBw:tx.toColor;
+   const note=fig.querySelector(".vr-note");if(note)note.hidden=!on;
+   fig.classList.toggle("is-color",on);
+  });
+ };
+ document.addEventListener("click",e=>{
+  const w=e.target.closest(".ph[data-color] .phw");
+  if(!w)return;
+  const fig=w.closest(".ph");
+  swap(fig,!fig.classList.contains("is-color"));
+ });
+}
+</script>
+</body>
+</html>

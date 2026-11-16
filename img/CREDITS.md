@@ -267,15 +267,15 @@ Unsplash (무료로 쓸 수 있고 출처 표기 의무는 없음. 찍은 사람
 - yangnim-6.jpg — 옛 선교사 마을의 벽돌 사택 — 받은 파일 이름 Yangnim History & Culture Village (1).jpg (새로 더함)
 - 참고: 자막의 3·1만세운동길 내용은 한국관광공사 관광 정보(https://www.ktriptips.com/kor/tourspot/2931898)를 따름
 
-## 대림절 4주 코스 (2026년 11월 16일 더함)
+## 대림절 4주 코스 (advent.html, 2026년 11월 16일 더함)
 ### 그림
 - advent1-martini.jpg — 시모네 마르티니·리포 멤미, 「수태고지」(1333년, 피렌체 우피치 미술관) — 위키미디어 공용(Google Art Project, 저작권 만료)
 - advent2-visitation.jpg — 콘스탄츠의 하인리히 장인(으로 전해짐), 「방문」(1310~1320년 무렵, 뉴욕 메트로폴리탄 미술관) — 메트로폴리탄 미술관 공개 이미지(CC0), 위키미디어 공용
 - advent3-rublev.jpg — 안드레이 루블료프(로 전해짐), 「그리스도의 탄생」(1405년 무렵, 모스크바 크렘린 블라고베셴스키 대성당) — 위키미디어 공용(저작권 만료)
 - advent4-jacopo.jpg — 야코포 디 초네와 공방, 「그리스도의 탄생과 목자들」(1370~1371년, 런던 내셔널 갤러리) — 위키미디어 공용(저작권 만료)
-- advent1-martini-s.jpg ~ advent4-jacopo-s.jpg — 위 그림의 작은 판(가로 480px, 무대의 네 주 띠와 목록용)
+- advent1-martini-s.jpg — 위 「수태고지」의 작은 판(가로 480px). 함께 느끼기 방의 '대림절 4주 코스' 한 줄에 씀
 
-### 옛 사진 (미국 의회도서관, 알려진 저작권 제한 없음. 위키미디어 공용에서 받아 잘라 냄)
+### 옛 사진 (미국 의회도서관 매슨 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용에서 받아 잘라 냄)
 - era1-nazareth-spring.jpg — 나사렛의 ‘마리아의 샘’ · 1930년대 — https://commons.wikimedia.org/wiki/File:Virgin%27s_Fountain_in_Nazareth_LOC_matpc.00447.jpg (AI 가상 복원: vr-nazareth-spring.jpg)
 - era2-ain-karim.jpg — 도착한 곳 · 아인 카림 · 1925년 — https://commons.wikimedia.org/wiki/File:View_of_Ain_Karim_LOC_matpc.12392.jpg (AI 가상 복원: vr-ain-karim.jpg)
 - era3-grotto.jpg — 베들레헴 ‘탄생 동굴’ · 1950~70년대 — https://commons.wikimedia.org/wiki/File:Bethlehem._Grotto_of_the_Nativity_LOC_matpc.22862.jpg
