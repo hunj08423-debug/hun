@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap">
 <style>
-/* 함께 느끼는 방 v29 — 절기 하나, 그림 한 점, 세 장면. 숙제가 아니라 장면으로. */
+/* 함께 느끼는 방 v30 — 절기 하나, 그림 한 점, 세 장면. 숙제가 아니라 장면으로. 대림절에는 주일마다 그림 한 점(4주 코스). */
 :root{
   --bg:#F8F7F4;--surface:#FFFFFF;--ink:#1C1A17;--ink2:#3D3A35;--muted:#5F584F;--faint:#8A8278;
   --line:#E6E1D9;--line2:#EFEBE5;--chip:#ECE9E4;--practice:#0F5E55;--practice-soft:#E1F0ED;
@@ -259,6 +259,70 @@ dialog.show::backdrop{background:#000}
 .dots{display:flex;gap:6px}.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3)}.dots i.on{background:var(--night-ink)}
 .sw .seg{background:rgba(255,255,255,.1);max-width:320px;margin:0 auto;width:100%}
 .sw .seg button{color:rgba(255,255,255,.7)}.sw .seg button[aria-pressed="true"]{background:rgba(255,255,255,.22);color:#fff;box-shadow:none}
+/* 절기 코스(대림절 4주): 주일마다 그림 한 점 · 그 시절 옛 사진 · AI 가상 복원 */
+:root{--sand:#F3EDE3;--earth:#7A4E26}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--sand:#25201A;--earth:#E3B98C}}
+:root[data-theme="dark"]{--sand:#25201A;--earth:#E3B98C}
+.cx-seg button{display:inline-flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+.cx-dot{display:block;flex:none;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.row.cx-row{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:10px 14px}
+dialog.sheet:has(.cx-tabs){height:100dvh} /* 네 단계를 오가도 노트 창 높이가 그대로 (최대 높이는 원래 규칙대로) */
+.cx-tabs{position:sticky;top:0;z-index:3;background:var(--surface);padding:10px 20px 10px;border-bottom:1px solid var(--line2)}
+.cx-tabs .seg button{white-space:nowrap;padding:0 4px}
+.cx-pane{display:flex;flex-direction:column;gap:18px}
+.cx-pane>*:not(.full){margin-left:20px;margin-right:20px}
+.cx-pane .btns{justify-content:space-between}
+@media (min-width:700px){dialog.sheet.wide .cx-tabs .seg{width:min(720px,100%);margin:0 auto}dialog.sheet.wide .cx-pane>*:not(.full){width:min(720px,calc(100% - 40px));margin-left:auto;margin-right:auto}}
+.cx-tag{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13px;color:var(--muted)}
+.cx-aha{background:var(--soft);border-radius:14px;padding:12px 14px;font-size:14.5px;line-height:1.65}
+.cx-aha b{display:block;font-size:13px;color:var(--accent)}
+.cx-era{background:var(--sand);border-radius:18px;padding:16px 16px 14px;display:flex;flex-direction:column;gap:14px}
+.cx-era>h5{margin:0;font-size:13px;font-weight:700;color:var(--earth)}
+.cx-where b{display:block;font-family:var(--serif);font-size:16.5px;margin-bottom:2px}
+.cx-ph{margin:0;display:flex;flex-direction:column;gap:8px}
+.cx-car{display:flex;flex-direction:column;gap:8px}
+.cx-carhead{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:36px}
+.cx-count{font-size:12.5px;font-weight:700;color:var(--earth)}
+.cx-carnav{display:flex;gap:6px}
+.cx-carnav button{width:40px;height:36px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:20px;line-height:1;padding:0 0 3px;cursor:pointer}
+.cx-carnav button:disabled{opacity:.35;cursor:default}
+.cx-track{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.cx-track::-webkit-scrollbar{display:none}
+.cx-track:focus-visible{outline:3px solid var(--earth);outline-offset:2px}
+.cx-track>.cx-ph{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always}
+.cx-track .cx-phw{aspect-ratio:4/3;background:var(--night);border-radius:12px;overflow:hidden}
+.cx-track .cx-phw img{width:100%;height:100%;object-fit:contain;border-radius:0}
+details.cx-src p{margin:8px 0 0}
+.cx-phw{position:relative}
+.cx-ph[data-color] .cx-phw{cursor:pointer}
+.cx-phw img{width:100%;display:block;border-radius:12px;background:var(--night)}
+.cx-ph figcaption{font-size:14px;line-height:1.65;color:var(--ink2)}
+.cx-ph figcaption b{font-family:var(--serif);font-size:15px;color:var(--ink)}
+.cx-orig{font-size:12.5px;white-space:nowrap}
+.cx-tint{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:6px 13px 6px 10px;border:0;border-radius:999px;background:rgba(16,14,12,.8);color:#fff;font:700 13px/1.2 var(--sans);cursor:pointer}
+.cx-tint::before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:conic-gradient(#E9B44C,#D2553F,#5B8C5A,#4A78B5,#E9B44C)}
+.cx-tint[aria-pressed="true"]::before{background:linear-gradient(90deg,#fff 50%,#333 50%);box-shadow:0 0 0 1px rgba(255,255,255,.6)}
+.cx-tint:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.cx-ph.is-color .cx-phw::after{content:var(--l-ai,"AI 가상 복원");position:absolute;right:10px;top:10px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.9);color:#1C1A17;font:700 12px/1.3 var(--sans)}
+.cx-imagine{border-left:3px solid var(--gold);padding:4px 0 4px 14px;font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.75}
+.cx-imagine small{display:block;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--earth);margin-bottom:2px}
+.cx-go{position:relative;display:flex;flex-direction:column;gap:2px;padding:12px 16px 12px 42px;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;line-height:1.5}
+.cx-go::before{content:"";position:absolute;left:16px;top:50%;margin-top:-7px;border-left:12px solid var(--earth);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.cx-go small{font-weight:400;font-size:12.5px;color:var(--muted)}
+.cx-old{font-size:12.5px;color:var(--muted)}
+.cx-read{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:52px;padding:10px 16px;border-radius:14px;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:700}
+.cx-read span{font-weight:500;font-size:12.5px;opacity:.9;text-align:right}
+.cx-more li{font-size:14px}
+.cx-mnote{color:var(--muted);font-size:12.5px}
+.cx-link{border:0;background:none;padding:0;color:var(--accent);text-decoration:underline;text-align:left;cursor:pointer;font:inherit}
+details.cx-src{border-top:1px dashed var(--line);padding-top:10px;font-size:12.5px;color:var(--muted)}
+details.cx-src summary{cursor:pointer;font-weight:700;color:var(--ink2);min-height:32px}
+details.cx-src ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.sw-img{position:relative}
+.sw-q small{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px}
+.sw-img .cx-tint{left:50%;transform:translateX(-50%);bottom:8px;font-size:14px;min-height:40px}
+.sw-img.cx-dark{border-radius:14px;background:radial-gradient(circle at 50% 46%,rgba(233,180,76,.30),rgba(233,180,76,0) 34%),#07060A}
+.sw-img.cx-dark span{font-family:var(--serif);font-size:clamp(22px,4vw,30px);font-weight:700;color:#F6E3B8}
 #printBook{display:none}
 @media print{body.printing>*:not(#printBook){display:none!important}body.printing #printBook{display:block;color:#000;background:#fff}#printBook .pg{display:grid;grid-template-columns:repeat(4,1fr);gap:14pt 8pt;margin-top:14pt}#printBook .ps{display:flex;flex-direction:column;align-items:center;gap:4pt;font-size:9pt;text-align:center;break-inside:avoid}#printBook .pr{width:70pt;height:70pt;border-radius:50%;border:1.2pt dashed #888;display:flex;align-items:center;justify-content:center;color:#bbb}#printBook .pr svg{width:30pt;height:30pt}}
 @media (prefers-reduced-motion: reduce){.lb::after{animation:none}*{scroll-behavior:auto!important}.reel figure img{transition:none}.reel figure.on img{transform:none}}
@@ -362,6 +426,7 @@ dialog.show::backdrop{background:#000}
     <a class="btn prac" href="./" data-practice style="align-self:flex-start" data-t>아이가 어려운 질문을 할 때 · 질문 받기 연습실</a>
     <p data-t><b>감수 전 체험판입니다.</b> 이야기와 해설은 전문가 검토 전이에요. 교회에서 쓰기 전에 목사님과 함께 살펴봐 주세요.</p>
     <p style="font-size:12px" data-t>그림은 모두 저작권이 끝난 작품입니다. 장면 사진은 Unsplash 무료 사진과 위키미디어 공용 사진으로, 분위기를 보여 주는 예시일 뿐 우리 교회 행사 사진이 아닙니다. 장소 사진은 한국관광공사(공공누리)와 위키미디어 공용 사진입니다. 위키미디어 공용 사진의 저작자와 이용 조건은 각 사진 아래 출처 링크에서 볼 수 있습니다.</p>
+    <p style="font-size:12px" data-t>대림절 4주 코스의 옛 사진은 미국 의회도서관의 매슨 컬렉션과 포토크롬 컬렉션에서 가져왔어요(알려진 저작권 제한 없음). ‘가상 복원’은 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</p>
   </footer>
 </div>
 
@@ -444,6 +509,89 @@ const ART_EXTRA = [
   care:"",credit:"장프랑수아 밀레, 「만종」, 1857~1859년, 파리 오르세 미술관. 사진: 위키미디어 공용(저작권 만료)."}
 ];
 ART.push(...ART_EXTRA);
+/* 대림절 4주 코스의 그림 네 점. 주일마다 한 점씩, 그 시절 옛 사진(흑백 원본과 AI 가상 복원), 눈 감고 상상하기, 본문, 근거가 course에 들어 있어요 */
+const ART_COURSE = [
+ {id:"martini",img:"img/advent1-martini.jpg",pos:"50% 72%",hpos:"50% 58%",scene:"",alt:"시모네 마르티니와 리포 멤미의 그림. 금빛 바탕 왼쪽에서 올리브 가지를 든 천사가 무릎을 꿇고, 오른쪽에서 파란 옷의 마리아가 옷깃을 여미며 몸을 뒤로 뺀다. 가운데 꽃병에 흰 백합이 꽂혀 있고, 맨 위에 천사들에 둘러싸인 비둘기가 있다.",
+  title:"수태고지",artist:"시모네 마르티니·리포 멤미",year:"1333년",where:"이탈리아 피렌체, 우피치 미술관",
+  line:"금빛 바탕 위로 천사의 인사말이 글자가 되어 날아갑니다. 마리아는 옷깃을 여미며 몸을 뒤로 뺍니다.",q:"마리아는 왜 몸을 움츠렸을까요?",
+  story:["천사 가브리엘이 갈릴리의 작은 마을 나사렛에 사는 마리아를 찾아와 인사했어요. “은혜를 받은 자여 평안할지어다 주께서 너와 함께 하시도다”(1:28). 마리아는 이 말을 듣고 놀랐어요(1:29).","1333년 시모네 마르티니와 처남 리포 멤미가 시에나 대성당 제단에 놓으려고 그렸어요. 천사의 인사말은 라틴어 글자로 금바탕에 도드라지게 새겨, 천사의 입에서 마리아 쪽으로 흘러가게 했어요. 700년 전의 말풍선이에요.","천사가 든 것은 백합이 아니라 올리브 가지예요. 수태고지 그림에서는 드문 일이에요. 노아의 비둘기가 물고 온 감람나무 잎(창 8:11)처럼 평화와 화해의 표시지요. 백합은 둘 사이 꽃병에 꽂혀 있어요."],
+  look:["천사의 입에서 마리아 쪽으로 이어지는 금빛 글자를 따라가 보세요.","천사가 든 나뭇가지와 가운데 꽃병의 하얀 꽃을 찾아보세요. 둘은 어떻게 다른가요?","맨 위 가운데, 천사들에게 둘러싸인 하얀 비둘기를 찾아보세요. 성령을 뜻해요(1:35)."],
+  ask:"무서울 때 ‘무서워하지 마’ 하고 말해 준 사람이 있었니?",
+  root:"하나님은 놀라고 두려워하는 사람에게 먼저 “무서워하지 말라”고 말씀하십니다(1:30).",
+  care:"마리아를 바라보는 방식은 교회마다 달라요. ‘하나님이 한 사람을 먼저 찾아오신 이야기’로 소개하면 좋아요.",
+  credit:"시모네 마르티니·리포 멤미, 「수태고지」, 1333년, 피렌체 우피치 미술관. 사진: 위키미디어 공용(Google Art Project, 저작권 만료).",
+  course:{week:1,name:"천사의 인사",sunday:"대림절 첫째 주일",passage:"누가복음 1:26~38",opener:"이 그림이 여는 질문",look:"그림 속에서 찾아보기",read:["https://bible.bskorea.or.kr/bible/NKRV/LUK.1","대한성서공회 개역개정"],tab:"그림",
+   place:["그곳은 · 나사렛","갈릴리 언덕의 작은 마을이에요. 구약 성경에도, 1세기 유대 역사가 요세푸스의 책에도 나오지 않아요. 나다나엘은 “나사렛에서 무슨 선한 것이 날 수 있느냐”고 물었지요(요 1:46)."],
+   photos:[
+    {img:"img/era1-nazareth-spring.jpg",alt:"흑백 사진. 나무 그늘이 드리운 흙길에서 긴 옷을 입은 여인 셋이 머리에 물동이를 이고 있다. 뒤로 돌로 쌓은 아치 모양의 샘터와 나사렛 언덕이 보인다.",q:"물동이를 머리에 인 사람이 몇 명인지 세어 보세요. 집에 수도가 없다면 물은 어디서 구했을까요?",color:"img/vr-nazareth-spring.jpg",colorAlt:"흑백 사진에 AI로 색을 입힌 가상 복원. 푸른 하늘 아래 초록 나무 그늘, 베이지색 돌 아치 샘터 앞에서 여인 셋이 머리에 물동이를 이고 있다.",colorQ:"AI가 색을 짐작해서 입혀 본 사진이에요. 너라면 여인들의 옷을 무슨 색으로 칠하고 싶어?",title:"나사렛의 ‘마리아의 샘’",date:"1930년대",orig:"https://commons.wikimedia.org/wiki/File:Virgin%27s_Fountain_in_Nazareth_LOC_matpc.00447.jpg",text:"19세기까지 마을에 하나뿐인 물터였어요. 성경에는 없지만, 마리아가 물을 길으러 나왔다가 천사의 첫인사를 들었다는 옛이야기(2세기 『야고보 원복음서』)가 전해져요."},
+    {img:"img/color-w1-fountain.jpg",alt:"색을 입힌 옛 인쇄 사진. 이끼 낀 돌 아치 샘터 앞에 줄무늬 옷을 입은 여인들이 물동이를 이고 서 있고, 물동이를 실은 나귀도 있다. 뒤로 나사렛의 돌집들과 언덕이 보인다.",q:"같은 샘을 100년도 더 전에 색으로 담은 사진이에요. 여인들의 옷은 무슨 색인가요? 물동이를 실은 나귀를 찾아보세요.",title:"같은 샘",date:"1890년대 컬러 인쇄본",orig:"https://commons.wikimedia.org/wiki/File:The_virgin%27s_fountain,_Nazareth,_Holy_Land,_(i.e._Israel)-LCCN2002725047.jpg",text:"흑백 사진보다 40여 년 앞서 같은 샘을 담았어요. 물동이를 실은 나귀도 찾아보세요."}],
+   imagine:["눈을 감아 봐요. 수도도 전기도 없는 작은 마을이에요. 물동이를 들고 샘으로 걸어가요. 샘가에서 누구를 만날까요?","수도도 전기도 없는 작은 마을에서 날마다 샘에 가서 물을 길어 와야 했다면, 샘가에서 누구를 만나고 무슨 이야기를 나눴을까요?"],
+   go:["https://materializingthebible.com/nazareth-village.html","사진으로 둘러보기 · 1세기 나사렛을 되살린 ‘나사렛 빌리지’","영어 · 나귀와 갓 태어난 양이 있는 우리, 타작마당, 올리브 짜는 틀, 목수 작업장, 회당"],
+   more:[["프라 안젤리코의 「수태고지」와 나란히 보기","art:angelico","같은 장면인데 마리아의 몸짓이 어떻게 다른가요?"],["VCS 전시 「The Annunciation」","https://thevcs.org/annunciation","영어 · 로세티, 필리포 리피의 수태고지도 함께"],["대한성서공회 「성서의 땅을 찾아서」 ‘나사렛과 갈릴래아 북쪽’","https://bible.bskorea.or.kr/resources/handbook/biblelands/nazareth","동영상 · 성경플랫폼 회원 로그인"],["대한성서공회 ‘올리브와 올리브기름’","https://bible.bskorea.or.kr/resources/handbook/biblelands/olives-2","동영상 · 회원 로그인"],["Smarthistory 「Simone Martini, Annunciation」","https://smarthistory.org/simone-martini-annunciation","영어 영상 강의"]],
+   src:[["우피치 미술관 작품 설명","https://uffizi.it/en/artworks/annunciation-with-st-margaret-and-st-ansanus","금바탕에 도드라지게 새긴 인사말"],["Google Arts & Culture(우피치)","https://artsandculture.google.com/asset/annunciation/IgHn22QncTFgPA","1333년 서명, 시에나 대성당 성 안사노 제단"],["Smarthistory","https://smarthistory.org/simone-martini-annunciation","올리브 가지(평화), 백합 꽃병"],["Christian Iconography","https://christianiconography.info/Florence/Uffizi%20Gallery/annunciationMartiniMemmi.html","수태고지에서 드문 올리브 가지, 노아 이야기와의 연결"],["Tyndale Open Bible Dictionary ‘Nazareth’","https://freely-given.org/OBD/dct/Nazareth.htm","구약·요세푸스에 나오지 않는 작은 마을"],["Wikipedia ‘Mary's Well’","https://en.wikipedia.org/wiki/Mary%27s_Well","19세기까지 마을의 유일한 물터, 2세기 『야고보 원복음서』의 샘 전승"],["Wikipedia ‘Nazareth Village’","https://en.wikipedia.org/wiki/Nazareth_Village","1세기 갈릴리 마을의 삶을 재현하는 야외 박물관"],["Materializing the Bible ‘Nazareth Village’(2017)","https://materializingthebible.com/nazareth-village.html","사진 투어에 나오는 장소들"],["SPACES ‘Materializing the Bible’","https://spacesarchives.org/resources/blog/materializing-the-bible-by-james-s-bielo-miami-university","프로젝트를 이끄는 제임스 빌로(마이애미 대학교)"],["개역개정 본문(대한성서공회)","https://bible.bskorea.or.kr/bible/NKRV/LUK.1","눅 1:28~30, 35 · 창 8:11 · 요 1:46"]],
+   photoCredit:"옛 사진: 미국 의회도서관 매슨 컬렉션, ‘Virgin's Fountain in Nazareth’(1930년대, 위키미디어 공용, 알려진 저작권 제한 없음). 1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, ‘The virgin's fountain, Nazareth’(위키미디어 공용, 알려진 저작권 제한 없음)."}},
+ {id:"visitation",img:"img/advent2-visitation.jpg",pos:"50% 28%",hpos:"50% 26%",scene:"",alt:"나무 조각. 금빛 옷을 입은 두 여인이 마주 서서 손을 맞잡고 있고, 두 사람의 배에 타원형 수정이 박혀 반짝인다.",
+  title:"방문",artist:"콘스탄츠의 하인리히 장인(으로 전해짐)",year:"1310~1320년 무렵",where:"호두나무에 채색·금박, 수정 · 미국 뉴욕, 메트로폴리탄 미술관",
+  line:"두 엄마가 손을 맞잡았습니다. 배에 박힌 수정이 작은 창문처럼 반짝입니다.",q:"엄마 배 속 아기도 기뻐할 수 있어요?",
+  story:["천사의 소식을 들은 마리아는 빨리 유대 산골의 한 동네로 친족 엘리사벳을 찾아갔어요(1:39~40). 마리아가 문안하자 엘리사벳 배 속의 아기, 훗날의 세례 요한이 기뻐 뛰놀았어요(1:41, 44).","이 조각은 1310~1320년 무렵, 지금의 스위스 보덴 호수 근처 카타리넨탈 도미니코회 수녀원에 있던 거예요. 호두나무를 깎아 색을 칠하고 금을 입혔는데, 그 칠과 금박이 거의 그대로 남아 있어요.","두 사람의 배에 박힌 수정 안으로는 원래 아기들의 그림이 보였을 거라고 해요. 수녀들이 창문 너머를 들여다보듯 배 속의 아기를 묵상하게 돕는 장치였다고 보는 연구도 있어요."],
+  look:["두 사람의 배에서 반짝이는 수정을 찾아보세요. 그 안에 무엇이 있었을까요?","두 사람의 손을 따라가 보세요. 손이 어디에 놓여 있나요?","누가 마리아이고 누가 엘리사벳일까요? 왜 그렇게 생각해요?"],
+  ask:"기다리던 사람을 만났을 때 몸이 저절로 들썩였던 적 있니?",
+  root:"하나님이 하시는 일을 가장 먼저 알아보고 기뻐한 것은, 아직 태어나지 않은 아기였습니다(1:44).",
+  care:"임신, 유산, 난임을 겪은 가정이 있을 수 있어요. 엘리사벳도 오래 아이가 없던 사람이에요(1:7). 배 속 아기 이야기는 조심스럽게 꺼내 주세요.",
+  credit:"콘스탄츠의 하인리히 장인(으로 전해짐), 「방문」, 1310~1320년 무렵, 뉴욕 메트로폴리탄 미술관. 사진: 메트로폴리탄 미술관 공개 이미지(CC0), 위키미디어 공용.",
+  course:{week:2,name:"두 엄마의 만남",sunday:"대림절 둘째 주일",passage:"누가복음 1:39~45",opener:"이 조각이 여는 질문",look:"조각 속에서 찾아보기",read:["https://bible.bskorea.or.kr/bible/NKRV/LUK.1","대한성서공회 개역개정"],tab:"조각",
+   place:["그곳은 · 유대 산골 마을","성경은 마을 이름 없이 ‘유대 한 동네’라고만 해요(1:39). 12세기 무렵부터 예루살렘 서쪽 마을 아인 카림(엔 케렘)을 그곳으로 여겨 왔고, 지금 그곳에 방문 기념 성당이 있어요. 나사렛에서 120킬로미터쯤 되는 먼 길이에요."],
+   photos:[
+    {img:"img/color-w2-nazareth.jpg",alt:"색을 입힌 옛 인쇄 사진. 들꽃이 핀 언덕 너머로 하얀 돌집이 빼곡한 나사렛 마을이 펼쳐지고, 왼쪽에 나무가 서 있다.",q:"마리아는 이런 언덕 마을에서 길을 떠났어요. 들판에 핀 꽃은 무슨 색인가요?",title:"떠난 곳 · 나사렛",date:"1890년대 컬러 인쇄본",orig:"https://commons.wikimedia.org/wiki/File:From_the_east,_Nazareth,_Holy_Land,_(i.e.,_Israel)-LCCN2002725045.jpg",text:"마리아가 길을 떠난 마을이에요. 1890년대 모습이라 예수님 시대의 작은 마을보다 훨씬 커졌어요."},
+    {img:"img/era2-ain-karim.jpg",alt:"흑백 사진. 민둥한 언덕들 사이 골짜기를 따라 하얀 돌집들이 모여 있다. 종탑이 있는 교회와 키 큰 나무들이 서 있고, 앞쪽은 나무밭이다.",q:"마리아는 나사렛에서 이런 산골 마을까지 왔어요. 어떤 길이었을 것 같아요?",color:"img/vr-ain-karim.jpg",colorAlt:"흑백 사진에 AI로 색을 입힌 가상 복원. 누런 언덕들 사이 골짜기에 베이지색 돌집들이 모여 있고, 짙은 초록 나무들과 붉은 지붕의 종탑 교회, 앞쪽 올리브나무 밭이 보인다.",colorQ:"AI가 색을 짐작해서 입혀 본 사진이에요. 하늘, 나무, 돌집은 실제로 무슨 색이었을까?",title:"도착한 곳 · 아인 카림",date:"1925년",orig:"https://commons.wikimedia.org/wiki/File:View_of_Ain_Karim_LOC_matpc.12392.jpg",text:"언덕과 골짜기 사이에 돌집이 모여 있는 마을이에요. 누가복음이 말하는 ‘산골’(1:39)이 어떤 곳인지 눈으로 볼 수 있어요."}],
+   imagine:["눈을 감아 봐요. 자동차도 기차도 없어요. 며칠 동안 걷고 또 걸어서 엘리사벳의 집 앞에 도착했어요. 문을 두드리는 순간, 어떤 기분일까요?","자동차도 기차도 없이 120킬로미터를 걸어서 간다면 며칠이 걸릴까요? 밤에는 어디서 쉬었을까요? 마침내 엘리사벳의 집 문을 두드리는 순간, 마리아의 마음은 어땠을까요?"],
+   go:["https://www.seetheholyland.net/ein-karem/","사진으로 둘러보기 · 오늘의 아인 카림","영어 · See the Holy Land · 방문 기념 성당과 마을"],
+   more:[["VCS 전시 「The Visitation: Quickening Creation」","https://thevcs.org/visitation-quickening-creation","영어 · 키프로스의 14세기 벽화, 폰토르모, 엘 그레코의 ‘방문’"],["메트로폴리탄 미술관 작품 페이지","https://www.metmuseum.org/art/collection/search/464596","영어 · 다른 각도 사진"]],
+   src:[["메트로폴리탄 미술관","https://www.metmuseum.org/art/collection/search/464596","연대, 카타리넨탈 수녀원, 남아 있는 칠과 금박, 수정 안의 아기 그림"],["Religions 15(2024) 논문","https://doaj.org/article/0106d504db48417ba5ed97aa94ad254d","수정과 수녀들의 묵상"],["Art of the Middle Ages","https://artofthemiddleages.com/s/main/item/1377","창문처럼 들여다보게 한 수정"],["Wikipedia ‘Carem’ · ‘Church of the Visitation’","https://en.wikipedia.org/wiki/Carem","12세기 이후 아인 카림 전승","https://en.wikipedia.org/wiki/Church_of_the_Visitation"],["See the Holy Land ‘Ein Karem’","https://www.seetheholyland.net/ein-karem/","나사렛에서 약 120km"],["개역개정 본문(대한성서공회)","https://bible.bskorea.or.kr/bible/NKRV/LUK.1","눅 1:7, 36, 39~45"]],
+   photoCredit:"옛 사진: 미국 의회도서관 매슨 컬렉션, ‘View of Ain Karim’(1925년, 위키미디어 공용, 알려진 저작권 제한 없음). 1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, ‘From the east, Nazareth’(위키미디어 공용, 알려진 저작권 제한 없음)."}},
+ {id:"rublev",img:"img/advent3-rublev.jpg",pos:"50% 42%",hpos:"50% 44%",scene:"",alt:"러시아 이콘. 가운데 빨간 자리에 마리아가 누워 있고, 그 뒤 검은 동굴의 구유에 하얗게 싸인 아기가 있으며 소와 나귀가 아기를 들여다본다. 위쪽에는 말 탄 동방박사와 천사들, 아래쪽에는 생각에 잠긴 요셉과 아기를 씻기는 두 여인이 있다.",
+  title:"그리스도의 탄생",artist:"안드레이 루블료프(로 전해짐)",year:"1405년 무렵",where:"러시아 모스크바, 크렘린 블라고베셴스키 대성당",
+  line:"검은 동굴, 하얗게 싸인 아기, 그리고 구유를 들여다보는 소와 나귀.",q:"예수님은 정말 마구간에서 태어나셨어요?",
+  story:["누가복음은 아주 짧게 말해요. 마리아가 첫아들을 낳아 강보로 싸서 구유, 곧 가축의 먹이통에 뉘었다고요(2:7). ‘마구간’이라는 말은 이 이야기에 나오지 않아요.","“여관에 있을 곳이 없음이러라”의 ‘여관’(그리스어 카탈뤼마)은 예수님이 마지막 유월절을 지키신 ‘객실’(22:11)과 같은 낱말이에요. 그래서 붐비는 집의 손님방에 자리가 없었다고 읽는 학자가 많고, 요즘 영어 성경 가운데는 ‘손님방’으로 옮긴 것도 있어요.","2세기의 순교자 유스티누스는, 요셉이 마을에서 묵을 곳을 찾지 못해 근처 동굴에 머물렀다고 전했어요. 그래서 동방 교회의 성탄 이콘은 동굴을 그려요. 이 이콘은 1405년 무렵 안드레이 루블료프가 그린 것으로 전해져요."],
+  look:["아기 예수가 이 그림에 두 번 나와요. 어디 어디에 있나요?","까만 동굴 속 구유를 들여다보는 동물 두 마리를 찾아보세요.","맨 위에서 길게 내려오는 빛줄기를 따라가 보세요. 어디에 닿나요?"],
+  ask:"네가 태어났을 때 이야기를 들어 본 적 있니? 누가 너를 기다리고 있었대?",
+  root:"가장 높으신 분이 가장 낮은 자리, 짐승의 먹이통에 누우셨습니다.",
+  care:"이콘의 구유는 돌무덤처럼, 강보는 수의처럼 보인다고 풀이하기도 해요. 어린아이에게는 ‘아기가 따뜻하게 싸여 있어요’ 정도로만 이야기해 주세요.",
+  credit:"안드레이 루블료프(로 전해짐), 「그리스도의 탄생」, 1405년 무렵, 모스크바 크렘린 블라고베셴스키 대성당. 사진: 위키미디어 공용(저작권 만료).",
+  course:{week:3,name:"구유에 누인 아기",sunday:"대림절 셋째 주일",passage:"누가복음 2:1~7",opener:"이 그림이 여는 질문",look:"그림 속에서 찾아보기",aha:"소와 나귀는 누가복음에 나오지 않아요. “소는 그 임자를 알고 나귀는 그 주인의 구유를 알건마는”(사 1:3)에서 왔다고 보며, 4세기 무렵부터 거의 모든 성탄 그림에 들어갔어요.",read:["https://bible.bskorea.or.kr/bible/NKRV/LUK.2","대한성서공회 개역개정"],tab:"그림",
+   place:["그곳은 · 베들레헴","예루살렘 남쪽의 작은 마을, ‘다윗의 동네’예요(2:4). 2세기부터 그리스도인들이 예수님이 나신 곳으로 기억해 온 동굴 위에 339년 첫 교회가 봉헌되었고, 6세기에 다시 지은 예수탄생교회가 지금도 서 있어요. 3세기 중엽 오리게네스도 베들레헴에 가면 그분이 나신 동굴과 동굴 안의 구유를 보여 준다고 적었어요."],
+   photos:[
+    {img:"img/era3-grotto.jpg",alt:"색을 입힌 사진. 금빛 등잔과 촛대가 가득한 동굴 안쪽에 파란 휘장을 두른 아치 모양 제단이 있고, 왼쪽에 내려오는 돌계단이 보인다.",q:"동굴 안에 등잔이 몇 개나 걸려 있는지 세어 볼까요? 그림 속 까만 동굴과 무엇이 같고 무엇이 다른가요?",title:"베들레헴 ‘탄생 동굴’",date:"1950~70년대",orig:"https://commons.wikimedia.org/wiki/File:Bethlehem._Grotto_of_the_Nativity_LOC_matpc.22862.jpg",text:"예수탄생교회 아래, 예수님이 나신 곳으로 기억해 온 동굴이에요. 위 영상에서 이 동굴 안을 볼 수 있어요."},
+    {img:"img/era3-manger-home.jpg",alt:"흑백 사진. 천장이 울퉁불퉁한 바위로 된 방. 왼쪽 그물 요람에 아기가 누워 있고, 바닥에는 아이와 여인들이 둥근 짚 쟁반을 가운데 두고 앉아 있다. 오른쪽에는 흙으로 빚은 큰 통들과 둥근 짚 쟁반들이 있고, 바위 턱에 비둘기가 앉아 있다.",q:"왼쪽에 매달린 요람 속에 누가 있나요? 바위 위에는 어떤 새가 앉아 있나요?",color:"img/vr-manger-home.jpg",colorAlt:"흑백 사진에 AI로 색을 입힌 가상 복원. 누런 바위 천장 아래 방에 그물 요람이 매달려 있고, 아이와 여인들이 둥근 짚 쟁반을 가운데 두고 앉아 있다. 오른쪽에 흙빛 통들과 짚 쟁반들이 있다.",colorQ:"AI가 색을 짐작해서 입혀 본 사진이에요. 요람 속 아기는 어떤 천에 싸여 있을까?",title:"베들레헴의 ‘구유가 있는 집’",date:"1920년",orig:"https://commons.wikimedia.org/wiki/File:Bethlehem_and_surroundings._Bethlehem._A_manger_home._Room,_part_cave._Swaddled_baby_%26_dove-cote_LOC_matpc.02604.jpg",text:"방 한쪽이 동굴인 집이에요. 그물 요람 속 아기와 바위 턱의 비둘기를 찾아보세요. 옛 시골집은 밤이면 가축을 집 안 아래쪽 칸에 들이고, 식구들이 지내는 자리 가까이에 여물통을 두었다고 보는 학자들이 있어요."},
+    {img:"img/era3-plowing.jpg",alt:"흑백 사진. 언덕 아래 밭에서 농부가 얼룩무늬 나귀와 검은 소를 한 멍에에 매어 쟁기질을 한다. 뒤쪽 언덕 위에 돌집들이 있다.",q:"소와 나귀가 함께 무슨 일을 하고 있나요?",color:"img/vr-plowing.jpg",colorAlt:"흑백 사진에 AI로 색을 입힌 가상 복원. 갈색 흙밭에서 농부가 흰 얼룩 나귀와 짙은 갈색 소를 한 멍에에 매어 쟁기질을 한다. 뒤쪽 초록 언덕 위에 돌집들이 있다.",colorQ:"AI가 색을 짐작해서 입혀 본 사진이에요. 다음 장의 1890년대 컬러 사진과 소와 나귀의 색을 비교해 볼까?",title:"소와 나귀로 밭을 가는 농부",date:"100년쯤 전",orig:"https://commons.wikimedia.org/wiki/File:Arab_plowing_w-donkey_and_cow_LOC_matpc.04786.jpg",text:"소는 밭을 갈고 나귀는 짐을 날라서, 한 집안의 귀한 재산이었어요. 욥의 재산 목록에도 소와 나귀가 나오고(욥 1:3), 십계명은 이웃의 소나 나귀를 탐내지 말라고 해요(출 20:17)."},
+    {img:"img/color-w3-plowing.jpg",alt:"색을 입힌 옛 인쇄 사진. 돌이 많은 밭에서 갈색 소와 회색 나귀가 한 멍에에 매여 있고, 노란 옷에 파란 겉옷을 걸친 농부가 긴 막대를 들고 서 있다. 뒤로 올리브나무와 돌담이 보인다.",q:"소는 무슨 색이고 나귀는 무슨 색인가요? 농부는 손에 무엇을 들고 있나요?",title:"다른 농부, 같은 모습",date:"1890년대 컬러 인쇄본",orig:"https://commons.wikimedia.org/wiki/File:Native_of_Palestine_working_with_an_ox_and_an_ass,_Holy_Land-LCCN2002725074.jpg",text:"흑백 사진과는 다른 농부지만, 소와 나귀를 한 멍에에 맨 같은 모습을 색으로 담았어요. 흙과 옷, 소와 나귀의 색을 비교해 보세요."}],
+   imagine:["눈을 감아 봐요. 작은 등잔불 하나가 켜진 돌집이에요. 한쪽에서 소와 나귀가 숨 쉬는 소리가 들려요. 이런 밤에 아기가 태어났다면?","해가 지면 불빛은 작은 등잔 하나. 예수님은 등불을 등경 위에 두면 집 안 모든 사람이 밝아진다고 하셨어요(마 5:15). 등불 하나로 온 식구가 환해지는 집, 한쪽에서 소와 나귀가 숨 쉬는 소리가 들린다면 어떤 밤이었을까요?"],
+   go:["https://www.biblicalarchaeology.org/daily/bas-onsite/church-of-the-nativity/","영상으로 가 보기 · 예수탄생교회와 그 아래 동굴","영어 · 성서고고학회(BAS) 현장 영상"],goTop:true,
+   more:[["VCS 전시 「Unto us a Child is Born」","https://thevcs.org/unto-us-child-born","영어 · 한국 화가 김기창(운보, 1914~2001)의 「예수의 탄생」이 에티오피아의 이름 모를 화가, 파울라 레구의 작품과 함께 실려 있어요. 김기창은 한국전쟁 무렵 1년 동안 예수의 생애를 수묵화 30점으로 그렸어요."],["대한성서공회 「성서 속의 물건들」 ‘구유’","https://bible.bskorea.or.kr/resources/handbook/things/manger","돌이나 나무로 만든 여물통 · 돌 구유 사진 · 회원 로그인"],["대한성서공회 ‘묵을 곳 _ 객실’","https://bible.bskorea.or.kr/resources/handbook/things/guest_room","번역어에 ‘여관’과 ‘객실’이 함께 · 회원 로그인"],["대한성서공회 ‘소’","https://bible.bskorea.or.kr/resources/handbook/creatures/hb_cow","회원 로그인"],["대한성서공회 ‘나귀’","https://bible.bskorea.or.kr/resources/handbook/creatures/hb_donkey","회원 로그인"]],
+   src:[["유스티누스 『트리폰과의 대화』 78장","https://logoslibrary.org/justin/trypho/078.html","마을 근처 동굴"],["오리게네스 『켈수스 반박』 1권 51장","https://www.ccel.org/ccel/schaff/anf04.vi.ix.i.lii.html","베들레헴에서 보여 주던 동굴과 구유"],["Carlson, New Testament Studies 56(2010)","https://acuresearchbank.acu.edu.au/item/8835w/the-accommodations-of-joseph-and-mary-in-bethlehem-in-luke-2-7","카탈뤼마 논쟁(여관인가 손님방인가)"],["Ian Paul, Psephizo ‘Jesus was not born in a stable’","https://www.psephizo.com/biblical-studies/jesus-was-not-born-in-a-stable/","손님방으로 읽는 근거, 눅 22:11과 같은 낱말, 밤에 가축을 집 안 아래 칸에 들이던 시골집"],["NIV 누가복음 2:7","https://www.bible.com/bible/111/LUK.2.7","‘guest room’(손님방)으로 옮긴 영어 성경"],["유네스코 세계유산 1433","https://whc.unesco.org/en/list/1433/","2세기 전승, 339년 첫 교회, 6세기 재건"],["성서고고학회(BAS)","https://www.biblicalarchaeology.org/daily/bas-onsite/church-of-the-nativity/","지금 서 있는 유스티니아누스 시대 건물, 현장 영상"],["OrthodoxWiki ‘Nativity icon’","https://orthodoxwiki.org/Nativity_Icon","동굴, 소와 나귀(사 1:3), 구유와 강보 풀이"],["대한성서공회 ‘나귀’","https://bible.bskorea.or.kr/resources/handbook/creatures/hb_donkey","집집마다 꼭 필요한 가축"],["개역개정 본문(대한성서공회)","https://bible.bskorea.or.kr/bible/NKRV/LUK.2","눅 2:4, 7 · 22:11 · 사 1:3 · 욥 1:3 · 출 20:17 · 마 5:15"]],
+   photoCredit:"옛 사진: 미국 의회도서관 매슨 컬렉션, ‘Grotto of the Nativity’(1950~70년대), ‘A manger home’(1920년), ‘Arab plowing w/donkey and cow’(위키미디어 공용, 알려진 저작권 제한 없음). 1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, ‘Native of Palestine working with an ox and an ass’(위키미디어 공용, 알려진 저작권 제한 없음)."}},
+ {id:"jacopo",img:"img/advent4-jacopo.jpg",pos:"50% 80%",hpos:"50% 20%",scene:"",alt:"세로로 긴 제단화. 위쪽 금빛 하늘에 천사가 나타나고, 언덕 위 목자 두 사람이 빛을 가리며 양 떼와 함께 있다. 아래쪽 나무 지붕 밑에서 파란 옷의 마리아가 빨간 천에 덮인 아기에게 손을 모으고, 소와 나귀, 악기를 켜는 천사들, 바위 뒤의 목자들, 앉아 있는 요셉이 보인다.",
+  title:"그리스도의 탄생과 목자들",artist:"야코포 디 초네와 공방",year:"1370~1371년",where:"영국 런던, 내셔널 갤러리",
+  line:"어두운 언덕 위로 빛이 쏟아지고, 양 떼를 지키던 목자들이 눈을 가립니다.",q:"왜 목자들에게 제일 먼저 알려 주셨어요?",
+  story:["밤에 들에서 양 떼를 지키던 목자들 곁에 천사가 나타났어요. 주의 영광이 두루 비치자 목자들은 크게 무서워했지요. 천사는 “무서워하지 말라”며 큰 기쁨의 좋은 소식을 전했어요(2:8~10).","표적은 ‘강보에 싸여 구유에 뉘어 있는 아기’였어요(2:12). 목자들은 빨리 가서 아기를 찾았고, 보고 들은 것을 사람들에게 전했어요(2:16~17).","야코포 디 초네와 공방이 피렌체 산 피에르 마조레 성당의 커다란 제단화 맨 위층에 그린 장면이에요. 패널화로 그린 밤 장면 가운데 가장 이른 것 가운데 하나로 꼽혀요."],
+  look:["언덕 위에서 눈부신 빛을 손으로 가리는 목자들을 찾아보세요. 곁에 양 떼도 있어요.","같은 목자들이 아래쪽 바위 뒤에서 한 번 더 나와요. 어디 숨어 있나요?","천사들 가운데 악기를 켜는 천사를 찾아보세요. 아기를 덮은 천은 무슨 색인가요?"],
+  ask:"아주 기쁜 소식을 들으면, 제일 먼저 누구에게 달려가 말하고 싶어?",
+  root:"좋은 소식은 밤에 깨어 일하던 평범한 사람들에게 가장 먼저 왔습니다.",
+  care:"",
+  credit:"야코포 디 초네와 공방, 「그리스도의 탄생과 목자들」(원제: The Nativity with the Annunciation to the Shepherds), 1370~1371년, 런던 내셔널 갤러리. 사진: 위키미디어 공용(저작권 만료).",
+  course:{week:4,name:"들판의 목자들",sunday:"대림절 넷째 주일",passage:"누가복음 2:8~20",opener:"이 그림이 여는 질문",look:"그림 속에서 찾아보기",aha:"네 주를 잇는 두 말이 있어요. 천사는 마리아에게도(1:30) 목자들에게도(2:10) “무서워하지 말라”고 했고, 마리아도(1:39) 목자들도(2:16) 빨리 길을 나섰어요.",read:["https://bible.bskorea.or.kr/bible/NKRV/LUK.2","대한성서공회 개역개정"],tab:"그림",
+   place:["그곳은 · 베들레헴의 들판","베들레헴은 다윗이 소년 시절 아버지의 양을 치던 마을이에요(삼상 16:11; 17:15). 목동이었던 왕의 동네에서, 그날 밤 양을 치던 목자들이 ‘다윗의 동네에 구주가 나셨다’는 소식을 가장 먼저 들었어요(2:11)."],
+   photos:[
+    {img:"img/era4-shepherd.jpg",alt:"흑백 사진. 머리에 두건을 쓰고 털이 북슬북슬한 조끼를 입은 목자가 긴 지팡이를 양어깨에 걸치고 서 있다. 발치에 양들이 있고, 뒤로 나무 한 그루와 언덕 위 마을이 보인다.",q:"목자가 어깨에 걸친 것은 무엇일까요? 털 조끼는 무엇으로 만들었을까요?",color:"img/vr-shepherd.jpg",colorAlt:"흑백 사진에 AI로 색을 입힌 가상 복원. 두건을 쓰고 갈색 털 조끼에 주황빛 긴 옷을 입은 목자가 지팡이를 양어깨에 걸치고 서 있다. 발치에 크림색 양들, 뒤로 초록 올리브나무와 언덕 위 마을이 보인다.",colorQ:"AI가 색을 짐작해서 입혀 본 사진이에요. 목자의 털 조끼는 진짜 무슨 색이었을까?",title:"베들레헴 근처의 목자",date:"1925년",orig:"https://commons.wikimedia.org/wiki/File:Shepherd_with_flock_near_Bethlehem._LOC_matpc.14106.jpg",text:"긴 지팡이를 어깨에 걸치고, 털이 북슬북슬한 조끼를 입었어요. 뒤로 언덕 위 마을과 종탑이 보여요."},
+    {img:"img/color-w4-people.jpg",alt:"색을 입힌 옛 인쇄 사진. 돌벽 앞에 두건을 쓴 남자 다섯과 소년 하나가 서 있다. 줄무늬 겉옷, 갈색과 초록 망토, 빨간 신발처럼 옷 색깔이 여러 가지다.",q:"이 사람들은 어떤 색 옷을 입었나요? 마음에 드는 옷을 하나 골라 보세요.",title:"베들레헴 근처 시골 사람들",date:"1890년대 컬러 인쇄본",orig:"https://commons.wikimedia.org/wiki/File:Peasants_of_the_neighborhood_of_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002725088.jpg",text:"같은 고장 사람들이 입던 옷의 색을 볼 수 있어요. 두건, 겉옷, 허리띠의 색을 찾아보세요."},
+    {img:"img/era4-flock.jpg",alt:"흑백 사진. 돌담을 낀 비탈길을 따라 양 떼가 줄지어 오고, 목자가 앞장서 걷는다. 위쪽 언덕에 돌집이 빼곡한 베들레헴 마을과 종탑이 보인다.",q:"언덕 위 마을이 보이나요? 목자들은 소식을 듣고 서둘러 저 마을로 갔어요. 거기서 무엇을 보았을까요?",color:"img/vr-flock.jpg",colorAlt:"흑백 사진에 AI로 색을 입힌 가상 복원. 풀빛 비탈길을 따라 크림색 양 떼가 줄지어 오고, 붉은 옷의 목자가 앞장서 걷는다. 위쪽 언덕에 돌집이 빼곡한 베들레헴 마을이 보인다.",colorQ:"AI가 색을 짐작해서 입혀 본 사진이에요. 언덕 위 마을의 돌집은 무슨 색일까?",title:"베들레헴과 양 떼",date:"1940년대",orig:"https://commons.wikimedia.org/wiki/File:Bethlehem._The_town_with_shepherd_%26_flock_in_foreground_LOC_matpc.21865.jpg",text:"들판에서 언덕 위 마을이 바로 올려다보여요. 목자들은 소식을 듣고 서둘러 베들레헴으로 가서 아기를 찾았어요(2:15~16)."},
+    {img:"img/color-w4-bethlehem.jpg",alt:"색을 입힌 옛 인쇄 사진. 앞쪽 올리브나무들과 계단식 밭 너머, 언덕 위에 베들레헴의 돌집들이 늘어서 있다.",q:"같은 베들레헴을 100년도 더 전에 색으로 담았어요. 올리브나무와 계단처럼 생긴 밭을 찾아보세요.",title:"같은 베들레헴",date:"1890년대 컬러 인쇄본",orig:"https://commons.wikimedia.org/wiki/File:General_view_of_the_well_of_David,_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002724966.jpg",text:"올리브나무와 계단식 밭 너머로 언덕 위 베들레헴이 보여요. 흑백 사진보다 50년쯤 앞서 같은 마을을 담았어요."}],
+   imagine:["눈을 감아 봐요. 전깃불이 하나도 없는 밤 들판이에요. 고개를 들면 무엇이 보일까요? 그 깜깜한 하늘이 갑자기 환해진다면?","전깃불이 하나도 없는 밤 들판에서 고개를 들면 무엇이 보였을까요? 다윗의 시로 전해지는 시편 8편에는 하나님이 지으신 하늘과 달과 별들을 바라보는 노래가 있어요(시 8:3). 그 깜깜한 하늘이 갑자기 환해졌다면?"],
+   more:[["VCS 전시 「The Adoration of the Shepherds」","https://thevcs.org/adoration-shepherds","영어 · 같은 제단화와 함께 후안 바우티스타 마이노, 필리프 드 샹파뉴의 그림"],["내셔널 갤러리 작품 페이지","https://www.nationalgallery.org.uk/paintings/jacopo-di-cione-and-workshop-the-nativity-with-the-annunciation-to-the-shepherds","영어 · 확대해서 보기"],["대한성서공회 「성서 속의 동물들」 ‘양 떼’","https://bible.bskorea.or.kr/resources/handbook/creatures/hb_sheep_flock","회원 로그인"]],
+   src:[["내셔널 갤러리 작품 설명","https://www.nationalgallery.org.uk/paintings/jacopo-di-cione-and-workshop-the-nativity-with-the-annunciation-to-the-shepherds","산 피에르 마조레 제단화, 가장 이른 밤 장면 가운데 하나, 빛을 가리는 목자들과 양 떼, 빨간 천"],["VCS 누가복음 전시 목록","https://thevcs.org/exhibitions/new-testament/Luke","전시를 이루는 세 작품"],["개역개정 본문(대한성서공회)","https://bible.bskorea.or.kr/bible/NKRV/LUK.2","눅 2:8~20 · 삼상 16:11; 17:15 · 시 8편(표제 ‘다윗의 시’, 3절)"]],
+   photoCredit:"옛 사진: 미국 의회도서관 매슨 컬렉션, ‘Shepherd with flock near Bethlehem’(1925년), ‘Bethlehem. The town with shepherd & flock in foreground’(1940년대, 위키미디어 공용, 알려진 저작권 제한 없음). 1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, ‘Peasants of the neighborhood of Bethlehem’, ‘General view of the well of David, Bethlehem’(위키미디어 공용, 알려진 저작권 제한 없음)."}}
+];
+ART.push(...ART_COURSE);
 const MAKE = [
  {id:"wreath",emb:"wreath",name:"대림절 화환",title:"초를 하나씩 켜며 기다리기",branch:"개신교",origin:"루터교에서 시작 · 1839년 독일 함부르크",seasons:["advent"],date:{rel:"advent1",off:-7},when:"대림절 첫 주일 한 주 전에 만들기",time:"40분",keep:"집에 가져가는 작은 화환",
   story:["1839년 독일 함부르크, 어려운 아이들이 함께 살던 집에서 비헤른 목사가 수레바퀴만 한 나무 화환에 초를 꽂았어요.","날마다 빨간 초를 하나씩, 주일마다 흰 초를 하나씩 켜며 성탄을 기다렸지요.","오늘날 초 네 개를 켜는 대림절 화환은 여기서 시작되었습니다."],
@@ -635,12 +783,16 @@ const PLACES = [
   src:[["Catalan News: 172.5m에 이른 사그라다 파밀리아","https://www.catalannews.com/society-science/item/sagrada-familia-reaches-1725-metres"]]}
 ];
 const SEASONS = {
-  advent:{name:"대림절",color:"보라",label:"대림",bar:"#5B3E8C",emb:"wreath",art:"angelico",hand:"wreath",together:"christingle",line:"기다림의 네 주. 주마다 초를 하나씩 더 켜며, 어둠 속에서 빛이 자라는 것을 봅니다."},
+  advent:{name:"대림절",color:"보라",label:"대림",bar:"#5B3E8C",emb:"wreath",art:"martini",art2:"angelico",hand:"wreath",together:"christingle",line:"기다림의 네 주. 주마다 초를 하나씩 더 켜며, 어둠 속에서 빛이 자라는 것을 봅니다."},
   christmas:{name:"성탄절",color:"흰색과 금색",label:"성탄",bar:"#C9A24A",emb:"manger",art:"latour",hand:"dawn",together:"livenativity",line:"빛으로 오신 아기. 성탄부터 열이틀 동안 잔치가 이어집니다."},
   lent:{name:"사순절",color:"보라",label:"사순",bar:"#4A2F66",emb:"box",art:"prodigal",hand:"lentbox",together:"alleluia",line:"부활을 앞둔 사십 일. 덜어 내고, 돌아보고, 돌아오는 시간입니다."},
   easter:{name:"부활절",color:"흰색과 금색",label:"부활",bar:"#D4B45A",emb:"sun",art:"isenheim",art2:"thomas",hand:"eggs",together:"sunrise",line:"빈 무덤의 아침. 오십 일 동안 기뻐합니다."},
   pentecost:{name:"성령강림절",color:"빨강",label:"성령강림",bar:"#A8262B",emb:"flame",art:"elgreco",hand:"honey",together:"birthday",line:"불꽃처럼 임한 성령. 교회의 생일이라고도 부릅니다."},
   ordinary:{name:"평상 절기",color:"초록",label:"평상",bar:"#3F6F24",emb:"thanks",art:"millet",hand:"martin",together:"sukkot",line:"자라는 시간. 날마다의 삶 속에서 감사가 자랍니다."}
+};
+/* 절기 코스: 그 절기의 주일마다 그림 한 점씩 이어 보기. 지금은 대림절 4주 코스 하나 (그림은 ART_COURSE) */
+const COURSE = {
+  advent:{title:"대림절 4주 코스",sub:"그림 네 점으로 걷는 누가복음 1~2장",weeks:["martini","visitation","rublev","jacopo"]}
 };
 const FEEL = {
   wreath:["한 주에 초 하나씩","어두운 저녁, 초록 화환 위에 초 하나를 켭니다. 다음 주엔 둘, 그다음 주엔 셋. 네 번째 불이 켜지면 성탄이 옵니다."],
@@ -832,6 +984,7 @@ PLACES.forEach(p => { if (PLACE_ASK[p.id]) [p.scene, p.q] = PLACE_ASK[p.id]; });
 if (EN) {
   const put = (o, e) => { if (o && e) for (const k in e) o[k] = e[k]; };
   for (const k in SEASONS) put(SEASONS[k], EN.seasons && EN.seasons[k]);
+  for (const k in COURSE) put(COURSE[k], EN.course && EN.course[k]);
   ART.forEach(a => put(a, EN.art && EN.art[a.id]));
   MAKE.forEach(m => put(m, EN.make && EN.make[m.id]));
   PLACES.forEach(p => put(p, EN.places && EN.places[p.id]));
@@ -899,22 +1052,39 @@ function ringSvg(){
     <text x="60" y="76" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink)">${t("{n}일",{n:left})}</text></svg>`;
 }
 
+/* ---------- 절기 코스: 대림절에는 주일마다 그림 한 점 (1주~4주를 고르는 칸 하나) ---------- */
+let cwSel=null, cxStart=null; /* 고른 주(null이면 오늘에 맞는 주), 코스 첫 주일 */
+const cxWeekNow=(z,co)=>Math.max(0,Math.min(co.weeks.length-1,Math.floor((TODAY-z.start)/DAY/7)));
+function courseStage(co,z,cur){
+  const nowI=cur&&z?cxWeekNow(z,co):-1, wi=cwSel??(nowI>=0?nowI:0), a=findArt(co.weeks[wi]), c=a.course, d=z?add(z.start,7*wi):null, wk=i=>t("{n}주",{n:i+1});
+  return `<div class="seg cx-seg" role="group" aria-label="${esc(co.title)}">${co.weeks.map((_,i)=>`<button type="button" data-cweek="${i}" aria-pressed="${i===wi}"${i===nowI?` aria-label="${esc(wk(i))} · ${esc(t("이번 주"))}"`:""}>${i===nowI?`<i class="cx-dot" aria-hidden="true"></i>`:""}${esc(wk(i))}</button>`).join("")}</div>
+    <button class="hero" type="button" data-open="art:${a.id}"><img src="${a.img}" alt="${esc(a.alt)}" data-emb="${SEASONS[view].emb}" style="object-position:${a.hpos||a.pos||"50% 45%"}"><span class="cap"><b>${esc(a.title)}</b><span>${esc(wk(wi))}${wi===nowI?" · "+esc(t("이번 주")):""}${d?" · "+esc(md(d)):""} · ${t("눌러서 이야기 보기")}</span></span></button>
+    <div class="ask"><b>${esc(c.opener)}</b><p>“${esc(a.q)}”</p></div>`;
+}
+/* 절기가 30일 안으로 다가오면 '곧 다가와요' 맨 앞에 코스 한 줄. 누르면 그 절기를 미리 봐요 */
+function courseRow(k){
+  const co=COURSE[k], b=findArt(co.weeks[0]);
+  return `<button class="row cx-row" type="button" data-season="${k}"><img class="th" src="${thumb(b.img)}" alt="" style="object-position:${b.pos||"50% 45%"}"><span class="tx"><span class="n">${esc(co.title)}</span><span class="s">${esc(co.sub)}</span></span><span class="chev" aria-hidden="true">›</span></button>`;
+}
 function renderStage(){
-  const s=SEASONS[view], cur=view===CUR.key, a=findArt(s.art), z=cur?CUR:seasonStart(view,TODAY);
-  const nk=seasonOf(add(CUR.end,1)).key, left=Math.round((add(CUR.end,1)-TODAY)/DAY);
-  const soon = cur && left<=30 ? `<div class="soon s-${nk}"><p>${t("{name}까지 {n}일 · 지금 준비하면 좋은 장면",{name:SEASONS[nk].name,n:left})}</p>${sceneCard(SEASONS[nk].together,t("곧 다가와요 · 온 교회가 함께"))}${sceneCard(SEASONS[nk].hand,t("곧 다가와요 · 우리 반에서"))}</div>` : "";
+  const s=SEASONS[view], cur=view===CUR.key, co=COURSE[view];
+  const nx=seasonOf(add(CUR.end,1)), nk=nx.key, left=Math.round((add(CUR.end,1)-TODAY)/DAY);
+  const z=cur?CUR:view===nk?nx:seasonStart(view,TODAY); /* 곧 다가올 절기는 다가올 날짜로 */
+  cxStart=co&&z?z.start:null;
+  const a=findArt(s.art);
+  const soon = cur && left<=30 ? `<div class="soon s-${nk}"><p>${t("{name}까지 {n}일 · 지금 준비하면 좋은 장면",{name:SEASONS[nk].name,n:left})}</p>${COURSE[nk]?courseRow(nk):""}${sceneCard(SEASONS[nk].together,t("곧 다가와요 · 온 교회가 함께"))}${sceneCard(SEASONS[nk].hand,t("곧 다가와요 · 우리 반에서"))}</div>` : "";
   const name = view==="ordinary" && cur && CUR.after ? t(CUR.after) : s.name;
   const dates = z ? (z.start.getTime()===z.end.getTime() ? ymd(z.start) : `${ymd(z.start)} ~ ${md(z.end)}`) : "";
   $("#stage").innerHTML = `
     ${cur ? "" : `<div class="preview"><span>${t("미리 보는 중")} · ${esc(s.name)}</span><button class="btn line" type="button" data-today style="min-height:38px">${t("오늘로 돌아가기")}</button></div>`}
-    <div class="stage-top">${ringSvg()}<div><p class="eyebrow">${cur ? t("지금은") : t("이번 교회력의")}</p><h1>${esc(name)}</h1><p class="color">${t("{color}의 계절",{color:esc(s.color)})}</p><p class="dates">${esc(dates)}</p></div></div>
+    <div class="stage-top">${ringSvg()}<div><p class="eyebrow">${cur ? t("지금은") : view===nk ? t("곧 다가와요") : t("이번 교회력의")}</p><h1>${esc(name)}</h1><p class="color">${t("{color}의 계절",{color:esc(s.color)})}</p><p class="dates">${esc(dates)}</p></div></div>
     <p class="stage-line">${esc(s.line)}</p>
-    <button class="hero" type="button" data-open="art:${a.id}"><img src="${a.cover||a.img}" alt="${esc(a.alt)}" data-emb="${s.emb}" style="object-position:${a.pos||"50% 45%"}"><span class="cap"><b>${esc(a.title)}</b><span>${esc(a.artist)} · ${esc(a.year)} · ${t("눌러서 그림 이야기 보기")}</span></span></button>
-    <div class="ask"><b>${t("이 그림이 여는 질문")}</b><p>“${esc(a.q)}”</p></div>${soon}`;
+    ${co ? courseStage(co,z,cur) : `<button class="hero" type="button" data-open="art:${a.id}"><img src="${a.cover||a.img}" alt="${esc(a.alt)}" data-emb="${s.emb}" style="object-position:${a.pos||"50% 45%"}"><span class="cap"><b>${esc(a.title)}</b><span>${esc(a.artist)} · ${esc(a.year)} · ${t("눌러서 그림 이야기 보기")}</span></span></button>
+    <div class="ask"><b>${t("이 그림이 여는 질문")}</b><p>“${esc(a.q)}”</p></div>`}${soon}`;
   guardImgs($("#stage")); deferReels($("#stage"));
 }
 /* 큰 사진(가로 1600px 안팎)은 목록·카드에서 작은 판(-s, 640px)을 씁니다. 장면 창과 크게 보기에서는 큰 판 */
-const BIGPIC = new Set("alleluia-1 alleluia-2 alleluia-3 angelico animals-1 animals-2 animals-5 animals-6 animals-7 birthday-1 birthday-2 birthday-5 birthday-6 carol-1 carol-5 carol-6 carol-7 christingle-1 christingle-4 christingle-5 christingle-6 christingle-7 colmar-1 colmar-2 colmar-3 colmar-5 creation-1 creation-5 creation-6 creation-7 eggs-1 eggs-2 eggs-3 eggs-5 eggs-6 eggs-8 elgreco garden-1 garden-3 garden-4 garden-5 garden-6 handwash-2 handwash-3 handwash-4 honey-1 honey-3 honey-4 honey-5 illum-1 illum-2 illum-3 illum-5 isenheim-rise lantern-1 lantern-2 lantern-4 latour lentbox-3 lentbox-4 lentbox-5 lentbox-6 lucia-1 lucia-2 lucia-3 lucia-4 lucia-5 macau-1 macau-2 macau-3 macau-4 manger-1 manger-4 manger-5 manger-6 manger-7 millet nativity-1 nativity-2 nicholas-1 nicholas-5 palm-1 palm-2 palm-3 palm-5 palm-6 pinwheel-1 potsdam-1 potsdam-2 potsdam-3 potsdam-4 potsdam-5 pretzel-2 pretzel-3 pretzel-4 pretzel-5 pretzel-6 prodigal questions-1 questions-2 sagrada-1 sagrada-2 sagrada-3 sagrada-4 sagrada-5 star-1 star-2 star-4 star-5 star-6 star-7 starsingers-1 starsingers-3 stnicholas-1 sukkot-4 sukkot-5 sukkot-6 sukkot-7 sunrise-1 sunrise-2 sunrise-3 sunrise-4 sunrise-5 sunrise-6 thanks-1 thanks-2 thanks-3 thanks-4 thanks-5 thanks-6 thanks-7 thomas tongues-1 tongues-2 tongues-4 tongues-5 treasure-6 treasure-7 vasilopita-4 wreath-1 wreath-3 wreath-4 wreath-5 wreath-6 animals-4 treasure-1 sukkot-2 sukkot-3 nicholas-4 questions-3 carol-3 christingle-2 lantern-3 birthday-3 birthday-4 treasure-4 carol-2 cheongna-1 cheongna-2 cheongna-3 cheongna-4 cheongna-5 jeongdong-1 jeongdong-2 jeongdong-3 yangnim-1 yangnim-4 yangnim-6".split(" "));
+const BIGPIC = new Set("alleluia-1 alleluia-2 alleluia-3 angelico animals-1 animals-2 animals-5 animals-6 animals-7 birthday-1 birthday-2 birthday-5 birthday-6 carol-1 carol-5 carol-6 carol-7 christingle-1 christingle-4 christingle-5 christingle-6 christingle-7 colmar-1 colmar-2 colmar-3 colmar-5 creation-1 creation-5 creation-6 creation-7 eggs-1 eggs-2 eggs-3 eggs-5 eggs-6 eggs-8 elgreco garden-1 garden-3 garden-4 garden-5 garden-6 handwash-2 handwash-3 handwash-4 honey-1 honey-3 honey-4 honey-5 illum-1 illum-2 illum-3 illum-5 isenheim-rise lantern-1 lantern-2 lantern-4 latour lentbox-3 lentbox-4 lentbox-5 lentbox-6 lucia-1 lucia-2 lucia-3 lucia-4 lucia-5 macau-1 macau-2 macau-3 macau-4 manger-1 manger-4 manger-5 manger-6 manger-7 millet nativity-1 nativity-2 nicholas-1 nicholas-5 palm-1 palm-2 palm-3 palm-5 palm-6 pinwheel-1 potsdam-1 potsdam-2 potsdam-3 potsdam-4 potsdam-5 pretzel-2 pretzel-3 pretzel-4 pretzel-5 pretzel-6 prodigal questions-1 questions-2 sagrada-1 sagrada-2 sagrada-3 sagrada-4 sagrada-5 star-1 star-2 star-4 star-5 star-6 star-7 starsingers-1 starsingers-3 stnicholas-1 sukkot-4 sukkot-5 sukkot-6 sukkot-7 sunrise-1 sunrise-2 sunrise-3 sunrise-4 sunrise-5 sunrise-6 thanks-1 thanks-2 thanks-3 thanks-4 thanks-5 thanks-6 thanks-7 thomas tongues-1 tongues-2 tongues-4 tongues-5 treasure-6 treasure-7 vasilopita-4 wreath-1 wreath-3 wreath-4 wreath-5 wreath-6 animals-4 treasure-1 sukkot-2 sukkot-3 nicholas-4 questions-3 carol-3 christingle-2 lantern-3 birthday-3 birthday-4 treasure-4 carol-2 cheongna-1 cheongna-2 cheongna-3 cheongna-4 cheongna-5 jeongdong-1 jeongdong-2 jeongdong-3 yangnim-1 yangnim-4 yangnim-6 advent1-martini advent2-visitation advent3-rublev advent4-jacopo".split(" "));
 function thumb(s){const m=/^img\/([^/]+)\.jpg$/.exec(s||"");return m&&BIGPIC.has(m[1])?`img/${m[1]}-s.jpg`:s;}
 /* 사진에서 보일 곳. "fit"(여백 두고 통째로)과 "tall"(흐린 배경 위에 통째로)은 자르지 않습니다 */
 const posOf=p=>p&&p.pos&&p.pos!=="fit"&&p.pos!=="tall"?p.pos:"50% 50%";
@@ -1034,6 +1204,7 @@ const blk=(h,b)=>b?`<div class="blk"><h5>${h}</h5>${b}</div>`:"";
 const ul=a=>`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`, ol=a=>`<ol>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>`;
 const srcs=a=>a&&a.length?`<p class="src">${t("더 알아보기")}: ${a.map(([tt,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(t(tt))}</a>`).join(" · ")}</p>`:"";
 function artHtml(a,open){
+  if (a.course) return courseHtml(a);
   const isOpen = a.img2 ? open : false, img = isOpen ? a.img2 : a.img, alt = isOpen ? a.alt2 : a.alt;
   return `${a.img2?`<div class="seg" role="group" aria-label="${t("제단화 펼치기")}" style="margin-top:16px"><button type="button" data-wing="${a.id}:1" aria-pressed="${!!isOpen}">${t("열린 날 · 부활")}</button><button type="button" data-wing="${a.id}:0" aria-pressed="${!isOpen}">${t("닫힌 날 · 십자가")}</button></div>`:""}
    <img class="full" src="${img}" alt="${esc(alt)}" data-emb="sun" style="${a.img2?"":"margin-top:0"}">
@@ -1048,6 +1219,57 @@ function artHtml(a,open){
    ${a.more?blk(t("선생님이 더 읽을 것"),`<p>${esc(a.more)}</p>`):""}
    <p class="src">${esc(a.credit)}</p>
    <div class="btns"><button class="btn" type="button" data-show="${a.id}">${t("아이에게 보여 주기")}</button></div>`;
+}
+/* 절기 코스 노트: 그림 · 질문 · 그 시절 · 본문 네 단계로 나눠 한 번에 하나씩. 더 볼 것과 근거는 접어 둠 */
+function eraHtml(c){
+  const n=c.photos.length;
+  const ph=p=>`<figure class="cx-ph"${p.color?` data-color="${p.color}" data-color-alt="${esc(p.colorAlt)}"`:""}><div class="cx-phw"><img src="${p.img}" alt="${esc(p.alt)}" loading="lazy">${p.color?`<button class="cx-tint" type="button" aria-pressed="false">${t("가상 복원으로 보기")}</button>`:""}</div><figcaption><b>${esc(p.title)}</b>${p.date?` · ${esc(p.date)}`:""}<br>${esc(p.text)} <a class="cx-orig" href="${p.orig}" target="_blank" rel="noopener">${t("원본 크게 보기")}</a></figcaption></figure>`;
+  /* 옛 사진은 옆으로 넘겨 보는 띠 하나에 (방의 다른 사진 띠처럼) */
+  const car=`<div class="cx-car"><div class="cx-carhead"><span class="cx-count" aria-live="polite">${t("옛 사진")} 1 / ${n}</span>${n>1?`<span class="cx-carnav"><button type="button" data-cx-step="-1" aria-label="${t("이전 사진")}" disabled>‹</button><button type="button" data-cx-step="1" aria-label="${t("다음 사진")}">›</button></span>`:""}</div><div class="cx-track"${n>1?` tabindex="0" role="group" aria-label="${esc(t("옛 사진 {n}장. 옆으로 넘겨 보세요.",{n}))}"`:""}>${c.photos.map(ph).join("")}</div></div>`;
+  const go=c.go?`<a class="cx-go" href="${c.go[0]}" target="_blank" rel="noopener">${esc(c.go[1])}<small>${esc(c.go[2])}</small></a>`:"";
+  return `<section class="cx-era"><h5>${t("그 시절로 가 보기")}</h5><p class="cx-where"><b>${esc(c.place[0])}</b>${esc(c.place[1])}</p>${c.goTop?go:""}${car}${c.imagine?`<p class="cx-imagine"><small>${t("눈 감고 상상해 보기")}</small>${esc(c.imagine[1])}</p>`:""}${c.goTop?"":go}<p class="cx-old">${t("옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요. ‘1890년대 컬러 인쇄본’은 흑백 원판에 사진가의 색 메모대로 색을 입혀 찍어 낸 사진이에요.")}</p></section>`;
+}
+/* 사진 띠를 넘길 때 '옛 사진 2 / 4'와 ‹ › 단추를 맞춰요 */
+function cxSync(tr){const car=tr.closest(".cx-car"),n=tr.children.length,i=Math.max(0,Math.min(n-1,Math.round(tr.scrollLeft/(tr.clientWidth||1))));const c=car.querySelector(".cx-count");if(c)c.textContent=`${t("옛 사진")} ${i+1} / ${n}`;const p=car.querySelector('[data-cx-step="-1"]'),x=car.querySelector('[data-cx-step="1"]');if(p)p.disabled=i===0;if(x)x.disabled=i===n-1;}
+function courseHtml(a){
+  const c=a.course, d=cxStart?add(cxStart,7*(c.week-1)):null;
+  const moreLi=([n,h,note])=>`<li>${h.startsWith("art:")?`<button class="cx-link" type="button" data-open="${h}">${esc(n)}</button>`:`<a href="${h}" target="_blank" rel="noopener">${esc(n)}</a>`}${note?` <span class="cx-mnote">${esc(note)}</span>`:""}</li>`;
+  const srcLi=s=>{const hs=s[3]?[s[1],s[3]]:[s[1]],ns=hs.length>1?s[0].split(" · "):[s[0]];return `<li>${hs.map((h,i)=>`<a href="${h}" target="_blank" rel="noopener">${esc(ns[i]||ns[0])}</a>`).join(", ")}: ${esc(s[2])}</li>`;};
+  /* 한 번에 다 펼치지 않고 수업 순서대로 네 단계: 그림 → 질문 → 그 시절 → 본문 */
+  const tabs=[c.tab||t("그림"),t("질문"),t("그 시절"),t("본문")];
+  const next=i=>`<button class="btn line" type="button" data-cx-tab="${i}">${t("다음")} · ${esc(tabs[i])} ›</button>`;
+  const pane=(i,html)=>`<div class="cx-pane full" data-pane="${i}"${i?" hidden":""}>${html}</div>`;
+  return `<div class="cx-tabs full"><div class="seg" role="group" aria-label="${esc(t("{n}주",{n:c.week}))} · ${esc(c.name)}">${tabs.map((x,i)=>`<button type="button" data-cx-tab="${i}" aria-pressed="${i===0}">${esc(x)}</button>`).join("")}</div></div>
+   ${pane(0,`<img class="full" src="${a.img}" alt="${esc(a.alt)}" data-emb="wreath">
+     <p class="small muted">${esc(a.artist)} · ${esc(a.year)} · ${esc(a.where)}</p>
+     <p class="cx-tag"><span class="kind">${esc(t("{n}주",{n:c.week}))} · ${esc(c.name)}</span><span>${d?esc(md(d))+(EN?" · ":" "):""}${esc(c.sunday)} · ${esc(c.passage)}</span></p>
+     <p class="sh-feel">${esc(a.line)}</p>
+     ${blk(esc(c.look),ol(a.look))}
+     <div class="btns"><button class="btn" type="button" data-show="${a.id}">${t("아이에게 보여 주기")}</button>${next(1)}</div>`)}
+   ${pane(1,`<div class="ask"><b>${esc(c.opener)}</b><p>“${esc(a.q)}”</p></div>
+     ${blk(t("이야기"),a.story.map(x=>`<p>${esc(x)}</p>`).join(""))}
+     ${c.aha?`<div class="cx-aha"><b>${t("알고 보면")}</b>${esc(c.aha)}</div>`:""}
+     ${a.care?blk(t("조심할 점"),`<div class="care">${esc(a.care)}</div>`):""}
+     <div class="btns">${next(2)}</div>`)}
+   ${pane(2,`${eraHtml(c)}
+     <div class="btns">${next(3)}</div>`)}
+   ${pane(3,`<a class="cx-read" href="${c.read[0]}" target="_blank" rel="noopener">${t("이제 본문 읽기")} · ${esc(c.passage)}<span>${esc(c.read[1])}</span></a>
+     <div class="ask"><b>${t("아이에게 물어볼 것")}</b><p>“${esc(a.ask)}”</p></div>
+     <div class="root">${esc(a.root)}</div>
+     ${c.more&&c.more.length?`<details class="cx-src"><summary>${t("함께 보기 · 선생님이 더 읽을 것")} (${c.more.length})</summary><ul class="cx-more">${c.more.map(moreLi).join("")}</ul></details>`:""}
+     <details class="cx-src"><summary>${t("근거 보기 ({n})",{n:c.src.length})}</summary><ul>${c.src.map(srcLi).join("")}</ul><p>${esc(c.photoCredit)}</p></details>
+     <p class="src">${esc(a.credit)}</p>`)}`;
+}
+/* 노트 속 흑백 사진: 누르면 흑백 원본 ↔ 가상 복원(같은 사진에 AI로 색을 입힌 것) */
+function cxSwap(fig){
+  const img=fig.querySelector(".cx-phw img"), btn=fig.querySelector(".cx-tint"), on=!fig.classList.contains("is-color");
+  if(!fig.dataset.bw){fig.dataset.bw=img.getAttribute("src");fig.dataset.bwAlt=img.alt;}
+  const src=on?fig.dataset.color:fig.dataset.bw, pre=new Image(); pre.src=src;
+  (pre.decode?pre.decode():Promise.resolve()).catch(()=>{}).then(()=>{
+    img.src=src; img.alt=on?fig.dataset.colorAlt:fig.dataset.bwAlt;
+    btn.setAttribute("aria-pressed",String(on)); btn.textContent=on?t("흑백 원본으로"):t("가상 복원으로 보기");
+    fig.classList.toggle("is-color",on);
+  });
 }
 function makeText(m){const b=BORROW[m.id];return [`${t("[교회학교 활동]")} ${b?b[0]+" · ":""}${m.name} · ${(FEEL[m.id]||[m.title])[0]}`,`${t("어디서 온 전통")}: ${m.origin}`,...(b?[`${t("우리 교회식으로")}: ${b[0]}`,`${t("가져올 것")}: ${b[1]}`,`${t("덜어 낼 것")}: ${b[2]}`,`${t("이렇게")}: ${b[3]}`]:[]),`${t("언제")}: ${m.when}`,`${t("걸리는 시간")}: ${m.time}`,"",t("준비물"),...m.need.map(x=>`- ${x}`),"",t("순서"),...m.steps.map((x,i)=>`${i+1}. ${x}`),"",`${t("아이가 가져갈 것")}: ${m.keep}`,`${t("담긴 뜻")}: ${m.root}`,m.home?`${t("가정에 보내는 한 줄")}: ${m.home}`:"",m.care?`${t("조심할 것")}: ${m.care}`:"","",t("함께 느끼는 방에서 옮김")].filter((x,i,a)=>!(x===""&&a[i-1]==="")).join("\n").trim();}
 const LIC={"CC BY 2.0":"https://creativecommons.org/licenses/by/2.0/","CC BY-SA 3.0":"https://creativecommons.org/licenses/by-sa/3.0/","CC BY-SA 3.0 GR":"https://creativecommons.org/licenses/by-sa/3.0/gr/","CC BY-SA 4.0":"https://creativecommons.org/licenses/by-sa/4.0/","CC0":"https://creativecommons.org/publicdomain/zero/1.0/"};
@@ -1210,29 +1432,46 @@ async function ownClick(el,ds){
 
 /* ---------- 보여 주기 ---------- */
 let showState=null;
+/* 보여 줄 차례: 보통 그림은 찾아보기와 물어볼 것. 코스 그림은 여는 질문 → 찾아보기 → 그 시절 사진 → 눈 감고 상상 → 물어볼 것 */
+function showSteps(a){
+  if(!a.course) return [...a.look,a.ask].map(q=>({q}));
+  const c=a.course, s=[{label:c.opener,q:a.q}];
+  a.look.forEach(q=>s.push({label:t("찾아보기"),q}));
+  c.photos.forEach(p=>s.push({label:t("그 시절 사진"),q:p.q,img:p.img,alt:p.alt,color:p.color?{img:p.color,alt:p.colorAlt,q:p.colorQ}:null}));
+  if(c.imagine) s.push({label:t("눈 감고 상상해 보기"),q:c.imagine[0],dark:true});
+  s.push({label:t("아이에게 물어볼 것"),q:a.ask});
+  return s;
+}
 function renderShow(){
-  const {a,i,open}=showState, qs=[...a.look,a.ask], img=open&&a.img2?a.img2:a.img;
+  const {a,i,open,steps,tinted}=showState, st=steps[i], n=steps.length, c=st.color&&tinted?st.color:null;
+  const img=c?c.img:st.img||(open&&a.img2?a.img2:a.img), alt=c?c.alt:st.img?st.alt:(open&&a.img2?a.alt2:a.alt), label=c?t("AI 가상 복원 · 실제 색과 다를 수 있어요"):st.label;
   $("#sw").innerHTML=`<div class="sw-top"><span style="font-size:14px;opacity:.8">${esc(a.title)} · ${esc(a.artist)}</span><button class="x" type="button" data-close aria-label="${t("닫기")}">×</button></div>
    ${a.img2?`<div class="seg" role="group" aria-label="${t("제단화 펼치기")}"><button type="button" data-swing="1" aria-pressed="${!!open}">${t("열린 날")}</button><button type="button" data-swing="0" aria-pressed="${!open}">${t("닫힌 날")}</button></div>`:""}
-   <div class="sw-img"><img src="${img}" alt="${esc(open&&a.img2?a.alt2:a.alt)}"></div>
-   <p class="sw-q" aria-live="polite">${esc(qs[i])}</p>
-   <div class="sw-nav"><button type="button" data-step="-1" ${i===0?"disabled":""}>${t("이전")}</button><span class="dots">${qs.map((_,k)=>`<i class="${k===i?"on":""}"></i>`).join("")}</span><button type="button" data-step="1">${i===qs.length-1?t("처음으로"):t("다음 질문")}</button></div>`;
+   ${st.dark?`<div class="sw-img cx-dark"><span>${esc(st.label)}</span></div>`:`<div class="sw-img"><img src="${img}" alt="${esc(alt)}">${st.color?`<button class="cx-tint" type="button" data-sw-tint aria-pressed="${!!tinted}">${tinted?t("흑백 원본으로"):t("가상 복원으로 보기")}</button>`:""}</div>`}
+   <p class="sw-q" aria-live="polite">${label?`<small>${esc(label)}</small>`:""}${esc(c?c.q:st.q)}</p>
+   <div class="sw-nav"><button type="button" data-step="-1" ${i===0?"disabled":""}>${t("이전")}</button><span class="dots">${steps.map((_,k)=>`<i class="${k===i?"on":""}"></i>`).join("")}</span><button type="button" data-step="1">${i===n-1?t("처음으로"):a.course?t("다음"):t("다음 질문")}</button></div>`;
 }
-function openShow(id){const a=findArt(id);if(!a)return;showState={a,i:0,open:true};renderShow();if($("#sheet").open)$("#sheet").close();const d=$("#show");try{d.showModal();}catch(e){d.setAttribute("open","");}}
+function openShow(id){const a=findArt(id);if(!a)return;showState={a,i:0,open:true,steps:showSteps(a),tinted:false};renderShow();if($("#sheet").open)$("#sheet").close();const d=$("#show");try{d.showModal();}catch(e){d.setAttribute("open","");}}
+function showGo(d){const n=showState.steps.length;showState.i=d>0?(showState.i+1)%n:Math.max(0,showState.i-1);showState.tinted=false;renderShow();}
+function showTint(){if(!showState.steps[showState.i].color)return;showState.tinted=!showState.tinted;renderShow();const b=$("#sw [data-sw-tint]");if(b)b.focus();}
 
 /* ---------- 인쇄 ---------- */
 function printBook(){$("#printBook").innerHTML=`<h1 style="font-size:22pt">${t("우리 반 순례 수첩")}</h1><p>${t("이름")}: ______________________ &nbsp; ${t("교회")}: ______________________</p><div class="pg">${STAMPS.map(s=>`<div class="ps"><div class="pr">${use(s.emb)}</div><b>${esc(s.name)}</b><span>${t("날짜")} ____ . ____</span></div>`).join("")}</div>`;document.body.classList.add("printing");window.print();setTimeout(()=>document.body.classList.remove("printing"),500);}
 
 function renderAll(){setSeasonClass(view);renderStage();renderScenes();renderYear();}
 document.addEventListener("scroll",e=>{const el=e.target;if(el&&el.classList&&el.classList.contains("track"))syncReel(el);},true);
+document.addEventListener("scroll",e=>{const el=e.target;if(el&&el.classList&&el.classList.contains("cx-track"))cxSync(el);},true);
 document.addEventListener("click",e=>{
   const fig=e.target.closest(".reel figure");
   if(fig&&!e.target.closest("button, a")){const tr=fig.parentElement,n=tr.children.length;if(n>1)reelGo(tr,([...tr.children].indexOf(fig)+1)%n);return;}
+  const cxw=e.target.closest(".cx-ph[data-color] .cx-phw");
+  if(cxw&&!e.target.closest("a")){cxSwap(cxw.closest(".cx-ph"));return;}
+  if(e.target.closest("#sw .sw-img img")&&showState&&showState.steps[showState.i].color){showTint();return;}
   const el=e.target.closest("button, a");if(!el)return;const ds=el.dataset;
   if(ds.ownAdd||ds.ownOk||"ownCancel" in ds||ds.ownSwap||ds.ownDel||ds.ownUp||"ownExport" in ds||"ownImport" in ds||"ownClear" in ds){ownClick(el,ds);return;}
   if(ds.reelStep){const tr=el.closest(".reel").querySelector(".track"),i=Math.round(tr.scrollLeft/(tr.clientWidth||1))+Number(ds.reelStep);reelGo(tr,Math.max(0,Math.min(tr.children.length-1,i)));return;}
-  if(ds.season){view=ds.season;renderAll();$("#stage").scrollIntoView({behavior:"smooth",block:"start"});return;}
-  if("today" in ds){view=CUR.key;renderAll();return;}
+  if(ds.season){view=ds.season;cwSel=null;renderAll();$("#stage").scrollIntoView({behavior:"smooth",block:"start"});return;}
+  if("today" in ds){view=CUR.key;cwSel=null;renderAll();return;}
   if("taste" in ds){tasteSel=ds.taste;renderPlan();$("#planFold").open=true;const c=$(`#tasteChips [data-taste="${tasteSel}"]`);if(c)c.focus();return;}
   if(ds.planToggle){const id=ds.planToggle,inList=!!el.closest("#planList");setPlan(inPlan(id)?plan.filter(x=>x!==id):plan.concat(id));toast(inPlan(id)?t("계획표에 넣었어요."):t("계획표에서 뺐어요."));if(inList){const b=$(`#planList [data-plan-toggle="${id}"]`);if(b)b.focus();}return;}
   if(ds.planSet){setPlan([...new Set(plan.concat(ds.planSet==="main"?[...MAIN]:PLAN_SETS[ds.planSet]||[]))]);return;}
@@ -1242,9 +1481,13 @@ document.addEventListener("click",e=>{
     SHEET={k,id};const [ti,h]=sheetHtml(k,id);openSheet(ti,h);
     return;}
   if(ds.wing){const [id,o]=ds.wing.split(":");$("#shBody").innerHTML=artHtml(findArt(id),o==="1");guardImgs($("#shBody"));capWide();return;}
+  if(ds.cweek){cwSel=+ds.cweek;renderStage();const b=$(`#stage [data-cweek="${cwSel}"]`);if(b)b.focus();return;}
+  if("swTint" in ds){showTint();return;}
+  if(ds.cxTab){const i=+ds.cxTab,body=$("#shBody");body.querySelectorAll("[data-pane]").forEach(p=>p.hidden=+p.dataset.pane!==i);body.querySelectorAll(".cx-tabs [data-cx-tab]").forEach(b=>b.setAttribute("aria-pressed",String(+b.dataset.cxTab===i)));body.scrollTop=0;const b=body.querySelector(`.cx-tabs [data-cx-tab="${i}"]`);if(b)b.focus();return;}
+  if(ds.cxStep){const tr=el.closest(".cx-car").querySelector(".cx-track"),n=tr.children.length,i=Math.max(0,Math.min(n-1,Math.round(tr.scrollLeft/(tr.clientWidth||1))+Number(ds.cxStep)));tr.scrollTo({left:i*tr.clientWidth,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});return;}
   if(ds.show){openShow(ds.show);return;}
   if(ds.swing){showState.open=ds.swing==="1";renderShow();return;}
-  if(ds.step){const n=showState.a.look.length+1;showState.i=ds.step==="1"?(showState.i+1)%n:Math.max(0,showState.i-1);renderShow();return;}
+  if(ds.step){showGo(ds.step==="1"?1:-1);const b=$(`#sw [data-step="${ds.step}"]`);if(b&&!b.disabled)b.focus();return;}
   if(ds.copy){const [k,id]=ds.copy.split(":");copy(k==="make"?makeText(findMake(id)):goText(findPlace(id)));return;}
   if(ds.stamp){if(stamps[ds.stamp])delete stamps[ds.stamp];else stamps[ds.stamp]=true;store.set("feel-stamps",stamps);renderStamps();return;}
   if(ds.stampOpen){stamps[ds.stampOpen]=true;store.set("feel-stamps",stamps);renderStamps();el.textContent=t("도장 찍었어요");toast(t("순례 수첩에 도장을 찍었어요."));return;}
@@ -1252,7 +1495,7 @@ document.addEventListener("click",e=>{
   if("close" in ds){const d=el.closest("dialog");if(d)d.close();return;}
 });
 document.querySelectorAll("dialog").forEach(d=>{d.addEventListener("click",e=>{if(e.target===d)d.close();});d.addEventListener("close",()=>{if(lastFocus&&lastFocus.focus)lastFocus.focus();});});
-document.addEventListener("keydown",e=>{if(!$("#show").open||!showState)return;const n=showState.a.look.length+1;if(e.key==="ArrowRight"){showState.i=(showState.i+1)%n;renderShow();}if(e.key==="ArrowLeft"){showState.i=Math.max(0,showState.i-1);renderShow();}});
+document.addEventListener("keydown",e=>{if(!$("#show").open||!showState)return;if(e.key==="ArrowRight")showGo(1);if(e.key==="ArrowLeft")showGo(-1);});
 $("#printBtn").addEventListener("click",printBook);
 $("#clearBtn").addEventListener("click",()=>{const b=$("#clearBtn");if(b.dataset.sure){stamps={};store.set("feel-stamps",stamps);renderStamps();b.textContent=t("도장 모두 지우기");delete b.dataset.sure;toast(t("도장을 모두 지웠어요."));}else{b.dataset.sure="1";b.textContent=t("한 번 더 누르면 지워져요");}});
 const sizeBtn=$("#sizeBtn");
@@ -1260,6 +1503,7 @@ function applySize(big){document.documentElement.classList.toggle("big",big);siz
 applySize(String(store.get("qp-big","0"))==="1");
 sizeBtn.addEventListener("click",()=>{const big=!document.documentElement.classList.contains("big");applySize(big);try{localStorage.setItem("qp-big",big?"1":"0");}catch(e){}});
 if(EN){document.documentElement.lang="en";document.querySelectorAll("[data-t]").forEach(el=>{const k=el.innerHTML.trim();if(EN.ui[k])el.innerHTML=EN.ui[k];});document.querySelectorAll("[data-ta]").forEach(el=>el.setAttribute("aria-label",t(el.getAttribute("aria-label"))));const rs=document.documentElement.style;rs.setProperty("--l-open",JSON.stringify(t("펼치기")));rs.setProperty("--l-close",JSON.stringify(t("접기")));const lb_=$("#langBtn");lb_.setAttribute("href","#ko");lb_.hreflang="ko";lb_.lang="ko";lb_.textContent="한국어";document.title=t("함께 느끼는 방");}
+if(EN)document.documentElement.style.setProperty("--l-ai",JSON.stringify(t("AI 가상 복원")));
 addEventListener("hashchange",()=>{if(/^#(en|ko)?$/.test(location.hash))location.reload();});
 document.querySelectorAll("[data-practice]").forEach(a=>a.setAttribute("href",practiceHref(null)));
 document.querySelectorAll("[data-practice-scene]").forEach(a=>a.setAttribute("href",practiceHref({scene:a.dataset.practiceScene})));
