@@ -1107,8 +1107,10 @@ Object.assign(FEEL_EN.ui, {
   "솔즈베리 대성당의 부활절 정원": "Easter garden at Salisbury Cathedral"
 });
 
-/* Advent in Four Weeks (advent.html) */
+/* Season courses (advent.html, christmas.html) */
 Object.assign(FEEL_EN.ui, {
   "대림절 4주 코스": "Advent in Four Weeks",
+  "성탄절 코스": "Christmas Course",
+  "성탄과 그 뒤 세 주일, 그림 한 점에 질문 하나": "Christmas Day and the three Sundays after it: one picture, one question",
   "주일마다 그림 한 점, 질문 하나 · 누가복음 1~2장": "One picture, one question each Sunday · Luke 1–2"
 });

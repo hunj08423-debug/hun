@@ -293,3 +293,29 @@ Unsplash (무료로 쓸 수 있고 출처 표기 의무는 없음. 찍은 사람
 
 ### AI 가상 복원 (vr-*.jpg)
 - vr-*.jpg — 위 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 입힌 것. 허깅페이스의 gudada/DDColor 앱을 씀. 같은 이름의 era*.jpg는 이 결과를 흑백으로 바꾼 판(밝기는 그대로)이라, 누르면 같은 사진이 정확히 겹쳐 바뀜.
+
+## 성탄절 코스 (christmas.html, 2026년 11월 17일 더함)
+### 그림
+- xmas1-geertgen.jpg — 헤르트헨 토트 신트 얀스, 「밤의 탄생」(1490년 무렵, 런던 내셔널 갤러리) — 위키미디어 공용 ‘Geertgen tot Sint Jans, The Nativity at Night, c 1490.jpg’(저작권 만료)
+- xmas2-rembrandt.jpg — 렘브란트 판 레인, 「시므온의 찬송」(1631년, 헤이그 마우리츠하위스 미술관) — 위키미디어 공용 ‘Het loflied van Simeon, Rembrandt van Rijn, 1631, Mauritshuis, The Hague.jpg’(저작권 만료). 위쪽 둥근 모서리의 흰 바탕은 어둡게 메움
+- xmas3-giotto.jpg — 조토 디 본도네, 「동방박사의 경배」(1303~1304년 무렵, 파도바 스크로베니 예배당) — 위키미디어 공용 ‘Giotto di Bondone - No. 18 Scenes from the Life of Christ - 2. Adoration of the Magi - WGA09195.jpg’(Web Gallery of Art, 저작권 만료)
+- xmas4-caravaggio.jpg — 카라바조, 「이집트로 피신 중의 휴식」(1597년 무렵, 로마 도리아 팜필리 미술관) — 위키미디어 공용 ‘Rest on the Flight into Egypt-Caravaggio (c.1597).jpg’(저작권 만료)
+- xmas1-geertgen-s.jpg — 위 「밤의 탄생」에서 마리아와 아기 부분을 정사각형으로 잘라 낸 작은 판(480px). 함께 느끼기 방의 '성탄절 코스' 한 줄에 씀
+
+### 옛 사진 (미국 의회도서관 매슨 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용에서 받아 잘라 냄)
+- xera1-church-light.jpg — 성탄 무렵의 예수탄생교회 · 1940~1946년 — https://commons.wikimedia.org/wiki/File:Church_of_the_Nativity,_Bethlehem,_Palestine_00660u_original.jpg (AI 가상 복원: xvr1-church-light.jpg)
+- xera2-western-wall.jpg — 성전 마당을 받치던 서쪽 돌벽 · 1900년 — https://commons.wikimedia.org/wiki/File:Various_views_inside_the_city._Jews_wailing_place_LOC_matpc.00027.jpg (AI 가상 복원: xvr2-western-wall.jpg)
+- xera3-camel-riders.jpg — 베들레헴으로 가는 ‘세 박사’ · 1898~1946년 사이 — https://commons.wikimedia.org/wiki/File:Three_%27Wise_Men%27_on_way_to_Bethlehem_in_distance_LOC_matpc.06283.jpg (AI 가상 복원: xvr3-camel-riders.jpg, 오른쪽 검은 테두리는 잘라 냄)
+- xera4-donkey-family.jpg — ‘이집트로 피하는 길’ · 1934~1939년 — https://commons.wikimedia.org/wiki/File:%27Flight_into_Egypt%27_Bedouin_types_-_woman_%26_infant_on_donkey,_man(%3F)_standing_LOC_matpc.19007.jpg (AI 가상 복원: xvr4-donkey-family.jpg)
+
+### 1890년대 컬러 인쇄본 (미국 의회도서관 포토크롬 컬렉션, 알려진 저작권 제한 없음)
+- xcolor1-nativity-church.jpg — 예수탄생교회 안 · LCCN 2002724967 — https://www.loc.gov/item/2002724967/
+- xcolor2-jerusalem.jpg — 올리브산에서 본 예루살렘 — https://commons.wikimedia.org/wiki/File:From_the_Mount_of_Olives,_general_view,_Jerusalem,_Holy_Land-LCCN2002725017.jpg
+- xcolor3-camels.jpg — 사막에서 쉬는 낙타 몰이꾼들 — https://commons.wikimedia.org/wiki/File:Camels_halting_in_the_desert,_Holy_Land-LCCN2001699277.jpg
+- xcolor4-virgins-tree.jpg — 카이로(헬리오폴리스)의 ‘마리아의 나무’ · ‘Heliopolis, arbre de la Sainte Mère’ · LCCN 2017656958 — https://www.loc.gov/item/2017656958/
+
+### 그 밖의 사진
+- xcomet-halley-1986.jpg — 핼리 혜성, 1986년 3월 8일, W. 릴러, 국제 핼리 혜성 관측(NASA) — https://commons.wikimedia.org/wiki/File:Lspn_comet_halley.jpg (퍼블릭 도메인)
+
+### AI 가상 복원 (xvr*.jpg)
+- xvr*.jpg — 위 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 입힌 것. 허깅페이스의 gudada/DDColor 앱을 씀. 같은 번호의 xera*.jpg는 이 결과를 흑백으로 바꾼 판(밝기는 그대로)이라, 누르면 같은 사진이 정확히 겹쳐 바뀜.

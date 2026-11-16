@@ -901,12 +901,17 @@ function ringSvg(){
     <text x="60" y="76" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink)">${t("{n}일",{n:left})}</text></svg>`;
 }
 
-/* 대림절 4주 코스는 따로 만든 페이지(advent.html). 대림절 무대와 대림절 전 '곧 다가와요'에 한 줄로 이어 줘요 */
-function courseLink(){return `<a class="row course-link" href="advent.html${EN?"#en":""}"><img class="th" src="img/advent1-martini-s.jpg" alt=""><span class="tx"><span class="n">${t("대림절 4주 코스")}</span><span class="s">${t("주일마다 그림 한 점, 질문 하나 · 누가복음 1~2장")}</span></span><span class="chev" aria-hidden="true">›</span></a>`;}
+/* 절기 코스는 따로 만든 페이지(advent.html, christmas.html). 그 절기 무대와 절기 전 '곧 다가와요'에 한 줄로 이어 줘요.
+   성탄절 코스의 마지막 장면은 1월 중순까지 이어져서, 주현절 후 1월 21일까지는 평상 절기 무대에도 보여 줘요 */
+const COURSES={
+  advent:{href:"advent.html",img:"img/advent1-martini-s.jpg",n:"대림절 4주 코스",s:"주일마다 그림 한 점, 질문 하나 · 누가복음 1~2장"},
+  christmas:{href:"christmas.html",img:"img/xmas1-geertgen-s.jpg",n:"성탄절 코스",s:"성탄과 그 뒤 세 주일, 그림 한 점에 질문 하나"}
+};
+function courseLink(k){const c=COURSES[k];if(!c)return "";return `<a class="row course-link" href="${c.href}${EN?"#en":""}"><img class="th" src="${c.img}" alt=""><span class="tx"><span class="n">${t(c.n)}</span><span class="s">${t(c.s)}</span></span><span class="chev" aria-hidden="true">›</span></a>`;}
 function renderStage(){
   const s=SEASONS[view], cur=view===CUR.key, a=findArt(s.art), z=cur?CUR:seasonStart(view,TODAY);
   const nk=seasonOf(add(CUR.end,1)).key, left=Math.round((add(CUR.end,1)-TODAY)/DAY);
-  const soon = cur && left<=30 ? `<div class="soon s-${nk}"><p>${t("{name}까지 {n}일 · 지금 준비하면 좋은 장면",{name:SEASONS[nk].name,n:left})}</p>${nk==="advent"?courseLink():""}${sceneCard(SEASONS[nk].together,t("곧 다가와요 · 온 교회가 함께"))}${sceneCard(SEASONS[nk].hand,t("곧 다가와요 · 우리 반에서"))}</div>` : "";
+  const soon = cur && left<=30 ? `<div class="soon s-${nk}"><p>${t("{name}까지 {n}일 · 지금 준비하면 좋은 장면",{name:SEASONS[nk].name,n:left})}</p>${courseLink(nk)}${sceneCard(SEASONS[nk].together,t("곧 다가와요 · 온 교회가 함께"))}${sceneCard(SEASONS[nk].hand,t("곧 다가와요 · 우리 반에서"))}</div>` : "";
   const name = view==="ordinary" && cur && CUR.after ? t(CUR.after) : s.name;
   const dates = z ? (z.start.getTime()===z.end.getTime() ? ymd(z.start) : `${ymd(z.start)} ~ ${md(z.end)}`) : "";
   $("#stage").innerHTML = `
@@ -914,7 +919,7 @@ function renderStage(){
     <div class="stage-top">${ringSvg()}<div><p class="eyebrow">${cur ? t("지금은") : t("이번 교회력의")}</p><h1>${esc(name)}</h1><p class="color">${t("{color}의 계절",{color:esc(s.color)})}</p><p class="dates">${esc(dates)}</p></div></div>
     <p class="stage-line">${esc(s.line)}</p>
     <button class="hero" type="button" data-open="art:${a.id}"><img src="${a.cover||a.img}" alt="${esc(a.alt)}" data-emb="${s.emb}" style="object-position:${a.pos||"50% 45%"}"><span class="cap"><b>${esc(a.title)}</b><span>${esc(a.artist)} · ${esc(a.year)} · ${t("눌러서 그림 이야기 보기")}</span></span></button>
-    <div class="ask"><b>${t("이 그림이 여는 질문")}</b><p>“${esc(a.q)}”</p></div>${view==="advent"?courseLink():""}${soon}`;
+    <div class="ask"><b>${t("이 그림이 여는 질문")}</b><p>“${esc(a.q)}”</p></div>${courseLink(view==="ordinary"&&cur&&CUR.after==="주현절 후"&&TODAY<=at(TODAY.getFullYear(),0,21)?"christmas":view)}${soon}`;
   guardImgs($("#stage")); deferReels($("#stage"));
 }
 /* 큰 사진(가로 1600px 안팎)은 목록·카드에서 작은 판(-s, 640px)을 씁니다. 장면 창과 크게 보기에서는 큰 판 */
