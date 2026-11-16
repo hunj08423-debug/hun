@@ -266,3 +266,30 @@ Unsplash (무료로 쓸 수 있고 출처 표기 의무는 없음. 찍은 사람
 - yangnim-4.jpg — 시편 116편 15절을 새긴 비석(헌틀리 선교사) — 받은 파일 이름 Yangnim-dong Missionary Cemetery (1).jpg
 - yangnim-6.jpg — 옛 선교사 마을의 벽돌 사택 — 받은 파일 이름 Yangnim History & Culture Village (1).jpg (새로 더함)
 - 참고: 자막의 3·1만세운동길 내용은 한국관광공사 관광 정보(https://www.ktriptips.com/kor/tourspot/2931898)를 따름
+
+## 대림절 4주 코스 (2026년 11월 16일 더함)
+### 그림
+- advent1-martini.jpg — 시모네 마르티니·리포 멤미, 「수태고지」(1333년, 피렌체 우피치 미술관) — 위키미디어 공용(Google Art Project, 저작권 만료)
+- advent2-visitation.jpg — 콘스탄츠의 하인리히 장인(으로 전해짐), 「방문」(1310~1320년 무렵, 뉴욕 메트로폴리탄 미술관) — 메트로폴리탄 미술관 공개 이미지(CC0), 위키미디어 공용
+- advent3-rublev.jpg — 안드레이 루블료프(로 전해짐), 「그리스도의 탄생」(1405년 무렵, 모스크바 크렘린 블라고베셴스키 대성당) — 위키미디어 공용(저작권 만료)
+- advent4-jacopo.jpg — 야코포 디 초네와 공방, 「그리스도의 탄생과 목자들」(1370~1371년, 런던 내셔널 갤러리) — 위키미디어 공용(저작권 만료)
+- advent1-martini-s.jpg ~ advent4-jacopo-s.jpg — 위 그림의 작은 판(가로 480px, 무대의 네 주 띠와 목록용)
+
+### 옛 사진 (미국 의회도서관, 알려진 저작권 제한 없음. 위키미디어 공용에서 받아 잘라 냄)
+- era1-nazareth-spring.jpg — 나사렛의 ‘마리아의 샘’ · 1930년대 — https://commons.wikimedia.org/wiki/File:Virgin%27s_Fountain_in_Nazareth_LOC_matpc.00447.jpg (AI 가상 복원: vr-nazareth-spring.jpg)
+- era2-ain-karim.jpg — 도착한 곳 · 아인 카림 · 1925년 — https://commons.wikimedia.org/wiki/File:View_of_Ain_Karim_LOC_matpc.12392.jpg (AI 가상 복원: vr-ain-karim.jpg)
+- era3-grotto.jpg — 베들레헴 ‘탄생 동굴’ · 1950~70년대 — https://commons.wikimedia.org/wiki/File:Bethlehem._Grotto_of_the_Nativity_LOC_matpc.22862.jpg
+- era3-manger-home.jpg — 베들레헴의 ‘구유가 있는 집’ · 1920년 — https://commons.wikimedia.org/wiki/File:Bethlehem_and_surroundings._Bethlehem._A_manger_home._Room,_part_cave._Swaddled_baby_%26_dove-cote_LOC_matpc.02604.jpg (AI 가상 복원: vr-manger-home.jpg)
+- era3-plowing.jpg — 소와 나귀로 밭을 가는 농부 · 100년쯤 전 — https://commons.wikimedia.org/wiki/File:Arab_plowing_w-donkey_and_cow_LOC_matpc.04786.jpg (AI 가상 복원: vr-plowing.jpg)
+- era4-shepherd.jpg — 베들레헴 근처의 목자 · 1925년 — https://commons.wikimedia.org/wiki/File:Shepherd_with_flock_near_Bethlehem._LOC_matpc.14106.jpg (AI 가상 복원: vr-shepherd.jpg)
+- era4-flock.jpg — 베들레헴과 양 떼 · 1940년대 — https://commons.wikimedia.org/wiki/File:Bethlehem._The_town_with_shepherd_%26_flock_in_foreground_LOC_matpc.21865.jpg (AI 가상 복원: vr-flock.jpg)
+
+### 1890년대 컬러 인쇄본 (미국 의회도서관 포토크롬 컬렉션, 알려진 저작권 제한 없음)
+- color-w1-fountain.jpg — 같은 샘 · 1890년대 컬러 인쇄본 — https://commons.wikimedia.org/wiki/File:The_virgin%27s_fountain,_Nazareth,_Holy_Land,_(i.e._Israel)-LCCN2002725047.jpg
+- color-w2-nazareth.jpg — 떠난 곳 · 나사렛 · 1890년대 컬러 인쇄본 — https://commons.wikimedia.org/wiki/File:From_the_east,_Nazareth,_Holy_Land,_(i.e.,_Israel)-LCCN2002725045.jpg
+- color-w3-plowing.jpg — 다른 농부, 같은 모습 · 1890년대 컬러 인쇄본 — https://commons.wikimedia.org/wiki/File:Native_of_Palestine_working_with_an_ox_and_an_ass,_Holy_Land-LCCN2002725074.jpg
+- color-w4-people.jpg — 베들레헴 근처 시골 사람들 · 1890년대 컬러 인쇄본 — https://commons.wikimedia.org/wiki/File:Peasants_of_the_neighborhood_of_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002725088.jpg
+- color-w4-bethlehem.jpg — 같은 베들레헴 · 1890년대 컬러 인쇄본 — https://commons.wikimedia.org/wiki/File:General_view_of_the_well_of_David,_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002724966.jpg
+
+### AI 가상 복원 (vr-*.jpg)
+- vr-*.jpg — 위 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 입힌 것. 허깅페이스의 gudada/DDColor 앱을 씀. 같은 이름의 era*.jpg는 이 결과를 흑백으로 바꾼 판(밝기는 그대로)이라, 누르면 같은 사진이 정확히 겹쳐 바뀜.
