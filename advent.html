@@ -60,7 +60,7 @@ h1,h2,h3{font-family:var(--serif);margin:0;line-height:1.2;letter-spacing:-.02em
 .wk img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .wk .bd{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
 .wk .when{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 8px;font-size:13px;color:var(--muted)}
-.wk .when b{white-space:nowrap}
+.wk .when{overflow:hidden}.wk .when b{display:flex;flex-wrap:wrap;margin-left:-1em;min-width:0}.wk .when b>span:first-child{margin-left:1em;overflow-wrap:anywhere}.wk .when b>[data-wd]{white-space:nowrap}.wk .when b>[data-wd]::before{content:"·";display:inline-block;width:1em;text-align:center}
 .wk .when b{color:var(--accent);font-weight:700}
 .wk .q{font-family:var(--serif);font-weight:600;font-size:16px;line-height:1.45}
 .candles{display:inline-flex;gap:3px;align-items:flex-end;flex:none}
@@ -183,10 +183,10 @@ details.src ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:colu
 
 <main class="wrap">
  <nav class="weeks" aria-label="주 고르기">
-  <a class="wk" href="#week1" data-w="week1"><img src="img/advent1-martini.jpg" alt="" style="object-position:50% 72%"><span class="bd"><span class="when"><b>1주 · <span data-wd="0">11월 29일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">마리아는 왜 몸을 움츠렸을까요?</span></span></a>
-  <a class="wk" href="#week2" data-w="week2"><img src="img/advent2-visitation.jpg" alt="" style="object-position:50% 28%"><span class="bd"><span class="when"><b>2주 · <span data-wd="1">12월 6일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">엄마 배 속 아기도 기뻐할 수 있어요?</span></span></a>
-  <a class="wk" href="#week3" data-w="week3"><img src="img/advent3-rublev.jpg" alt="" style="object-position:50% 42%"><span class="bd"><span class="when"><b>3주 · <span data-wd="2">12월 13일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">예수님은 정말 마구간에서 태어나셨어요?</span></span></a>
-  <a class="wk" href="#week4" data-w="week4"><img src="img/advent4-jacopo.jpg" alt="" style="object-position:50% 80%"><span class="bd"><span class="when"><b>4주 · <span data-wd="3">12월 20일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">왜 목자들에게 제일 먼저 알려 주셨어요?</span></span></a>
+  <a class="wk" href="#week1" data-w="week1"><img src="img/advent1-martini.jpg" alt="" style="object-position:50% 72%"><span class="bd"><span class="when"><b><span>1주</span><span data-wd="0">11월 29일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">마리아는 왜 몸을 움츠렸을까요?</span></span></a>
+  <a class="wk" href="#week2" data-w="week2"><img src="img/advent2-visitation.jpg" alt="" style="object-position:50% 28%"><span class="bd"><span class="when"><b><span>2주</span><span data-wd="1">12월 6일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">엄마 배 속 아기도 기뻐할 수 있어요?</span></span></a>
+  <a class="wk" href="#week3" data-w="week3"><img src="img/advent3-rublev.jpg" alt="" style="object-position:50% 42%"><span class="bd"><span class="when"><b><span>3주</span><span data-wd="2">12월 13일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">예수님은 정말 마구간에서 태어나셨어요?</span></span></a>
+  <a class="wk" href="#week4" data-w="week4"><img src="img/advent4-jacopo.jpg" alt="" style="object-position:50% 80%"><span class="bd"><span class="when"><b><span>4주</span><span data-wd="3">12월 20일</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">왜 목자들에게 제일 먼저 알려 주셨어요?</span></span></a>
  </nav>
  <p class="thread">네 주를 잇는 두 말: <b>“무서워하지 말라”</b>(1:30 · 2:10), <b>“빨리”</b>(1:39 · 2:16). 천사는 마리아에게도 목자들에게도 같은 말을 했고, 마리아도 목자들도 서둘러 길을 나섰어요.</p>
 
@@ -294,7 +294,7 @@ details.src ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:colu
    <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/LUK.1">이제 본문 읽기 · 누가복음 1:39~45<span>대한성서공회 개역개정</span></a>
    <div class="care"><b>조심할 점</b> 임신, 유산, 난임을 겪은 가정이 있을 수 있어요. 엘리사벳도 오래 아이가 없던 사람이에요(1:7). 배 속 아기 이야기는 조심스럽게 꺼내 주세요.</div>
    <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
-    <li><a href="https://thevcs.org/visitation-quickening-creation">VCS 전시 「The Visitation: Quickening Creation」</a> <span class="note">영어 · 키프로스의 14세기 벽화, 폰토르모, 엘 그레코의 ‘방문’</span></li>
+    <li><a href="https://thevcs.org/quickening-creation">VCS 전시 「The Visitation: Quickening Creation」</a> <span class="note">영어 · 키프로스의 14세기 벽화, 폰토르모, 엘 그레코의 ‘방문’</span></li>
     <li><a href="https://www.metmuseum.org/art/collection/search/464596">메트로폴리탄 미술관 작품 페이지</a> <span class="note">영어 · 다른 각도 사진</span></li>
    </ul></section>
    <details class="src"><summary>근거 보기 (6)</summary><ul>
@@ -463,10 +463,10 @@ details.src ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:colu
 
 <main class="wrap" hidden>
  <nav class="weeks" aria-label="Choose a week">
-  <a class="wk" href="#week1" data-w="week1"><img src="img/advent1-martini.jpg" alt="" style="object-position:50% 72%"><span class="bd"><span class="when"><b>Week 1 · <span data-wd="0">Nov 29</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">Why did Mary shrink back?</span></span></a>
-  <a class="wk" href="#week2" data-w="week2"><img src="img/advent2-visitation.jpg" alt="" style="object-position:50% 28%"><span class="bd"><span class="when"><b>Week 2 · <span data-wd="1">Dec 6</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">Can a baby be glad before it is born?</span></span></a>
-  <a class="wk" href="#week3" data-w="week3"><img src="img/advent3-rublev.jpg" alt="" style="object-position:50% 42%"><span class="bd"><span class="when"><b>Week 3 · <span data-wd="2">Dec 13</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">Was Jesus really born in a stable?</span></span></a>
-  <a class="wk" href="#week4" data-w="week4"><img src="img/advent4-jacopo.jpg" alt="" style="object-position:50% 80%"><span class="bd"><span class="when"><b>Week 4 · <span data-wd="3">Dec 20</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">Why were the shepherds told first?</span></span></a>
+  <a class="wk" href="#week1" data-w="week1"><img src="img/advent1-martini.jpg" alt="" style="object-position:50% 72%"><span class="bd"><span class="when"><b><span>Week 1</span><span data-wd="0">Nov 29</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">Why did Mary shrink back?</span></span></a>
+  <a class="wk" href="#week2" data-w="week2"><img src="img/advent2-visitation.jpg" alt="" style="object-position:50% 28%"><span class="bd"><span class="when"><b><span>Week 2</span><span data-wd="1">Dec 6</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">Can a baby be glad before it is born?</span></span></a>
+  <a class="wk" href="#week3" data-w="week3"><img src="img/advent3-rublev.jpg" alt="" style="object-position:50% 42%"><span class="bd"><span class="when"><b><span>Week 3</span><span data-wd="2">Dec 13</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">Was Jesus really born in a stable?</span></span></a>
+  <a class="wk" href="#week4" data-w="week4"><img src="img/advent4-jacopo.jpg" alt="" style="object-position:50% 80%"><span class="bd"><span class="when"><b><span>Week 4</span><span data-wd="3">Dec 20</span></b><span class="candles" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">Why were the shepherds told first?</span></span></a>
  </nav>
  <p class="thread">Two phrases tie the four weeks together: <b>“Don’t be afraid”</b> (1:30 · 2:10) and <b>“with haste”</b> (1:39 · 2:16). The angel said the same words to Mary and to the shepherds, and Mary and the shepherds both set out in a hurry.</p>
 
@@ -572,7 +572,7 @@ details.src ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:colu
    <a class="read" href="https://biblehub.com/web/luke/1.htm">Now read the passage · Luke 1:39–45<span>World English Bible</span></a>
    <div class="care"><b>Take care</b> Some families may have been through pregnancy, miscarriage or infertility. Elizabeth, too, had long been without a child (1:7). Bring up the story of the unborn baby gently.</div>
    <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
-    <li><a href="https://thevcs.org/visitation-quickening-creation">VCS exhibition <i>The Visitation: Quickening Creation</i></a> <span class="note">A 14th-century fresco from Cyprus, and Visitations by Pontormo and El Greco</span></li>
+    <li><a href="https://thevcs.org/quickening-creation">VCS exhibition <i>The Visitation: Quickening Creation</i></a> <span class="note">A 14th-century fresco from Cyprus, and Visitations by Pontormo and El Greco</span></li>
     <li><a href="https://www.metmuseum.org/art/collection/search/464596">The Met artwork page</a> <span class="note">Photos from other angles</span></li>
    </ul></section>
    <details class="src"><summary>Sources (6)</summary><ul>
