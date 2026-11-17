@@ -1107,10 +1107,18 @@ Object.assign(FEEL_EN.ui, {
   "솔즈베리 대성당의 부활절 정원": "Easter garden at Salisbury Cathedral"
 });
 
-/* Season courses (advent.html, christmas.html) */
+/* Season courses (advent.html, christmas.html, after-epiphany.html, lent.html, easter.html, after-pentecost.html) */
 Object.assign(FEEL_EN.ui, {
   "대림절 4주 코스": "Advent in Four Weeks",
   "성탄절 코스": "Christmas Course",
   "성탄과 그 뒤 세 주일, 그림 한 점에 질문 하나": "Christmas Day and the three Sundays after it: one picture, one question",
-  "주일마다 그림 한 점, 질문 하나 · 누가복음 1~2장": "One picture, one question each Sunday · Luke 1–2"
+  "주일마다 그림 한 점, 질문 하나 · 누가복음 1~2장": "One picture, one question each Sunday · Luke 1–2",
+  "사순절 코스": "Lent Course",
+  "사순절 여섯 주일, 그림 한 점에 질문 하나": "The six Sundays of Lent: one picture, one question",
+  "부활절 코스": "Easter Course",
+  "부활절부터 성령강림절까지, 그림 한 점에 질문 하나": "From Easter Day to Pentecost: one picture, one question",
+  "주현절 후 코스": "After Epiphany Course",
+  "주님의 세례에서 변화산까지, 그림 한 점에 질문 하나": "From the Baptism of the Lord to the Transfiguration: one picture, one question",
+  "성령강림절 후 코스": "After Pentecost Course",
+  "삼위일체 주일에서 왕이신 그리스도 주일까지, 그림 한 점에 질문 하나": "From Trinity Sunday to Christ the King: one picture, one question"
 });

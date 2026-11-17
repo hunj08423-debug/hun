@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>성령강림절 후 코스 · 질문 받기 연습실</title>
+<meta name="description" content="마므레의 나무 그늘에서 왕의 자리까지, 그림 여섯 점으로 걷는 성령강림절 후. 삼위일체 주일부터 왕이신 그리스도 주일까지 주일 여섯 번, 그림 한 점에 질문 하나. 그 땅의 옛 사진과 AI 가상 복원, 아이에게 보여 주기.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="성령강림절 후 코스 · 질문 받기 연습실">
+<meta property="og:description" content="마므레의 나무 그늘에서 왕의 자리까지, 그림 여섯 점으로 걷는 성령강림절 후. 그림 한 점에 질문 하나.">
+<meta property="og:url" content="https://hunj08423-debug.github.io/hun/after-pentecost.html">
+<meta property="og:image" content="https://hunj08423-debug.github.io/hun/og-feel.jpg">
+<meta name="theme-color" content="#1D2B1A">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* 성령강림절 후 코스 · 함께 느끼기 방에서 이어지는 따로 페이지 (feel.html의 평상 절기 칸에서 들어옴, christmas.html과 같은 틀)
+   VOICE everyday · 교사용 절기 카드, 조용하고 따뜻하게
+   IDEA 영접과 자비: 낯선 손님을 맞는 아브라함에서 지극히 작은 자 가운데 계신 왕까지 여섯 장면. 장면마다 잎이 하나씩 더 돋는 띠
+   PICTURE 여섯 장면의 그림을 나란히 세운 띠, 고른 장면의 그림이 크게
+   COLOUR 함께 느끼기 방의 바탕과 잉크에 평상 절기 초록 #3F6F24, 숲 같은 짙은 초록 #1D2B1A, 촛불 금빛 한 점
+   TYPE Noto Serif KR(제목·질문·뿌리) + Noto Sans KR(본문)
+   LAYOUT 넓은 화면: 여섯 칸 띠 아래 그림 왼쪽 고정, 글 오른쪽 / 중간 화면: 3×2 띠 / 휴대폰: 2×3 띠, 그림, 글 */
+:root{color-scheme:light dark;
+--bg:light-dark(#F8F7F4,#151311);--surface:light-dark(#FFFFFF,#1E1B18);--ink:light-dark(#1C1A17,#F1ECE4);--ink2:light-dark(#3D3A35,#D9D2C7);
+--muted:light-dark(#5F584F,#B3AA9E);--line:light-dark(#E6E1D9,#36312B);--accent:light-dark(#3F6F24,#A9D98E);--soft:light-dark(#EAF2E3,#20301A);
+--deep:#1D2B1A;--flame:#E9B44C;--warn:light-dark(#8A4B12,#F0C38E);--warn-soft:light-dark(#FBF1E6,#33261A);
+--sand:light-dark(#F3EDE3,#25201A);--earth:light-dark(#7A4E26,#E3B98C);
+--sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--serif:"Noto Serif KR","AppleMyungjo","Batang",serif}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.7 var(--sans);word-break:keep-all;overflow-wrap:break-word;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--serif);margin:0;line-height:1.2;letter-spacing:-.02em;text-wrap:balance}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(4vw,16px)}
+.top{background:var(--deep);color:#F3EEE6;padding:28px 0 30px}
+.top .brand{font-size:14px;opacity:.82}
+.top h1{font-size:clamp(32px,5vw,46px);margin:8px 0 10px;color:#fff}
+.top .sub{font-size:17px;max-width:46em;color:#DCE9D2}
+.howto{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:14px;color:#DCE9D2}
+.howto b{color:var(--flame);font-weight:700}
+.top a.back{color:inherit;text-decoration:none}
+.top a.back:hover{text-decoration:underline}
+.top a.back:focus-visible{outline:3px solid var(--flame);outline-offset:2px;border-radius:4px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lang{flex:none;min-height:36px;padding:6px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.42);background:transparent;color:#fff;font:700 14px/1.2 var(--sans);cursor:pointer}
+.lang:hover{background:rgba(255,255,255,.12)}
+.lang:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.draft{margin-top:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 14px;font-size:14px;color:#F3EEE6}
+.weeks{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:-2px 0 0;padding:22px 0 8px}
+.wk{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .2s ease,border-color .2s}
+.wk:hover{transform:translateY(-2px);border-color:var(--accent)}
+.wk:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wk[aria-current=true]{border:2px solid var(--accent);box-shadow:0 0 0 4px var(--soft)}
+.wk img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.wk .bd{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px}
+.wk .when{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 8px;font-size:13px;color:var(--muted)}
+.wk .when b{white-space:nowrap}
+.wk .when b{color:var(--accent);font-weight:700}
+.wk .q{font-family:var(--serif);font-weight:600;font-size:15px;line-height:1.45}
+.steps{display:inline-flex;gap:3px;align-items:center;flex:none}
+.steps i{display:block;width:11px;height:11px;border-radius:0 100% 0 100%;background:var(--line)}
+.steps i.on{background:var(--accent)}
+.thread{margin:6px 0 4px;font-size:14px;color:var(--muted)}
+.thread b{color:var(--ink2)}
+.card{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,3.5vw,44px);padding:30px 0 46px;border-top:1px solid var(--line);margin-top:22px;scroll-margin-top:12px}
+.js .card{display:none}
+.js .card.on{display:grid}
+.fig{position:sticky;top:16px;align-self:start;display:flex;flex-direction:column;gap:10px}
+.fig img{width:100%;max-height:82vh;object-fit:contain;background:#0f0d0c;border-radius:14px}
+.fig .cap{font-size:13px;color:var(--muted);line-height:1.6}
+.fig .cap b{color:var(--ink2);font-weight:600}
+.txt{display:flex;flex-direction:column;gap:18px}
+.tag{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px;color:var(--muted)}
+.chip{background:var(--soft);color:var(--accent);font-weight:700;border-radius:999px;padding:4px 12px;font-size:13.5px}
+.opener{background:var(--soft);border-radius:18px;padding:18px 20px}
+.opener small{display:block;font-size:13px;font-weight:700;color:var(--accent)}
+.opener h2{font-size:clamp(25px,3.2vw,32px);margin-top:4px}
+.line{font-family:var(--serif);font-size:18.5px;line-height:1.75;font-weight:600}
+.blk h3{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--accent);letter-spacing:0;margin-bottom:6px}
+.blk p{margin:0 0 8px}
+.blk ol,.blk ul{margin:0;padding-left:21px;display:flex;flex-direction:column;gap:6px}
+/* 그 시절로 가 보기 */
+.era{background:var(--sand);border-radius:18px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:14px}
+.era>h3{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--earth);letter-spacing:0}
+.where{margin:0}
+.where b{display:block;font-family:var(--serif);font-size:17px;margin-bottom:2px}
+.ph{margin:0;display:flex;flex-direction:column;gap:8px}
+.ph img{width:100%;border-radius:12px;background:#0f0d0c}
+.ph figcaption{font-size:14.5px;line-height:1.65;color:var(--ink2)}
+.ph figcaption b{font-family:var(--serif);font-size:15.5px;color:var(--ink)}
+.imagine{margin:0;border-left:3px solid var(--flame);padding:4px 0 4px 14px;font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.75}
+.imagine small{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--earth);margin-bottom:2px}
+.go{position:relative;display:flex;flex-direction:column;gap:2px;padding:12px 16px 12px 44px;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;line-height:1.5}
+.go::before{content:"";position:absolute;left:17px;top:50%;margin-top:-7px;border-left:12px solid var(--earth);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.go small{font-weight:400;font-size:13px;color:var(--muted)}
+.go:hover{border-color:var(--earth)}
+.go:focus-visible{outline:3px solid var(--earth);outline-offset:2px}
+.old{margin:0;font-size:13px;color:var(--muted)}
+.orig{font-size:13px;color:var(--muted);white-space:nowrap}
+/* 가상 복원 보기 */
+.phw{position:relative}
+.ph[data-color] .phw{cursor:pointer}
+.tint{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:6px 13px 6px 10px;border:0;border-radius:999px;background:rgba(16,14,12,.80);color:#fff;font:700 13px/1.2 var(--sans);cursor:pointer}
+.tint::before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:conic-gradient(#E9B44C,#D2553F,#5B8C5A,#4A78B5,#E9B44C)}
+.tint[aria-pressed=true]::before{background:linear-gradient(90deg,#fff 50%,#333 50%);box-shadow:0 0 0 1px rgba(255,255,255,.6)}
+.tint:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.vr-note{display:block;margin-top:4px;font-size:12.5px;color:var(--muted)}
+.vr-note[hidden]{display:none}
+.ph.is-color .phw::after{content:"AI 가상 복원";position:absolute;right:10px;top:10px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.9);color:#1C1A17;font:700 12px/1.3 var(--sans)}
+.L[lang=en] .ph.is-color .phw::after{content:"AI colorized"}
+.sw-pic{position:relative;width:100%;height:100%}
+.sw-pic .tint{left:50%;transform:translateX(-50%);bottom:12px;font-size:14px;min-height:40px}
+/* 아이에게 보여 주기 */
+.showbtn{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;padding:12px 16px;border:0;border-radius:14px;background:var(--deep);color:#F3EEE6;font:700 16px/1.45 var(--sans);text-align:left;cursor:pointer}
+.showbtn b{display:flex;align-items:center;gap:9px}
+.showbtn b::before{content:"";border-left:11px solid var(--flame);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.showbtn span{font-weight:400;font-size:13px;color:#CFE0C3}
+.showbtn:hover{background:#2C4227}
+.showbtn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tip{margin:10px 0 0;font-size:14px;color:#DCE9D2}
+.tip b{color:var(--flame)}
+dialog.show{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#100E0C;color:#F3EEE6}
+dialog.show::backdrop{background:#000}
+.sw{height:100%;display:flex;flex-direction:column;gap:12px;padding:12px max(14px,3vw) max(14px,env(safe-area-inset-bottom))}
+.sw-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:#BDB4A8}
+.sw-x{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:transparent;color:#F3EEE6;font-size:24px;line-height:1;cursor:pointer}
+.sw-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;touch-action:pan-y}
+.sw-stage img{width:100%;height:100%;object-fit:contain}
+.sw-dark{width:100%;height:100%;border-radius:14px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 46%,rgba(233,180,76,.30),rgba(233,180,76,0) 34%),#07060A}
+.sw-dark span{font-family:var(--serif);font-size:clamp(22px,4vw,34px);font-weight:700;color:#F6E3B8}
+.sw-q{margin:0 auto;max-width:820px;min-height:3.2em;text-align:center;font-family:var(--serif);font-weight:600;font-size:clamp(20px,3vw,28px);line-height:1.5;text-wrap:pretty}
+.sw-q small{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--flame);margin-bottom:4px}
+.sw-nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sw-nav button{min-height:48px;min-width:96px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#F3EEE6;font:700 16px var(--sans);cursor:pointer}
+.sw-nav button.next{background:var(--flame);border-color:var(--flame);color:#1C1A17}
+.sw-nav button:disabled{opacity:.35;cursor:default}
+.sw button:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.dots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25)}
+.dots i.on{background:var(--flame)}
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.ask small{font-size:13px;font-weight:700;color:var(--accent)}
+.ask p{margin:4px 0 0;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.6}
+.root{background:var(--deep);color:#F3EEE6;border-radius:14px;padding:15px 18px;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.6}
+.read{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:12px 18px;border-radius:14px;background:var(--accent);color:var(--surface);text-decoration:none;font-weight:700}
+.read:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.read span{font-weight:400;font-size:13.5px;opacity:.9}
+.aha{background:var(--soft);border-radius:14px;padding:14px 16px}
+.aha h3{margin-bottom:4px}
+.care{background:var(--warn-soft);color:var(--ink);border-radius:14px;padding:13px 16px;font-size:15px}
+.care b{color:var(--warn)}
+.more li{font-size:15px}
+.more .note{color:var(--muted);font-size:13.5px}
+details.src{border-top:1px dashed var(--line);padding-top:12px;font-size:13.5px;color:var(--muted)}
+details.src summary{cursor:pointer;font-weight:700;color:var(--ink2);min-height:32px}
+details.src ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.foot{border-top:1px solid var(--line);padding:22px 0 40px;font-size:14px;color:var(--muted)}
+.foot p{margin:0 0 6px}
+@media (max-width:1100px){.weeks{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.wk .bd{padding:12px 14px 14px}.wk .q{font-size:16px}}
+@media (max-width:900px){.card{grid-template-columns:minmax(0,1fr)}.fig{position:static}.fig img{max-height:70vh}}
+@media (max-width:600px){.weeks{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.wk .q{font-size:15px}.top .sub{font-size:16px}.line{font-size:17.5px}}
+@media (prefers-reduced-motion:reduce){.wk{transition:none}.wk:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="L" lang="ko">
+<header class="top">
+ <div class="wrap">
+  <div class="bar"><a class="brand back" href="feel.html">‹ 질문 받기 연습실 · 함께 느끼기</a><button class="lang" type="button" data-lang="en" lang="en">English</button></div>
+  <h1>성령강림절 후 코스</h1>
+  <p class="sub">마므레의 나무 그늘에서 왕의 자리까지, 그림 여섯 점으로 걷는 성령강림절 후. 삼위일체 주일부터 왕이신 그리스도 주일까지 주일 여섯 번을 골라, 그림 한 점에 질문 하나.</p>
+  <div class="howto"><span><b>1</b> 그림을 함께 보고</span><span><b>2</b> 질문을 던지고</span><span><b>3</b> 그 시절로 가 본 뒤</span><span><b>4</b> 본문을 같이 읽어요</span></div>
+  <p class="tip">그림 아래 <b>아이에게 보여 주기</b>를 누르면 그림과 그 땅의 옛 사진을 화면 가득 띄우고, 질문을 하나씩 넘길 수 있어요. 흑백 사진은 누르면 AI로 색을 입힌 <b>가상 복원</b>으로 바뀌어요.</p>
+  <div class="draft">검수 전 초안이에요. AI가 출처를 모아 쓴 글이라, 카드마다 맨 아래 ‘근거 보기’와 대조해 확인해 주세요.</div>
+ </div>
+</header>
+
+<main class="wrap">
+ <nav class="weeks" aria-label="장면 고르기">
+  <a class="wk" href="#scene1" data-w="scene1"><img src="img/pt1-rublev-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>삼위일체 주일 · <span data-wd="0">5월 31일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></span><span class="q">하나님이 세 분이에요?</span></span></a>
+  <a class="wk" href="#scene2" data-w="scene2"><img src="img/pt2-rembrandt-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>초여름 주일 · <span data-wd="1">6월 21일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span></span><span class="q">폭풍이 치는데 예수님은 어떻게 주무실 수 있었어요?</span></span></a>
+  <a class="wk" href="#scene3" data-w="scene3"><img src="img/pt3-vangogh-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>한여름 주일 · <span data-wd="2">7월 12일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">내 이웃은 누구예요?</span></span></a>
+  <a class="wk" href="#scene4" data-w="scene4"><img src="img/pt4-tintoretto-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>세계성찬주일 · <span data-wd="3">10월 4일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">보리떡 다섯 개로 정말 오천 명이 먹었어요?</span></span></a>
+  <a class="wk" href="#scene5" data-w="scene5"><img src="img/pt5-echternach-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>추수감사주일 · <span data-wd="4">11월 15일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">왜 한 사람만 돌아와서 고맙다고 했어요?</span></span></a>
+  <a class="wk" href="#scene6" data-w="scene6"><img src="img/pt6-alkmaar-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>왕이신 그리스도 · <span data-wd="5">11월 22일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">예수님을 어디서 만날 수 있어요?</span></span></a>
+ </nav>
+ <p class="thread">여섯 장면을 잇는 두 말: <b>“영접하다”</b>(창 18:2, 마 25:35)와 <b>“불쌍히 여기다”</b>(눅 10:33, 17:13). 아브라함은 낯선 손님 셋을 달려 나가 맞았고, 사마리아 사람은 쓰러진 사람을 불쌍히 여겼어요. 나병 환자들은 “우리를 불쌍히 여기소서” 하고 외쳤고, 왕은 나그네를 영접한 일이 곧 자기를 영접한 일이라고 말해요. 성령강림절 뒤의 긴 계절은 교회가 이 말씀대로 살아 보는 시간이에요.</p>
+
+ <!-- 장면 1 -->
+ <article class="card" id="scene1" data-week="scene1">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt1-rublev.jpg" alt="안드레이 루블료프의 이콘. 금빛 바탕 앞에 날개 달린 천사 셋이 식탁을 둘러 둥글게 앉아 있다. 왼쪽 천사 뒤에는 집이, 가운데 천사 뒤에는 나무가, 오른쪽 천사 뒤에는 산이 있다. 세 천사는 고개를 서로 기울이고, 하얀 식탁 가운데에 잔 하나가 놓여 있다. 식탁 앞쪽 자리는 비어 있다.">
+   <figcaption class="cap"><b>「삼위일체」</b> 안드레이 루블료프, 15세기 초<br>러시아, 정교회 소장(2023년까지 모스크바 트레티야코프 미술관)</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">삼위일체 주일 · 세 손님</span><span><span data-wd="0">5월 31일</span> 삼위일체 주일 · 창세기 18:1~8</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>하나님이 세 분이에요?</h2></div>
+   <p class="line">뜨거운 한낮, 장막 맞은편에 낯선 손님 셋이 서 있어요. 아브라함은 달려 나가 그들을 맞았어요.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>세 천사의 얼굴을 보세요. 누가 누구를 바라보고 있나요?</li>
+    <li>천사들 뒤에 있는 집, 나무, 산을 찾아보세요. 나무는 어느 천사 뒤에 있나요?</li>
+    <li>식탁 가운데 놓인 잔을 찾아보세요. 그리고 식탁 앞쪽을 보세요. 비어 있는 자리는 누구의 자리일까요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>아브라함이 마므레의 상수리나무들 곁, 장막 문에 앉아 있던 뜨거운 한낮이었어요(18:1). 눈을 들어 보니 “사람 셋이 맞은편에 서 있는지라”(18:2). 아브라함은 장막 문에서 달려 나가 그들을 맞으며 몸을 땅에 굽혔어요. 그리고 발 씻을 물을 가져오게 하고, 나무 아래에서 쉬시라고 청했어요(18:4).</p>
+    <p>아브라함은 급히 사라에게 고운 가루로 떡을 만들게 하고, 가축 떼에서 좋은 송아지를 골라 요리하게 했어요(18:6~7). 엉긴 젖과 우유와 송아지 요리를 차려 놓고, 손님들이 먹는 동안 “나무 아래에” 곁에 서 있었어요(18:8). 창세기는 이 이야기를 “여호와께서 … 아브라함에게 나타나시니라”(18:1)로 시작해요. 그래서 많은 그리스도인이 세 손님에게서 아버지와 아들과 성령, 한 분 하나님을 떠올려 왔어요. 예수님도 제자들에게 “아버지와 아들과 성령의 이름으로” 세례를 베풀라고 하셨어요(마 28:19).</p>
+    <p>러시아의 이콘 화가 안드레이 루블료프가 15세기 초, 모스크바 근처의 삼위일체 수도원을 위해 그렸다고 전해지는 이콘이에요. 수도원을 세운 라도네시의 성 세르기우스를 기리는 이콘이었어요. 루블료프는 아브라함과 사라를 빼고 세 손님만 그렸어요. 1929년 모스크바 트레티야코프 미술관으로 옮겨져 90년 넘게 그곳에 있다가, 2023년 러시아 정교회로 넘겨졌어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>세 천사를 이어 보면 커다란 원이 생겨요. 식탁 앞쪽은 비어 있어서, 그림을 보는 사람이 그 자리에 함께 앉도록 초대받는 것 같다고 읽는 사람이 많아요. 잔 안을 자세히 보면 무언가 담겨 있어요. 아브라함이 대접한 송아지의 머리라고 풀이해요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 헤브론의 마므레</b>아브라함은 “헤브론에 있는 마므레 상수리 수풀”에 장막을 치고 살았어요(13:18). 헤브론에는 1868년 러시아 정교회가 사들인 땅에 ‘아브라함의 참나무’라고 불리는 오래된 나무가 있어요. 아브라함이 손님을 맞은 바로 그 나무는 아니지만, 순례자들이 그 이야기를 떠올리며 찾아온 나무예요.</p>
+    <figure class="ph" data-q="울타리를 둘러친 나무를 보세요. 사람들은 왜 이 나무를 지키려 했을까요?" data-color="img/ptvr1-oak.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 쇠울타리를 둘러친 오래된 참나무. 굵은 줄기는 갈라져 비틀렸고, 마른 가지 옆으로 잎이 무성한 가지가 남아 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 한낮의 나무 그늘은 어떤 색이었을까?">
+     <div class="phw"><img src="img/ptera1-oak.jpg" alt="흑백 사진. 쇠울타리를 둘러친 오래된 참나무. 굵은 줄기는 갈라져 비틀렸고, 마른 가지 옆으로 잎이 무성한 가지가 남아 있다. 울타리 앞에 한 사람이 서 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>헤브론의 ‘아브라함의 참나무’</b> · 1898~1946년 사이<br>아브라함이 손님들을 쉬게 한 “나무 아래”(18:4, 8)를 떠올리게 하는 나무예요. 이 나무의 오래된 줄기는 1996년 무렵 말라 죽었고, 2019년에 쓰러졌어요. 지금은 같은 뿌리에서 새 가지가 자라고 있어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Abraham%27s_Oak,_Hebron_LOC_matpc.06207.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="나무 밑에 앉은 사람들을 찾아보세요. 아브라함의 손님들도 이렇게 나무 그늘에서 쉬었을까요?">
+     <img src="img/ptcolor1-mamre.jpg" alt="색을 입힌 옛 인쇄 사진. 둥근 돌 테두리 안에 선 오래된 참나무. 굵은 줄기 위로 마른 가지가 뻗어 있고, 나무 밑에 사람들이 앉아 쉬고 있다." loading="lazy">
+     <figcaption><b>마므레의 아브라함 나무 · 1890년대 컬러 인쇄본</b><br>같은 나무를 1890년대에 찍은 사진이에요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002724988/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 햇볕이 쨍쨍한 한낮이에요. 저 멀리서 낯선 손님 셋이 걸어와요. 나는 달려가서 말해요. “어서 오세요! 시원한 나무 그늘에서 쉬세요.”"><small>눈 감고 상상해 보기</small>누군지도 모르는 손님을 위해 달려 나가 발 씻을 물과 떡과 송아지를 내놓은 아브라함. 낯선 사람을 반가운 손님으로 맞는다는 건 어떤 마음일까요?</p>
+    <a class="go" href="https://commons.wikimedia.org/wiki/File:Andrey_Rublev_-_%D0%A1%D0%B2._%D0%A2%D1%80%D0%BE%D0%B8%D1%86%D0%B0_-_Google_Art_Project.jpg">그림 가까이 보기 · 위키미디어 공용의 큰 사진<small>그림을 크게 키워서 잔 속에 무엇이 있는지 찾아보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“우리 반에 처음 온 친구를 어떻게 맞아 주면 좋을까?”</p></div>
+   <div class="root">아브라함은 낯선 손님 셋을 달려 나가 맞았고, 창세기는 그 일을 여호와께서 아브라함에게 나타나신 일로 전합니다(창 18:1~2).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/GEN.18">이제 본문 읽기 · 창세기 18:1~8<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 삼위일체를 ‘하나님이 세 분’이나 ‘한 분이 옷을 바꿔 입는 것’으로 설명하면 오해가 생겨요. “아버지, 아들, 성령은 서로 다른 분이시지만 한 분 하나님”이라고 짧게 말하고, 다 이해하지 못해도 괜찮다고 알려 주세요. 세 손님이 곧 삼위일체라고 성경이 직접 말하지는 않아요. 그렇게 읽어 온 오랜 전통이 있다는 거예요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>이야기는 창세기 18:9~15로 이어져요. 손님들은 사라가 아들을 낳을 것이라고 말했고, 사라는 속으로 웃었어요.</li>
+    <li>히브리서 13:2는 “손님 대접하기를 잊지 말라 이로써 부지중에 천사들을 대접한 이들이 있었느니라”라고 말해요.</li>
+    <li><a href="https://en.wikipedia.org/wiki/Trinity_(Andrei_Rublev)">Wikipedia ‘Trinity (Andrei Rublev)’</a> <span class="note">영어 · 이콘의 구도와 상징, 지나온 길</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (6)</summary><ul>
+    <li><a href="https://en.wikipedia.org/wiki/Trinity_(Andrei_Rublev)">Wikipedia ‘Trinity (Andrei Rublev)’</a>: 삼위일체 수도원을 위해 그린 이콘, 집·나무·산, 원을 이루는 구도, 잔 속의 송아지</li>
+    <li><a href="https://orthochristian.com/153627.html">OrthoChristian ‘Rublev’s Trinity Icon returned to the Church after 100+ years’</a>: 1929년 트레티야코프 미술관으로 옮겨짐</li>
+    <li><a href="https://www.theartnewspaper.com/2023/06/06/fragile-trinity-icon-installed-at-moscow-cathedral">The Art Newspaper(2023년 6월 6일)</a>: 트레티야코프 미술관에서 러시아 정교회로 넘겨짐</li>
+    <li><a href="https://en.wikipedia.org/wiki/Oak_of_Mamre">Wikipedia ‘Oak of Mamre’</a>: 헤브론 러시아 정교회 수도원의 ‘아브라함의 참나무’, 1868년 러시아 교회가 땅을 얻음, 1996년부터 줄기가 죽은 것으로 보임</li>
+    <li><a href="https://orthochristian.com/119256.html">OrthoChristian ‘Dead wood being removed from Oak of Mamre’</a>: 2019년 2월 마른 줄기가 쓰러짐, 같은 뿌리에서 자란 새 가지</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/GEN.18">개역개정 본문(대한성서공회)</a>: 창 13:18; 18:1~15; 마 28:19; 히 13:2</li>
+   </ul><p>그림: 안드레이 루블료프, 「삼위일체」(원제: Троица), 15세기 초, 러시아 정교회 소장(2023년까지 모스크바 트레티야코프 미술관). 사진: 구글 아트 앤 컬처, 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Abraham%27s_Oak,_Hebron_LOC_matpc.06207.jpg">‘Abraham’s Oak, Hebron’</a>(1898~1946년 사이, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002724988/">‘Abraham’s tree Mamreh, Hebron, Holy Land’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 2 -->
+ <article class="card" id="scene2" data-week="scene2">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt2-rembrandt.jpg" alt="렘브란트의 그림. 거센 파도에 작은 돛배가 크게 기울어 있다. 뱃머리 쪽은 높이 솟은 파도와 밝은 빛을 받고, 사람들이 찢어진 돛과 밧줄을 붙잡고 있다. 어두운 배 뒤쪽에는 예수가 앉아 있고 제자들이 그를 깨우며 매달린다. 한 사람은 뱃전 너머로 몸을 숙이고, 한 사람은 모자를 쥔 채 이쪽을 바라본다.">
+   <figcaption class="cap"><b>「갈릴리 바다의 폭풍 속 그리스도」</b> 렘브란트 판 레인, 1633년<br>미국 보스턴, 이저벨라 스튜어트 가드너 미술관(1990년 도난, 아직 찾지 못함)</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">초여름 주일 · 잠잠하라</span><span><span data-wd="1">6월 21일</span> 성령강림절 후 초여름 주일 · 마가복음 4:35~41</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>폭풍이 치는데 예수님은 어떻게 주무실 수 있었어요?</h2></div>
+   <p class="line">물결이 배 안으로 들이쳐요. 그런데 예수님은 배 뒤쪽에서 베개를 베고 주무시고 계셨어요.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>배 안에 사람이 몇 명 있는지 세어 보세요. 예수님과 열두 제자, 그리고 한 사람이 더 있다고 해요.</li>
+    <li>모자를 쥔 채 우리를 바라보는 사람을 찾아보세요. 화가 렘브란트가 자기 얼굴을 그려 넣은 거예요.</li>
+    <li>밝은 쪽과 어두운 쪽을 나눠 보세요. 예수님은 어느 쪽에 계신가요? 얼굴은 어떤가요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>그날 저물 때 예수님이 “우리가 저편으로 건너가자” 하셨어요(4:35). 제자들은 예수님을 배에 계신 그대로 모시고 떠났어요(4:36). 그런데 “큰 광풍이 일어나며 물결이 배에 부딪쳐 들어와 배에 가득하게 되었”어요(4:37). 예수님은 “고물에서 베개를 베고 주무시”고 계셨어요(4:38).</p>
+    <p>제자들이 예수님을 깨우며 외쳤어요. “선생님이여 우리가 죽게 된 것을 돌보지 아니하시나이까”(4:38). 예수님은 깨어 바람을 꾸짖고 바다에게 “잠잠하라 고요하라” 하셨어요. 그러자 “바람이 그치고 아주 잔잔하여지더라”(4:39). 예수님은 “어찌하여 이렇게 무서워하느냐” 물으셨고, 제자들은 서로 “그가 누구이기에 바람과 바다도 순종하는가” 하고 말했어요(4:40~41).</p>
+    <p>렘브란트가 1633년, 스물일곱 살 무렵에 그린 그림이에요. 그가 그린 바다 그림은 이것 하나뿐이에요. 배 앞쪽의 제자들은 거센 파도와 씨름하고, 한 사람은 뱃전 너머로 토하고 있어요. 그 소란 속에서 오른쪽의 예수님만 폭풍의 눈처럼 고요해요. 1898년 미국의 이저벨라 스튜어트 가드너가 사들여 보스턴의 자기 미술관에 걸었어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>1990년 3월 18일 새벽, 경찰로 꾸민 도둑 둘이 가드너 미술관에 들어와 81분 만에 이 그림을 비롯한 작품 13점을 훔쳐 갔어요. 아직도 찾지 못해서, 미술관에는 지금도 빈 액자가 그 자리에 걸려 있어요. 그래서 우리는 이 그림을 사진으로만 볼 수 있어요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 갈릴리 바다</b>갈릴리 바다는 바다보다 210미터쯤 낮은 곳에 있는 호수예요. 둘레의 높은 고원과 언덕에서 차가운 바람이 골짜기를 타고 갑자기 내리꽂히면, 따뜻한 호수 위에 짧고 거센 폭풍이 일어나곤 해요. 제자들 가운데 여럿이 이 호수의 어부였는데도 겁에 질릴 만큼이었어요.</p>
+    <figure class="ph" data-q="물보라가 얼마나 높이 솟았나요? 이런 물결 위에 작은 배가 있다면 어떨까요?" data-color="img/ptvr2-storm.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 거센 물결이 호숫가 돌집의 벽에 부딪혀 하얀 물보라가 높이 솟는다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 폭풍이 치는 날 호수는 무슨 색이었을까?">
+     <div class="phw"><img src="img/ptera2-storm.jpg" alt="흑백 사진. 거센 물결이 호숫가 돌집의 벽에 부딪혀 하얀 물보라가 높이 솟는다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>갈릴리 바다의 큰 폭풍</b> · 1900년<br>사진가의 기록장에 남은 제목은 ‘북쪽 풍경, 갈릴리 바다의 큰 폭풍’이에요. 호숫가 집의 벽까지 물결이 덮칠 만큼 바람이 거셌어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Northern_views._Great_storm_on_Sea_of_Galilee_LOC_matpc.21984.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="잔잔한 날의 호수예요. 폭풍 사진과 무엇이 다른가요?">
+     <img src="img/ptcolor2-tiberias.jpg" alt="색을 입힌 옛 인쇄 사진. 꽃이 핀 들판 너머로 성벽과 탑이 있는 디베랴 마을과 잔잔한 갈릴리 바다가 펼쳐진다." loading="lazy">
+     <figcaption><b>디베랴와 갈릴리 바다 · 1890년대 컬러 인쇄본</b><br>호숫가 도시 디베랴와 갈릴리 바다예요. 예수님이 “잠잠하라” 하신 뒤의 호수도 이렇게 잔잔했을까요? 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2001699273/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 작은 배가 출렁출렁, 물이 발목까지 차올라요. 바람 소리가 무서워요. 그런데 예수님은 쿨쿨 주무시고 계세요. 나는 뭐라고 외칠까요?"><small>눈 감고 상상해 보기</small>“우리가 죽게 된 것을 돌보지 아니하시나이까.” 무서울 때 하나님이 주무시는 것처럼 느껴진 적이 있나요? 그런데 예수님은 그 배 안에, 그들과 함께 계셨어요.</p>
+    <a class="go" href="https://gardnermuseum.emuseum.com/objects/212/christ-in-the-storm-on-the-sea-of-galilee">그림 가까이 보기 · 가드너 미술관 작품 페이지<small>영어 · 사라진 그림의 사진과 미술관의 설명을 볼 수 있어요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“너는 언제 제일 무서워? 그럴 때 누가 곁에 있어 주면 좋겠어?”</p></div>
+   <div class="root">예수님이 바람을 꾸짖고 바다에게 “잠잠하라 고요하라” 하시자 아주 잔잔해졌습니다(막 4:39).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/MRK.4">이제 본문 읽기 · 마가복음 4:35~41<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 한 제자가 뱃전 너머로 토하는 모습을 아이가 재미있어하거나 불편해할 수 있어요. 배멀미는 누구나 할 수 있다고 가볍게 넘겨 주세요. “너희가 어찌 믿음이 없느냐”(4:40)는 무서워하는 아이를 꾸짖는 말로 쓰지 마세요. 무서워서 예수님을 깨운 제자들에게도 예수님은 바다를 잠잠하게 해 주셨어요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>마태복음 8:23~27, 누가복음 8:22~25에도 같은 이야기가 있어요.</li>
+    <li><a href="https://artsandculture.google.com/exhibit/gAIyZKoNat4oLA">Google Arts &amp; Culture, 가드너 미술관 ‘Thirteen Works’</a> <span class="note">영어 · 1990년에 사라진 작품 열세 점</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (7)</summary><ul>
+    <li><a href="https://gardnermuseum.emuseum.com/objects/212/christ-in-the-storm-on-the-sea-of-galilee">가드너 미술관 작품 페이지</a>: 렘브란트가 그린 단 하나의 바다 그림, 뱃전 너머로 토하는 제자, 폭풍의 눈처럼 고요한 오른쪽의 그리스도</li>
+    <li><a href="https://en.wikipedia.org/wiki/The_Storm_on_the_Sea_of_Galilee">Wikipedia ‘The Storm on the Sea of Galilee’</a>: 1633년, 160×128cm, 이쪽을 바라보는 화가 자신의 모습, 1990년부터 행방불명</li>
+    <li><a href="https://artsandculture.google.com/exhibit/gAIyZKoNat4oLA">Google Arts &amp; Culture ‘Thirteen Works’</a>: 1990년 도난당한 13점, 81분, 1898년 그림의 도착을 알린 전보</li>
+    <li><a href="https://en.wikipedia.org/wiki/Isabella_Stewart_Gardner_Museum_theft">Wikipedia ‘Isabella Stewart Gardner Museum theft’</a>: 경찰로 꾸민 도둑 둘, 그림이 있던 자리에 걸린 빈 액자</li>
+    <li><a href="https://www.biblicaltraining.org/library/sea-of-galilee">BiblicalTraining ‘Sea of Galilee’</a>: 지중해보다 214m 낮은 수면, 고원에서 골짜기를 타고 내려오는 찬 바람이 일으키는 갑작스러운 폭풍</li>
+    <li><a href="https://www.thattheworldmayknow.com/sea-of-galilee-geography">That the World May Know ‘Sea of Galilee’</a>: 동쪽 산을 넘어 호수로 떨어지는 바람과 갑작스러운 폭풍</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/MRK.4">개역개정 본문(대한성서공회)</a>: 막 4:35~41</li>
+   </ul><p>그림: 렘브란트 판 레인, 「갈릴리 바다의 폭풍 속 그리스도」(원제: Christ in the Storm on the Sea of Galilee), 1633년, 보스턴 이저벨라 스튜어트 가드너 미술관(1990년 도난). 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Northern_views._Great_storm_on_Sea_of_Galilee_LOC_matpc.21984.jpg">‘Northern views. Great storm on Sea of Galilee’</a>(1900년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2001699273/">‘Panoramic view, Tiberias, Holy Land’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 3 -->
+ <article class="card" id="scene3" data-week="scene3">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt3-vangogh.jpg" alt="빈센트 반 고흐의 그림. 굽이진 산길에서 한 남자가 다친 사람을 온 힘을 다해 말 위로 들어 올린다. 다친 사람은 축 늘어져 남자에게 기대어 있다. 앞쪽 땅바닥에는 열린 빈 상자가 놓여 있고, 멀리 길 위로 사람이 등을 돌린 채 걸어간다. 굵고 힘찬 붓질로 노랑, 파랑, 초록이 어우러져 있다.">
+   <figcaption class="cap"><b>「선한 사마리아인(들라크루아를 따라서)」</b> 빈센트 반 고흐, 1890년<br>네덜란드 오테를로, 크뢸러뮐러 미술관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">한여름 주일 · 누가 이웃이냐</span><span><span data-wd="2">7월 12일</span> 성령강림절 후 한여름 주일 · 누가복음 10:25~37</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>내 이웃은 누구예요?</h2></div>
+   <p class="line">다쳐 쓰러진 사람을 두 사람은 피해 지나갔어요. 세 번째 사람은 걸음을 멈췄어요.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>다친 사람을 말에 태우려고 애쓰는 사람을 보세요. 얼마나 힘이 들어 보이나요?</li>
+    <li>저 멀리 길 위에서 등을 돌리고 걸어가는 사람을 찾아보세요. 누구일까요?</li>
+    <li>앞쪽 땅바닥에 열린 채 놓인 빈 상자를 찾아보세요. 상자 안에 있던 것은 어디로 갔을까요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>어떤 율법교사가 예수님께 물었어요. “내가 무엇을 하여야 영생을 얻으리이까”(10:25). 그는 하나님을 사랑하고 “네 이웃을 네 자신 같이 사랑하라”는 말씀을 알고 있었어요(10:27). 그리고 다시 물었어요. “그러면 내 이웃이 누구니이까”(10:29).</p>
+    <p>예수님이 이야기를 들려주셨어요. 예루살렘에서 여리고로 내려가던 사람이 강도를 만나 거의 죽게 되었어요(10:30). 제사장과 레위인은 그를 보고도 “피하여 지나가”고(10:31~32), 여행하던 사마리아 사람은 “그를 보고 불쌍히 여겨” 상처에 기름과 포도주를 붓고 싸맨 뒤, 자기 짐승에 태워 주막으로 데려가 돌보았어요(10:33~34). 이튿날에는 주막 주인에게 데나리온 둘을 주며 비용이 더 들면 돌아와 갚겠다고 했어요(10:35). 예수님이 물으셨어요. “이 세 사람 중에 누가 강도 만난 자의 이웃이 되겠느냐” “자비를 베푼 자니이다” “가서 너도 이와 같이 하라”(10:36~37).</p>
+    <p>반 고흐가 1890년 5월 초, 프랑스 생레미의 병원에 머물며 치료를 받던 때 그린 그림이에요. 그가 존경하던 화가 들라크루아의 「선한 사마리아인」을 판화로 보고 자기 붓질로 옮겨 그렸어요. 반 고흐의 그림 가운데 성경 이야기를 그린 몇 안 되는 작품이에요. 크뢸러뮐러 미술관은 이 그림이 늘 곁에서 형을 돌봐 준 동생 테오를 떠올리게 했을지도 모른다고 소개해요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>사마리아 사람과 유대 사람은 사이가 아주 나빴어요. 요한복음은 “유대인이 사마리아인과 상종하지 아니함이러라”라고 적었어요(요 4:9). 그래서 이야기 속에서 다친 사람을 도운 사람이 사마리아 사람이었다는 것은, 듣던 사람들에게 깜짝 놀랄 일이었어요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 예루살렘에서 여리고로 내려가는 길</b>예루살렘에서 여리고까지는 24킬로미터쯤 되는 길로, 메마른 유대 광야를 지나 1,000미터쯤 내려가는 가파른 길이었어요. 4세기에 히에로니무스는 이 길 중간쯤을 선한 사마리아인의 여관 터로 꼽았고, 지금 그 자리에는 2009년에 문을 연 선한 사마리아인 박물관이 있어요.</p>
+    <figure class="ph" data-q="길가의 여관과 언덕 꼭대기의 옛 성터를 찾아보세요. 다친 사람을 데려가 쉬게 하기에 알맞은 곳일까요?" data-color="img/ptvr3-inn.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 메마른 언덕 사이 길가에 낮은 돌담과 지붕 얹은 집으로 된 여관이 있고, 앞쪽 비탈에 두 사람이 앉아 쉬고 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 광야의 언덕은 무슨 색이었을까?">
+     <div class="phw"><img src="img/ptera3-inn.jpg" alt="흑백 사진. 메마른 언덕 사이 길가에 낮은 돌담과 지붕 얹은 집으로 된 여관이 있고, 언덕 꼭대기에 옛 성터가 보인다. 앞쪽 비탈에 두 사람이 앉아 쉬고 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>여리고 가는 길의 ‘선한 사마리아인의 여관’</b> · 1900년<br>예루살렘과 여리고 사이 길가에 있던 옛 여관(칸)이에요. 지금 모습의 건물은 1903년에 다시 지었어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Road_to_Jericho,_Jordan,_etc._Good_Samaritan%27s_Inn_LOC_matpc.00036.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="돌담 안 마당을 보세요. 나그네와 짐승은 어디에서 쉬었을까요?">
+     <img src="img/ptcolor3-khan.jpg" alt="색을 입힌 옛 인쇄 사진. 언덕 비탈에 돌담으로 네모나게 둘러싼 마당과 아치가 있는 건물이 있고, 뒤로 구불구불한 길과 산이 이어진다." loading="lazy">
+     <figcaption><b>여리고 가는 길, 칸 엘아흐마르 · 1890년대 컬러 인쇄본</b><br>‘칸 엘아흐마르’는 ‘붉은 여관’이라는 뜻이에요. 선한 사마리아인의 여관이 이 이름으로 불리기도 했어요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002725031/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 뜨겁고 메마른 길을 걷고 있어요. 길가에 누가 다쳐서 쓰러져 있어요. 아무도 없는 길, 나는 어떻게 할까요?"><small>눈 감고 상상해 보기</small>그냥 지나가고 싶은 마음, 무서운 마음, 바쁜 마음. 그래도 걸음을 멈춘 사마리아 사람은 쓰러진 사람에게서 무엇을 보았을까요?</p>
+    <a class="go" href="https://krollermuller.nl/en/vincent-van-gogh-the-good-samaritan-after-delacroix">그림 가까이 보기 · 크뢸러뮐러 미술관 작품 페이지<small>영어 · 굵은 붓질과 멀리 걸어가는 사람을 찾아보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“누가 도움이 필요해 보일 때, 너는 무엇을 할 수 있을까?”</p></div>
+   <div class="root">예수님은 “누가 강도 만난 자의 이웃이 되겠느냐” 물으시고 “가서 너도 이와 같이 하라” 하셨습니다(눅 10:36~37).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/LUK.10">이제 본문 읽기 · 누가복음 10:25~37<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 낯선 사람을 무조건 도우라고 하면 아이에게 위험할 수 있어요. 아이가 할 수 있는 도움은 어른에게 알리기, 다친 친구 곁에 있어 주기처럼 안전한 일이라고 함께 정해 주세요. 제사장과 레위인을 ‘나쁜 사람’으로만 그리기보다, 우리도 바빠서 지나칠 때가 있다고 이야기해 보세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li><a href="https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/inn-from-the-good-samaritan-parable-becomes-a-museum/">Bible History Daily ‘Inn from the Good Samaritan Parable Becomes a Museum’</a> <span class="note">영어 · 여관 터의 역사와 모자이크 박물관</span></li>
+    <li>누가복음 17장에서 돌아와 감사한 사람도 사마리아 사람이었어요(17:16). 이 코스의 다섯째 장면에서 다시 만나요.</li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (6)</summary><ul>
+    <li><a href="https://krollermuller.nl/en/vincent-van-gogh-the-good-samaritan-after-delacroix">크뢸러뮐러 미술관 작품 페이지</a>: 1890년 5월 초, 73×59.5cm, 들라크루아의 판화를 옮겨 그림, 늘 곁에 있어 준 동생 테오</li>
+    <li><a href="https://krollermuller.nl/en/conservation-the-good-samaritan-after-delacroix-vincent-van-gogh">크뢸러뮐러 미술관 ‘보존 처리’ 안내</a>: 생레미에서 그린 그림, 몇 안 되는 종교화</li>
+    <li><a href="https://vangoghletters.org/en/let866">반 고흐 편지 866(1890년 5월 2일 무렵)</a>: 1889년 9월부터 그리려고 계획한 그림</li>
+    <li><a href="https://en.wikipedia.org/wiki/Inn_of_the_Good_Samaritan">Wikipedia ‘Inn of the Good Samaritan’</a>: 예루살렘과 여리고 중간, 히에로니무스의 동정, 1903년 다시 지은 칸, 2009년 박물관, ‘칸 엘아흐마르’로 불리기도 함</li>
+    <li><a href="https://www.holylandsite.com/inn-of-the-good-samaritan">Holy Land Site ‘Inn of the Good Samaritan’</a>: 예루살렘과 여리고 사이 약 24km</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/LUK.10">개역개정 본문(대한성서공회)</a>: 눅 10:25~37; 17:16; 요 4:9</li>
+   </ul><p>그림: 빈센트 반 고흐, 「선한 사마리아인(들라크루아를 따라서)」(원제: De barmhartige Samaritaan (naar Delacroix)), 1890년, 오테를로 크뢸러뮐러 미술관. 사진: 구글 아트 앤 컬처, 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Road_to_Jericho,_Jordan,_etc._Good_Samaritan%27s_Inn_LOC_matpc.00036.jpg">‘Road to Jericho, Jordan, etc. Good Samaritan’s Inn’</a>(1900년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725031/">‘On the road to Jericho, Khan-el-Ahmar, Holy Land’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 4 -->
+ <article class="card" id="scene4" data-week="scene4">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt4-tintoretto.jpg" alt="틴토레토의 가로로 긴 그림. 가운데에서 예수가 왼쪽의 제자에게 빵을 건네고, 오른쪽에서는 한 젊은이가 빵이 담긴 접시를 들고 있다. 예수의 발치에는 물고기가 담긴 그릇이 놓여 있다. 뒤로 물가와 언덕에 수많은 사람들이 무리 지어 앉거나 기대어 있고, 앞쪽 양옆에는 화려한 옷을 입은 여인들이 앉아 있다.">
+   <figcaption class="cap"><b>「빵과 물고기의 기적」</b> 야코포 틴토레토, 1545~1550년 무렵<br>미국 뉴욕, 메트로폴리탄 미술관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">세계성찬주일 · 아이의 보리떡</span><span><span data-wd="3">10월 4일</span> 세계성찬주일 · 요한복음 6:1~14</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>보리떡 다섯 개로 정말 오천 명이 먹었어요?</h2></div>
+   <p class="line">배고픈 사람은 오천 명, 가진 것은 한 아이의 보리떡 다섯 개와 물고기 두 마리. 예수님은 그것을 받아 감사 기도부터 하셨어요.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>가운데에서 빵을 건네시는 예수님을 찾아보세요. 누구에게 건네고 계신가요?</li>
+    <li>오른쪽에서 빵 접시를 든 젊은이를 찾아보세요. 이 사람이 보리떡을 가져온 아이일까요?</li>
+    <li>예수님 발치에서 물고기를 찾아보세요. 몇 마리나 보이나요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>갈릴리 바다 건너편 산에 큰 무리가 예수님을 따라왔어요(6:1~3). 예수님은 빌립에게 “우리가 어디서 떡을 사서 이 사람들을 먹이겠느냐” 물으셨고, 빌립은 “이백 데나리온의 떡이 부족하리이다” 하고 대답했어요(6:5, 7). 한 데나리온은 일꾼의 하루 품삯이었으니(마 20:2), 이백 날을 일해도 모자란다는 말이에요.</p>
+    <p>그때 안드레가 말했어요. “여기 한 아이가 있어 보리떡 다섯 개와 물고기 두 마리를 가지고 있나이다 그러나 그것이 이 많은 사람에게 얼마나 되겠사옵나이까”(6:9). 예수님은 사람들을 잔디에 앉게 하시고, 떡을 가져 축사하신 후 나눠 주시고 물고기도 그렇게 하셨어요. 오천 명쯤 되는 사람들이 “원대로” 먹었어요(6:10~11). 남은 조각을 거두니 열두 바구니에 찼어요(6:12~13).</p>
+    <p>베네치아의 화가 틴토레토가 1545~1550년 무렵에 그린, 높이 1.5미터에 너비 4미터가 넘는 가로로 긴 그림이에요. 예수님이 제자 안드레에게 빵과 물고기를 한 접시씩 건네며 나누게 하시는 장면으로 보여요. 수많은 사람들이 물가와 언덕에 흩어져 앉아 있어서, 그림 앞에 서면 우리도 그 무리 가운데 앉은 것 같아요. 1913년부터 뉴욕 메트로폴리탄 미술관에 있어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>이 기적은 마태·마가·누가·요한, 사복음서에 모두 나오는 단 하나의 기적이에요. 그 가운데 보리떡과 물고기를 가져온 사람이 ‘한 아이’였다고 알려 주는 것은 요한복음뿐이에요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 갈릴리 바닷가 타브가</b>요한복음은 이 일이 갈릴리 바다 건너편 산에서 있었다고만 말해요(6:1, 3). 4세기부터 사람들은 갈릴리 바다 북서쪽 물가의 타브가(‘일곱 샘’이라는 뜻의 헵타페곤)를 이 기적의 자리로 기억해 왔어요. 그곳에는 350년 무렵 첫 교회가 세워졌고, 5세기에 더 크게 지은 교회의 바닥에서 빵과 물고기 모자이크가 나왔어요.</p>
+    <figure class="ph" data-q="바구니 양옆의 물고기를 찾아보세요. 성경에는 빵과 물고기가 몇 개씩이라고 나왔지요?">
+     <img src="img/ptera4-mosaic.jpg" alt="흑백 사진. 바닥 모자이크 한가운데 빵이 담긴 바구니가 있고, 그 양옆에 물고기가 한 마리씩 있다." loading="lazy">
+     <figcaption><b>타브가의 빵과 물고기 모자이크</b> · 1930년대<br>1932년부터 발굴한 5세기 교회의 바닥에서 나온 모자이크예요. 이 바구니에는 빵이 네 개만 그려져 있다고 해요. 다섯째 빵은 어디 있을까요? <a class="orig" href="https://commons.wikimedia.org/wiki/File:Mosaic_of_loaves_%26_fishes_at_Tabgha_LOC_matpc.04154.jpg">원본 크게 보기</a></figcaption>
+    </figure>
+    <figure class="ph" data-q="빵 장수가 무엇을 팔고 있나요? 빵 모양을 보세요.">
+     <img src="img/ptcolor4-bread-seller.jpg" alt="색을 입힌 옛 인쇄 사진. 돌로 된 아치 아래 두 사람이 앉아 있고, 그 앞 널판 위에 고리 모양의 둥근 빵이 수북이 쌓여 있다." loading="lazy">
+     <figcaption><b>예루살렘의 빵 장수 · 1890년대 컬러 인쇄본</b><br>예루살렘 거리에서 둥근 빵을 쌓아 놓고 파는 빵 장수예요. 아이가 가져온 보리떡도 이렇게 손으로 떼어 나누어 먹는 빵이었어요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002725082/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 하루 종일 걸어서 배가 꼬르륵거려요. 내 가방엔 엄마가 싸 준 작은 도시락이 있어요. 누군가 “먹을 것 있는 사람?” 하고 물어요."><small>눈 감고 상상해 보기</small>“그것이 이 많은 사람에게 얼마나 되겠사옵나이까.” 내가 가진 것이 너무 작아 보일 때가 있어요. 예수님은 그 작은 것을 받아 감사 기도부터 하셨어요.</p>
+    <a class="go" href="https://www.metmuseum.org/art/collection/search/437821">그림 가까이 보기 · 메트로폴리탄 미술관 작품 페이지<small>영어 · 그림을 크게 키워서 빵을 건네는 손과 바구니를 찾아보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“내가 가진 작은 것 가운데 친구와 나눌 수 있는 건 뭐가 있을까?”</p></div>
+   <div class="root">예수님은 한 아이의 보리떡 다섯 개와 물고기 두 마리를 받아 축사하시고 오천 명을 먹이셨습니다(요 6:9~11).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/JHN.6">이제 본문 읽기 · 요한복음 6:1~14<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 이 이야기를 “서로 나눠 먹으면 모두 배부르다”는 교훈으로만 줄이지 말고, 사람들이 이 일을 보고 “표적”이라 했다는 요한복음의 말도 함께 들려주세요(6:14). 요한복음 6장은 이어서 예수님이 “나는 생명의 떡이니”라고 하신 말씀으로 이어져요(6:35). 성찬에 아직 참여하지 않는 아이가 있다면 소외감을 느끼지 않도록 살펴 주세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>예수님은 남은 조각을 거두며 “버리는 것이 없게 하라” 하셨어요(6:12). 아이들과 함께 이 말씀도 읽어 보세요.</li>
+    <li><a href="https://www.proterrasancta.org/en/?p=182337">Pro Terra Sancta ‘The miracle of the multiplication of the loaves’</a> <span class="note">영어 · 타브가 교회와 빵과 물고기 모자이크</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (7)</summary><ul>
+    <li><a href="https://www.metmuseum.org/art/collection/search/437821">메트로폴리탄 미술관 작품 페이지</a>: 1545~1550년 무렵, 154.9×407.7cm, 1913년 프랜시스 L. 릴런드 기금으로 사들임</li>
+    <li><a href="https://www.superstock.com/asset/miracle-loaves-fishes-artist-jacopo-tintoretto-jacopo-robusti-italian-venice/4409-17352678">SuperStock 작품 설명</a>: 성 안드레에게 빵과 물고기를 한 접시씩 건네 나누게 하시는 장면</li>
+    <li><a href="https://christianiconography.info/metropolitan/2017/loavesFishesTintoretto.html">Christian Iconography ‘Jacopo Tintoretto and workshop’</a>: 무리 지어 앉은 사람들, 강과 언덕이 있는 풍경</li>
+    <li><a href="https://www.indcatholicnews.com/news/47748">Independent Catholic News</a>: 사복음서에 모두 나오는 기적</li>
+    <li><a href="https://en.wikipedia.org/wiki/Church_of_the_Multiplication">Wikipedia ‘Church of the Multiplication’</a>: 350년 무렵의 첫 교회, 5세기 교회, 1932년의 발굴, 빵 네 개와 물고기 두 마리 모자이크</li>
+    <li><a href="https://www.proterrasancta.org/en/?p=182337">Pro Terra Sancta</a>: 다시 찾은 빵 바구니와 물고기 두 마리의 바닥 모자이크</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/JHN.6">개역개정 본문(대한성서공회)</a>: 요 6:1~14, 35; 마 20:2</li>
+   </ul><p>그림: 야코포 틴토레토, 「빵과 물고기의 기적」(원제: The Miracle of the Loaves and Fishes), 1545~1550년 무렵, 뉴욕 메트로폴리탄 미술관. 사진: 메트로폴리탄 미술관 공개 이미지(CC0), 위키미디어 공용.<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Mosaic_of_loaves_%26_fishes_at_Tabgha_LOC_matpc.04154.jpg">‘Mosaic of loaves &amp; fishes at Tabgha’</a>(1934~1939년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725082/">‘Bread seller of Jerusalem, Holy Land’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 5 -->
+ <article class="card" id="scene5" data-week="scene5">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt5-echternach.jpg" alt="금빛과 여러 색으로 꾸민 옛 복음서 책의 그림. 가로로 긴 칸에 두 장면이 이어진다. 왼쪽에서는 예수가 손을 들어, 몸에 붉은 점이 돋은 사람 열 명에게 말한다. 예수 뒤에는 열쇠를 든 베드로가 서 있다. 가운데에는 성문과 탑이 있는 성이 있고, 오른쪽에서는 한 사람이 예수 발 앞에 엎드려 있다. 위쪽 금빛 띠에 라틴어 글귀가 적혀 있다.">
+   <figcaption class="cap"><b>「열 명의 나병 환자를 고치심」</b> 『에히터나흐의 황금 복음서』 가운데, 1030~1050년 무렵<br>독일 뉘른베르크, 게르만 국립 박물관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">추수감사주일 · 돌아온 한 사람</span><span><span data-wd="4">11월 15일</span> 추수감사주일 · 누가복음 17:11~19</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>왜 한 사람만 돌아와서 고맙다고 했어요?</h2></div>
+   <p class="line">열 사람이 깨끗해졌어요. 그런데 가던 길을 돌려 돌아온 사람은 한 사람뿐이었어요.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>몸에 점이 돋은 사람들을 세어 보세요. 정말 열 명인가요?</li>
+    <li>예수님 발 앞에 엎드린 사람을 찾아보세요. 그 위에 적힌 ‘SAMARITANUS’는 무슨 뜻일까요?</li>
+    <li>왼쪽 예수님 뒤에서 열쇠를 든 사람을 찾아보세요. 누구일까요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>예수님이 예루살렘으로 가시는 길에 “사마리아와 갈릴리 사이로” 지나가셨어요(17:11). 한 마을에 들어가시니 나병 환자 열 명이 “멀리 서서” 소리를 높여 불렀어요. “예수 선생님이여 우리를 불쌍히 여기소서”(17:12~13). 그 시절 나병 환자는 사람들과 떨어져 진영 밖에서 혼자 살아야 했어요(레 13:45~46).</p>
+    <p>예수님은 “가서 제사장들에게 너희 몸을 보이라” 하셨고, 그들은 “가다가 깨끗함을 받”았어요(17:14). 그 가운데 한 사람이 자기가 나은 것을 보고 큰 소리로 하나님께 영광을 돌리며 돌아와, 예수님 발 아래 엎드려 감사했어요. “그는 사마리아 사람이라”(17:15~16). 예수님이 물으셨어요. “열 사람이 다 깨끗함을 받지 아니하였느냐 그 아홉은 어디 있느냐”(17:17). 그리고 그에게 “일어나 가라 네 믿음이 너를 구원하였느니라” 하셨어요(17:19).</p>
+    <p>1030~1050년 무렵, 지금의 룩셈부르크에 있는 에히터나흐 수도원에서 훔베르트 원장의 지휘로 만든 복음서 책 속의 그림이에요. 본문 전체를 금 잉크로 써서 ‘황금 복음서(코덱스 아우레우스)’라고 불러요. 이 그림처럼 예수님의 이야기를 칸마다 이어 그린 화려한 그림들이 들어 있어요. 1955년부터 독일 뉘른베르크의 게르만 국립 박물관에 있어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>그림 위쪽 금빛 띠의 라틴어는 ‘열 사람을 깨끗하게 하셨는데, 한 사람이 감사했다’는 뜻으로 읽혀요. 그리고 예수님이 “제사장들에게 너희 몸을 보이라” 하신 데는 까닭이 있어요. 레위기의 규례에 따라, 나병에서 나은 사람은 제사장에게 몸을 보이고 깨끗하다는 확인을 받아야 다시 마을로 돌아갈 수 있었거든요(레 14:2~3). 아홉 사람은 그 말씀대로 길을 서둘렀을 거예요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 사마리아와 갈릴리 사이</b>북쪽의 갈릴리 언덕과 남쪽의 사마리아 산지 사이에는 이스르엘 골짜기라고도 하는 넓은 에스드라엘론 평야가 펼쳐져 있어요. 예수님은 이 경계 어디쯤의 한 마을에서 열 사람을 만나셨어요. 열 사람 가운데에는 유대 사람이 아닌 사마리아 사람도 있었어요(17:16, 18).</p>
+    <figure class="ph" data-q="구불구불한 길을 따라가 보세요. 저 들판 어디쯤에 그 마을이 있었을까요?" data-color="img/ptvr5-esdraelon.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 앞쪽 비탈을 따라 구불구불한 길이 내려가고, 그 너머로 넓은 들판과 낮은 산들이 멀리까지 펼쳐진다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 곡식이 자라는 들판은 무슨 색이었을까?">
+     <div class="phw"><img src="img/ptera5-esdraelon.jpg" alt="흑백 사진. 높은 곳에서 내려다본 풍경. 앞쪽 비탈을 따라 구불구불한 길이 내려가고, 그 너머로 넓은 들판과 낮은 산들이 멀리까지 펼쳐진다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>에스드라엘론 평야</b> · 1898~1946년 사이<br>갈릴리와 사마리아를 가르는 넓은 들이에요. 예수님은 예루살렘으로 가시며 이 경계를 지나가셨어요(17:11). <a class="orig" href="https://commons.wikimedia.org/wiki/File:Plain_of_Esdraelon_LOC_matpc.10555.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="낙타가 무엇을 끌고 있나요? 밭을 갈고 나면 무엇을 할까요?">
+     <img src="img/ptcolor5-laborers.jpg" alt="색을 입힌 옛 인쇄 사진. 나무 아래 밭에서 낙타가 쟁기를 끈다. 한 아이가 낙타의 고삐를 잡고, 한 남자가 쟁기를 잡고 있다." loading="lazy">
+     <figcaption><b>에스드라엘론 평야의 일꾼들 · 1890년대 컬러 인쇄본</b><br>‘이스르엘’은 ‘하나님이 씨를 뿌리신다’는 뜻이에요. 그 이름처럼 낙타로 밭을 갈아 씨를 뿌리는 기름진 들판이에요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002725093/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 나는 아파서 친구들과 떨어져 지내야 해요. 오늘 예수님이 지나가신대요. 멀리서 있는 힘껏 외쳐요. “예수님, 도와주세요!”"><small>눈 감고 상상해 보기</small>깨끗해진 몸을 보고 기뻐서 가던 길을 서두른 아홉 사람, 가던 길을 멈추고 돌아온 한 사람. 오늘 나는 누구에게 돌아가 “고맙습니다” 하고 말하고 싶나요?</p>
+    <a class="go" href="https://dlib.gnm.de/item/Hs156142">그림 가까이 보기 · 게르만 국립 박물관 디지털 도서관<small>독일어 · 『황금 복음서』 전체를 한 장씩 넘겨 볼 수 있어요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“오늘 고맙다고 말하고 싶은 사람이 있니? 누구야?”</p></div>
+   <div class="root">깨끗함을 받은 열 사람 가운데 한 사람이 돌아와 하나님께 영광을 돌리며, 예수님 발 아래 엎드려 감사했습니다(눅 17:15~16).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/LUK.17">이제 본문 읽기 · 누가복음 17:11~19<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 나병 환자를 ‘더러운 사람’이나 벌 받은 사람처럼 말하지 않도록 조심해 주세요. 오늘날 한센병은 약으로 고칠 수 있는 병이에요. 감사하지 않은 아홉 사람을 탓하기보다, 돌아온 한 사람의 기쁨에 마음을 모아 주세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>누가복음에서 사마리아 사람은 두 번 칭찬받아요. 강도 만난 사람을 도운 사람(10:33)과 돌아와 감사한 사람(17:16)이에요. 이 코스의 셋째 장면도 함께 보세요.</li>
+    <li><a href="https://www.newliturgicalmovement.org/2025/09/the-golden-codex-of-echternach-gospel.html">New Liturgical Movement ‘The Golden Codex of Echternach’</a> <span class="note">영어 · 황금 복음서의 여러 그림</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (7)</summary><ul>
+    <li><a href="https://en.wikipedia.org/wiki/Codex_Aureus_of_Echternach">Wikipedia ‘Codex Aureus of Echternach’</a>: 1030~1050년 무렵, 에히터나흐 수도원, 훔베르트 원장, 금 잉크로 쓴 본문, 게르만 국립 박물관 Hs. 156142</li>
+    <li><a href="https://bnl.public.lu/en/a-la-une/a-la-loupe/2024/scriptorium-echternach.html">룩셈부르크 국립도서관 ‘The Echternach scriptorium’</a>: 훔베르트 원장(1028~1051) 시절의 필사실, 금 잉크로 쓴 코덱스 아우레우스</li>
+    <li><a href="https://gouvernement.lu/dam-assets/fr/actualites/articles/2007/12/04asselborn-nuremberg/04-communique.pdf">게르만 국립 박물관 보도 자료(2007)</a>: 1955년에 사들임, 금 잉크로만 쓴 복음서</li>
+    <li><a href="https://www.britannica.com/place/Plain-of-Esdraelon">Britannica ‘Plain of Esdraelon’</a>: 북쪽 갈릴리 언덕과 남쪽 사마리아를 가르는 낮은 들</li>
+    <li><a href="https://www.crivoice.org/phototour/pjezreel.html">CRI/Voice ‘The Valley of Jezreel and Plain of Esdraelon’</a>: 사마리아와 갈릴리의 경계, ‘하나님이 씨를 뿌리신다’는 이름</li>
+    <li><a href="https://www.who.int/news-room/fact-sheets/detail/leprosy">세계보건기구 ‘Leprosy’</a>: 약으로 고칠 수 있는 병</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/LUK.17">개역개정 본문(대한성서공회)</a>: 눅 10:33; 17:11~19; 레 13:45~46; 14:2~3</li>
+   </ul><p>그림: 『에히터나흐의 황금 복음서(Codex Aureus Epternacensis)』 가운데 「열 명의 나병 환자를 고치심」, 1030~1050년 무렵, 뉘른베르크 게르만 국립 박물관(Hs. 156142). 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Plain_of_Esdraelon_LOC_matpc.10555.jpg">‘Plain of Esdraelon’</a>(1898~1946년 사이, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725093/">‘Laborers, Plain of Esdraelon, Holy Land’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 6 -->
+ <article class="card" id="scene6" data-week="scene6">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt6-alkmaar.jpg" alt="알크마르의 화가가 그린 일곱 폭 그림을 두 줄로 나누어 보여 준다. 1500년 무렵 네덜란드의 거리와 집에서 사람들이 배고픈 이에게 빵을 나누고, 목마른 이에게 마실 것을 주고, 헐벗은 이에게 옷을 입히고, 죽은 이를 묻고, 나그네를 맞아들이고, 병든 이를 찾아가고, 갇힌 이를 찾아간다. 거의 모든 장면에 예수가 구경꾼들 사이에 서 있고, 가운데 넷째 장면의 하늘에는 심판하러 오신 그리스도가 앉아 있다.">
+   <figcaption class="cap"><b>「일곱 가지 자비의 일」</b> 알크마르의 화가, 1504년<br>네덜란드 암스테르담, 레이크스 미술관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">왕이신 그리스도 주일 · 지극히 작은 자</span><span><span data-wd="5">11월 22일</span> 왕이신 그리스도 주일 · 마태복음 25:31~46</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>예수님을 어디서 만날 수 있어요?</h2></div>
+   <p class="line">배고픈 사람, 목마른 사람, 나그네와 헐벗은 사람, 아픈 사람과 갇힌 사람. 왕은 그들 가운데 자기가 있었다고 말해요.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>일곱 장면에서 무엇을 나누고 있는지 하나씩 말해 보세요. 빵, 마실 것, 옷…</li>
+    <li>장면마다 사람들 틈에 서 계신 예수님을 찾아보세요. 몇 장면에서 찾았나요?</li>
+    <li>일곱 장면 가운데 내가 오늘 할 수 있을 것 같은 일은 어느 것인가요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>예수님은 마지막 날의 이야기를 들려주셨어요. 인자가 영광 가운데 와서 보좌에 앉으면, 모든 민족을 모으고 “목자가 양과 염소를 구분하는 것 같이” 나눌 거예요(25:31~32). 왕은 오른편 사람들에게 말해요. “내가 주릴 때에 너희가 먹을 것을 주었고 목마를 때에 마시게 하였고 나그네 되었을 때에 영접하였고 헐벗었을 때에 옷을 입혔고 병들었을 때에 돌보았고 옥에 갇혔을 때에 와서 보았느니라”(25:35~36).</p>
+    <p>그들은 깜짝 놀라 물었어요. “주여 우리가 어느 때에 주께서 주리신 것을 보고 음식을 대접하였으며…”(25:37). 왕이 대답했어요. “너희가 여기 내 형제 중에 지극히 작은 자 하나에게 한 것이 곧 내게 한 것이니라”(25:40). 그들은 자기가 예수님을 도운 줄도 몰랐어요. 그저 눈앞의 배고프고 아픈 사람을 도왔을 뿐이에요.</p>
+    <p>1504년 네덜란드 알크마르의 성 라우렌스 교회에 걸렸던 그림이에요. 화가의 이름은 알려지지 않아서, 이 그림 때문에 ‘알크마르의 화가’라고 불러요. 마태복음 25장의 여섯 가지 일에 ‘죽은 사람을 묻어 주는 일’을 더해 일곱 장면을 그렸고, 배경은 1500년 무렵 네덜란드의 거리와 집이에요. 거의 모든 장면에 예수님이 구경하는 사람들 틈에 서 계시고, 가운데 넷째 장면의 하늘에는 영광 가운데 심판하러 오신 그리스도가 그려져 있어요(25:31). 1566년 성상 파괴 때 크게 상했고, 1918년까지 그 교회에 있다가 지금은 암스테르담 레이크스 미술관에 있어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>일곱째 일인 ‘죽은 사람을 묻어 주는 일’은 마태복음 25장에 없어요. 죽은 이들을 묻어 주어 칭찬받은 토빗의 이야기에서 왔어요. 그림의 틀 아래에는 장면마다 짧은 글귀가 적혀 있는데, 나그네를 맞아들이는 다섯째 장면 아래에는 “너희가 가장 작은 이에게 한 것이 내게 한 것”이라는 뜻의 옛 네덜란드 말이 적혀 있어요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 양과 염소가 함께 풀을 뜯는 들</b>예수님 시대의 목자들은 양과 염소를 한 무리로 함께 쳤어요. 낮에는 함께 풀을 뜯다가 밤이 되면 나누었는데, 염소는 밤에 따뜻하게 지켜 주어야 했고 양은 바깥 공기 속에서 자는 것을 좋아했기 때문이라고 해요. 예수님의 말씀을 듣던 사람들은 목자가 양과 염소를 나누는 모습을 늘 보며 살았어요.</p>
+    <figure class="ph" data-q="흰 양과 검은 염소를 구분해 보세요. 어느 쪽이 더 많은가요?" data-color="img/ptvr6-flock.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 마을 앞 돌밭에서 흰 양과 검은 염소가 한데 섞여 풀을 뜯는다. 뒤로 집들과 첨탑이 보인다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 양과 염소의 털은 무슨 색이었을까?">
+     <div class="phw"><img src="img/ptera6-flock.jpg" alt="흑백 사진. 마을 앞 돌밭에서 흰 양과 검은 염소가 한데 섞여 풀을 뜯는다. 뒤로 집들과 첨탑이 보인다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>셰이크 자라 근처의 양과 염소 떼</b> · 1940년대<br>예루살렘 성 북쪽 동네 근처에서 찍은 사진이에요. 1940년대에도 양과 염소는 한 무리로 풀을 뜯었어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Herd_or_flock_of_goats_%26_sheep_near_Sheik_Jerrah_(i.e.,_Sheikh_Jarrah)_LOC_matpc.21548.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="물장수는 물을 무엇에 담아 나르고 있나요? 목마른 사람에게 물 한 모금은 얼마나 고마울까요?">
+     <img src="img/ptcolor6-water-carrier.jpg" alt="색을 입힌 옛 인쇄 사진. 돌담 앞에서 흰옷에 터번을 쓴 물장수가 물이 가득 든 가죽 부대를 등에 메고 서 있다." loading="lazy">
+     <figcaption><b>예루살렘의 물장수 · 1890년대 컬러 인쇄본</b><br>집집마다 수도가 없던 시절, 물장수가 가죽 부대에 물을 담아 날라 팔았어요. “목마를 때에 마시게 하였고”(25:35)라는 말이 얼마나 구체적인 도움이었는지 보여 줘요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002725079/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 길가에 배고픈 친구가 앉아 있어요. 나는 내 빵을 반으로 나눠 줘요. 고개를 들어 보니, 그 친구 곁에 예수님이 웃으며 서 계세요."><small>눈 감고 상상해 보기</small>오른편의 사람들은 “우리가 어느 때에” 하고 놀랐어요. 예수님을 돕는 줄도 모르고 그저 작은 사람 하나를 도왔어요. 오늘 내 곁의 ‘지극히 작은 자’는 누구일까요?</p>
+    <a class="go" href="https://www.rijksmuseum.nl/en/collection/SK-A-2815">그림 가까이 보기 · 레이크스 미술관 작품 페이지<small>영어 · 일곱 폭을 하나씩 크게 보며 예수님이 서 계신 자리를 찾아보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“이번 주에 누구에게 빵 한 조각, 물 한 잔 같은 작은 친절을 베풀 수 있을까?”</p></div>
+   <div class="root">왕은 “너희가 여기 내 형제 중에 지극히 작은 자 하나에게 한 것이 곧 내게 한 것이니라”라고 말합니다(마 25:40).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/MAT.25">이제 본문 읽기 · 마태복음 25:31~46<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 왼편 사람들이 들어가는 “영원한 불”(25:41)은 아이에게 무섭게 들릴 수 있어요. 겁을 주는 데 쓰지 말고, 이 이야기의 한가운데에는 작은 사람을 돌보는 일이 곧 예수님을 돌보는 일이라는 말씀이 있다고 알려 주세요. 갇힌 사람을 찾아가는 장면은 아이에게 낯설 수 있으니, 외로운 사람을 찾아가는 일로 넓혀 이야기해도 좋아요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>다음 주일은 대림절 첫 주일이에요. 교회력의 마지막 주일에서 새해 첫 주일로, 대림절 코스로 이어 가 보세요.</li>
+    <li><a href="https://kirbylaingcentre.co.uk/?p=15230">Kirby Laing Centre ‘The Master of Alkmaar: The Seven Works of Mercy’</a> <span class="note">영어 · 일곱 장면과 그 아래 글귀 풀이</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (7)</summary><ul>
+    <li><a href="https://www.rijksmuseum.nl/en/collection/SK-A-2815-1/catalogue-entry">레이크스 미술관 작품 설명</a>: 네덜란드 도시를 배경으로 한 일곱 장면, 거의 모든 폭에서 구경꾼들 사이에 선 그리스도</li>
+    <li><a href="https://www.rijksmuseum.nl/en/collection/object/The-Seven-Works-of-Mercy--14aaec41ef8d5849daa5f6a4d08978bf">레이크스 미술관 다폭 제단화 기록</a>: 1504년, 1918년까지 알크마르 라우렌스 교회, 화가 이름의 유래</li>
+    <li><a href="https://rijksmuseum.nl/en/collection/SK-A-2815-3">레이크스 미술관 ‘The Seven Works of Mercy’</a>: 1500년 무렵의 도시 사회, 1566년 성상 파괴 때 크게 상함</li>
+    <li><a href="https://www.rijksmuseum.nl/en/collection/SK-A-2815-5/catalogue-entry">레이크스 미술관 다섯째 폭</a>: 틀 아래의 글귀 ‘wat Ghij den minsten doet wert mij gedaen’</li>
+    <li><a href="https://kirbylaingcentre.co.uk/?p=15230">Kirby Laing Centre</a>: 여섯 가지는 마태복음 25장에서, 죽은 이를 묻는 일은 토빗 이야기에서</li>
+    <li><a href="https://old-tips.translation.bible/story/translation-commentary-on-matthew-2532/">Translation commentary on Matthew 25:32</a>: 낮에는 함께 풀을 뜯고 밤에는 나누는 양과 염소</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/MAT.25">개역개정 본문(대한성서공회)</a>: 마 25:31~46</li>
+   </ul><p>그림: 알크마르의 화가, 「일곱 가지 자비의 일」(원제: De zeven werken van barmhartigheid), 1504년, 암스테르담 레이크스 미술관. 사진: 레이크스 미술관 공개 이미지, 위키미디어 공용(저작권 만료). 원래 한 줄로 이어진 일곱 폭을 화면에 맞게 두 줄로 나눠 붙였어요.<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Herd_or_flock_of_goats_%26_sheep_near_Sheik_Jerrah_(i.e.,_Sheikh_Jarrah)_LOC_matpc.21548.jpg">‘Herd or flock of goats &amp; sheep near Sheik Jerrah’</a>(1940~1946년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725079/">‘Water carrier of Jerusalem, Holy Land’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+  <p>그림은 저작권이 끝난 작품(퍼블릭 도메인)만 썼어요. ‘그 시절로 가 보기’의 옛 사진은 미국 의회도서관 <a href="https://commons.wikimedia.org/wiki/Category:Matson_Collection_in_the_Library_of_Congress">매슨 컬렉션</a>(20세기에 찍은 사진, 알려진 저작권 제한 없음)에서 가져왔어요.</p>
+  <p>‘가상 복원’은 흑백 사진에 AI 컬러화 모델 <a href="https://github.com/piddnad/ddcolor">DDColor</a>(알리바바 연구진, ICCV 2023)로 색을 입힌 것이에요. 허깅페이스에 공개된 <a href="https://huggingface.co/spaces/gudada/DDColor">DDColor 앱</a>을 썼어요. 사진의 밝기와 모양은 그대로 두고 색만 짐작해서 입히기 때문에, 그럴듯해 보여도 실제 색과 다를 수 있어요.</p>
+  <p>‘1890년대 컬러 인쇄본’은 미국 의회도서관 <a href="https://www.loc.gov/collections/photochrom-prints/about-this-collection/">포토크롬 컬렉션</a>에서 가져왔어요. 흑백 원판에, 사진가가 현장에서 적어 둔 색 메모대로 색을 입혀 찍어 낸 방식이라(<a href="https://en.wikipedia.org/wiki/Photochrom">Wikipedia ‘Photochrom’</a>) AI가 짐작한 색은 아니지만, 실제 색과 똑같다고 할 수는 없어요. 의회도서관은 이 컬렉션에 알려진 저작권 제한이 없다고 밝혀요(<a href="https://blogs.loc.gov/loc/2017/10/free-to-use-and-reuse-historical-travel-pictures/">의회도서관 블로그</a>).</p>
+  <p>장면 날짜는 개정 공동 성서정과(RCL)가 그 본문을 읽는 주일에 맞추었어요. 창세기 18장은 A해 6월 12~18일 주일, 마가복음 4:35~41은 B해 6월 19~25일 주일, 누가복음 10:25~37은 C해 7월 10~16일 주일, 누가복음 17:11~19는 C해 10월 9~15일 주일(추수감사절 본문으로도 읽어요), 마태복음 25:31~46은 A해 왕이신 그리스도 주일의 본문이에요. 요한복음 6장의 오병이어는 B해 7월 24~30일 주일에 읽지만, 이 코스에서는 세계성찬주일(10월 첫 주일)에 두었어요. 추수감사주일은 한국 교회가 많이 지키는 11월 셋째 주일로 잡았고, 그해 추수감사주일과 왕이신 그리스도 주일이 같은 날이면 추수감사 장면을 먼저 보여 줘요.</p>
+  <p><a href="easter.html">이전 코스 · 부활절 코스</a> · <a href="advent.html">다음 코스 · 대림절 4주 코스</a> · <a href="feel.html">함께 느끼기 방으로</a> · <a href="./">연습하기 방으로</a></p>
+ </div>
+</footer>
+</div>
+
+<div class="L" lang="en" hidden>
+<header class="top">
+ <div class="wrap">
+  <div class="bar"><a class="brand back" href="feel.html#en">‹ Question Practice Room · Experience Together</a><button class="lang" type="button" data-lang="ko" lang="ko">한국어</button></div>
+  <h1>After Pentecost Course</h1>
+  <p class="sub">From the shade of the oaks of Mamre to the throne of the King, the season after Pentecost through six works of art. Six Sundays chosen between Trinity Sunday and Christ the King: one picture and one question each.</p>
+  <div class="howto"><span><b>1</b> Look at the art together</span><span><b>2</b> Ask the question</span><span><b>3</b> Step back in time</span><span><b>4</b> Read the passage together</span></div>
+  <p class="tip">Tap <b>Show it to the children</b> under the art to fill the screen with the picture and old photos of the land, one question at a time. Tap a black-and-white photo to switch to an <b>AI-colorized</b> version.</p>
+  <div class="draft">This is a draft awaiting review. AI gathered the sources and wrote the text, so please check each card against ‘Sources’ at the bottom.</div>
+ </div>
+</header>
+
+<main class="wrap" hidden>
+ <nav class="weeks" aria-label="Choose a scene">
+  <a class="wk" href="#scene1" data-w="scene1"><img src="img/pt1-rublev-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Trinity Sunday · <span data-wd="0">May 31</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></span><span class="q">Is God three people?</span></span></a>
+  <a class="wk" href="#scene2" data-w="scene2"><img src="img/pt2-rembrandt-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Early summer · <span data-wd="1">Jun 21</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span></span><span class="q">How could Jesus sleep in a storm?</span></span></a>
+  <a class="wk" href="#scene3" data-w="scene3"><img src="img/pt3-vangogh-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Midsummer · <span data-wd="2">Jul 12</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">Who is my neighbor?</span></span></a>
+  <a class="wk" href="#scene4" data-w="scene4"><img src="img/pt4-tintoretto-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>World Communion · <span data-wd="3">Oct 4</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">Did five thousand people really eat from five loaves?</span></span></a>
+  <a class="wk" href="#scene5" data-w="scene5"><img src="img/pt5-echternach-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Thanksgiving · <span data-wd="4">Nov 15</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">Why did only one man come back to say thank you?</span></span></a>
+  <a class="wk" href="#scene6" data-w="scene6"><img src="img/pt6-alkmaar-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Christ the King · <span data-wd="5">Nov 22</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">Where can we meet Jesus?</span></span></a>
+ </nav>
+ <p class="thread">Two ideas tie the six scenes together: <b>welcoming strangers</b> (Genesis 18:2; Matthew 25:35) and <b>mercy</b> (Luke 10:33, 37; 17:13). Abraham runs to meet three strangers, and the Samaritan is moved with compassion for a man left half dead. Ten lepers cry, “have mercy on us,” and the King says, “I was a stranger, and you took me in.” The long season after Pentecost is the church’s time for living out these words.</p>
+
+ <!-- Scene 1 -->
+ <article class="card" data-week="scene1">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt1-rublev.jpg" alt="Icon by Andrei Rublev. Against a golden background, three winged angels sit in a circle around a table. Behind the angel at left is a house, behind the middle angel a tree, and behind the angel at right a mountain. The three angels bow their heads toward one another, and a single cup stands in the middle of the white table. The place at the front of the table is empty.">
+   <figcaption class="cap"><b>The Trinity</b> Andrei Rublev, early 15th century<br>Russian Orthodox Church, Russia (until 2023 in the State Tretyakov Gallery, Moscow)</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Trinity Sunday · Three guests</span><span><span data-wd="0">May 31</span> · Trinity Sunday · Genesis 18:1–8</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Is God three people?</h2></div>
+   <p class="line">In the heat of the day, three strangers stand across from the tent. Abraham runs out to welcome them.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Look at the three angels’ faces. Who is looking at whom?</li>
+    <li>Find the house, the tree and the mountain behind the angels. Which angel is the tree behind?</li>
+    <li>Find the cup in the middle of the table. Then look at the front of the table. Whose place is the empty one?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>Abraham was sitting at the door of his tent by the oaks of Mamre “in the heat of the day” (18:1). He looked up and “saw that three men stood opposite him” (18:2). He ran from the tent door to meet them and bowed to the ground. He had water brought to wash their feet and asked them to rest under the tree (18:4).</p>
+    <p>Abraham hurried to Sarah to make cakes from fine meal, and ran to the herd for a tender calf to be prepared (18:6–7). He set butter, milk and the calf before them, and “he stood by them under the tree, and they ate” (18:8). Genesis begins this story with “Yahweh appeared to him” (18:1). So many Christians have seen in the three guests a picture of the Father, the Son and the Holy Spirit, one God. Jesus told his disciples to baptize “in the name of the Father and of the Son and of the Holy Spirit” (Matthew 28:19).</p>
+    <p>The Russian icon painter Andrei Rublev is said to have painted this icon in the early 15th century for the Trinity monastery near Moscow, in honor of its founder, Saint Sergius of Radonezh. Rublev left out Abraham and Sarah and painted only the three guests. In 1929 it was moved to the State Tretyakov Gallery in Moscow, where it stayed for more than ninety years, until it was handed over to the Russian Orthodox Church in 2023.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>Join up the three angels and you get a great circle. The front of the table is left open, and many people read it as an invitation for whoever looks at the icon to sit down with them. Look closely into the cup: something lies in it, which is usually read as the head of the calf Abraham served.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Mamre, at Hebron</b>Abraham pitched his tent “by the oaks of Mamre, which are in Hebron” (13:18). In Hebron, on land bought by the Russian Orthodox Church in 1868, stands an ancient tree called ‘Abraham’s Oak.’ It is not the very tree where Abraham welcomed his guests, but pilgrims have come to it remembering that story.</p>
+    <figure class="ph" data-q="Look at the fence around the tree. Why do you think people wanted to protect it?" data-color="img/ptvr1-oak.jpg" data-color-alt="AI-colorized version of a black-and-white photo. An ancient oak inside an iron fence. Its thick trunk is split and twisted, and a leafy branch still grows beside the dead ones." data-color-q="AI guessed these colors. What color do you think the shade was at midday?">
+     <div class="phw"><img src="img/ptera1-oak.jpg" alt="Black-and-white photo. An ancient oak inside an iron fence. Its thick trunk is split and twisted, and a leafy branch still grows beside the dead ones. A man stands in front of the fence." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>‘Abraham’s Oak’ at Hebron</b> · between 1898 and 1946<br>A tree that recalls the shade “under the tree” where Abraham let his guests rest (18:4, 8). Its old trunk died around 1996 and fell in 2019; new shoots are now growing from the same roots. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Abraham%27s_Oak,_Hebron_LOC_matpc.06207.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="Find the people sitting under the tree. Did Abraham’s guests rest in the shade like this?">
+     <img src="img/ptcolor1-mamre.jpg" alt="Old color print. An ancient oak inside a round stone border. Dead branches reach up above its thick trunk, and people sit resting beneath it." loading="lazy">
+     <figcaption><b>Abraham’s tree at Mamre · 1890s color print</b><br>The same tree, photographed in the 1890s. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002724988/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. It’s a blazing hot afternoon. Far away, three strangers are walking toward you. You run to meet them: “Welcome! Come and rest in the cool shade.”"><small>Close your eyes and imagine</small>Abraham ran out for guests he didn’t know and brought water for their feet, bread and a calf. What kind of heart welcomes strangers as honored guests?</p>
+    <a class="go" href="https://commons.wikimedia.org/wiki/File:Andrey_Rublev_-_%D0%A1%D0%B2._%D0%A2%D1%80%D0%BE%D0%B8%D1%86%D0%B0_-_Google_Art_Project.jpg">Look closely at the icon · A large image on Wikimedia Commons<small>Zoom in to find what is in the cup</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“How could we welcome a new friend in our class?”</p></div>
+   <div class="root">Abraham ran out to welcome three strangers, and Genesis tells it as the time Yahweh appeared to him (Genesis 18:1–2).</div>
+   <a class="read" href="https://biblehub.com/web/genesis/18.htm">Now read the passage · Genesis 18:1–8<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Explaining the Trinity as ‘three Gods’ or ‘one person changing costumes’ leads to misunderstanding. Say briefly that the Father, the Son and the Spirit are distinct, yet one God, and that it’s fine not to understand it all. The Bible doesn’t say the three guests are the Trinity; it’s a long tradition of reading the story that way.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>The story continues in Genesis 18:9–15: the guests say Sarah will have a son, and Sarah laughs to herself.</li>
+    <li>Hebrews 13:2: “Don’t forget to show hospitality to strangers, for in doing so, some have entertained angels without knowing it.”</li>
+    <li><a href="https://en.wikipedia.org/wiki/Trinity_(Andrei_Rublev)">Wikipedia, ‘Trinity (Andrei Rublev)’</a> <span class="note">the composition, symbols and history of the icon</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (6)</summary><ul>
+    <li><a href="https://en.wikipedia.org/wiki/Trinity_(Andrei_Rublev)">Wikipedia, ‘Trinity (Andrei Rublev)’</a>: painted for the Trinity monastery; the house, tree and mountain; the circular composition; the calf in the cup</li>
+    <li><a href="https://orthochristian.com/153627.html">OrthoChristian, ‘Rublev’s Trinity Icon returned to the Church after 100+ years’</a>: moved to the Tretyakov Gallery in 1929</li>
+    <li><a href="https://www.theartnewspaper.com/2023/06/06/fragile-trinity-icon-installed-at-moscow-cathedral">The Art Newspaper (6 June 2023)</a>: transferred from the State Tretyakov Gallery to the Russian Orthodox Church</li>
+    <li><a href="https://en.wikipedia.org/wiki/Oak_of_Mamre">Wikipedia, ‘Oak of Mamre’</a>: ‘Abraham’s Oak’ at the Russian Orthodox monastery in Hebron; the site acquired in 1868; the trunk apparently dead since 1996</li>
+    <li><a href="https://orthochristian.com/119256.html">OrthoChristian, ‘Dead wood being removed from Oak of Mamre’</a>: the withered trunk collapsed in February 2019; new shoots from the same root</li>
+    <li><a href="https://biblehub.com/web/genesis/18.htm">World English Bible</a>: Genesis 13:18; 18:1–15; Matthew 28:19; Hebrews 13:2</li>
+   </ul><p>Icon: Andrei Rublev, <i>The Trinity</i> (<i>Troitsa</i>), early 15th century, Russian Orthodox Church (until 2023 in the State Tretyakov Gallery, Moscow). Photo: Google Arts &amp; Culture, Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Abraham%27s_Oak,_Hebron_LOC_matpc.06207.jpg">‘Abraham’s Oak, Hebron’</a> (between 1898 and 1946, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress, Photochrom Collection, <a href="https://www.loc.gov/item/2002724988/">‘Abraham’s tree Mamreh, Hebron, Holy Land’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 2 -->
+ <article class="card" data-week="scene2">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt2-rembrandt.jpg" alt="Painting by Rembrandt. A small sailing boat heels over in huge waves. The bow, lit by a bright light, rises on a towering wave as men cling to the torn sail and ropes. In the dark stern, Jesus sits while disciples cling to him and wake him. One man leans over the side, and another, holding his cap, looks straight out at us.">
+   <figcaption class="cap"><b>Christ in the Storm on the Sea of Galilee</b> Rembrandt van Rijn, 1633<br>Isabella Stewart Gardner Museum, Boston, USA (stolen in 1990, still missing)</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Early summer Sunday · Peace, be still</span><span><span data-wd="1">Jun 21</span> · Sunday after Pentecost, early summer · Mark 4:35–41</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>How could Jesus sleep in a storm?</h2></div>
+   <p class="line">The waves are pouring into the boat. Yet Jesus is asleep in the stern, his head on a cushion.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Count the people in the boat. Jesus and the twelve disciples, and one more, they say.</li>
+    <li>Find the man holding his cap and looking at us. It’s Rembrandt, who painted himself into the boat.</li>
+    <li>Divide the picture into its light side and dark side. Which side is Jesus on? What does his face look like?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>When evening came that day, Jesus said, “Let’s go over to the other side” (4:35). The disciples took him with them in the boat, “even as he was” (4:36). Then “a big wind storm arose, and the waves beat into the boat, so much that the boat was already filled” (4:37). Jesus “was in the stern, asleep on the cushion” (4:38).</p>
+    <p>They woke him and cried, “Teacher, don’t you care that we are dying?” (4:38). He woke, rebuked the wind and said to the sea, “Peace! Be still!” “The wind ceased, and there was a great calm” (4:39). He asked, “Why are you so afraid?” and they said to one another, “Who then is this, that even the wind and the sea obey him?” (4:40–41).</p>
+    <p>Rembrandt painted this in 1633, when he was about twenty-seven. It is the only seascape he ever painted. The disciples at the bow wrestle with the waves, and one is being sick over the side; in the middle of the chaos, only Jesus at right is calm, like the eye of the storm. Isabella Stewart Gardner of Boston acquired it in 1898 for her museum.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>In the early hours of March 18, 1990, two thieves disguised as police officers entered the Gardner Museum and, in 81 minutes, stole thirteen works, including this painting. It has never been found. An empty frame still hangs where it used to be, so today we can only see the painting in photographs.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · The Sea of Galilee</b>The Sea of Galilee is a lake lying about 210 meters below sea level. When cold wind rushes down through the valleys from the high plateaus and hills around it, short and violent storms can suddenly rise on the warm lake. Several of the disciples were fishermen on this lake, and still they were terrified.</p>
+    <figure class="ph" data-q="How high does the spray reach? What would it be like for a small boat on waves like these?" data-color="img/ptvr2-storm.jpg" data-color-alt="AI-colorized version of a black-and-white photo. Huge waves crash against the wall of a stone house on the shore, throwing white spray high into the air." data-color-q="AI guessed these colors. What color do you think the lake was on a stormy day?">
+     <div class="phw"><img src="img/ptera2-storm.jpg" alt="Black-and-white photo. Huge waves crash against the wall of a stone house on the shore, throwing white spray high into the air." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>A great storm on the Sea of Galilee</b> · 1900<br>The title in the photographer’s logbook is ‘Northern views. Great storm on Sea of Galilee.’ The wind was so strong that the waves broke right over the walls of a lakeside house. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Northern_views._Great_storm_on_Sea_of_Galilee_LOC_matpc.21984.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="This is the lake on a calm day. How is it different from the storm photo?">
+     <img src="img/ptcolor2-tiberias.jpg" alt="Old color print. Beyond a field of flowers lie the walls and towers of Tiberias and the calm Sea of Galilee." loading="lazy">
+     <figcaption><b>Tiberias and the Sea of Galilee · 1890s color print</b><br>The lakeside town of Tiberias and the Sea of Galilee. Was the lake this calm after Jesus said, “Peace! Be still!”? It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2001699273/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. The little boat rocks up and down, and the water is up to your ankles. The wind is roaring, and you’re scared. But Jesus is fast asleep. What will you shout?"><small>Close your eyes and imagine</small>“Don’t you care that we are dying?” Have you ever felt as if God were asleep when you were afraid? Yet Jesus was right there in the boat with them.</p>
+    <a class="go" href="https://gardnermuseum.emuseum.com/objects/212/christ-in-the-storm-on-the-sea-of-galilee">Look closely at the painting · The Gardner Museum’s page<small>See a photo of the missing painting and the museum’s description</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“When are you most afraid? Who would you like to have with you then?”</p></div>
+   <div class="root">Jesus rebuked the wind and said to the sea, “Peace! Be still!” and there was a great calm (Mark 4:39).</div>
+   <a class="read" href="https://biblehub.com/web/mark/4.htm">Now read the passage · Mark 4:35–41<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Children may find the disciple being sick over the side funny or uncomfortable; just say anyone can get seasick. Don’t use “How is it that you have no faith?” (4:40) to scold a frightened child. Jesus calmed the sea even for disciples who woke him up in fear.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>The same story appears in Matthew 8:23–27 and Luke 8:22–25.</li>
+    <li><a href="https://artsandculture.google.com/exhibit/gAIyZKoNat4oLA">Google Arts &amp; Culture, Gardner Museum, ‘Thirteen Works’</a> <span class="note">the thirteen works that disappeared in 1990</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (7)</summary><ul>
+    <li><a href="https://gardnermuseum.emuseum.com/objects/212/christ-in-the-storm-on-the-sea-of-galilee">Gardner Museum artwork page</a>: Rembrandt’s only painted seascape; the disciple vomiting over the side; Christ calm at right, like the eye of the storm</li>
+    <li><a href="https://en.wikipedia.org/wiki/The_Storm_on_the_Sea_of_Galilee">Wikipedia, ‘The Storm on the Sea of Galilee’</a>: 1633; 160 × 128 cm; the artist’s self-portrait looking at the viewer; whereabouts unknown since 1990</li>
+    <li><a href="https://artsandculture.google.com/exhibit/gAIyZKoNat4oLA">Google Arts &amp; Culture, ‘Thirteen Works’</a>: thirteen works stolen in 1990 in 81 minutes; the 1898 cablegram announcing the painting’s arrival</li>
+    <li><a href="https://en.wikipedia.org/wiki/Isabella_Stewart_Gardner_Museum_theft">Wikipedia, ‘Isabella Stewart Gardner Museum theft’</a>: two thieves disguised as police officers; the empty frame where the painting hung</li>
+    <li><a href="https://www.biblicaltraining.org/library/sea-of-galilee">BiblicalTraining, ‘Sea of Galilee’</a>: the surface 214 m below the Mediterranean; sudden storms from cold air sweeping down the ravines</li>
+    <li><a href="https://www.thattheworldmayknow.com/sea-of-galilee-geography">That the World May Know, ‘Sea of Galilee’</a>: wind dropping suddenly onto the lake over the eastern mountains</li>
+    <li><a href="https://biblehub.com/web/mark/4.htm">World English Bible</a>: Mark 4:35–41</li>
+   </ul><p>Painting: Rembrandt van Rijn, <i>Christ in the Storm on the Sea of Galilee</i>, 1633, Isabella Stewart Gardner Museum, Boston (stolen in 1990). Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Northern_views._Great_storm_on_Sea_of_Galilee_LOC_matpc.21984.jpg">‘Northern views. Great storm on Sea of Galilee’</a> (1900, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress, Photochrom Collection, <a href="https://www.loc.gov/item/2001699273/">‘Panoramic view, Tiberias, Holy Land’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 3 -->
+ <article class="card" data-week="scene3">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt3-vangogh.jpg" alt="Painting by Vincent van Gogh. On a winding mountain road, a man strains with all his strength to lift a wounded man onto a horse. The wounded man hangs limp against him. In the foreground an empty box lies open on the ground, and far down the road someone walks away with his back turned. Thick, energetic brushstrokes mix yellow, blue and green.">
+   <figcaption class="cap"><b>The Good Samaritan (after Delacroix)</b> Vincent van Gogh, 1890<br>Kröller-Müller Museum, Otterlo, Netherlands</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Midsummer Sunday · Who is my neighbor?</span><span><span data-wd="2">Jul 12</span> · Sunday after Pentecost, midsummer · Luke 10:25–37</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Who is my neighbor?</h2></div>
+   <p class="line">Two men saw a wounded man lying by the road and passed by on the other side. The third stopped.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Look at the man trying to lift the wounded man onto the horse. How hard does it look?</li>
+    <li>Far down the road, find the man walking away. Who might he be?</li>
+    <li>Find the empty box lying open on the ground. Where did its contents go?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>A lawyer stood up and asked Jesus, “Teacher, what shall I do to inherit eternal life?” (10:25). He knew the commandment to love God and “your neighbor as yourself” (10:27). Then he asked, “Who is my neighbor?” (10:29).</p>
+    <p>Jesus told a story. A man going down from Jerusalem to Jericho fell among robbers, who left him half dead (10:30). A priest and then a Levite saw him and “passed by on the other side” (10:31–32). But a Samaritan on a journey saw him and “was moved with compassion.” He bound up his wounds, pouring on oil and wine, set him on his own animal, brought him to an inn and took care of him (10:33–34). The next day he gave the innkeeper two denarii and promised to repay anything more (10:35). “Which of these three do you think seemed to be a neighbor?” “He who showed mercy on him.” “Go and do likewise” (10:36–37).</p>
+    <p>Van Gogh painted this in early May 1890 in Saint-Rémy-de-Provence, while he was a patient at the hospital there. He copied a print of <i>The Good Samaritan</i> by Delacroix, a painter he admired, in his own brushwork. It is one of the few paintings of a Bible story in all his work. The Kröller-Müller Museum suggests it may also point to his brother Theo, his own good Samaritan who was always there for him.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>Samaritans and Jews were bitter enemies. John’s Gospel says, “Jews have no dealings with Samaritans” (John 4:9). So when the one who helped the wounded man turned out to be a Samaritan, Jesus’ listeners would have been startled.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · The road down from Jerusalem to Jericho</b>The road from Jerusalem to Jericho runs about 24 kilometers through the dry Judean wilderness and drops about 1,000 meters. In the 4th century Jerome named a spot about halfway along it as the site of the Good Samaritan’s inn; today the Good Samaritan Museum, opened in 2009, stands there.</p>
+    <figure class="ph" data-q="Find the inn by the road and the old ruins on the hilltop. Would it be a good place to bring a wounded man to rest?" data-color="img/ptvr3-inn.jpg" data-color-alt="AI-colorized version of a black-and-white photo. By the road between dry hills stands an inn of low stone walls and a roofed house; two men sit resting on the slope in front." data-color-q="AI guessed these colors. What color do you think the wilderness hills were?">
+     <div class="phw"><img src="img/ptera3-inn.jpg" alt="Black-and-white photo. By the road between dry hills stands an inn of low stone walls and a roofed house, with old ruins on the hilltop. Two men sit resting on the slope in front." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>The ‘Good Samaritan’s Inn’ on the road to Jericho</b> · 1900<br>An old inn (khan) on the road between Jerusalem and Jericho. The building in its present form was rebuilt in 1903. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Road_to_Jericho,_Jordan,_etc._Good_Samaritan%27s_Inn_LOC_matpc.00036.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="Look at the walled courtyard. Where would travelers and their animals have rested?">
+     <img src="img/ptcolor3-khan.jpg" alt="Old color print. On a hillside stands a square walled courtyard with an arched building, and beyond it a winding road and mountains." loading="lazy">
+     <figcaption><b>On the road to Jericho, Khan el-Ahmar · 1890s color print</b><br>‘Khan el-Ahmar’ means ‘the red inn.’ The Good Samaritan’s Inn was sometimes called by this name too. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002725031/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You are walking along a hot, dry road. Someone is lying hurt by the roadside. There’s no one else around. What will you do?"><small>Close your eyes and imagine</small>Wanting to walk on by, feeling scared, being in a hurry. What did the Samaritan see in the wounded man that made him stop anyway?</p>
+    <a class="go" href="https://krollermuller.nl/en/vincent-van-gogh-the-good-samaritan-after-delacroix">Look closely at the painting · The Kröller-Müller Museum’s page<small>Look for the thick brushstrokes and the man walking away</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“When someone looks like they need help, what could you do?”</p></div>
+   <div class="root">Jesus asked, “Which of these three … seemed to be a neighbor?” and said, “Go and do likewise” (Luke 10:36–37).</div>
+   <a class="read" href="https://biblehub.com/web/luke/10.htm">Now read the passage · Luke 10:25–37<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Telling children to help any stranger no matter what can put them in danger. Agree together on safe ways a child can help: telling a grown-up, staying beside a hurt friend. Rather than painting the priest and the Levite simply as ‘bad people,’ talk about how we too sometimes pass by when we’re busy.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li><a href="https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/inn-from-the-good-samaritan-parable-becomes-a-museum/">Bible History Daily, ‘Inn from the Good Samaritan Parable Becomes a Museum’</a> <span class="note">the history of the inn site and its mosaic museum</span></li>
+    <li>The man who came back to say thank you in Luke 17 was also a Samaritan (17:16). You’ll meet him again in the fifth scene of this course.</li>
+   </ul></section>
+   <details class="src"><summary>Sources (6)</summary><ul>
+    <li><a href="https://krollermuller.nl/en/vincent-van-gogh-the-good-samaritan-after-delacroix">Kröller-Müller Museum artwork page</a>: early May 1890; 73 × 59.5 cm; copied from Delacroix’s print; his brother Theo, always there for him</li>
+    <li><a href="https://krollermuller.nl/en/conservation-the-good-samaritan-after-delacroix-vincent-van-gogh">Kröller-Müller Museum, ‘Conservation’</a>: painted in Saint-Rémy; one of his few religious works</li>
+    <li><a href="https://vangoghletters.org/en/let866">Van Gogh’s letter 866 (about 2 May 1890)</a>: a painting planned since September 1889</li>
+    <li><a href="https://en.wikipedia.org/wiki/Inn_of_the_Good_Samaritan">Wikipedia, ‘Inn of the Good Samaritan’</a>: halfway between Jerusalem and Jericho; Jerome’s identification; the khan rebuilt in 1903; the museum opened in 2009; sometimes also called Khan al-Ahmar</li>
+    <li><a href="https://www.holylandsite.com/inn-of-the-good-samaritan">Holy Land Site, ‘Inn of the Good Samaritan’</a>: about 24 km between Jerusalem and Jericho</li>
+    <li><a href="https://biblehub.com/web/luke/10.htm">World English Bible</a>: Luke 10:25–37; 17:16; John 4:9</li>
+   </ul><p>Painting: Vincent van Gogh, <i>The Good Samaritan (after Delacroix)</i>, 1890, Kröller-Müller Museum, Otterlo. Photo: Google Arts &amp; Culture, Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Road_to_Jericho,_Jordan,_etc._Good_Samaritan%27s_Inn_LOC_matpc.00036.jpg">‘Road to Jericho, Jordan, etc. Good Samaritan’s Inn’</a> (1900, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress, Photochrom Collection, <a href="https://www.loc.gov/item/2002725031/">‘On the road to Jericho, Khan-el-Ahmar, Holy Land’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 4 -->
+ <article class="card" data-week="scene4">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt4-tintoretto.jpg" alt="A long, wide painting by Tintoretto. In the middle, Jesus hands bread to a disciple at left, while a young man at right holds a plate of bread. A dish of fish lies at Jesus’ feet. Behind them crowds sit and recline in groups by the water and over the hills, and richly dressed women sit at either side of the foreground.">
+   <figcaption class="cap"><b>The Miracle of the Loaves and Fishes</b> Jacopo Tintoretto, about 1545–1550<br>The Metropolitan Museum of Art, New York, USA</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">World Communion Sunday · A boy’s barley loaves</span><span><span data-wd="3">Oct 4</span> · World Communion Sunday · John 6:1–14</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Did five thousand people really eat from five loaves?</h2></div>
+   <p class="line">Five thousand hungry people, and all there was: one boy’s five barley loaves and two fish. Jesus took them and gave thanks first.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find Jesus in the middle handing out bread. Who is he giving it to?</li>
+    <li>At right, find the young man holding a plate of bread. Could he be the boy who brought the barley loaves?</li>
+    <li>Find the fish at Jesus’ feet. How many can you see?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>A great crowd followed Jesus up a mountain on the far side of the Sea of Galilee (6:1–3). Jesus asked Philip, “Where are we to buy bread, that these may eat?” Philip answered, “Two hundred denarii worth of bread is not sufficient for them” (6:5, 7). A denarius was a worker’s pay for a day (Matthew 20:2), so even two hundred days’ wages would not be enough.</p>
+    <p>Then Andrew said, “There is a boy here who has five barley loaves and two fish, but what are these among so many?” (6:9). Jesus had the people sit down on the grass, took the loaves, gave thanks and distributed them, and the fish as well. About five thousand people ate “as much as they desired” (6:10–11). When the leftovers were gathered, they filled twelve baskets (6:12–13).</p>
+    <p>The Venetian painter Tintoretto painted this around 1545–1550. It is over 1.5 meters high and more than 4 meters wide. It seems to show Jesus handing Saint Andrew a platter of bread and a platter of fish to share out. The crowds are spread across the shore and hills, so that standing before the painting, you feel you are sitting among them. It has been at the Metropolitan Museum of Art in New York since 1913.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>This is the only miracle told in all four Gospels, Matthew, Mark, Luke and John. And only John tells us that the loaves and fish came from ‘a boy.’</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Tabgha, on the Sea of Galilee</b>John only says it happened on a mountain across the Sea of Galilee (6:1, 3). Since the 4th century, Tabgha on the northwest shore of the lake (from Heptapegon, ‘seven springs’) has been remembered as the place of this miracle. A first church was built there around 350, and the floor of a larger 5th-century church held a mosaic of loaves and fish.</p>
+    <figure class="ph" data-q="Find the fish on either side of the basket. How many loaves and fish does the Bible mention?">
+     <img src="img/ptera4-mosaic.jpg" alt="Black-and-white photo. In the middle of a floor mosaic is a basket of bread with a fish on each side." loading="lazy">
+     <figcaption><b>The loaves and fishes mosaic at Tabgha</b> · 1930s<br>A mosaic from the floor of the 5th-century church, excavated from 1932. The basket is said to hold only four loaves. Where is the fifth? <a class="orig" href="https://commons.wikimedia.org/wiki/File:Mosaic_of_loaves_%26_fishes_at_Tabgha_LOC_matpc.04154.jpg">View the original</a></figcaption>
+    </figure>
+    <figure class="ph" data-q="What is the bread seller selling? Look at the shape of the bread.">
+     <img src="img/ptcolor4-bread-seller.jpg" alt="Old color print. Two men sit under a stone arch, with a board piled high with round, ring-shaped loaves in front of them." loading="lazy">
+     <figcaption><b>A bread seller of Jerusalem · 1890s color print</b><br>A bread seller with round loaves stacked up for sale on a Jerusalem street. The boy’s barley loaves, too, were bread to be torn by hand and shared. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002725082/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You’ve been walking all day, and your tummy is rumbling. In your bag is the little lunch your mom packed. Someone calls out, “Does anyone have any food?”"><small>Close your eyes and imagine</small>“What are these among so many?” Sometimes what I have looks far too small. Jesus took that small thing and gave thanks for it first.</p>
+    <a class="go" href="https://www.metmuseum.org/art/collection/search/437821">Look closely at the painting · The Met’s page<small>Zoom in to find the hands passing bread and the baskets</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“What small thing of yours could you share with a friend?”</p></div>
+   <div class="root">Jesus took a boy’s five barley loaves and two fish, gave thanks, and fed five thousand people (John 6:9–11).</div>
+   <a class="read" href="https://biblehub.com/web/john/6.htm">Now read the passage · John 6:1–14<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Don’t shrink this story to the lesson “if we share, everyone gets enough.” Tell the children too that the people called it a “sign” (6:14), and that John 6 goes on to Jesus saying, “I am the bread of life” (6:35). If some children don’t yet take communion, take care that they don’t feel left out.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>Jesus told the disciples to gather up the pieces “that nothing be lost” (6:12). Read this with the children too.</li>
+    <li><a href="https://www.proterrasancta.org/en/?p=182337">Pro Terra Sancta, ‘The miracle of the multiplication of the loaves’</a> <span class="note">the church at Tabgha and the loaves and fishes mosaic</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (7)</summary><ul>
+    <li><a href="https://www.metmuseum.org/art/collection/search/437821">The Met artwork page</a>: about 1545–1550; 154.9 × 407.7 cm; Francis L. Leland Fund, 1913</li>
+    <li><a href="https://www.superstock.com/asset/miracle-loaves-fishes-artist-jacopo-tintoretto-jacopo-robusti-italian-venice/4409-17352678">SuperStock description</a>: Christ hands Saint Andrew one platter of each to be distributed</li>
+    <li><a href="https://christianiconography.info/metropolitan/2017/loavesFishesTintoretto.html">Christian Iconography, ‘Jacopo Tintoretto and workshop’</a>: the crowd in groups; the river and hills</li>
+    <li><a href="https://www.indcatholicnews.com/news/47748">Independent Catholic News</a>: the miracle reported in all four Gospels</li>
+    <li><a href="https://en.wikipedia.org/wiki/Church_of_the_Multiplication">Wikipedia, ‘Church of the Multiplication’</a>: the first church around 350; the 5th-century church; excavations from 1932; the mosaic of four loaves and two fish</li>
+    <li><a href="https://www.proterrasancta.org/en/?p=182337">Pro Terra Sancta</a>: the rediscovered floor mosaic of the basket of loaves and two fish</li>
+    <li><a href="https://biblehub.com/web/john/6.htm">World English Bible</a>: John 6:1–14, 35; Matthew 20:2</li>
+   </ul><p>Painting: Jacopo Tintoretto, <i>The Miracle of the Loaves and Fishes</i>, about 1545–1550, The Metropolitan Museum of Art, New York. Photo: The Met open access (CC0), Wikimedia Commons.<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Mosaic_of_loaves_%26_fishes_at_Tabgha_LOC_matpc.04154.jpg">‘Mosaic of loaves &amp; fishes at Tabgha’</a> (1934–1939, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress, Photochrom Collection, <a href="https://www.loc.gov/item/2002725082/">‘Bread seller of Jerusalem, Holy Land’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 5 -->
+ <article class="card" data-week="scene5">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt5-echternach.jpg" alt="A picture from an old gospel book, decorated in gold and bright colors. Two scenes run along a long band. At left, Jesus raises his hand and speaks to ten men covered in red spots; behind him stands Peter holding a key. In the middle is a walled town with a gate and towers, and at right a man lies face down at Jesus’ feet. A Latin inscription runs along the gold band at the top.">
+   <figcaption class="cap"><b>The Healing of the Ten Lepers</b> from the Golden Gospels of Echternach, about 1030–1050<br>Germanisches Nationalmuseum, Nuremberg, Germany</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Thanksgiving Sunday · The one who came back</span><span><span data-wd="4">Nov 15</span> · Thanksgiving Sunday · Luke 17:11–19</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Why did only one man come back to say thank you?</h2></div>
+   <p class="line">Ten men were made clean. But only one turned around and came back.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Count the men with spots on their bodies. Are there really ten?</li>
+    <li>Find the man lying at Jesus’ feet. What does the word written above him, ‘SAMARITANUS,’ mean?</li>
+    <li>At left, find the man holding a key behind Jesus. Who is he?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>On his way to Jerusalem, Jesus “was passing along the borders of Samaria and Galilee” (17:11). As he entered a village, ten men with leprosy met him; they “stood at a distance” and called out, “Jesus, Master, have mercy on us!” (17:12–13). In those days people with leprosy had to live apart, alone, outside the camp (Leviticus 13:45–46).</p>
+    <p>Jesus said, “Go and show yourselves to the priests,” and “as they went, they were cleansed” (17:14). One of them, seeing that he was healed, turned back, glorifying God with a loud voice, and fell at Jesus’ feet to thank him; “and he was a Samaritan” (17:15–16). Jesus asked, “Weren’t the ten cleansed? But where are the nine?” (17:17). Then he said to him, “Get up, and go your way. Your faith has healed you” (17:19).</p>
+    <p>This picture comes from a gospel book made around 1030–1050 at the abbey of Echternach, in today’s Luxembourg, under Abbot Humbert. The whole text is written in gold ink, which is why it is called the Golden Gospels (<i>Codex Aureus</i>). It holds splendid pictures like this one, telling Jesus’ story band by band. It has been in the Germanisches Nationalmuseum in Nuremberg, Germany, since 1955.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>The gold band at the top seems to read, in Latin, that he cleansed ten, and one gave thanks. And there was a reason Jesus said, “Go and show yourselves to the priests.” By the law in Leviticus, someone healed of leprosy had to be examined by a priest and declared clean before going back to live among others (Leviticus 14:2–3). The nine probably hurried off to do just that.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Between Samaria and Galilee</b>Between the hills of Galilee to the north and the hill country of Samaria to the south lies the broad Plain of Esdraelon, also called the Jezreel Valley. Somewhere along this border, in a village, Jesus met the ten. Among them was a Samaritan, who was not a Jew (17:16, 18).</p>
+    <figure class="ph" data-q="Follow the winding road. Where on that plain might the village have been?" data-color="img/ptvr5-esdraelon.jpg" data-color-alt="AI-colorized version of a black-and-white photo. A winding road runs down the slope in front, and beyond it a broad plain and low hills stretch far into the distance." data-color-q="AI guessed these colors. What color do you think the fields of grain were?">
+     <div class="phw"><img src="img/ptera5-esdraelon.jpg" alt="Black-and-white photo. A view from high up: a winding road runs down the slope in front, and beyond it a broad plain and low hills stretch far into the distance." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>The Plain of Esdraelon</b> · between 1898 and 1946<br>The broad plain that divides Galilee from Samaria. Jesus passed along this border on his way to Jerusalem (17:11). <a class="orig" href="https://commons.wikimedia.org/wiki/File:Plain_of_Esdraelon_LOC_matpc.10555.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="What is the camel pulling? What comes after the field is plowed?">
+     <img src="img/ptcolor5-laborers.jpg" alt="Old color print. Under a tree, a camel pulls a plow through a field; a boy holds its halter and a man guides the plow." loading="lazy">
+     <figcaption><b>Laborers on the Plain of Esdraelon · 1890s color print</b><br>‘Jezreel’ means ‘God sows,’ and true to its name, this is rich land, plowed with camels and sown with seed. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002725093/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You are sick and have to stay away from your friends. Today, they say, Jesus is passing by. From far away you shout as loud as you can: “Jesus, please help me!”"><small>Close your eyes and imagine</small>Nine hurried on, overjoyed to see themselves made clean; one stopped and came back. Who would I like to go back to today and say “Thank you”?</p>
+    <a class="go" href="https://dlib.gnm.de/item/Hs156142">Look closely at the picture · Germanisches Nationalmuseum digital library<small>German · Page through the whole Golden Gospels one leaf at a time</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“Is there someone you want to say thank you to today? Who?”</p></div>
+   <div class="root">Of the ten who were cleansed, one came back, glorifying God, and fell at Jesus’ feet to give thanks (Luke 17:15–16).</div>
+   <a class="read" href="https://biblehub.com/web/luke/17.htm">Now read the passage · Luke 17:11–19<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Be careful not to speak of people with leprosy as ‘dirty’ or as being punished. Today leprosy (Hansen’s disease) can be cured with medicine. Rather than blaming the nine who didn’t give thanks, focus on the joy of the one who came back.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>In Luke, a Samaritan is praised twice: the one who helped the man beaten by robbers (10:33) and the one who came back to give thanks (17:16). See the third scene of this course too.</li>
+    <li><a href="https://www.newliturgicalmovement.org/2025/09/the-golden-codex-of-echternach-gospel.html">New Liturgical Movement, ‘The Golden Codex of Echternach’</a> <span class="note">more pictures from the Golden Gospels</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (7)</summary><ul>
+    <li><a href="https://en.wikipedia.org/wiki/Codex_Aureus_of_Echternach">Wikipedia, ‘Codex Aureus of Echternach’</a>: about 1030–1050; Echternach Abbey; Abbot Humbert; the text written in gold ink; Germanisches Nationalmuseum, Hs. 156142</li>
+    <li><a href="https://bnl.public.lu/en/a-la-une/a-la-loupe/2024/scriptorium-echternach.html">National Library of Luxembourg, ‘The Echternach scriptorium’</a>: the scriptorium under Abbot Humbert (1028–1051); the Codex Aureus written in gold ink</li>
+    <li><a href="https://gouvernement.lu/dam-assets/fr/actualites/articles/2007/12/04asselborn-nuremberg/04-communique.pdf">Germanisches Nationalmuseum press release (2007)</a>: bought in 1955; a gospel book written entirely in gold ink</li>
+    <li><a href="https://www.britannica.com/place/Plain-of-Esdraelon">Britannica, ‘Plain of Esdraelon’</a>: the lowland dividing the hills of Galilee from Samaria</li>
+    <li><a href="https://www.crivoice.org/phototour/pjezreel.html">CRI/Voice, ‘The Valley of Jezreel and Plain of Esdraelon’</a>: the boundary between Samaria and Galilee; the name means ‘God sows’</li>
+    <li><a href="https://www.who.int/news-room/fact-sheets/detail/leprosy">World Health Organization, ‘Leprosy’</a>: a disease curable with medicine</li>
+    <li><a href="https://biblehub.com/web/luke/17.htm">World English Bible</a>: Luke 10:33; 17:11–19; Leviticus 13:45–46; 14:2–3</li>
+   </ul><p>Picture: <i>The Healing of the Ten Lepers</i>, from the Golden Gospels of Echternach (<i>Codex Aureus Epternacensis</i>), about 1030–1050, Germanisches Nationalmuseum, Nuremberg (Hs. 156142). Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Plain_of_Esdraelon_LOC_matpc.10555.jpg">‘Plain of Esdraelon’</a> (between 1898 and 1946, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress, Photochrom Collection, <a href="https://www.loc.gov/item/2002725093/">‘Laborers, Plain of Esdraelon, Holy Land’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 6 -->
+ <article class="card" data-week="scene6">
+  <figure class="fig">
+   <img loading="lazy" src="img/pt6-alkmaar.jpg" alt="The seven panels by the Master of Alkmaar, shown in two rows. In the streets and houses of a Dutch town around 1500, people share bread with the hungry, give drink to the thirsty, clothe the naked, bury the dead, take in travelers, visit the sick and visit prisoners. In almost every scene Jesus stands among the onlookers, and in the sky of the fourth scene Christ sits in judgment.">
+   <figcaption class="cap"><b>The Seven Works of Mercy</b> Master of Alkmaar, 1504<br>Rijksmuseum, Amsterdam, Netherlands</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Christ the King Sunday · The least of these</span><span><span data-wd="5">Nov 22</span> · Christ the King Sunday · Matthew 25:31–46</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Where can we meet Jesus?</h2></div>
+   <p class="line">The hungry, the thirsty, the stranger and the naked, the sick and the prisoner. The King says he was there among them.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>In each of the seven scenes, name what is being shared: bread, drink, clothes…</li>
+    <li>In every scene, look for Jesus standing among the people. In how many scenes did you find him?</li>
+    <li>Which of the seven things do you think you could do today?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>Jesus told a story about the last day. When the Son of Man comes in his glory and sits on his throne, all the nations will be gathered, and he will separate them “as a shepherd separates the sheep from the goats” (25:31–32). The King says to those on his right, “I was hungry, and you gave me food to eat. I was thirsty, and you gave me drink. I was a stranger, and you took me in. I was naked, and you clothed me. I was sick, and you visited me. I was in prison, and you came to me” (25:35–36).</p>
+    <p>They were astonished: “Lord, when did we see you hungry, and feed you…?” (25:37). The King answered, “Because you did it to one of the least of these my brothers, you did it to me” (25:40). They didn’t even know they had been helping Jesus. They had simply helped the hungry and sick people in front of them.</p>
+    <p>This polyptych was painted in 1504 for the Church of Saint Lawrence (Laurenskerk) in Alkmaar, in the Netherlands. The painter’s name is unknown, so he is called the ‘Master of Alkmaar’ after this very work. To the six acts in Matthew 25 he added a seventh, burying the dead, and set all seven scenes in the streets and houses of a Dutch town around 1500. In almost every scene, Jesus stands among the onlookers, and in the sky of the fourth scene Christ comes in glory to judge (25:31). The panels were badly damaged in the Iconoclasm of 1566; they stayed in the church until 1918 and are now in the Rijksmuseum in Amsterdam.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>The seventh act, burying the dead, is not in Matthew 25. It comes from the story of Tobit, who was praised for burying the dead. Each scene has a short saying on the frame below; under the fifth scene, taking in travelers, old Dutch words say, in effect, “what you do to the least is done to me.”</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Fields where sheep and goats graze together</b>Shepherds in Jesus’ day kept sheep and goats together in one flock. They grazed together by day and were separated at night, it is said, because goats need to be kept warm at night, while sheep prefer to sleep in the open air. The people listening to Jesus saw shepherds separating sheep from goats all the time.</p>
+    <figure class="ph" data-q="Tell the white sheep from the black goats. Which are there more of?" data-color="img/ptvr6-flock.jpg" data-color-alt="AI-colorized version of a black-and-white photo. White sheep and black goats graze together on stony ground in front of a village, with houses and a minaret behind." data-color-q="AI guessed these colors. What color do you think the sheep’s and goats’ coats were?">
+     <div class="phw"><img src="img/ptera6-flock.jpg" alt="Black-and-white photo. White sheep and black goats graze together on stony ground in front of a village, with houses and a minaret behind." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>A flock of goats and sheep near Sheikh Jarrah</b> · 1940s<br>Taken near a neighborhood north of Jerusalem’s Old City. In the 1940s, too, sheep and goats grazed together in one flock. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Herd_or_flock_of_goats_%26_sheep_near_Sheik_Jerrah_(i.e.,_Sheikh_Jarrah)_LOC_matpc.21548.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="What is the water carrier carrying the water in? How welcome would a sip of water be to someone who is thirsty?">
+     <img src="img/ptcolor6-water-carrier.jpg" alt="Old color print. In front of a stone wall stands a water carrier in white with a turban, a full leather water skin on his back." loading="lazy">
+     <figcaption><b>A water carrier of Jerusalem · 1890s color print</b><br>When houses had no running water, water carriers brought it in leather skins and sold it. It shows how real a help “you gave me drink” (25:35) was. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002725079/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. A hungry friend is sitting by the road. You break your bread in half and give it away. When you look up, Jesus is standing beside your friend, smiling."><small>Close your eyes and imagine</small>The people on the right were surprised: “When did we…?” They helped one of the least, without even knowing they were helping Jesus. Who is ‘the least of these’ beside me today?</p>
+    <a class="go" href="https://www.rijksmuseum.nl/en/collection/SK-A-2815">Look closely at the painting · The Rijksmuseum’s page<small>Look at the seven panels one by one, and find where Jesus is standing</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“This week, who could you show a small kindness to, like a piece of bread or a cup of water?”</p></div>
+   <div class="root">The King says, “Because you did it to one of the least of these my brothers, you did it to me” (Matthew 25:40).</div>
+   <a class="read" href="https://biblehub.com/web/matthew/25.htm">Now read the passage · Matthew 25:31–46<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> “The eternal fire” for those on the left (25:41) can sound frightening to children. Don’t use it to scare them; tell them that at the heart of this story is the promise that caring for the least is caring for Jesus. Visiting prisoners may feel unfamiliar to children, so you can widen it to visiting people who are lonely.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>Next Sunday is the First Sunday of Advent. From the last Sunday of the church year to the first, carry on with the Advent Course.</li>
+    <li><a href="https://kirbylaingcentre.co.uk/?p=15230">Kirby Laing Centre, ‘The Master of Alkmaar: The Seven Works of Mercy’</a> <span class="note">the seven scenes and the sayings beneath them</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (7)</summary><ul>
+    <li><a href="https://www.rijksmuseum.nl/en/collection/SK-A-2815-1/catalogue-entry">Rijksmuseum catalogue entry</a>: seven scenes set in a Dutch town; Christ among the spectators in almost every panel</li>
+    <li><a href="https://www.rijksmuseum.nl/en/collection/object/The-Seven-Works-of-Mercy--14aaec41ef8d5849daa5f6a4d08978bf">Rijksmuseum polyptych record</a>: 1504; in Alkmaar’s Laurenskerk until 1918; the origin of the painter’s name</li>
+    <li><a href="https://rijksmuseum.nl/en/collection/SK-A-2815-3">Rijksmuseum, ‘The Seven Works of Mercy’</a>: urban society around 1500; badly damaged in the Iconoclasm of 1566</li>
+    <li><a href="https://www.rijksmuseum.nl/en/collection/SK-A-2815-5/catalogue-entry">Rijksmuseum, fifth panel</a>: the saying on the frame, ‘wat Ghij den minsten doet wert mij gedaen’</li>
+    <li><a href="https://kirbylaingcentre.co.uk/?p=15230">Kirby Laing Centre</a>: six works from Matthew 25, burying the dead from the story of Tobit</li>
+    <li><a href="https://old-tips.translation.bible/story/translation-commentary-on-matthew-2532/">Translation commentary on Matthew 25:32</a>: sheep and goats graze together by day and are separated at night</li>
+    <li><a href="https://biblehub.com/web/matthew/25.htm">World English Bible</a>: Matthew 25:31–46</li>
+   </ul><p>Painting: Master of Alkmaar, <i>The Seven Works of Mercy</i> (<i>De zeven werken van barmhartigheid</i>), 1504, Rijksmuseum, Amsterdam. Photo: Rijksmuseum open access, Wikimedia Commons (public domain). The seven panels, originally in one row, are shown here in two rows to fit the screen.<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Herd_or_flock_of_goats_%26_sheep_near_Sheik_Jerrah_(i.e.,_Sheikh_Jarrah)_LOC_matpc.21548.jpg">‘Herd or flock of goats &amp; sheep near Sheik Jerrah’</a> (1940–1946, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress, Photochrom Collection, <a href="https://www.loc.gov/item/2002725079/">‘Water carrier of Jerusalem, Holy Land’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+  <p>The paintings are public-domain works. The old photos in ‘Step back in time’ come from the Library of Congress <a href="https://commons.wikimedia.org/wiki/Category:Matson_Collection_in_the_Library_of_Congress">Matson Collection</a> (20th-century photos, no known copyright restrictions).</p>
+  <p>The ‘AI colorized’ photos were colored with the AI colorization model <a href="https://github.com/piddnad/ddcolor">DDColor</a> (Alibaba researchers, ICCV 2023), using the public <a href="https://huggingface.co/spaces/gudada/DDColor">DDColor app</a> on Hugging Face. It keeps the photo’s brightness and shapes and only guesses the colors, so even when the result looks convincing, the colors may differ from the real ones.</p>
+  <p>The ‘1890s color prints’ come from the Library of Congress <a href="https://www.loc.gov/collections/photochrom-prints/about-this-collection/">Photochrom Collection</a>. Color was added to a black-and-white negative following color notes the photographer made on the spot (<a href="https://en.wikipedia.org/wiki/Photochrom">Wikipedia, ‘Photochrom’</a>), so the colors are not AI guesses, but they cannot be called exactly true to life either. The Library of Congress says there are no known copyright restrictions on this collection (<a href="https://blogs.loc.gov/loc/2017/10/free-to-use-and-reuse-historical-travel-pictures/">Library of Congress blog</a>).</p>
+  <p>Bible quotations are from the World English Bible (WEB), which is in the public domain.</p>
+  <p>The dates follow the Sundays on which the Revised Common Lectionary reads these passages: Genesis 18 (Year A, Sunday between June 12 and 18), Mark 4:35–41 (Year B, June 19–25), Luke 10:25–37 (Year C, July 10–16), Luke 17:11–19 (Year C, October 9–15; also read at Thanksgiving) and Matthew 25:31–46 (Christ the King, Year A). The feeding in John 6 is read in Year B on the Sunday between July 24 and 30, but this course places it on World Communion Sunday (the first Sunday in October). Thanksgiving is set on the third Sunday of November, as in many Korean churches; when it falls on the same day as Christ the King, the Thanksgiving scene comes first.</p>
+  <p><a href="easter.html?lang=en">Previous · Easter Course</a> · <a href="advent.html?lang=en">Next · Advent in Four Weeks</a> · <a href="feel.html#en">Back to Experience Together</a> · <a href="./?lang=en">Practice Room</a></p>
+ </div>
+</footer>
+</div>
+
+<dialog class="show" id="show" aria-label="아이에게 보여 주기">
+ <div class="sw">
+  <div class="sw-top"><span id="swTitle"></span><button class="sw-x" type="button" data-close aria-label="닫기">×</button></div>
+  <div class="sw-stage" id="swStage"></div>
+  <p class="sw-q" id="swQ" aria-live="polite"></p>
+  <div class="sw-nav"><button type="button" data-step="-1">이전</button><span class="dots" id="swDots" aria-hidden="true"></span><button type="button" class="next" data-step="1">다음</button></div>
+ </div>
+</dialog>
+
+<script>
+/* 화면 글자: 한국어 / English */
+const T={
+ ko:{look:"찾아보기",photo:"그 시절 사진",imagine:"눈 감고 상상해 보기",vr:"AI 가상 복원 · 실제 색과 다를 수 있어요",toColor:"가상 복원으로 보기",toBw:"흑백 원본으로",prev:"이전",next:"다음",again:"처음으로",close:"닫기",dlg:"아이에게 보여 주기",title:"성령강림절 후 코스 · 질문 받기 연습실"},
+ en:{look:"Things to find",photo:"A photo from those days",imagine:"Close your eyes and imagine",vr:"AI colorized · the real colors may differ",toColor:"See in color (AI)",toBw:"Back to black and white",prev:"Previous",next:"Next",again:"Start over",close:"Close",dlg:"Show it to the children",title:"After Pentecost Course · Question Practice Room"}
+};
+const langOf=el=>{const b=el&&el.closest(".L");return b&&b.lang==="en"?"en":"ko";};
+{
+ /* 한국어 ↔ English. 고른 언어는 이 브라우저에 기억해요. 주소 끝에 #en 또는 ?lang=en을 붙여도 영어판으로 열려요 */
+ const KEY="after-pentecost-lang",boxes=[...document.querySelectorAll(".L")];
+ const setLang=(l,save)=>{
+  l=l==="en"?"en":"ko";
+  boxes.forEach(b=>{const off=b.lang!==l;b.hidden=off;const m=b.querySelector("main");if(m)m.hidden=off;});
+  document.documentElement.lang=l;
+  document.title=T[l].title;
+  if(save)try{localStorage.setItem(KEY,l);}catch(e){}
+ };
+ const h=location.hash.slice(1),q=new URLSearchParams(location.search).get("lang");
+ let first="ko";
+ if(h==="en"||h==="ko")first=h;
+ else if(q==="en"||q==="ko")first=q;
+ else try{first=localStorage.getItem(KEY)||"ko";}catch(e){}
+ setLang(first,h==="en"||h==="ko");
+ document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-lang]");
+  if(!b)return;
+  const l=b.dataset.lang==="en"?"en":"ko";
+  setLang(l,true);
+  const o=document.querySelector(`.L[lang="${l}"] [data-lang]`);
+  if(o)o.focus();
+ });
+ addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(h==="en"||h==="ko")setLang(h,true);});
+}
+{
+ /* 장면 고르기: #scene1~6, 없으면 오늘 날짜에 맞는 장면 */
+ const W=["scene1","scene2","scene3","scene4","scene5","scene6"];
+ /* 삼위일체 주일(성령강림절 다음 주일), 6월 19~25일 사이의 주일(삼위일체 주일과 겹치면 그다음 주일), 7월 10~16일 사이의 주일,
+    세계성찬주일(10월 첫 주일), 추수감사주일(11월 셋째 주일), 왕이신 그리스도 주일(대림절 첫 주일 바로 앞 주일).
+    대림절이 시작되면 다음 해로 넘어가요. 추수감사주일과 왕이신 그리스도 주일이 같은 날이면 추수감사 장면을 먼저 보여 줘요 */
+ const easter=y=>{const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),n=h+l-7*m+114;return new Date(y,Math.floor(n/31)-1,n%31+1);};
+ const sun=(y,m,d)=>{const x=new Date(y,m,d);return new Date(y,m,d+(7-x.getDay())%7);};
+ const adv=y=>{const x=new Date(y,11,25);return new Date(y,11,25-(x.getDay()||7)-21);};
+ const plan=y=>{const e=easter(y),t=new Date(y,e.getMonth(),e.getDate()+56),a=adv(y);
+  let j=sun(y,5,19);if(j<=t)j=new Date(y,t.getMonth(),t.getDate()+7);
+  return [t,j,sun(y,6,10),sun(y,9,1),new Date(y,10,sun(y,10,1).getDate()+14),new Date(y,a.getMonth(),a.getDate()-7)];};
+ const now=new Date();
+ let starts=plan(now.getFullYear());
+ if(now>=adv(now.getFullYear()))starts=plan(now.getFullYear()+1);
+ const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+ document.querySelectorAll("[data-wd]").forEach(el=>{const d=starts[+el.dataset.wd],b=el.closest(".L");el.textContent=b&&b.lang==="en"?`${MON[d.getMonth()]} ${d.getDate()}`:`${d.getMonth()+1}월 ${d.getDate()}일`;});
+ const today=()=>{const n=new Date();let i=0;starts.forEach((d,k)=>{if(n>=d&&(k===0||+d!==+starts[k-1]))i=k;});return W[i];};
+ let cur=null;
+ const show=scroll=>{
+  const h=location.hash.slice(1);
+  cur=W.includes(h)?h:(cur||today());
+  document.querySelectorAll(".card").forEach(c=>c.classList.toggle("on",c.dataset.week===cur));
+  document.querySelectorAll(".wk").forEach(t=>t.setAttribute("aria-current",String(t.dataset.w===cur)));
+  if(scroll){const c=document.querySelector(`.L:not([hidden]) .card[data-week="${cur}"]`);if(c)c.scrollIntoView({block:"start"});}
+ };
+ document.documentElement.classList.add("js");
+ show(false);
+ addEventListener("hashchange",()=>show(W.includes(location.hash.slice(1))));
+}
+{
+ /* 아이에게 보여 주기: 그림 → 찾아보기 → 옛 사진 → 눈 감고 상상 → 물어볼 것 */
+ const dlg=document.getElementById("show");
+ const stage=document.getElementById("swStage"),qEl=document.getElementById("swQ"),dots=document.getElementById("swDots"),title=document.getElementById("swTitle");
+ const prev=dlg.querySelector('[data-step="-1"]'),next=dlg.querySelector('[data-step="1"]'),closeBtn=dlg.querySelector("[data-close]");
+ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+ let steps=[],at=0,tinted=false,tx=T.ko;
+ const build=card=>{
+  const art=card.querySelector(".fig img"),s=[];
+  const pic={img:art.src,alt:art.alt};
+  s.push({...pic,label:card.querySelector(".opener small").textContent,text:card.querySelector(".opener h2").textContent});
+  card.querySelectorAll(".look li").forEach(li=>s.push({...pic,label:tx.look,text:li.textContent}));
+  card.querySelectorAll(".era .ph").forEach(f=>{
+   const im=f.querySelector("img"),abs=u=>new URL(u,location.href).href;
+   const bw=f.dataset.bw?{src:f.dataset.bw,alt:f.dataset.bwAlt}:{src:im.getAttribute("src"),alt:im.alt};
+   s.push({img:abs(bw.src),alt:bw.alt,label:tx.photo,text:f.dataset.q,
+    color:f.dataset.color?{img:abs(f.dataset.color),alt:f.dataset.colorAlt,text:f.dataset.colorQ}:null});
+  });
+  const im=card.querySelector(".imagine");
+  if(im)s.push({img:null,label:tx.imagine,text:im.dataset.kid});
+  s.push({...pic,label:card.querySelector(".ask small").textContent,text:card.querySelector(".ask p").textContent});
+  return s;
+ };
+ const render=()=>{
+  const s=steps[at],c=s.color&&tinted?s.color:null;
+  const src=c?c.img:s.img,alt=c?c.alt:s.alt,text=c?c.text:s.text,label=c?tx.vr:s.label;
+  stage.innerHTML=s.img?`<div class="sw-pic"><img src="${esc(src)}" alt="${esc(alt)}">${s.color?`<button class="tint" type="button" data-tint aria-pressed="${tinted}">${esc(tinted?tx.toBw:tx.toColor)}</button>`:""}</div>`:`<div class="sw-dark"><span>${esc(s.label)}</span></div>`;
+  qEl.innerHTML=`<small>${esc(label)}</small>${esc(text)}`;
+  dots.innerHTML=steps.map((_,i)=>`<i class="${i===at?"on":""}"></i>`).join("");
+  prev.disabled=at===0;
+  next.textContent=at===steps.length-1?tx.again:tx.next;
+ };
+ const go=d=>{at=(d>0&&at===steps.length-1)?0:Math.max(0,Math.min(steps.length-1,at+d));tinted=false;render();};
+ const tint=()=>{if(!steps[at].color)return;tinted=!tinted;render();const b=stage.querySelector("[data-tint]");if(b)b.focus();};
+ if(typeof dlg.showModal!=="function"){document.querySelectorAll("[data-show]").forEach(b=>b.hidden=true);}
+ document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-show]");
+  if(!b)return;
+  const card=b.closest(".card"),l=langOf(card);
+  tx=T[l];
+  dlg.lang=l;dlg.setAttribute("aria-label",tx.dlg);closeBtn.setAttribute("aria-label",tx.close);prev.textContent=tx.prev;
+  steps=build(card);at=0;tinted=false;
+  title.textContent=card.querySelector(".chip").textContent;
+  render();dlg.showModal();next.focus();
+ });
+ dlg.addEventListener("click",e=>{
+  if(e.target.closest("[data-close]")){dlg.close();return;}
+  if(e.target.closest("[data-tint]")){tint();return;}
+  const st=e.target.closest("[data-step]");
+  if(st)go(+st.dataset.step);
+ });
+ document.addEventListener("keydown",e=>{
+  if(!dlg.open)return;
+  if(e.key==="ArrowRight"){e.preventDefault();go(1);}
+  else if(e.key==="ArrowLeft"){e.preventDefault();go(-1);}
+ });
+ let x0=null;
+ stage.addEventListener("pointerdown",e=>{x0=e.clientX;});
+ stage.addEventListener("pointerup",e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;if(Math.abs(dx)>50)go(dx<0?1:-1);else if(Math.abs(dx)<8&&e.target.tagName==="IMG")tint();});
+}
+{
+ /* 카드 속 흑백 사진: 누르면 흑백 원본 ↔ 가상 복원(같은 사진에 색을 입힌 것) */
+ const swap=(fig,on)=>{
+  const tx=T[langOf(fig)],img=fig.querySelector(".phw img"),btn=fig.querySelector(".tint");
+  if(!fig.dataset.bw){fig.dataset.bw=img.getAttribute("src");fig.dataset.bwAlt=img.alt;}
+  const src=on?fig.dataset.color:fig.dataset.bw,pre=new Image();
+  pre.src=src;
+  (pre.decode?pre.decode():Promise.resolve()).catch(()=>{}).then(()=>{
+   img.src=src;img.alt=on?fig.dataset.colorAlt:fig.dataset.bwAlt;
+   btn.setAttribute("aria-pressed",String(on));
+   btn.textContent=on?tx.toBw:tx.toColor;
+   const note=fig.querySelector(".vr-note");if(note)note.hidden=!on;
+   fig.classList.toggle("is-color",on);
+  });
+ };
+ document.addEventListener("click",e=>{
+  const w=e.target.closest(".ph[data-color] .phw");
+  if(!w)return;
+  const fig=w.closest(".ph");
+  swap(fig,!fig.classList.contains("is-color"));
+ });
+}
+</script>
+</body>
+</html>

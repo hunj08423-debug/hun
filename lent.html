@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사순절 코스 · 질문 받기 연습실</title>
+<meta name="description" content="광야에서 예루살렘 성문까지, 그림 여섯 점으로 걷는 사순절. 사순절의 여섯 주일, 그림 한 점에 질문 하나. 그 땅의 옛 사진과 AI 가상 복원, 아이에게 보여 주기.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="사순절 코스 · 질문 받기 연습실">
+<meta property="og:description" content="광야에서 예루살렘 성문까지, 그림 여섯 점으로 걷는 사순절. 그림 한 점에 질문 하나.">
+<meta property="og:url" content="https://hunj08423-debug.github.io/hun/lent.html">
+<meta property="og:image" content="https://hunj08423-debug.github.io/hun/og-feel.jpg">
+<meta name="theme-color" content="#2A1E33">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* 사순절 코스 · 함께 느끼기 방에서 이어지는 따로 페이지 (feel.html의 사순절 칸에서 들어옴, christmas.html과 같은 틀)
+   VOICE everyday · 교사용 절기 카드, 조용하고 따뜻하게
+   IDEA 길: 광야에서 예루살렘 성문까지 걸어가는 여섯 주일. 장면마다 십자가가 하나씩 더 켜지는 띠
+   PICTURE 여섯 장면의 그림을 나란히 세운 띠, 고른 장면의 그림이 크게
+   COLOUR 함께 느끼기 방의 바탕과 잉크에 사순절 보라 #4A2F66, 저녁 하늘 같은 짙은 보라 #2A1E33, 촛불 금빛 한 점
+   TYPE Noto Serif KR(제목·질문·뿌리) + Noto Sans KR(본문)
+   LAYOUT 넓은 화면: 여섯 칸 띠 아래 그림 왼쪽 고정, 글 오른쪽 / 중간 화면: 3×2 띠 / 휴대폰: 2×3 띠, 그림, 글 */
+:root{color-scheme:light dark;
+--bg:light-dark(#F8F7F4,#151311);--surface:light-dark(#FFFFFF,#1E1B18);--ink:light-dark(#1C1A17,#F1ECE4);--ink2:light-dark(#3D3A35,#D9D2C7);
+--muted:light-dark(#5F584F,#B3AA9E);--line:light-dark(#E6E1D9,#36312B);--accent:light-dark(#4A2F66,#CDB0E6);--soft:light-dark(#EEE8F4,#2A2136);
+--deep:#2A1E33;--flame:#E9B44C;--warn:light-dark(#8A4B12,#F0C38E);--warn-soft:light-dark(#FBF1E6,#33261A);
+--sand:light-dark(#F3EDE3,#25201A);--earth:light-dark(#7A4E26,#E3B98C);
+--sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--serif:"Noto Serif KR","AppleMyungjo","Batang",serif}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.7 var(--sans);word-break:keep-all;overflow-wrap:break-word;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--serif);margin:0;line-height:1.2;letter-spacing:-.02em;text-wrap:balance}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(4vw,16px)}
+.top{background:var(--deep);color:#F3EEE6;padding:28px 0 30px}
+.top .brand{font-size:14px;opacity:.82}
+.top h1{font-size:clamp(32px,5vw,46px);margin:8px 0 10px;color:#fff}
+.top .sub{font-size:17px;max-width:46em;color:#E8DFF2}
+.howto{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:14px;color:#E8DFF2}
+.howto b{color:var(--flame);font-weight:700}
+.top a.back{color:inherit;text-decoration:none}
+.top a.back:hover{text-decoration:underline}
+.top a.back:focus-visible{outline:3px solid var(--flame);outline-offset:2px;border-radius:4px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lang{flex:none;min-height:36px;padding:6px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.42);background:transparent;color:#fff;font:700 14px/1.2 var(--sans);cursor:pointer}
+.lang:hover{background:rgba(255,255,255,.12)}
+.lang:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.draft{margin-top:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 14px;font-size:14px;color:#F3EEE6}
+.weeks{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:-2px 0 0;padding:22px 0 8px}
+.wk{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .2s ease,border-color .2s}
+.wk:hover{transform:translateY(-2px);border-color:var(--accent)}
+.wk:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wk[aria-current=true]{border:2px solid var(--accent);box-shadow:0 0 0 4px var(--soft)}
+.wk img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.wk .bd{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px}
+.wk .when{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 8px;font-size:13px;color:var(--muted)}
+.wk .when b{white-space:nowrap}
+.wk .when b{color:var(--accent);font-weight:700}
+.wk .q{font-family:var(--serif);font-weight:600;font-size:15px;line-height:1.45}
+.steps{display:inline-flex;gap:3px;align-items:center;flex:none}
+.steps i{display:block;width:11px;height:13px;background:var(--line);clip-path:polygon(38% 0,62% 0,62% 26%,92% 26%,92% 46%,62% 46%,62% 100%,38% 100%,38% 46%,8% 46%,8% 26%,38% 26%)}
+.steps i.on{background:var(--accent)}
+.thread{margin:6px 0 4px;font-size:14px;color:var(--muted)}
+.thread b{color:var(--ink2)}
+.card{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,3.5vw,44px);padding:30px 0 46px;border-top:1px solid var(--line);margin-top:22px;scroll-margin-top:12px}
+.js .card{display:none}
+.js .card.on{display:grid}
+.fig{position:sticky;top:16px;align-self:start;display:flex;flex-direction:column;gap:10px}
+.fig img{width:100%;max-height:82vh;object-fit:contain;background:#0f0d0c;border-radius:14px}
+.fig .cap{font-size:13px;color:var(--muted);line-height:1.6}
+.fig .cap b{color:var(--ink2);font-weight:600}
+.txt{display:flex;flex-direction:column;gap:18px}
+.tag{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px;color:var(--muted)}
+.chip{background:var(--soft);color:var(--accent);font-weight:700;border-radius:999px;padding:4px 12px;font-size:13.5px}
+.opener{background:var(--soft);border-radius:18px;padding:18px 20px}
+.opener small{display:block;font-size:13px;font-weight:700;color:var(--accent)}
+.opener h2{font-size:clamp(25px,3.2vw,32px);margin-top:4px}
+.line{font-family:var(--serif);font-size:18.5px;line-height:1.75;font-weight:600}
+.blk h3{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--accent);letter-spacing:0;margin-bottom:6px}
+.blk p{margin:0 0 8px}
+.blk ol,.blk ul{margin:0;padding-left:21px;display:flex;flex-direction:column;gap:6px}
+/* 그 시절로 가 보기 */
+.era{background:var(--sand);border-radius:18px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:14px}
+.era>h3{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--earth);letter-spacing:0}
+.where{margin:0}
+.where b{display:block;font-family:var(--serif);font-size:17px;margin-bottom:2px}
+.ph{margin:0;display:flex;flex-direction:column;gap:8px}
+.ph img{width:100%;border-radius:12px;background:#0f0d0c}
+.ph figcaption{font-size:14.5px;line-height:1.65;color:var(--ink2)}
+.ph figcaption b{font-family:var(--serif);font-size:15.5px;color:var(--ink)}
+.imagine{margin:0;border-left:3px solid var(--flame);padding:4px 0 4px 14px;font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.75}
+.imagine small{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--earth);margin-bottom:2px}
+.go{position:relative;display:flex;flex-direction:column;gap:2px;padding:12px 16px 12px 44px;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;line-height:1.5}
+.go::before{content:"";position:absolute;left:17px;top:50%;margin-top:-7px;border-left:12px solid var(--earth);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.go small{font-weight:400;font-size:13px;color:var(--muted)}
+.go:hover{border-color:var(--earth)}
+.go:focus-visible{outline:3px solid var(--earth);outline-offset:2px}
+.old{margin:0;font-size:13px;color:var(--muted)}
+.orig{font-size:13px;color:var(--muted);white-space:nowrap}
+/* 가상 복원 보기 */
+.phw{position:relative}
+.ph[data-color] .phw{cursor:pointer}
+.tint{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:6px 13px 6px 10px;border:0;border-radius:999px;background:rgba(16,14,12,.80);color:#fff;font:700 13px/1.2 var(--sans);cursor:pointer}
+.tint::before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:conic-gradient(#E9B44C,#D2553F,#5B8C5A,#4A78B5,#E9B44C)}
+.tint[aria-pressed=true]::before{background:linear-gradient(90deg,#fff 50%,#333 50%);box-shadow:0 0 0 1px rgba(255,255,255,.6)}
+.tint:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.vr-note{display:block;margin-top:4px;font-size:12.5px;color:var(--muted)}
+.vr-note[hidden]{display:none}
+.ph.is-color .phw::after{content:"AI 가상 복원";position:absolute;right:10px;top:10px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.9);color:#1C1A17;font:700 12px/1.3 var(--sans)}
+.L[lang=en] .ph.is-color .phw::after{content:"AI colorized"}
+.sw-pic{position:relative;width:100%;height:100%}
+.sw-pic .tint{left:50%;transform:translateX(-50%);bottom:12px;font-size:14px;min-height:40px}
+/* 아이에게 보여 주기 */
+.showbtn{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;padding:12px 16px;border:0;border-radius:14px;background:var(--deep);color:#F3EEE6;font:700 16px/1.45 var(--sans);text-align:left;cursor:pointer}
+.showbtn b{display:flex;align-items:center;gap:9px}
+.showbtn b::before{content:"";border-left:11px solid var(--flame);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.showbtn span{font-weight:400;font-size:13px;color:#DCD0EA}
+.showbtn:hover{background:#3D2D4E}
+.showbtn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tip{margin:10px 0 0;font-size:14px;color:#E8DFF2}
+.tip b{color:var(--flame)}
+dialog.show{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#100E0C;color:#F3EEE6}
+dialog.show::backdrop{background:#000}
+.sw{height:100%;display:flex;flex-direction:column;gap:12px;padding:12px max(14px,3vw) max(14px,env(safe-area-inset-bottom))}
+.sw-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:#BDB4A8}
+.sw-x{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:transparent;color:#F3EEE6;font-size:24px;line-height:1;cursor:pointer}
+.sw-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;touch-action:pan-y}
+.sw-stage img{width:100%;height:100%;object-fit:contain}
+.sw-dark{width:100%;height:100%;border-radius:14px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 46%,rgba(233,180,76,.30),rgba(233,180,76,0) 34%),#07060A}
+.sw-dark span{font-family:var(--serif);font-size:clamp(22px,4vw,34px);font-weight:700;color:#F6E3B8}
+.sw-q{margin:0 auto;max-width:820px;min-height:3.2em;text-align:center;font-family:var(--serif);font-weight:600;font-size:clamp(20px,3vw,28px);line-height:1.5;text-wrap:pretty}
+.sw-q small{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--flame);margin-bottom:4px}
+.sw-nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sw-nav button{min-height:48px;min-width:96px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#F3EEE6;font:700 16px var(--sans);cursor:pointer}
+.sw-nav button.next{background:var(--flame);border-color:var(--flame);color:#1C1A17}
+.sw-nav button:disabled{opacity:.35;cursor:default}
+.sw button:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.dots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25)}
+.dots i.on{background:var(--flame)}
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.ask small{font-size:13px;font-weight:700;color:var(--accent)}
+.ask p{margin:4px 0 0;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.6}
+.root{background:var(--deep);color:#F3EEE6;border-radius:14px;padding:15px 18px;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.6}
+.read{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:12px 18px;border-radius:14px;background:var(--accent);color:var(--surface);text-decoration:none;font-weight:700}
+.read:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.read span{font-weight:400;font-size:13.5px;opacity:.9}
+.aha{background:var(--soft);border-radius:14px;padding:14px 16px}
+.aha h3{margin-bottom:4px}
+.care{background:var(--warn-soft);color:var(--ink);border-radius:14px;padding:13px 16px;font-size:15px}
+.care b{color:var(--warn)}
+.more li{font-size:15px}
+.more .note{color:var(--muted);font-size:13.5px}
+details.src{border-top:1px dashed var(--line);padding-top:12px;font-size:13.5px;color:var(--muted)}
+details.src summary{cursor:pointer;font-weight:700;color:var(--ink2);min-height:32px}
+details.src ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.foot{border-top:1px solid var(--line);padding:22px 0 40px;font-size:14px;color:var(--muted)}
+.foot p{margin:0 0 6px}
+@media (max-width:1100px){.weeks{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.wk .bd{padding:12px 14px 14px}.wk .q{font-size:16px}}
+@media (max-width:900px){.card{grid-template-columns:minmax(0,1fr)}.fig{position:static}.fig img{max-height:70vh}}
+@media (max-width:600px){.weeks{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.wk .q{font-size:15px}.top .sub{font-size:16px}.line{font-size:17.5px}}
+@media (prefers-reduced-motion:reduce){.wk{transition:none}.wk:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="L" lang="ko">
+<header class="top">
+ <div class="wrap">
+  <div class="bar"><a class="brand back" href="feel.html">‹ 질문 받기 연습실 · 함께 느끼기</a><button class="lang" type="button" data-lang="en" lang="en">English</button></div>
+  <h1>사순절 코스</h1>
+  <p class="sub">광야에서 예루살렘 성문까지, 그림 여섯 점으로 걷는 사순절. 사순절의 여섯 주일, 그림 한 점에 질문 하나. 배고픈 광야의 40일에서 호산나를 외치는 길까지.</p>
+  <div class="howto"><span><b>1</b> 그림을 함께 보고</span><span><b>2</b> 질문을 던지고</span><span><b>3</b> 그 시절로 가 본 뒤</span><span><b>4</b> 본문을 같이 읽어요</span></div>
+  <p class="tip">그림 아래 <b>아이에게 보여 주기</b>를 누르면 그림과 그 땅의 옛 사진을 화면 가득 띄우고, 질문을 하나씩 넘길 수 있어요. 흑백 사진은 누르면 AI로 색을 입힌 <b>가상 복원</b>으로 바뀌어요.</p>
+  <div class="draft">검수 전 초안이에요. AI가 출처를 모아 쓴 글이라, 카드마다 맨 아래 ‘근거 보기’와 대조해 확인해 주세요.</div>
+ </div>
+</header>
+
+<main class="wrap">
+ <nav class="weeks" aria-label="장면 고르기">
+  <a class="wk" href="#scene1" data-w="scene1"><img src="img/lent1-duccio-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>사순절 1주 · <span data-wd="0">2월 14일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></span><span class="q">예수님도 시험을 보셨어요?</span></span></a>
+  <a class="wk" href="#scene2" data-w="scene2"><img src="img/lent2-murillo-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>사순절 2주 · <span data-wd="1">2월 21일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span></span><span class="q">아빠는 왜 혼내지 않았어요?</span></span></a>
+  <a class="wk" href="#scene3" data-w="scene3"><img src="img/lent3-cranach-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>사순절 3주 · <span data-wd="2">2월 28일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">예수님도 아기를 안아 주셨어요?</span></span></a>
+  <a class="wk" href="#scene4" data-w="scene4"><img src="img/lent4-tissot-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>사순절 4주 · <span data-wd="3">3월 7일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">삭개오는 왜 나무에 올라갔어요?</span></span></a>
+  <a class="wk" href="#scene5" data-w="scene5"><img src="img/lent5-giotto-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>사순절 5주 · <span data-wd="4">3월 14일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">예수님도 우셨어요?</span></span></a>
+  <a class="wk" href="#scene6" data-w="scene6"><img src="img/lent6-duccio-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>종려주일 · <span data-wd="5">3월 21일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">왕이 왜 나귀를 타요?</span></span></a>
+ </nav>
+ <p class="thread">여섯 장면을 잇는 두 말: <b>“돌아가다”</b>(눅 15:20)와 <b>“찾다”</b>(눅 19:10). 집을 떠난 아들은 아버지께로 돌아가고, 예수님은 제자들이 막아선 아이들과 나무 위의 삭개오, 무덤 속의 나사로를 찾아 부르셨어요. 광야에서 시작한 그 길은 종려나무 가지가 흔들리는 예루살렘 성문에 닿아요.</p>
+
+ <!-- 장면 1 -->
+ <article class="card" id="scene1" data-week="scene1">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent1-duccio.jpg" alt="두초의 그림. 금빛 하늘 아래 높은 바위산 꼭대기에서 예수가 오른팔을 뻗어 앞에 선 검은 마귀를 물리친다. 마귀는 커다란 검은 날개를 달았다. 예수 뒤에는 천사 둘이 서 있고, 산 아래에는 탑과 성벽을 두른 작은 성들이 여럿 펼쳐져 있다.">
+   <figcaption class="cap"><b>「산 위의 시험」</b> 두초 디 부오닌세냐, 1308~1311년<br>미국 뉴욕, 프릭 컬렉션</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">사순절 첫째 주일 · 광야의 시험</span><span><span data-wd="0">2월 14일</span> 사순절 첫째 주일 · 마태복음 4:1~11</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>예수님도 시험을 보셨어요?</h2></div>
+   <p class="line">높은 산꼭대기, 발아래에는 장난감처럼 작은 성들이 펼쳐져 있습니다. 예수님은 손을 뻗어 말씀하십니다. “사탄아 물러가라.”</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>예수님 앞에 선 검은 형체를 찾아보세요. 등에 달린 날개는 어떤 동물을 닮았나요?</li>
+    <li>산 아래 작은 성들을 세어 보세요. 탑과 지붕은 무슨 색인가요?</li>
+    <li>예수님 뒤에 선 두 천사를 찾아보세요. 이 천사들은 무엇을 하러 왔을까요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>세례를 받으신 예수님은 성령에게 이끌려 광야로 가셨어요. “사십 일을 밤낮으로 금식하신 후에 주리신지라”(4:2). 그때 시험하는 자가 와서 세 번 유혹했어요. 돌을 떡덩이로 만들어 보라고, 성전 꼭대기에서 뛰어내려 보라고, 그리고 엎드려 경배하면 천하 만국을 주겠다고요. 예수님은 그때마다 “기록되었으되” 하고 성경 말씀으로 대답하셨어요(4:4, 7, 10).</p>
+    <p>이 그림은 세 번째 시험이에요. 이탈리아 시에나의 화가 두초가 시에나 대성당의 큰 제단화 「마에스타」를 그릴 때 함께 만든 작은 그림이지요. 앞뒤 두 면에 그림이 가득한 이 제단화에는 예수님의 삶을 담은 작은 장면이 수십 개 있었는데, 이 그림도 그 가운데 하나예요. 가로 46센티미터, 세로 43센티미터쯤 되고, 1927년부터 미국 뉴욕의 프릭 컬렉션에 있어요.</p>
+    <p>산 아래 성들은 마귀가 보여 준 “천하 만국과 그 영광”(4:8)이에요. 두초는 성을 사람보다 훨씬 작게 그렸어요. 실제 크기가 아니라 무엇이 더 중요한지를 크기로 보여 준 거예요. 탑과 둥근 지붕이 빽빽한 성들은 언덕마다 마을이 들어선 화가의 고향 시에나를 닮았다고 해요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>사순절은 부활절을 앞둔 40일이에요. 예수님이 광야에서 금식하신 40일을 본떴지요. 성경에는 40일이 또 나와요. 모세는 시내산에서 “사십 일 사십 야를” 먹지도 마시지도 않았고(출 34:28), 엘리야는 “사십 주 사십 야를” 걸어 호렙산에 갔어요(왕상 19:8). 서방 교회는 주일을 빼고 날을 세기 때문에, 부활절보다 46일 앞선 수요일(재의 수요일)에 사순절을 시작해요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 유대 광야</b>성경은 예수님이 시험받으신 곳을 ‘광야’라고만 말해요. 4세기 무렵부터 사람들은 여리고 서쪽 절벽의 한 동굴을 그곳으로 기억해 왔고, 그 산을 ‘40일의 산’(콰란타니아)이라고 불렀어요.</p>
+    <figure class="ph" data-q="앞쪽의 검은 밭과 뒤쪽의 언덕은 어떻게 달라 보이나요? 이런 광야에서 40일을 지낸다면 무엇이 가장 그리울까요?" data-color="img/lvr1-wilderness.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 하늘에서 내려다본 광야. 앞쪽에 초록 밭이 펼쳐져 있고, 그 뒤로 붉은 흙빛 절벽과 메마른 언덕들이 겹겹이 이어진다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 광야는 무슨 색으로 보이니?">
+     <div class="phw"><img src="img/lera1-wilderness.jpg" alt="흑백 사진. 하늘에서 내려다본 광야. 앞쪽 평지에 검게 보이는 밭이 펼쳐져 있고, 그 뒤로 층층이 깎인 가파른 절벽이 솟아 있으며, 더 멀리 메마른 언덕들이 끝없이 겹겹이 이어진다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>유대 광야와 시험산</b> · 1930년대<br>사진가의 기록장에 적힌 제목은 ‘유대 광야와 시험산’이에요. 높은 하늘에서 내려다보며 찍은 사진이에요. 예루살렘 동쪽에서 요단 골짜기까지 이런 메마른 언덕이 이어져요. 예수님의 40일도 이런 땅에서였어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:The_wilderness_of_Judea_%26_Mt._of_Temptation_LOC_matpc.14208.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="절벽에 붙어 있는 건물을 찾아보세요. 사람들은 왜 이런 곳에 집을 지었을까요?">
+     <img src="img/lcolor1-wadi-kelt.jpg" alt="색을 입힌 옛 인쇄 사진. 깎아지른 절벽 중턱에 수도원 건물이 붙어 있고, 그 아래 깊은 골짜기로 시내가 흐른다." loading="lazy">
+     <figcaption><b>와디 켈트의 절벽 수도원 · 1890년대 컬러 인쇄본</b><br>옛 사진의 제목은 ‘엘리야 수도원과 그릿 시내’예요. 엘리야가 숨어 지내며 까마귀가 날라다 준 떡과 고기를 먹은 ‘그릿 시냇가’(왕상 17:3~6)를 이 골짜기로 보는 전통이 있어요. 5세기에 수도사들이 그 동굴 곁에 수도원을 세웠어요. 선지자들과 예수님처럼 광야에서 기도하려고요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002725062/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 해가 뜨거운 광야예요. 바람 소리만 들려요. 배가 몹시 고파요. 그때 누가 다가와 속삭여요. ‘이 돌을 빵으로 만들어 봐.’"><small>눈 감고 상상해 보기</small>먹을 것도 그늘도 없는 광야에서 40일. 가장 배고플 때 ‘이렇게 하면 쉬워’ 하는 목소리가 들린다면 어떤 마음이 들까요?</p>
+    <a class="go" href="https://collections.frick.org/objects/152">그림 가까이 보기 · 프릭 컬렉션 작품 페이지<small>영어 · 그림을 크게 키워서 산 아래 성들의 탑과 지붕을 하나씩 보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“하면 안 되는 줄 알면서도 하고 싶었던 적 있니? 그때 무엇이 도움이 됐어?”</p></div>
+   <div class="root">예수님은 하나님의 말씀으로 시험을 이기셨습니다(마 4:4, 10).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/MAT.4">이제 본문 읽기 · 마태복음 4:1~11<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 아이들은 ‘시험’을 학교 시험으로 들을 수 있어요. 여기서는 ‘옳지 않은 쪽으로 끌어당기는 일’이라고 풀어 주세요. 마귀를 무섭게 그리기보다, 예수님이 무엇으로 이기셨는지에 마음을 두게 해 주세요. 시험산의 동굴은 오래된 전통이고, 성경이 장소를 정해 말하지는 않아요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>예수님이 세 번 대답하신 “기록되었으되”는 모두 신명기 말씀이에요(신 8:3, 6:16, 6:13). 아이와 함께 그 구절을 찾아 읽어 보세요.</li>
+    <li><a href="https://thevcs.org/campaign/mountain">VCS 전시 「The Temptation of Christ」의 한 해설</a> <span class="note">영어 · 마태복음 4:1~11, 마가복음 1:12~13, 누가복음 4:1~13</span></li>
+    <li>많은 교회가 쓰는 개정 공동 성서정과(RCL)는 A해 사순절 첫째 주일 복음서로 마태복음 4:1~11을 읽어요. <a href="https://pcusa.org/devotion/revised-common-lectionary/2026/02/22">미국 장로교회 성서정과 안내</a> <span class="note">영어</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (8)</summary><ul>
+    <li><a href="https://collections.frick.org/objects/152">프릭 컬렉션 작품 정보</a>: 1308~1311년, 포플러 판에 템페라, 43.2×46cm, 1927년 구입, 두 천사를 뒤에 두고 사탄을 향해 오른팔을 뻗은 그리스도, 「마에스타」의 한 장면</li>
+    <li><a href="https://artsandculture.google.com/asset/the-temptation-of-christ-on-the-mountain/LAGcgFRm_8beXQ">Google Arts &amp; Culture(프릭 컬렉션)</a>: 시에나 대성당 중앙 제단을 위한 양면 제단화, 사람은 크게 왕국은 작게 그려 가치의 크기를 보여 줌</li>
+    <li><a href="https://scotland.op.org/duccios-temptation-on-the-mountain/">에든버러 가톨릭 교목실 글</a>: 박쥐 날개를 단 마귀, 작은 성들로 나타낸 천하 만국</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/MAT.4">개역개정 본문(대한성서공회)</a>: 마 4:1~11, 출 34:28, 왕상 17:3~6, 19:8</li>
+    <li><a href="https://www.britannica.com/topic/Lent">Britannica ‘Lent’</a>, <a href="https://www.britannica.com/topic/Ash-Wednesday">‘Ash Wednesday’</a>: 그리스도의 광야 금식을 본뜬 40일, 주일을 빼고 세는 서방 교회의 셈법</li>
+    <li><a href="https://en.wikipedia.org/wiki/Mount_of_Temptation">Wikipedia ‘Mount of Temptation’</a>, <a href="https://en.wikipedia.org/wiki/Monastery_of_the_Temptation">‘Monastery of the Temptation’</a>: 4세기부터 이어진 동굴 전통, 라틴어 이름 ‘40일의 산’</li>
+    <li><a href="https://en.jerusalem-patriarchate.info/blog/2017/08/30/st-georges-monastery-in-the-wilderness-of-judea/">예루살렘 정교회 총대주교청 ‘유대 광야의 성 게오르기오스 수도원’</a>, <a href="https://www.holylandsite.com/st-george-monastery">Holy Land Site</a>: 엘리야가 까마귀에게 먹을 것을 받았다고 믿은 동굴 곁에 5세기에 세운 수도원</li>
+    <li><a href="https://pcusa.org/devotion/revised-common-lectionary/2026/02/22">PC(USA) 개정 공동 성서정과</a>: 2026년 2월 22일(A해 사순절 첫째 주일) 복음서 마태복음 4:1~11</li>
+   </ul><p>그림: 두초 디 부오닌세냐, 「산 위의 시험」(원제: The Temptation of Christ on the Mountain), 1308~1311년, 뉴욕 프릭 컬렉션. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:The_wilderness_of_Judea_%26_Mt._of_Temptation_LOC_matpc.14208.jpg">‘The wilderness of Judea &amp; Mt. of Temptation’</a>(1934~1939년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725062/">‘Convent of Elijah and Brook of Kerith, Wady-el-Keit’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 2 -->
+ <article class="card" id="scene2" data-week="scene2">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent2-murillo.jpg" alt="무리요의 그림. 누더기를 걸친 아들이 맨발로 무릎을 꿇고, 분홍빛 겉옷에 검은 모자를 쓴 늙은 아버지가 몸을 숙여 두 팔로 아들을 감싸 안는다. 작은 흰 개가 아들의 발치에서 뛰어오르고, 옆에서는 하인들이 새 옷과 반지를 들고 다가온다. 왼쪽에서는 소년이 송아지를 끌고 오고, 도끼를 멘 남자가 뒤따른다.">
+   <figcaption class="cap"><b>「돌아온 아들」</b> 바르톨로메 에스테반 무리요, 1667~1670년<br>미국 워싱턴, 내셔널 갤러리</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">사순절 둘째 주일 · 돌아온 아들</span><span><span data-wd="1">2월 21일</span> 사순절 둘째 주일 · 누가복음 15:11~32</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>아빠는 왜 혼내지 않았어요?</h2></div>
+   <p class="line">아들은 맨발로 무릎을 꿇었습니다. 아버지는 두 팔로 아들을 감싸 안고, 하인들은 벌써 새 옷을 들고 달려옵니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>아들의 발을 보세요. 신발을 신었나요? 발치에서 반기는 작은 동물도 찾아보세요.</li>
+    <li>하인들이 들고 오는 것을 찾아보세요. 새 옷 말고 작은 반지도 있어요.</li>
+    <li>잔치에 쓸 송아지도 찾아보세요. 누가 데려오고 있나요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>예수님이 죄인들과 어울려 함께 먹는다고 수군거리는 사람들에게 들려주신 이야기예요(15:1~2). 둘째 아들은 아버지에게 재산을 미리 받아 먼 나라로 가서 다 써 버렸어요. 흉년이 들자 남의 집 돼지를 치게 되었고, “돼지 먹는 쥐엄 열매로 배를 채우고자 하되 주는 자가 없”었지요(15:16). 그제야 정신이 든 아들은 아버지께 돌아가기로 해요.</p>
+    <p>“아직도 거리가 먼데 아버지가 그를 보고 측은히 여겨 달려가 목을 안고 입을 맞추니”(15:20). 아버지는 종들에게 제일 좋은 옷을 입히고, 손에 가락지를 끼우고, 발에 신을 신기라고 해요. 살진 송아지를 잡아 잔치도 열지요(15:22~23). 들에서 돌아온 형은 화가 나서 들어가지 않으려 했지만, 아버지는 형에게도 나와서 권했어요(15:28).</p>
+    <p>스페인 세비야의 화가 무리요가 1667~1670년 무렵 그린 그림이에요. 세비야의 ‘자선 형제회’는 가난한 사람을 돌보는 일을 하던 모임인데, 그 성당을 위해 큰 그림 여덟 점을 맡겼어요. 무리요도 이 형제회의 회원이었지요. 이 그림은 형제회가 지키던 자비의 일 가운데 ‘헐벗은 사람에게 옷을 입히는 일’을 보여 줘요. 높이 2.4미터, 너비 2.6미터나 되는 큰 그림이에요. 1810년 프랑스 군의 술트 원수가 가져간 뒤 여러 손을 거쳐, 1948년부터 미국 워싱턴의 내셔널 갤러리에 있어요. 세비야의 성당에는 지금 복제화가 걸려 있어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>‘쥐엄 열매’는 지중해 둘레에서 자라는 쥐엄나무(캐럽)의 꼬투리예요. 길쭉한 꼬투리 속에 달콤한 과육이 들어 있어요. 주로 돼지나 소에게 먹였고, 사람은 먹을 것이 없을 때나 먹었다고 해요. 게다가 유대 사람들에게 돼지는 먹지 않는 짐승이었어요(레 11:7). 아들이 얼마나 낮은 곳까지 내려갔는지, 이야기를 듣던 사람들은 금세 알아챘을 거예요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 이야기 속 들판과 아버지의 집</b>예수님의 비유라 지도에 나오는 곳은 아니에요. 하지만 이야기 안에는 그 시절 사람들이 날마다 보던 것들이 있어요. 들판의 쥐엄나무와 돼지 떼, 잔칫날의 송아지, 둘러앉아 함께 먹는 밥상.</p>
+    <figure class="ph" data-q="이 나무가 쥐엄나무예요. 둥치와 가지가 어떻게 뻗어 있나요? 이 나무 열매를 먹고 싶을 만큼 배가 고프다면 어떨까요?" data-color="img/lvr2-carob.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 파란 하늘 아래, 붉은 흙빛 바위 비탈에 짙은 초록 잎의 쥐엄나무가 비스듬히 서 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 잎은 무슨 색으로 보이니?">
+     <div class="phw"><img src="img/lera2-carob.jpg" alt="흑백 사진. 바위 비탈에 잎이 무성한 나무 한 그루가 비스듬히 서서 가지를 펼치고 있고, 그 곁으로 길이 나 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>쥐엄나무(캐럽)</b> · 1900년<br>사진가가 ‘나무와 덤불’이라는 묶음으로 찍은 사진이에요. 이 나무에 달리는 길쭉한 꼬투리가 둘째 아들이 먹고 싶어 한 쥐엄 열매예요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Trees_and_shrubs._Carob_tree._(Ceratonia_Siliqua_L.)._LOC_matpc.02474.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="몇 사람이 둘러앉아 있나요? 가운데에 무엇이 놓여 있나요?">
+     <img src="img/lcolor2-meal.jpg" alt="색을 입힌 옛 인쇄 사진. 터번이나 붉은 모자를 쓴 남자들이 바닥에 둘러앉아 가운데 놓인 음식을 함께 먹는다." loading="lazy">
+     <figcaption><b>갈멜산 마을 사람들의 식사 · 1890년대 컬러 인쇄본</b><br>옛 사진의 제목은 ‘식사하는 갈멜산의 드루즈 농부들’이에요. 식탁 대신 바닥에 둘러앉아 한 상에서 함께 먹지요. 아버지는 돌아온 아들을 위해 “우리가 먹고 즐기자” 하며 잔치를 열었어요(15:23). <a class="orig" href="https://www.loc.gov/item/2002725090/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 오랫동안 집을 떠나 있었어요. 배가 고프고 발이 아파요. 저 멀리 우리 집이 보여요. 그런데 누가 나를 향해 달려와요."><small>눈 감고 상상해 보기</small>옷은 해지고 신발도 없이 집으로 돌아가는 길. ‘뭐라고 말해야 하지?’ 하고 연습하는데, 저 멀리서 아버지가 달려온다면 어떤 마음일까요?</p>
+    <a class="go" href="https://www.nga.gov/artworks/34956-return-prodigal-son">그림 가까이 보기 · 내셔널 갤러리 작품 페이지<small>영어 · 그림을 크게 키워서 아들의 발과 하인의 손에 든 반지를 찾아보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“잘못한 뒤에 누가 너를 꼭 안아 준 적 있니? 그때 어떤 마음이었어?”</p></div>
+   <div class="root">아버지는 멀리서 아들을 보고 달려가 안았습니다(눅 15:20). 하나님은 돌아오는 사람을 이렇게 맞으십니다.</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/LUK.15">이제 본문 읽기 · 누가복음 15:11~32<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 형의 마음(15:28~30)도 함께 다뤄 주세요. 늘 착하게 지낸 아이는 형 편에 설 수 있어요. 아버지는 형에게도 “얘 너는 항상 나와 함께 있으니 내 것이 다 네 것이로되” 하고 말했어요(15:31). 돼지를 ‘더러운 동물’이라고 놀리기보다, 유대 사람들에게 얼마나 낯선 일이었는지만 짚어 주세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>함께 느끼기 방의 렘브란트 「탕자의 귀향」과 나란히 보세요. 무리요의 그림에는 하인들이 바쁘게 오가고 개가 반기지만, 렘브란트는 아버지 품 안의 조용한 순간을 그렸어요.</li>
+    <li><a href="https://thevcs.org/prodigal-son">VCS 전시 「The Prodigal Son」</a> <span class="note">영어 · 누가복음 15:11~32 · 인도 화가들의 그림으로 읽는 해설</span></li>
+    <li>많은 교회가 쓰는 개정 공동 성서정과(RCL)는 C해 사순절 넷째 주일에 누가복음 15:1~3, 11~32를 읽어요. <a href="https://crivoice.org/lectionary/lectionlistgs.html">성서정과 복음서 목록</a> <span class="note">영어</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (8)</summary><ul>
+    <li><a href="https://www.nga.gov/artworks/34956-return-prodigal-son">내셔널 갤러리 작품 정보</a>: 1667/1670년, 캔버스에 유채, 1948년 에이벌론 재단 기증, 아들의 맨발에 뛰어오르는 작은 흰 개, 회색 수염과 검은 모자의 아버지, 좋은 옷과 반지와 살진 송아지</li>
+    <li><a href="https://en.wikipedia.org/wiki/The_Return_of_the_Prodigal_Son_(Murillo)">Wikipedia ‘The Return of the Prodigal Son (Murillo)’</a>: 세비야 자선 형제회가 맡긴 여덟 점 가운데 하나, 무리요도 회원, ‘헐벗은 이에게 옷을 입히라’는 형제회의 계명</li>
+    <li><a href="https://en.wikipedia.org/wiki/Hospital_de_la_Caridad_(Seville)">Wikipedia ‘Hospital de la Caridad (Seville)’</a>: 1810년 술트 원수가 가져간 네 점 가운데 하나</li>
+    <li><a href="https://hyperallergic.com/378315/piecing-together-the-histories-of-a-series-of-stolen-paintings/">Hyperallergic ‘Piecing Together the Histories of a Series of Stolen Paintings’</a>: 세비야 성당에 걸린 복제화</li>
+    <li><a href="https://scotland.op.org/?p=4402">에든버러 가톨릭 교목실 글</a>: ‘헐벗은 이에게 옷을 입히는 일’을 나타낸 장면</li>
+    <li><a href="https://www.biblegateway.com/resources/encyclopedia-of-the-bible/Husks">Bible Gateway 성경 백과 ‘Husks’</a>, <a href="https://tips.translation.bible/tip_verse/luke-1516/">Translation Insights ‘Luke 15:16’</a>: 쥐엄나무 꼬투리와 달콤한 과육, 짐승의 먹이였고 먹을 것이 없을 때 가난한 사람도 먹음</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/LUK.15">개역개정 본문(대한성서공회)</a>: 눅 15:11~32, 레 11:7</li>
+    <li><a href="https://crivoice.org/lectionary/lectionlistgs.html">CRI/Voice 성서정과 복음서 목록</a>: 눅 15:1~3, 11b~32는 C해 사순절 넷째 주일</li>
+   </ul><p>그림: 바르톨로메 에스테반 무리요, 「돌아온 아들」(원제: The Return of the Prodigal Son), 1667~1670년, 워싱턴 내셔널 갤러리. 사진: 내셔널 갤러리 공개 이미지(CC0), 위키미디어 공용.<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Trees_and_shrubs._Carob_tree._(Ceratonia_Siliqua_L.)._LOC_matpc.02474.jpg">‘Trees and shrubs. Carob tree. (Ceratonia Siliqua L.)’</a>(1900년, 입체 사진의 왼쪽 반, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725090/">‘Peasant Druses of Mount Carmel taking a meal’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 3 -->
+ <article class="card" id="scene3" data-week="scene3">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent3-cranach.jpg" alt="크라나흐 공방의 그림. 어두운 배경 앞에서 예수가 아기를 품에 안고 다른 아기에게 손을 얹어 축복한다. 둘레에는 아기를 안은 엄마들이 빽빽이 모여 있고, 아래쪽에서는 작은 아이들이 예수에게 손을 뻗는다. 오른쪽에서 수염 난 제자들이 지켜본다. 그림 맨 위에는 독일어로 마가복음 10장의 말씀이 적혀 있다.">
+   <figcaption class="cap"><b>「아이들을 축복하시는 예수님」</b> 소 루카스 크라나흐와 공방, 1545~1550년 무렵<br>미국 뉴욕, 메트로폴리탄 미술관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">사순절 셋째 주일 · 아이들을 안으신 예수님</span><span><span data-wd="2">2월 28일</span> 사순절 셋째 주일 · 마가복음 10:13~16</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>예수님도 아기를 안아 주셨어요?</h2></div>
+   <p class="line">엄마들이 아기를 안고 몰려옵니다. 제자들은 막으려 했지만, 예수님은 아기를 받아 품에 안으십니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>예수님 품에 안긴 아기를 찾아보세요. 아기는 무엇을 하고 있나요?</li>
+    <li>엄마들의 옷과 모자를 보세요. 2천 년 전 이스라엘 옷 같나요, 그림을 그린 독일 사람들의 옷 같나요?</li>
+    <li>한쪽에서 이 모습을 지켜보는 제자들을 찾아보세요. 얼굴이 어때 보이나요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>“사람들이 예수께서 만져 주심을 바라고 어린 아이들을 데리고 오매 제자들이 꾸짖거늘”(10:13). 예수님은 그 모습을 “보시고 노하시어” 말씀하셨어요. “어린 아이들이 내게 오는 것을 용납하고 금하지 말라 하나님의 나라가 이런 자의 것이니라”(10:14). 그리고 “그 어린 아이들을 안고 그들 위에 안수하시고 축복하시니라”(10:16). 예수님이 ‘노하셨다’고 하는 장면은 성경에 많지 않아요. 아이들을 막는 일에 그만큼 마음이 상하셨던 거예요.</p>
+    <p>이 장면만 따로 그린 그림은 종교개혁 전에는 찾아보기 어려워요. 루터가 있던 독일 비텐베르크에서 크라나흐 공방이 이 주제를 여러 점 그리면서 널리 퍼졌어요. 그 무렵 아기에게 세례를 주는 것을 반대한 사람들(재세례파)이 있었는데, 루터는 이 마가복음 말씀을 들어 아기 세례를 옹호했어요. 학자들은 이 그림들이 그 논쟁과 이어져 있다고 봐요.</p>
+    <p>메트로폴리탄 미술관의 이 그림은 아버지의 이름을 이어받은 아들 크라나흐와 공방이 1545~1550년 무렵 그린 작은 그림이에요. 가로 22센티미터, 세로 17센티미터로 작은 공책만 하지요. 그림 맨 위에는 “어린 아이들이 내게 오는 것을 용납하고 금하지 말라”는 마가복음 10장 14절 말씀이 루터의 독일어 성경 말로 적혀 있어요. 「예수님과 간음한 여인」과 짝을 이루도록 만든 것으로 보이는데, 이 두 장면을 짝지은 것은 이 그림이 처음이었다고 해요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>엄마들의 옷과 모자는 2천 년 전 이스라엘이 아니라 화가가 살던 16세기 독일의 옷차림이에요. 화가는 성경 이야기를 자기 동네에서 일어난 일처럼 그렸어요. 그림 앞에 선 엄마 아빠들은 ‘우리 아기도 예수님께 데려가도 되겠구나’ 하고 느꼈을지도 몰라요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 요단 강 건너편으로 가는 길</b>마가복음은 이 일이 예수님이 “유대 지경과 요단 강 건너편으로 가시”던 길에 있었다고 해요(10:1). 예루살렘으로 올라가시기 얼마 전이지요. 무리가 다시 모여들었고, 그 가운데 아기를 안고 온 사람들이 있었어요.</p>
+    <figure class="ph" data-q="엄마가 아기를 어떻게 안고 있나요? 아기는 어디를 보고 있을까요?" data-color="img/lvr3-mother-child.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 붉은 머릿수건에 체크무늬 치마를 입은 여인이 주황빛 옷을 입은 아기를 품에 안고 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 엄마의 옷은 무슨 색으로 보이니?">
+     <div class="phw"><img src="img/lera3-mother-child.jpg" alt="흑백 사진. 머릿수건을 쓴 여인이 아기를 품에 안고 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>아기를 안은 여인</b> · 1898~1946년 사이<br>사진가의 기록장에 남은 제목은 ‘아기를 안은 아랍 여인’이에요. 예수님께 아이를 데려온 사람들도 이렇게 아기를 품에 안고 왔겠지요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Arab_woman_holding_child_LOC_matpc.04623.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="아이들이 손에 무엇을 들고 있나요? 무엇을 입고 있나요? 우리와 비슷한 점도 찾아볼까요?">
+     <img src="img/lcolor3-children.jpg" alt="색을 입힌 옛 인쇄 사진. 머릿수건을 쓴 두 소녀가 음식을 담은 접시를 들고 나란히 서서 이쪽을 바라본다." loading="lazy">
+     <figcaption><b>예루살렘 근처 마을의 아이들 · 1890년대 컬러 인쇄본</b><br>130년쯤 전 예루살렘 둘레 마을에 살던 아이들이에요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이라, 옷 색깔은 사진가의 메모를 따라 칠한 것이에요. <a class="orig" href="https://www.loc.gov/item/2002725077/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 사람들이 빽빽하게 모여 있어요. 엄마가 나를 안고 앞으로 가요. 어른이 ‘저리 가!’ 하고 막아요. 그때 예수님이 ‘이리 오렴’ 하고 두 팔을 벌리세요."><small>눈 감고 상상해 보기</small>어른들 틈에서 키 작은 아이는 앞이 잘 보이지 않아요. 누가 막아설 때, 예수님이 먼저 불러 주신다면 어떤 기분일까요?</p>
+    <a class="go" href="https://www.metmuseum.org/art/collection/search/436035">그림 가까이 보기 · 메트로폴리탄 미술관 작품 페이지<small>영어 · 그림을 크게 키워서 아기들의 얼굴과 엄마들의 모자를 보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“어른들이 ‘넌 아직 어려서 안 돼’ 할 때 어떤 기분이었니? 예수님은 뭐라고 하셨을까?”</p></div>
+   <div class="root">예수님은 아이들이 오는 것을 막지 말라고 하셨습니다(막 10:14). 하나님 나라는 이런 아이들의 것입니다.</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/MRK.10">이제 본문 읽기 · 마가복음 10:13~16<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 제자들을 ‘나쁜 사람’으로 그리지 말아 주세요. 바쁜 선생님을 지키려던 마음이었을 수도 있어요. 아기 세례(유아 세례)에 대한 생각은 교회마다 달라요. 그림의 역사로 소개하되, 한쪽 입장을 가르치지는 마세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li><a href="https://lucascranach.org/en/US_MMANY_1982-60-36/">크라나흐 디지털 아카이브</a> <span class="note">영어 · 같은 주제의 다른 그림들과 비교해 보세요. 그림마다 엄마와 아기의 수와 자리가 달라요</span></li>
+    <li>마태복음 19:13~15, 누가복음 18:15~17에도 같은 이야기가 나와요. 세 복음서를 나란히 읽고 다른 점을 찾아보세요.</li>
+    <li>마가복음은 바로 앞에서 제자들이 서로 누가 크냐고 다툴 때, 예수님이 어린아이 하나를 안으시는 장면도 들려줘요(9:33~37).</li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (6)</summary><ul>
+    <li><a href="https://www.metmuseum.org/art/collection/search/436035">메트로폴리탄 미술관 작품 정보</a>: 소 루카스 크라나흐와 공방, 1545~1550년 무렵, 너도밤나무 판에 유채, 16.5×22.2cm, 작은 크기와 「예수님과 간음한 여인」과 짝을 이룬 그림일 가능성</li>
+    <li><a href="https://lucascranach.org/en/US_MMANY_1982-60-36/">크라나흐 디지털 아카이브 ‘Christ Blessing the Children’(메트로폴리탄)</a>: 두 주제를 짝으로 만든 것은 전례가 없음, 아이들을 데려오자 제자들이 반대한 이야기</li>
+    <li><a href="https://lucascranach.org/en/DE_SHLM_1989-480/">크라나흐 디지털 아카이브 ‘Jesus blessing the Children’(고토르프 성)</a>: 종교개혁 전에는 알려지지 않은 주제, 아기 세례를 거부한 재세례파에 대한 응답, 루터가 마가복음 10장을 근거로 듦</li>
+    <li><a href="https://lucascranach.org/DE_SMG_SG672">크라나흐 디지털 아카이브(고타)</a>: 아기 세례 논쟁의 맥락에서 이 그림들을 본 연구사</li>
+    <li><a href="https://resources.lcms.org/?p=90965">미주리 루터교회 자료 글</a>: 크라나흐가 이 장면을 처음 그린 화가로 보임, 르네상스 옷차림은 화가 시대를 반영</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/MRK.10">개역개정 본문(대한성서공회)</a>: 막 10:1, 13~16</li>
+   </ul><p>그림: 소 루카스 크라나흐와 공방, 「아이들을 축복하시는 예수님」(원제: Christ Blessing the Children), 1545~1550년 무렵, 뉴욕 메트로폴리탄 미술관. 사진: 메트로폴리탄 미술관 공개 이미지(CC0), 위키미디어 공용.<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Arab_woman_holding_child_LOC_matpc.04623.jpg">‘Arab woman holding child’</a>(1898~1946년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725077/">‘Native children from neighborhood of Jerusalem’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 4 -->
+ <article class="card" id="scene4" data-week="scene4">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent4-tissot.jpg" alt="티소의 수채화. 커다란 돌무화과나무의 굵은 가지에 노란 줄무늬 옷을 입고 터번을 쓴 남자가 올라타, 위쪽 가지를 붙잡고 왼쪽 길을 바라본다. 길에는 흰옷을 입은 예수가 제자들과 함께 걸어오고, 그 뒤로 사람들이 길게 따라온다. 오른쪽 나무 위에도 구경하려고 올라간 사람들이 있고, 아래 돌무더기에는 사람들이 앉아 있다.">
+   <figcaption class="cap"><b>「돌무화과나무 위에서 예수님을 기다리는 삭개오」</b> 제임스 티소, 1886~1896년<br>미국 뉴욕, 브루클린 미술관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">사순절 넷째 주일 · 나무 위의 삭개오</span><span><span data-wd="3">3월 7일</span> 사순절 넷째 주일 · 누가복음 19:1~10</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>삭개오는 왜 나무에 올라갔어요?</h2></div>
+   <p class="line">나뭇가지 사이에서 한 남자가 숨죽이고 길을 내려다봅니다. 곧 예수님이 이 길로 지나가실 거예요.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>나뭇가지 위에 올라간 사람을 찾아보세요. 무슨 색 옷을 입었나요?</li>
+    <li>그 사람의 눈이 어디를 향하는지 따라가 보세요. 무엇을 기다리고 있을까요?</li>
+    <li>나무 위에 올라간 사람이 또 있어요. 누구누구인지 찾아보세요. 이 사람들은 왜 올라갔을까요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>예수님이 여리고를 지나가실 때였어요. 그곳에 “삭개오라 이름하는 자가 있으니 세리장이요 또한 부자”였어요(19:2). 세리는 로마를 위해 세금을 걷는 사람이라 사람들이 반기지 않았지요. 삭개오는 예수님이 어떤 분인지 보고 싶었지만 “키가 작고 사람이 많아” 볼 수 없었어요(19:3). 그래서 앞으로 달려가 돌무화과나무에 올라갔어요(19:4).</p>
+    <p>예수님은 그 나무 아래에 이르러 위를 쳐다보시고 이름을 부르셨어요. “삭개오야 속히 내려오라 내가 오늘 네 집에 유하여야 하겠다”(19:5). 사람들은 “저가 죄인의 집에 유하러 들어갔도다” 하고 수군거렸지만(19:7), 삭개오는 기뻐하며 예수님을 맞았어요. 그리고 재산의 절반을 가난한 사람들에게 주고, 누구의 것을 속여 빼앗았으면 네 갑절로 갚겠다고 했어요(19:8). 예수님은 말씀하셨어요. “인자가 온 것은 잃어버린 자를 찾아 구원하려 함이니라”(19:10).</p>
+    <p>프랑스 화가 제임스 티소는 예수님의 삶을 그리기로 마음먹고, 1886년과 1889년 두 번이나 성지를 찾아가 그 땅과 사람들을 직접 보고 그렸어요. 그렇게 그린 그림이 350점쯤 되는데, 미국 브루클린 미술관이 1900년 시민들의 모금으로 모두 사들였어요. 이 그림은 그 가운데 하나로, 가로 25센티미터, 세로 18센티미터의 작은 그림이에요. 제목처럼, 예수님이 지나가시기를 나무 위에서 기다리는 삭개오를 그렸어요. 길 왼쪽에는 흰옷을 입은 예수님이 제자들과 함께 걸어오시고, 그 뒤로 사람들이 길게 따라와요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>돌무화과나무는 잎은 뽕나무를, 열매는 무화과를 닮아서 ‘무화과뽕나무’라고도 불러요. 둥치가 짧고 굵으며 낮은 가지가 옆으로 넓게 뻗어서, 키 작은 사람도 오르기 쉬워요. 추위에 약해 서늘한 산지보다는 여리고처럼 따뜻하고 낮은 땅에서 잘 자라요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 여리고</b>여리고는 바다보다 250미터쯤 낮은 곳에 있어 세계에서 가장 낮은 도시로 꼽혀요. 사막 한가운데 샘이 솟는 오아시스라, 성경은 “종려나무의 성읍 여리고”라고 불러요(신 34:3). 갈릴리에서 예루살렘으로 올라가는 길이 이곳을 지났어요.</p>
+    <figure class="ph" data-q="이 나무에 올라간다면 어느 가지를 밟을까요? 삭개오가 숨을 만한 곳도 찾아보세요." data-color="img/lvr4-sycamore.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 초록 밭 너머로, 잎이 무성한 돌무화과나무가 굵은 둥치에서 가지를 넓게 뻗고 서 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 잎과 둥치는 무슨 색으로 보이니?">
+     <div class="phw"><img src="img/lera4-sycamore.jpg" alt="흑백 사진. 낮은 작물이 자라는 밭 너머에, 굵고 짧은 둥치에서 가지가 사방으로 넓게 뻗은 큰 나무가 서 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>돌무화과나무</b> · 1900년<br>사진가가 ‘나무와 덤불’ 묶음으로 찍은 돌무화과나무예요. 오늘날 여리고 시내에도 ‘삭개오 나무’라고 불리는 오래된 돌무화과나무가 있어요. 2천 년 전 바로 그 나무라는 근거는 없지만, 순례자들이 찾아와 이 이야기를 떠올려요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Trees_and_shrubs._Sycomore_tree._(Ficus_sycomorus_L.)._LOC_matpc.02466.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="집과 나무를 찾아보세요. 뒤쪽 산과 견주어 보면, 이 마을은 어떤 곳에 자리 잡았나요?">
+     <img src="img/lcolor4-jericho.jpg" alt="색을 입힌 옛 인쇄 사진. 평평한 땅에 낮은 집들과 나무들이 흩어져 있고, 뒤로 메마른 산줄기가 이어진다." loading="lazy">
+     <figcaption><b>여리고 전경 · 1890년대 컬러 인쇄본</b><br>130년쯤 전의 여리고예요. 둘레의 메마른 산과 달리, 샘물 덕분에 마을에는 나무가 자라요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002724993/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 사람들이 꽉 차서 앞이 안 보여요. 나는 나무 위로 올라가요. 잎사귀 사이로 길이 보여요. 그런데 지나가던 예수님이 고개를 들고 내 이름을 부르세요."><small>눈 감고 상상해 보기</small>몰래 보려고 올라간 나무 위. 그런데 예수님이 멈춰 서서 내 이름을 부르신다면 어떤 마음이 들까요?</p>
+    <a class="go" href="https://www.brooklynmuseum.org/objects/4540">그림 가까이 보기 · 브루클린 미술관 작품 페이지<small>영어 · 그림을 크게 키워서 잎사귀 사이 삭개오의 얼굴을 찾아보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“모두가 싫어하는 친구가 있다면, 예수님은 그 친구에게 어떻게 하셨을까?”</p></div>
+   <div class="root">예수님은 잃어버린 사람을 찾아 구원하러 오셨습니다(눅 19:10).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/LUK.19">이제 본문 읽기 · 누가복음 19:1~10<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> ‘키가 작다’는 말로 친구를 놀리는 일이 없게 해 주세요. 세리를 나쁜 사람으로만 그리기보다, 모두가 손가락질하던 사람을 예수님이 먼저 부르셨다는 데 마음을 두세요. 여리고의 ‘삭개오 나무’는 전해 오는 이야기라고 함께 알려 주세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li><a href="https://thevcs.org/campaign/today">VCS 전시 「Zacchaeus」의 비교 해설</a> <span class="note">영어 · 누가복음 19:1~10</span></li>
+    <li><a href="https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/making-amends/">Bible History Daily ‘Making Amends’</a> <span class="note">영어 · 삭개오의 약속(절반과 네 갑절)이 얼마나 놀라운 것이었는지 다룬 글</span></li>
+    <li>바로 앞 18장 끝에서 예수님은 여리고 가까이에서 눈먼 사람을 고치셨어요(18:35~43). 여리고에서 일어난 두 이야기를 이어서 읽어 보세요.</li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (7)</summary><ul>
+    <li><a href="https://www.brooklynmuseum.org/objects/4540">브루클린 미술관 작품 정보</a>: 제임스 티소, 1886~1896년, 회색 종이에 연필 위 불투명 수채, 18.1×25.2cm, 시민 모금으로 구입(00.159.189)</li>
+    <li><a href="https://www.brooklynmuseum.org/opencollection/objects/4454">브루클린 미술관 ‘예수의 생애’ 연작 정보</a>: 1900년 화가에게서 연작을 사들인 내력</li>
+    <li><a href="https://www.biblicaltraining.org/library/sycomore-tree">BiblicalTraining ‘Sycomore Tree’</a>: 짧고 굵은 둥치와 낮고 넓은 가지, 따뜻한 저지대에서 자라고 서늘한 산지에서는 자라지 않음</li>
+    <li><a href="https://search.biblegateway.com/resources/eastons-bible-dictionary/Sycamore">Easton 성경 사전 ‘Sycamore’</a>: 잎은 뽕나무, 생김새는 무화과를 닮은 ‘무화과뽕나무’, 서리에 약함</li>
+    <li><a href="https://seetheholyland.net/jericho/">See the Holy Land ‘Jericho’</a>: 갈릴리에서 예루살렘으로 가는 길목, 시내 한가운데 ‘삭개오 나무’라 불리는 오래된 돌무화과나무</li>
+    <li><a href="https://www.proterrasancta.org/en/news/jericho-between-roses-and-the-moon-all-curiosities">Pro Terra Sancta ‘Jericho: all the curiosities’</a>: 바다보다 약 250m 낮은, 가장 낮은 곳의 도시</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/LUK.19">개역개정 본문(대한성서공회)</a>: 눅 19:1~10, 신 34:3</li>
+   </ul><p>그림: 제임스 티소, 「돌무화과나무 위에서 예수님을 기다리는 삭개오」(원제: Zacchaeus in the Sycamore Awaiting the Passage of Jesus), 1886~1896년, 뉴욕 브루클린 미술관. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Trees_and_shrubs._Sycomore_tree._(Ficus_sycomorus_L.)._LOC_matpc.02466.jpg">‘Trees and shrubs. Sycomore tree. (Ficus sycomorus L.)’</a>(1900년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002724993/">‘General view, Jericho’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 5 -->
+ <article class="card" id="scene5" data-week="scene5">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent5-giotto.jpg" alt="조토의 벽화. 왼쪽에서 예수가 손을 들어 부르고, 그 발 앞에 두 여인이 엎드려 있다. 오른쪽 바위 무덤 앞에는 흰 천으로 꽁꽁 싸맨 나사로가 서 있고, 둘레 사람들 가운데 몇은 옷자락으로 코를 가린다. 앞쪽에서는 두 젊은이가 무덤을 막았던 돌판을 옮긴다.">
+   <figcaption class="cap"><b>「나사로를 살리심」</b> 조토 디 본도네, 1304~1306년 무렵<br>이탈리아 파도바, 스크로베니 예배당</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">사순절 다섯째 주일 · 나사로야, 나오라</span><span><span data-wd="4">3월 14일</span> 사순절 다섯째 주일 · 요한복음 11:1~44</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>예수님도 우셨어요?</h2></div>
+   <p class="line">무덤 앞에서 사람들이 코를 막습니다. 그 한가운데서 흰 천에 꽁꽁 싸인 나사로가 걸어 나옵니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>옷자락으로 코를 가린 사람들을 찾아보세요. 왜 코를 막았을까요?</li>
+    <li>예수님 발 앞에 엎드린 두 여인을 찾아보세요. 누구일까요?</li>
+    <li>앞쪽에 놓인 커다란 돌판을 찾아보세요. 누가 그 돌을 옮기고 있나요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>베다니에 사는 나사로가 병이 들었어요. 누이 마르다와 마리아는 예수님께 사람을 보냈지요. “예수께서 본래 마르다와 그 동생과 나사로를 사랑하시더니”(11:5). 그런데 예수님이 도착하셨을 때 나사로는 “무덤에 있은 지 이미 나흘”이었어요(11:17). 마르다는 “주께서 여기 계셨더라면 내 오라버니가 죽지 아니하였겠나이다”라고 했고(11:21), 예수님은 “나는 부활이요 생명이니 나를 믿는 자는 죽어도 살겠고” 하고 말씀하셨어요(11:25).</p>
+    <p>사람들이 우는 것을 보신 예수님도 “눈물을 흘리시더라”(11:35). 무덤은 굴이었고 돌로 막혀 있었어요. 예수님이 돌을 옮기라고 하시자 마르다가 말렸어요. “주여 죽은 지가 나흘이 되었으매 벌써 냄새가 나나이다”(11:39). 돌을 옮기자 예수님은 큰 소리로 부르셨어요. “나사로야 나오라”(11:43). 그러자 죽었던 사람이 손발을 베로 동인 채 걸어 나왔어요. “풀어 놓아 다니게 하라”(11:44).</p>
+    <p>이탈리아 파도바의 스크로베니 예배당 벽에 조토가 그린 벽화예요. <a href="christmas.html#scene3">성탄절 코스의 「동방박사의 경배」</a>도 같은 예배당에 있지요. 조토는 마르다의 걱정을 그림에 그대로 옮겼어요. 나사로 곁의 사람들이 옷자락으로 코를 막고 있어요. 다른 화가들의 나사로 그림에서는 보기 드문 모습이에요. 요한복음에는 마리아가 예수님 발 앞에 엎드렸다고 나오는데(11:32), 조토는 두 자매를 함께 엎드리게 그렸어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>“예수께서 눈물을 흘리시더라”(11:35)는 영어 킹 제임스 성경에서 “Jesus wept.” 단 두 낱말이에요. 그래서 성경에서 가장 짧은 절로 자주 소개돼요. 예수님은 곧 나사로를 살리실 줄 아시면서도, 슬퍼하는 사람들 곁에서 함께 우셨어요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 베다니(오늘의 알에이자리야)</b>베다니는 “예루살렘에서 가깝기가 한 오 리쯤” 되는 마을이었어요(11:18). 감람산 동쪽 비탈에 있지요. 오늘날 이 마을의 아랍어 이름 ‘알에이자리야’는 ‘나사로의 마을’이라는 뜻이에요.</p>
+    <figure class="ph" data-q="언덕 비탈에 집들이 어떻게 모여 있나요? 마르다와 마리아의 집은 어디쯤이었을까요?" data-color="img/lvr5-bethany.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 누런 돌집들이 언덕 비탈에 모여 있고, 둘레에 초록 나무들이 서 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 집들은 무슨 색으로 보이니?">
+     <div class="phw"><img src="img/lera5-bethany.jpg" alt="흑백 사진. 언덕 비탈에 돌집들이 층층이 모여 있고, 둘레에 나무들이 서 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>베다니 마을</b> · 1898~1946년 사이<br>사진가의 기록장에 남은 제목은 ‘베다니. 마을 전경’이에요. 예수님은 이 마을의 마르다와 마리아, 나사로와 함께 식탁에 앉기도 하셨어요(요 12:1~2). <a class="orig" href="https://commons.wikimedia.org/wiki/File:Bethany._General_view_of_the_village_LOC_matpc.05913.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="무덤 입구를 찾아보세요. 안으로 들어가면 무엇이 있을까요?">
+     <img src="img/lcolor5-lazarus-tomb.jpg" alt="색을 입힌 옛 인쇄 사진. 돌벽 사이로 낮고 어두운 입구가 나 있고, 그 둘레에 사람들이 서 있다." loading="lazy">
+     <figcaption><b>베다니의 나사로 무덤 · 1890년대 컬러 인쇄본</b><br>오래전부터 나사로의 무덤으로 기억해 온 곳이에요. 오늘날 이 무덤에 들어가려면 바위를 깎아 만든 가파른 계단 24개를 내려가요. 16세기에 무덤 위 교회 자리에 모스크가 서면서 옛 입구가 막히자, 프란치스코회 수도사들이 길 쪽에 새 입구를 낸 것이에요. <a class="orig" href="https://www.loc.gov/item/2002724964/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 무덤 앞에서 사람들이 울고 있어요. 예수님도 우세요. 그런데 예수님이 큰 소리로 부르세요. ‘나사로야, 나오라!’ 어떤 소리가 들리나요?"><small>눈 감고 상상해 보기</small>사랑하는 사람을 잃은 지 나흘. 모두가 이제 끝났다고 생각할 때, 예수님이 무덤 앞에 서서 이름을 부르신다면 어떨까요?</p>
+    <a class="go" href="https://www.proterrasancta.org/en/the-tomb-of-lazarus-in-bethany">무덤 가까이 가 보기 · 프로 테라 상타 ‘베다니의 나사로 무덤’<small>영어 · 24계단과 무덤 안 모습을 사진으로 볼 수 있어요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“너무 슬퍼서 운 적 있니? 그때 누가 곁에 있어 주었니?”</p></div>
+   <div class="root">예수님은 우는 사람들과 함께 우시고, 죽은 나사로를 불러내셨습니다(요 11:35, 43).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/JHN.11">이제 본문 읽기 · 요한복음 11:1~44<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 가족이나 반려동물을 잃은 아이가 있다면 조심스럽게 다뤄 주세요. ‘예수님이 오시면 다 살아나’처럼 약속하기보다, 예수님도 슬퍼하며 우셨다는 데 먼저 머물러 주세요. 코를 막는 장면은 웃음거리가 되기 쉬우니, 마르다가 왜 걱정했는지(죽은 지 나흘) 차분히 설명해 주세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>조토의 같은 예배당 그림을 이어 보세요. <a href="christmas.html#scene3">성탄절 코스 「동방박사의 경배」</a>, <a href="easter.html#scene5">부활절 코스 「승천」</a>.</li>
+    <li><a href="https://thevcs.org/i-am-resurrection-and-life">VCS 전시 「‘I am the Resurrection and the Life’」</a> <span class="note">영어 · 요한복음 11:1~44</span></li>
+    <li>많은 교회가 쓰는 개정 공동 성서정과(RCL)는 A해 사순절 다섯째 주일에 요한복음 11:1~45를 읽어요.</li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (8)</summary><ul>
+    <li><a href="https://christianiconography.info/lazarus.html">Christian Iconography ‘Saint Lazarus’</a>: 조토의 「나사로를 살리심」 1304~1306년, 나사로 가까이의 사람들이 천으로 코를 가림</li>
+    <li><a href="https://christianiconography.info/Wikimedia%20Commons/lazarusGiotto.html">Christian Iconography ‘Giotto, The Raising of Lazarus’</a>: 마르다와 마리아가 함께 엎드림(요한복음에서는 마리아만), 다른 나사로 그림에 없는 ‘냄새’ 장면</li>
+    <li><a href="https://www.thehistoryofart.org/giotto/raising-of-lazarus">The History of Art ‘Raising of Lazarus’</a>: 무덤을 막았던 돌판을 내려놓는 두 젊은이, 엎드린 두 자매</li>
+    <li><a href="https://www.dwu.edu/post/Interpretation-of-The-Saint-John-s-Bible-Lazarus-Come-ForthI">다코타 웨슬리언 대학교 글</a>: “Jesus wept”(11:35)는 성경에서 가장 짧은 절</li>
+    <li><a href="https://en.wikipedia.org/wiki/Bethany">Wikipedia ‘Bethany’</a>: 알에이자리야는 ‘나사로의 마을’이라는 뜻</li>
+    <li><a href="https://www.proterrasancta.org/en/the-tomb-of-lazarus-in-bethany">Pro Terra Sancta ‘The Tomb of Lazarus in Bethany’</a>: 16세기 모스크와 옛 입구 폐쇄, 프란치스코회가 낸 24계단 입구</li>
+    <li><a href="https://diglib.library.vanderbilt.edu/act-imagelink.pl?RC=58384">밴더빌트 신학도서관 Art in the Christian Tradition</a>: 요한복음 11:1~45, A해 사순절 다섯째 주일</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/JHN.11">개역개정 본문(대한성서공회)</a>: 요 11:1~44</li>
+   </ul><p>그림: 조토 디 본도네, 「나사로를 살리심」(원제: Raising of Lazarus), 1304~1306년 무렵, 파도바 스크로베니 예배당. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Bethany._General_view_of_the_village_LOC_matpc.05913.jpg">‘Bethany. General view of the village’</a>(1898~1946년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002724964/">‘Tomb of Lazarus, Bethany’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 6 -->
+ <article class="card" id="scene6" data-week="scene6">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent6-duccio.jpg" alt="두초의 그림. 금빛 하늘 아래, 붉은 옷에 푸른 겉옷을 두른 예수가 나귀를 타고 제자들과 함께 돌길을 올라 성문으로 향하고, 그 뒤를 새끼 나귀가 따른다. 길 위에는 사람들이 겉옷을 깔고, 나무 위에서는 사람들이 가지를 꺾는다. 성문 앞에 사람들이 모여 있고, 성벽 너머로 하얀 여러모 건물과 탑들이 솟아 있다.">
+   <figcaption class="cap"><b>「예루살렘에 들어가심」</b> 두초 디 부오닌세냐, 1308~1311년<br>이탈리아 시에나, 대성당 미술관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">종려주일 · 나귀를 타고 오신 왕</span><span><span data-wd="5">3월 21일</span> 종려주일 · 마태복음 21:1~11</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>왕이 왜 나귀를 타요?</h2></div>
+   <p class="line">성문을 향해 돌길을 오르는 나귀. 나무 위에서는 사람들이 가지를 꺾고, 길에는 겉옷이 깔립니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>나무 위에 올라간 사람들을 찾아보세요. 무엇을 하고 있나요?</li>
+    <li>예수님이 탄 나귀 뒤를 보세요. 작은 나귀가 한 마리 더 있어요. 길바닥에는 무엇이 깔려 있나요?</li>
+    <li>성벽 너머 높이 솟은 하얀 건물을 찾아보세요. 예수님은 성에 들어가 어디로 가셨을까요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>예수님이 예루살렘 가까이 감람산 벳바게에 이르셨을 때, 두 제자를 보내 나귀와 나귀 새끼를 끌고 오게 하셨어요(21:1~2). 오래전 스가랴 선지자의 말이 이루어진 거예요. “네 왕이 네게 임하나니 그는 겸손하여 나귀, 곧 멍에 메는 짐승의 새끼를 탔도다”(21:5, 슥 9:9). 사람들은 겉옷과 나뭇가지를 길에 펴고 외쳤어요. “호산나 다윗의 자손이여 찬송하리로다 주의 이름으로 오시는 이여 가장 높은 곳에서 호산나”(21:9). 온 성이 술렁이며 물었어요. “이는 누구냐”(21:10).</p>
+    <p>요한복음은 사람들이 “종려나무 가지를 가지고 맞으러 나가” 외쳤다고 해요(요 12:13). 그래서 이날을 ‘종려주일’이라고 불러요. 이날부터 부활절 전날까지의 한 주를 고난주간이라고 하지요.</p>
+    <p>이 그림은 1장면 「산 위의 시험」과 함께 두초의 큰 제단화 「마에스타」 뒷면에 있던 그림이에요. 두 장면씩 그린 다른 판들과 달리, 이 판에는 한 장면만 크게 그렸어요. 두초는 예루살렘을 성문과 탑이 선 이탈리아의 언덕 도시처럼 그렸지요. 1311년 6월 9일 제단화가 완성되자, 시에나 사람들은 가게 문을 닫고 북과 나팔을 울리며 화가의 작업실에서 대성당까지 그림을 모시고 행진했어요. 그림 속 행렬처럼요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>‘호산나’는 원래 히브리 말로 ‘구원해 주세요!’라는 뜻이에요. 시편 118편 25절 “여호와여 구하옵나니 이제 구원하소서”가 바로 그 말이고, 이어지는 26절이 “여호와의 이름으로 오는 자가 복이 있음이여”예요. 사람들은 이 시편을 외치며 예수님을 맞았어요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 감람산의 벳바게</b>벳바게는 감람산 동쪽 비탈의 작은 마을로, 이름은 ‘덜 익은 무화과의 집’이라는 뜻이에요. 오늘날 예루살렘의 그리스도인들은 종려주일 오후 벳바게 성당에서 출발해 감람산을 넘고 겟세마네를 지나, 사자문으로 옛 성에 들어가는 행진을 해요. 2023년에는 2만 명쯤 함께 걸었어요.</p>
+    <figure class="ph" data-q="사람들이 손에 무엇을 들고 있나요? 행렬 맨 앞에는 누가 있을까요?" data-color="img/lvr6-palm-procession.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 붉고 검은 옷을 입은 사람들이 종려 가지를 들고 줄지어 흙빛 길을 걷고, 왼쪽 비탈 위에서 사람들이 지켜본다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 사람들이 든 가지는 무슨 색으로 보이니?">
+     <div class="phw"><img src="img/lera6-palm-procession.jpg" alt="흑백 사진. 검은 옷을 입은 사람들이 긴 종려 가지를 들고 줄지어 길을 걷고, 왼쪽 비탈 위에서 사람들이 지켜본다. 멀리 언덕에 교회 건물이 보인다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>벳바게의 종려주일 행진</b> · 1930년대<br>사진가의 기록장에 남은 제목은 ‘벳바게의 종려주일 행진’이에요. 90년쯤 전에도 사람들은 이렇게 가지를 들고 벳바게에서 예루살렘까지 걸었어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Palm_Sunday_procession_at_Bethphage_LOC_matpc.18989.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="문이 어떻게 막혀 있나요? 아치가 몇 개인지 세어 보세요.">
+     <img src="img/lcolor6-golden-gate.jpg" alt="색을 입힌 옛 인쇄 사진. 아치 두 개를 돌로 막아 놓은 커다란 성문이 성벽에 붙어 있고, 그 앞 비탈에 무덤 돌들이 놓여 있다." loading="lazy">
+     <figcaption><b>황금문(바깥쪽) · 1890년대 컬러 인쇄본</b><br>성전산 동쪽 성벽의 문으로, 감람산을 바로 마주 봐요. 오래전부터 돌로 막혀 있어요. 그리스도인들은 예수님이 종려주일에 이 문으로 들어오셨다고 전해 왔고, 유대 전통은 메시아가 이 문으로 오신다고 기다려요(겔 44:1~3 참고). <a class="orig" href="https://www.loc.gov/item/2002725012/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 사람들이 길에 옷을 깔고 나뭇가지를 흔들어요. ‘호산나! 호산나!’ 저 아래에서 나귀를 탄 분이 천천히 올라오세요."><small>눈 감고 상상해 보기</small>힘센 말이 아니라 작은 나귀를 타고, 군대가 아니라 사람들의 노래에 둘러싸여 오는 왕. 그 길가에 서 있다면 무엇을 흔들고 무엇이라고 외칠까요?</p>
+    <a class="go" href="https://www.custodia.org/en/news/bethpage-starting-point-palm-sunday-procession">행진 가까이 보기 · 성지관구(Custodia) ‘벳바게, 종려주일 행진의 출발점’<small>영어 · 오늘날 행진 길과 벳바게 성당을 소개해요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“네가 왕이라면 무엇을 타고 오고 싶니? 예수님은 왜 나귀를 고르셨을까?”</p></div>
+   <div class="root">예수님은 겸손하게 나귀를 타고 오신 왕입니다(마 21:5, 슥 9:9).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/MAT.21">이제 본문 읽기 · 마태복음 21:1~11<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 종려주일은 기쁜 환영으로 시작하지만 한 주 뒤 십자가로 이어져요. 어린아이에게는 환영의 기쁨에 머물고, 고난 이야기는 아이의 나이에 맞춰 천천히 꺼내 주세요. 황금문은 지금도 여러 종교가 소중히 여기는 곳이라, 어느 한쪽을 깎아내리지 않게 소개해 주세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>함께 느끼기 방의 ‘종려 가지 행진’ 활동과 이어서 해 보세요. 그림 속 나무 위 사람들처럼 가지를 들고 걸어 보면 좋아요.</li>
+    <li><a href="https://thevcs.org/christs-triumphal-entry">VCS 전시 「Christ’s Triumphal Entry」</a> <span class="note">영어 · 마태복음 21:1~11, 마가복음 11:1~10, 누가복음 19:29~40, 요한복음 12:12~19</span></li>
+    <li><a href="https://andrewgrahamdixon.com/archive/itp-51-christs-entry-into-jerusalem-by-duccio-di-buoninsegna.html">앤드루 그레이엄딕슨의 그림 해설</a> <span class="note">영어 · 작은 판 하나에 큰 무리를 담아낸 두초의 솜씨</span></li>
+    <li>많은 교회가 쓰는 개정 공동 성서정과(RCL)는 A해 종려주일 종려 행진 때 마태복음 21:1~11을 읽어요.</li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (9)</summary><ul>
+    <li><a href="https://nationalgallery.org.uk/paintings/NG1139">내셔널 갤러리 ‘Maestà Predella Panels’</a>: 1311년 6월 9일, 작업실에서 대성당까지 그림을 모시고 간 행진</li>
+    <li><a href="https://www.britannica.com/biography/Duccio/Later-commissions">Britannica ‘Duccio: Later commissions’</a>: 온 시민과 성직자, 북과 나팔, 사흘 동안 가난한 이에게 베푼 자선</li>
+    <li><a href="https://www.travelingintuscany.com/art/duccio/maestabackpanels.htm">Traveling in Tuscany ‘Maestà back panels’</a>: 「예루살렘에 들어가심」과 「십자가 처형」 말고는 판마다 두 장면, 사실적인 도시 풍경</li>
+    <li><a href="https://andrewgrahamdixon.com/archive/itp-51-christs-entry-into-jerusalem-by-duccio-di-buoninsegna.html">Andrew Graham-Dixon</a>: 돌길을 올라 토스카나 언덕 도시처럼 그린 예루살렘으로 향하는 예수</li>
+    <li><a href="https://learn.ligonier.org/articles/what-does-hosanna-mean-in-the-bible">Ligonier ‘What Does Hosanna Mean in the Bible?’</a>: 시편 118:25의 히브리 말 ‘호시아 나’, “구원해 주세요!”</li>
+    <li><a href="https://www.custodia.org/en/news/bethpage-starting-point-palm-sunday-procession">Custodia Terrae Sanctae</a>, <a href="https://www.catholicworldreport.com/2022/04/10/the-church-at-bethpage-which-marks-the-starting-point-jerusalems-palm-sunday-procession/">Catholic World Report</a>: 벳바게에서 사자문 곁 성 안나 성당까지의 행진, ‘덜 익은 무화과의 집’이라는 이름</li>
+    <li><a href="https://www.osservatoreromano.va/en/news/2023-04/ing-014/a-place-of-encounter-faith-prayer-and-unity.html">L’Osservatore Romano(2023)</a>: 약 2만 명이 함께한 종려주일 행진</li>
+    <li><a href="https://en.wikipedia.org/wiki/Golden_Gate_(Jerusalem)">Wikipedia ‘Golden Gate (Jerusalem)’</a>: 성전산의 동쪽 문, 중세부터 막힌 문, 그리스도교와 유대 전통</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/MAT.21">개역개정 본문(대한성서공회)</a>: 마 21:1~11, 슥 9:9, 요 12:13, 시 118:25~26 · <a href="https://diglib.library.vanderbilt.edu/act-imagelink.pl?RC=58772">밴더빌트 신학도서관</a>: 종려주일 성서정과</li>
+   </ul><p>그림: 두초 디 부오닌세냐, 「예루살렘에 들어가심」(원제: Entry into Jerusalem), 「마에스타」 뒷면, 1308~1311년, 시에나 대성당 미술관. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Palm_Sunday_procession_at_Bethphage_LOC_matpc.18989.jpg">‘Palm Sunday procession at Bethphage’</a>(1934~1939년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725012/">‘The Golden Gate (exterior), Jerusalem’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+  <p>그림은 저작권이 끝난 작품(퍼블릭 도메인)만 썼어요. ‘그 시절로 가 보기’의 옛 사진은 미국 의회도서관 <a href="https://commons.wikimedia.org/wiki/Category:Matson_Collection_in_the_Library_of_Congress">매슨 컬렉션</a>(20세기에 찍은 사진, 알려진 저작권 제한 없음)에서 가져왔어요.</p>
+  <p>‘가상 복원’은 흑백 사진에 AI 컬러화 모델 <a href="https://github.com/piddnad/ddcolor">DDColor</a>(알리바바 연구진, ICCV 2023)로 색을 입힌 것이에요. 허깅페이스에 공개된 <a href="https://huggingface.co/spaces/gudada/DDColor">DDColor 앱</a>을 썼어요. 사진의 밝기와 모양은 그대로 두고 색만 짐작해서 입히기 때문에, 그럴듯해 보여도 실제 색과 다를 수 있어요.</p>
+  <p>‘1890년대 컬러 인쇄본’은 미국 의회도서관 <a href="https://www.loc.gov/collections/photochrom-prints/about-this-collection/">포토크롬 컬렉션</a>에서 가져왔어요. 흑백 원판에, 사진가가 현장에서 적어 둔 색 메모대로 색을 입혀 찍어 낸 방식이라(<a href="https://en.wikipedia.org/wiki/Photochrom">Wikipedia ‘Photochrom’</a>) AI가 짐작한 색은 아니지만, 실제 색과 똑같다고 할 수는 없어요. 의회도서관은 이 컬렉션에 알려진 저작권 제한이 없다고 밝혀요(<a href="https://blogs.loc.gov/loc/2017/10/free-to-use-and-reuse-historical-travel-pictures/">의회도서관 블로그</a>).</p>
+  <p>여섯 본문 가운데 마태복음 4:1~11(A해 사순절 첫째 주일), 누가복음 15장(C해 사순절 넷째 주일), 요한복음 11장(A해 사순절 다섯째 주일), 마태복음 21:1~11(A해 종려주일)은 많은 교회가 쓰는 개정 공동 성서정과(RCL)가 사순절에 읽는 본문이에요. 마가복음 10장과 누가복음 19장은 ‘돌아감과 찾으심’이라는 흐름에 맞춰 이 코스가 고른 본문이에요. Visual Commentary on Scripture(킹스 칼리지 런던)의 같은 본문 전시도 함께 소개했지만, VCS의 글을 옮기지는 않았어요.</p>
+  <p><a href="after-epiphany.html">이전 코스 · 주현절 후 코스</a> · <a href="easter.html">다음 코스 · 부활절 코스</a> · <a href="feel.html">함께 느끼기 방으로</a> · <a href="./">연습하기 방으로</a></p>
+ </div>
+</footer>
+</div>
+
+<div class="L" lang="en" hidden>
+<header class="top">
+ <div class="wrap">
+  <div class="bar"><a class="brand back" href="feel.html#en">‹ Question Practice Room · Experience Together</a><button class="lang" type="button" data-lang="ko" lang="ko">한국어</button></div>
+  <h1>Lent Course</h1>
+  <p class="sub">Lent from the wilderness to the gates of Jerusalem, through six works of art. The six Sundays of Lent: one picture and one question each, from forty hungry days in the desert to the road ringing with “Hosanna.”</p>
+  <div class="howto"><span><b>1</b> Look at the art together</span><span><b>2</b> Ask the question</span><span><b>3</b> Step back in time</span><span><b>4</b> Read the passage together</span></div>
+  <p class="tip">Tap <b>Show it to the children</b> under the art to fill the screen with the picture and old photos of the land, one question at a time. Tap a black-and-white photo to switch to an <b>AI-colorized</b> version.</p>
+  <div class="draft">This is a draft awaiting review. AI gathered the sources and wrote the text, so please check each card against ‘Sources’ at the bottom.</div>
+ </div>
+</header>
+
+<main class="wrap" hidden>
+ <nav class="weeks" aria-label="Choose a scene">
+  <a class="wk" href="#scene1" data-w="scene1"><img src="img/lent1-duccio-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Lent 1 · <span data-wd="0">Feb 14</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></span><span class="q">Was Jesus tempted too?</span></span></a>
+  <a class="wk" href="#scene2" data-w="scene2"><img src="img/lent2-murillo-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Lent 2 · <span data-wd="1">Feb 21</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span></span><span class="q">Why didn’t the father scold him?</span></span></a>
+  <a class="wk" href="#scene3" data-w="scene3"><img src="img/lent3-cranach-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Lent 3 · <span data-wd="2">Feb 28</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">Did Jesus hold babies too?</span></span></a>
+  <a class="wk" href="#scene4" data-w="scene4"><img src="img/lent4-tissot-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Lent 4 · <span data-wd="3">Mar 7</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">Why did Zacchaeus climb a tree?</span></span></a>
+  <a class="wk" href="#scene5" data-w="scene5"><img src="img/lent5-giotto-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Lent 5 · <span data-wd="4">Mar 14</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">Did Jesus cry too?</span></span></a>
+  <a class="wk" href="#scene6" data-w="scene6"><img src="img/lent6-duccio-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Palm Sunday · <span data-wd="5">Mar 21</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">Why would a king ride a donkey?</span></span></a>
+ </nav>
+ <p class="thread">Two words tie the six scenes together: <b>“came to his father”</b> (Luke 15:20) and <b>“seek”</b> (Luke 19:10). The son who left home comes back to his father, and Jesus seeks out and calls the children the disciples tried to stop, Zacchaeus up in the tree, and Lazarus in the tomb. The road that began in the wilderness ends at the gate of Jerusalem, where palm branches wave.</p>
+
+ <!-- Scene 1 -->
+ <article class="card" data-week="scene1">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent1-duccio.jpg" alt="Painting by Duccio. Under a golden sky, on the top of a high rocky mountain, Jesus stretches out his right arm and drives away the dark devil standing in front of him. The devil has large dark wings. Two angels stand behind Jesus, and below the mountain lie several small walled towns with towers.">
+   <figcaption class="cap"><b>The Temptation of Christ on the Mountain</b> Duccio di Buoninsegna, 1308–1311<br>The Frick Collection, New York, USA</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">First Sunday in Lent · Tempted in the wilderness</span><span><span data-wd="0">Feb 14</span> · First Sunday in Lent · Matthew 4:1–11</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Was Jesus tempted too?</h2></div>
+   <p class="line">On a high mountaintop, small towns like toys spread out below. Jesus reaches out his hand and says, “Get behind me, Satan!”</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find the dark figure standing in front of Jesus. What animal do the wings on its back look like?</li>
+    <li>Count the little towns below the mountain. What color are their towers and roofs?</li>
+    <li>Find the two angels standing behind Jesus. What have they come to do?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>After he was baptized, Jesus was led by the Spirit into the wilderness. “When he had fasted forty days and forty nights, he was hungry afterward” (4:2). Then the tempter came and tempted him three times: to turn stones into bread, to throw himself down from the top of the temple, and to fall down and worship the devil in return for all the kingdoms of the world. Each time Jesus answered with Scripture, saying, “It is written” (4:4, 7, 10).</p>
+    <p>This painting shows the third temptation. Duccio, a painter from Siena in Italy, made it as part of the <i>Maestà</i>, the great altarpiece for Siena Cathedral. That altarpiece was painted on both sides and held dozens of small scenes from the life of Jesus, and this is one of them. It is about 46 centimeters wide and 43 centimeters tall, and it has been at the Frick Collection in New York since 1927.</p>
+    <p>The towns below the mountain are “all the kingdoms of the world, and their glory” that the devil showed Jesus (4:8). Duccio painted the towns much smaller than the people. Instead of showing real sizes, he used size to show what matters more. The crowded towers and domes are said to recall the painter’s home city of Siena, with its towns perched on every hill.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>Lent is the forty days before Easter, modeled on the forty days Jesus fasted in the wilderness. Forty days appear elsewhere in the Bible too. Moses was on Mount Sinai “forty days and forty nights; he neither ate bread, nor drank water” (Exodus 34:28), and Elijah walked “forty days and forty nights to Horeb” (1 Kings 19:8). Western churches leave Sundays out of the count, so Lent begins on the Wednesday forty-six days before Easter, Ash Wednesday.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · The Judean wilderness</b>The Bible only says Jesus was tempted in ‘the wilderness.’ Since about the fourth century, people have remembered a cave in the cliffs west of Jericho as the place, and called the mountain ‘the Mountain of the Forty Days’ (Quarantania).</p>
+    <figure class="ph" data-q="How do the dark fields in front look different from the hills behind? If you spent forty days in a wilderness like this, what would you miss most?" data-color="img/lvr1-wilderness.jpg" data-color-alt="AI-colorized version of a black-and-white photo. The wilderness seen from the air: green fields in front, and behind them reddish-brown cliffs and dry hills rolling on and on." data-color-q="AI guessed the colors in this photo. What color does the wilderness look like to you?">
+     <div class="phw"><img src="img/lera1-wilderness.jpg" alt="Black-and-white photo of the wilderness seen from high in the air. Dark fields spread over the flat ground in front; behind them rises a steep cliff in layers, and farther away bare, dry hills roll on and on." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>The wilderness of Judea and the Mount of Temptation</b> · 1930s<br>The title in the photographer’s logbook is ‘The wilderness of Judea &amp; Mt. of Temptation.’ It was taken looking down from high in the air. Dry hills like these stretch from east of Jerusalem down to the Jordan Valley. Jesus’ forty days were spent in land like this. <a class="orig" href="https://commons.wikimedia.org/wiki/File:The_wilderness_of_Judea_%26_Mt._of_Temptation_LOC_matpc.14208.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="Find the building clinging to the cliff. Why would people build a home in a place like this?">
+     <img src="img/lcolor1-wadi-kelt.jpg" alt="Old color print. A monastery clings halfway up a sheer cliff, and a stream runs through the deep valley below." loading="lazy">
+     <figcaption><b>The cliff monastery in Wadi Qelt · 1890s color print</b><br>The old photo is titled ‘Convent of Elijah and Brook of Kerith.’ One tradition places the brook Cherith, where Elijah hid and ravens brought him bread and meat (1 Kings 17:3–6), in this valley. In the fifth century, monks built a monastery beside the cave there, to pray in the wilderness as the prophets and Jesus had. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002725062/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You are in the wilderness under a hot sun. All you can hear is the wind. You are very, very hungry. Then someone comes close and whispers, ‘Turn this stone into bread.’"><small>Close your eyes and imagine</small>Forty days in a wilderness with no food and no shade. If, at your hungriest, a voice said ‘Just do this, it’s easy,’ how would you feel?</p>
+    <a class="go" href="https://collections.frick.org/objects/152">Look closely at the painting · The Frick Collection’s page<small>Zoom in and look at the towers and roofs of the towns below the mountain, one by one</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“Have you ever wanted to do something you knew you shouldn’t? What helped you then?”</p></div>
+   <div class="root">Jesus overcame temptation with the word of God (Matthew 4:4, 10).</div>
+   <a class="read" href="https://biblehub.com/web/matthew/4.htm">Now read the passage · Matthew 4:1–11<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> ‘Tempt’ may be an unfamiliar word for children. Explain it as ‘being pulled toward what isn’t right.’ Rather than making the devil frightening, help them notice how Jesus won. The cave on the Mount of Temptation is an old tradition; the Bible does not name the place.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>All three of Jesus’ answers, “It is written,” come from Deuteronomy (8:3, 6:16, 6:13). Look them up and read them together with the children.</li>
+    <li><a href="https://thevcs.org/campaign/mountain">A commentary from the VCS exhibition <i>The Temptation of Christ</i></a> <span class="note">Matthew 4:1–11, Mark 1:12–13, Luke 4:1–13</span></li>
+    <li>The Revised Common Lectionary, used by many churches, reads Matthew 4:1–11 as the Gospel for the First Sunday in Lent in Year A. <a href="https://pcusa.org/devotion/revised-common-lectionary/2026/02/22">PC(USA) lectionary page</a></li>
+   </ul></section>
+   <details class="src"><summary>Sources (8)</summary><ul>
+    <li><a href="https://collections.frick.org/objects/152">The Frick Collection artwork page</a>: 1308–11, tempera on poplar, 43.2 × 46 cm, purchased 1927; Christ, followed by two angels, extending his right arm toward Satan; a scene from the <i>Maestà</i></li>
+    <li><a href="https://artsandculture.google.com/asset/the-temptation-of-christ-on-the-mountain/LAGcgFRm_8beXQ">Google Arts &amp; Culture (The Frick Collection)</a>: a double-sided altarpiece for the high altar of Siena Cathedral; figures large and kingdoms small, a scale of values</li>
+    <li><a href="https://scotland.op.org/duccios-temptation-on-the-mountain/">Edinburgh Catholic Chaplaincy</a>: the devil with bat’s wings; the kingdoms of the world as miniature cities</li>
+    <li><a href="https://biblehub.com/web/matthew/4.htm">World English Bible</a>: Matthew 4:1–11; Exodus 34:28; 1 Kings 17:3–6, 19:8</li>
+    <li><a href="https://www.britannica.com/topic/Lent">Britannica, ‘Lent’</a>, <a href="https://www.britannica.com/topic/Ash-Wednesday">‘Ash Wednesday’</a>: forty days in imitation of Christ’s fast in the wilderness; Western churches leave out Sundays</li>
+    <li><a href="https://en.wikipedia.org/wiki/Mount_of_Temptation">Wikipedia, ‘Mount of Temptation’</a>, <a href="https://en.wikipedia.org/wiki/Monastery_of_the_Temptation">‘Monastery of the Temptation’</a>: the cave tradition since the fourth century; the Latin name ‘Mountain of the Forty Days’</li>
+    <li><a href="https://en.jerusalem-patriarchate.info/blog/2017/08/30/st-georges-monastery-in-the-wilderness-of-judea/">Greek Orthodox Patriarchate of Jerusalem, ‘St George’s Monastery in the Wilderness of Judea’</a>, <a href="https://www.holylandsite.com/st-george-monastery">Holy Land Site</a>: a fifth-century monastery beside the cave where Elijah was believed to have been fed by ravens</li>
+    <li><a href="https://pcusa.org/devotion/revised-common-lectionary/2026/02/22">PC(USA), Revised Common Lectionary</a>: Matthew 4:1–11 on February 22, 2026 (First Sunday in Lent, Year A)</li>
+   </ul><p>Painting: Duccio di Buoninsegna, <i>The Temptation of Christ on the Mountain</i>, 1308–1311, The Frick Collection, New York. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:The_wilderness_of_Judea_%26_Mt._of_Temptation_LOC_matpc.14208.jpg">‘The wilderness of Judea &amp; Mt. of Temptation’</a> (1934–1939, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002725062/">‘Convent of Elijah and Brook of Kerith, Wady-el-Keit’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 2 -->
+ <article class="card" data-week="scene2">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent2-murillo.jpg" alt="Painting by Murillo. The son, dressed in rags, kneels barefoot, and the old father in a rose-pink cloak and a black cap bends down and wraps both arms around him. A small white dog jumps up at the son’s feet, and servants come close bringing new clothes and a ring. On the left, a boy leads in a calf, followed by a man carrying an axe.">
+   <figcaption class="cap"><b>The Return of the Prodigal Son</b> Bartolomé Esteban Murillo, 1667–1670<br>National Gallery of Art, Washington, USA</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Second Sunday in Lent · The son who came home</span><span><span data-wd="1">Feb 21</span> · Second Sunday in Lent · Luke 15:11–32</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Why didn’t the father scold him?</h2></div>
+   <p class="line">The son kneels in bare feet. The father wraps him in both arms, and the servants are already running up with new clothes.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Look at the son’s feet. Is he wearing shoes? Find the little animal at his feet that is so glad to see him, too.</li>
+    <li>Find what the servants are bringing. Besides new clothes, there is a small ring.</li>
+    <li>Find the calf for the feast. Who is leading it in?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>Jesus told this story to people who grumbled that he welcomed sinners and ate with them (15:1–2). A younger son asked his father for his share of the property early, went to a far country, and spent it all. When a famine came, he ended up feeding someone’s pigs. “He wanted to fill his belly with the husks that the pigs ate, but no one gave him any” (15:16). Then he came to his senses and decided to go back to his father.</p>
+    <p>“But while he was still far off, his father saw him, and was moved with compassion, and ran, and fell on his neck, and kissed him” (15:20). The father told his servants to put the best robe on him, a ring on his hand, and shoes on his feet, and to kill the fattened calf for a feast (15:22–23). The older brother came in from the field, grew angry and would not go in, but the father came out and begged him too (15:28).</p>
+    <p>Murillo, a painter in Seville in Spain, painted this picture around 1667–1670. Seville’s Brotherhood of Charity, which looked after poor people, ordered eight large paintings for its church, and Murillo himself was a member. This one shows one of the works of mercy the brotherhood kept: clothing the naked. It is a big painting, 2.4 meters tall and 2.6 meters wide. In 1810 the French marshal Soult took it away; after passing through several hands, it has been at the National Gallery of Art in Washington since 1948. A copy hangs in the church in Seville today.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>The ‘husks’ the son wanted to eat were most likely carob pods, from a tree that grows all around the Mediterranean. Inside the long pods is a sweet pulp. They were mostly fed to pigs and cattle, and people ate them only when there was nothing else. And for Jewish listeners, pigs were animals they did not eat (Leviticus 11:7). Anyone hearing the story would have understood at once how low the son had fallen.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · The fields of the story and the father’s house</b>This is one of Jesus’ parables, so it is not a place on a map. But the story is full of things people saw every day back then: carob trees and herds of pigs in the fields, a calf for a feast day, and a shared meal around a common dish.</p>
+    <figure class="ph" data-q="This is a carob tree. How do its trunk and branches spread? What would it be like to be so hungry you wanted to eat its pods?" data-color="img/lvr2-carob.jpg" data-color-alt="AI-colorized version of a black-and-white photo. Under a blue sky, a carob tree with dark green leaves leans out from a reddish rocky slope." data-color-q="AI guessed the colors in this photo. What color do the leaves look like to you?">
+     <div class="phw"><img src="img/lera2-carob.jpg" alt="Black-and-white photo. On a rocky slope, a leafy tree leans out with its branches spread, and a path runs beside it." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>A carob tree</b> · 1900<br>The photographer took this as part of a series called ‘Trees and shrubs.’ The long pods that grow on this tree are the ‘husks’ the younger son longed to eat. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Trees_and_shrubs._Carob_tree._(Ceratonia_Siliqua_L.)._LOC_matpc.02474.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="How many people are sitting around? What is in the middle?">
+     <img src="img/lcolor2-meal.jpg" alt="Old color print. Men in turbans or red caps sit on the ground in a circle, eating together from the food in the middle." loading="lazy">
+     <figcaption><b>A village meal on Mount Carmel · 1890s color print</b><br>The old photo is titled ‘Peasant Druses of Mount Carmel taking a meal.’ Instead of sitting at a table, they sit on the ground in a circle and eat from one spread. The father threw a feast for his son who came home: “let us eat, and celebrate” (15:23). <a class="orig" href="https://www.loc.gov/item/2002725090/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You have been away from home for a long time. You are hungry and your feet hurt. Far away you can see your house. And then someone comes running toward you."><small>Close your eyes and imagine</small>Walking home in torn clothes and no shoes, practicing what to say. What would it feel like if, far off, your father came running toward you?</p>
+    <a class="go" href="https://www.nga.gov/artworks/34956-return-prodigal-son">Look closely at the painting · The National Gallery of Art’s page<small>Zoom in to find the son’s feet and the ring in the servant’s hand</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“After you did something wrong, has anyone ever hugged you tight? How did it feel?”</p></div>
+   <div class="root">The father saw his son far off and ran to embrace him (Luke 15:20). This is how God welcomes those who come home.</div>
+   <a class="read" href="https://biblehub.com/web/luke/15.htm">Now read the passage · Luke 15:11–32<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Talk about the older brother’s feelings too (15:28–30). A child who has always been good may side with him. The father says to him as well, “Son, you are always with me, and all that is mine is yours” (15:31). Rather than mocking pigs as ‘dirty animals,’ just point out how strange this work would have been for Jewish listeners.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>Compare it with Rembrandt’s <i>The Return of the Prodigal Son</i> in the Experience Together room. In Murillo’s painting the servants bustle and a dog jumps for joy; Rembrandt painted the quiet moment inside the father’s embrace.</li>
+    <li><a href="https://thevcs.org/prodigal-son">VCS exhibition <i>The Prodigal Son</i></a> <span class="note">Luke 15:11–32 · reading the parable through works by Indian artists</span></li>
+    <li>The Revised Common Lectionary, used by many churches, reads Luke 15:1–3, 11–32 on the Fourth Sunday in Lent in Year C. <a href="https://crivoice.org/lectionary/lectionlistgs.html">List of lectionary Gospel readings</a></li>
+   </ul></section>
+   <details class="src"><summary>Sources (8)</summary><ul>
+    <li><a href="https://www.nga.gov/artworks/34956-return-prodigal-son">National Gallery of Art artwork page</a>: 1667/1670, oil on canvas, gift of the Avalon Foundation 1948; a small white dog jumping at the son’s bare feet; the father’s gray beard and black skullcap; the robe, ring and fattened calf</li>
+    <li><a href="https://en.wikipedia.org/wiki/The_Return_of_the_Prodigal_Son_(Murillo)">Wikipedia, ‘The Return of the Prodigal Son (Murillo)’</a>: one of eight paintings for Seville’s Hermandad de la Caridad, of which Murillo was a member; the brotherhood’s rule to clothe the naked</li>
+    <li><a href="https://en.wikipedia.org/wiki/Hospital_de_la_Caridad_(Seville)">Wikipedia, ‘Hospital de la Caridad (Seville)’</a>: one of four paintings taken by Marshal Soult in 1810</li>
+    <li><a href="https://hyperallergic.com/378315/piecing-together-the-histories-of-a-series-of-stolen-paintings/">Hyperallergic, ‘Piecing Together the Histories of a Series of Stolen Paintings’</a>: the copy now hanging in the church in Seville</li>
+    <li><a href="https://scotland.op.org/?p=4402">Edinburgh Catholic Chaplaincy</a>: the scene stands for the work of clothing the naked</li>
+    <li><a href="https://www.biblegateway.com/resources/encyclopedia-of-the-bible/Husks">Bible Gateway, Encyclopedia of the Bible, ‘Husks’</a>, <a href="https://tips.translation.bible/tip_verse/luke-1516/">Translation Insights, ‘Luke 15:16’</a>: carob pods with sweet pulp, fed to animals and eaten by the poor in hard times</li>
+    <li><a href="https://biblehub.com/web/luke/15.htm">World English Bible</a>: Luke 15:11–32; Leviticus 11:7</li>
+    <li><a href="https://crivoice.org/lectionary/lectionlistgs.html">CRI/Voice, list of lectionary Gospel readings</a>: Luke 15:1–3, 11b–32 on the Fourth Sunday in Lent, Year C</li>
+   </ul><p>Painting: Bartolomé Esteban Murillo, <i>The Return of the Prodigal Son</i>, 1667–1670, National Gallery of Art, Washington. Photo: National Gallery of Art open access (CC0), Wikimedia Commons.<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Trees_and_shrubs._Carob_tree._(Ceratonia_Siliqua_L.)._LOC_matpc.02474.jpg">‘Trees and shrubs. Carob tree. (Ceratonia Siliqua L.)’</a> (1900, left half of a stereograph, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002725090/">‘Peasant Druses of Mount Carmel taking a meal’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 3 -->
+ <article class="card" data-week="scene3">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent3-cranach.jpg" alt="Painting from the Cranach workshop. Against a dark background, Jesus holds a baby in his arms and lays his hand on another baby to bless it. Mothers holding babies crowd closely around him, and below, small children reach up toward Jesus. Bearded disciples watch from the right. Along the top runs a line from Mark 10 in German.">
+   <figcaption class="cap"><b>Christ Blessing the Children</b> Lucas Cranach the Younger and Workshop, about 1545–1550<br>The Metropolitan Museum of Art, New York, USA</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Third Sunday in Lent · Jesus takes the children in his arms</span><span><span data-wd="2">Feb 28</span> · Third Sunday in Lent · Mark 10:13–16</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Did Jesus hold babies too?</h2></div>
+   <p class="line">Mothers crowd in, carrying their babies. The disciples tried to stop them, but Jesus takes a baby into his arms.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find the baby in Jesus’ arms. What is the baby doing?</li>
+    <li>Look at the mothers’ clothes and hats. Do they look like clothes from Israel 2,000 years ago, or like the clothes of the Germans who painted this?</li>
+    <li>Find the disciples watching from one side. How do their faces look?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>“They were bringing to him little children, that he should touch them, but the disciples rebuked those who were bringing them” (10:13). “But when Jesus saw it, he was moved with indignation, and said to them, ‘Allow the little children to come to me! Don’t forbid them, for God’s Kingdom belongs to such as these’” (10:14). Then “he took them in his arms, and blessed them, laying his hands on them” (10:16). The Bible does not often say that Jesus was indignant. Stopping the children upset him that much.</p>
+    <p>Before the Reformation, paintings of this scene on its own are hard to find. It spread widely after the Cranach workshop in Wittenberg, Luther’s town, painted it many times. At that time some people (the Anabaptists) opposed baptizing babies, and Luther pointed to these words in Mark to defend infant baptism. Scholars see these paintings as linked to that debate.</p>
+    <p>The Met’s painting is a small one made around 1545–1550 by Lucas Cranach the Younger, who carried on his father’s name, and his workshop. It is 22 centimeters wide and 17 centimeters tall, about the size of a small notebook. Along the top runs Mark 10:14, “Allow the little children to come to me! Don’t forbid them,” written in German in the words of Luther’s Bible. It seems to have been made as a pair with <i>Christ and the Adulteress</i>, and this is the first known time those two scenes were paired.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>The mothers’ clothes and hats are not from Israel 2,000 years ago but from sixteenth-century Germany, where the painter lived. He painted the Bible story as if it were happening in his own town. Mothers and fathers standing before the painting may have thought, ‘So we can bring our baby to Jesus too.’</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · On the road beyond the Jordan</b>Mark says this happened as Jesus “came into the borders of Judea and beyond the Jordan” (10:1), not long before he went up to Jerusalem. Crowds gathered around him again, and among them were people carrying their little ones.</p>
+    <figure class="ph" data-q="How is the mother holding the baby? Where do you think the baby is looking?" data-color="img/lvr3-mother-child.jpg" data-color-alt="AI-colorized version of a black-and-white photo. A woman in a red headscarf and a checked skirt holds a baby dressed in orange." data-color-q="AI guessed the colors in this photo. What color do the mother’s clothes look like to you?">
+     <div class="phw"><img src="img/lera3-mother-child.jpg" alt="Black-and-white photo. A woman in a headscarf holds a baby in her arms." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>A woman holding a baby</b> · between 1898 and 1946<br>The title in the photographer’s logbook is ‘Arab woman holding child.’ The people who brought their children to Jesus must have carried their babies in their arms like this. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Arab_woman_holding_child_LOC_matpc.04623.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="What are the children holding? What are they wearing? Can you find ways they are like us?">
+     <img src="img/lcolor3-children.jpg" alt="Old color print. Two girls in headscarves stand side by side holding plates of food, looking this way." loading="lazy">
+     <figcaption><b>Children from villages near Jerusalem · 1890s color print</b><br>Children who lived in the villages around Jerusalem about 130 years ago. Because this is a ‘photochrom,’ with color added to a black-and-white negative, the colors of their clothes follow the photographer’s notes. <a class="orig" href="https://www.loc.gov/item/2002725077/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. A big crowd is packed together. Your mother is carrying you toward the front. A grown-up blocks the way and says, ‘Go away!’ Then Jesus opens his arms and says, ‘Come here.’"><small>Close your eyes and imagine</small>Among all the grown-ups, a small child can hardly see what is ahead. When someone stands in the way, how would it feel if Jesus called you first?</p>
+    <a class="go" href="https://www.metmuseum.org/art/collection/search/436035">Look closely at the painting · The Met’s page<small>Zoom in to see the babies’ faces and the mothers’ hats</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“How did you feel when grown-ups said, ‘You’re too little for that’? What do you think Jesus would say?”</p></div>
+   <div class="root">Jesus said not to stop the children from coming to him (Mark 10:14). God’s Kingdom belongs to children like these.</div>
+   <a class="read" href="https://biblehub.com/web/mark/10.htm">Now read the passage · Mark 10:13–16<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Please don’t make the disciples into ‘bad guys.’ They may have been trying to protect their busy teacher. Churches differ on infant baptism. Share the history of the painting, but don’t teach one side.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li><a href="https://lucascranach.org/en/US_MMANY_1982-60-36/">Cranach Digital Archive</a> <span class="note">Compare other paintings of the same subject. The number and places of the mothers and babies differ in each.</span></li>
+    <li>Matthew 19:13–15 and Luke 18:15–17 tell the same story. Read the three Gospels side by side and look for differences.</li>
+    <li>Just before this, when the disciples argue about who is the greatest, Mark tells how Jesus took a little child in his arms (9:33–37).</li>
+   </ul></section>
+   <details class="src"><summary>Sources (6)</summary><ul>
+    <li><a href="https://www.metmuseum.org/art/collection/search/436035">The Metropolitan Museum of Art artwork page</a>: Lucas Cranach the Younger and Workshop, about 1545–50, oil on beech, 16.5 × 22.2 cm; its small size and its likely pairing with <i>Christ and the Adulteress</i></li>
+    <li><a href="https://lucascranach.org/en/US_MMANY_1982-60-36/">Cranach Digital Archive, ‘Christ Blessing the Children’ (The Met)</a>: pairing the two subjects as pendants was unprecedented; the disciples objected when children were brought to Jesus</li>
+    <li><a href="https://lucascranach.org/en/DE_SHLM_1989-480/">Cranach Digital Archive, ‘Jesus blessing the Children’ (Schloss Gottorf)</a>: a subject unknown before the Reformation; a reaction to the Anabaptists’ rejection of infant baptism; Luther cited Mark 10</li>
+    <li><a href="https://lucascranach.org/DE_SMG_SG672">Cranach Digital Archive (Gotha)</a>: research history placing these paintings in the debate over infant baptism</li>
+    <li><a href="https://resources.lcms.org/?p=90965">Lutheran Church–Missouri Synod resources</a>: Cranach apparently the first artist to paint this scene; Renaissance clothing reflecting the painter’s own time</li>
+    <li><a href="https://biblehub.com/web/mark/10.htm">World English Bible</a>: Mark 10:1, 13–16</li>
+   </ul><p>Painting: Lucas Cranach the Younger and Workshop, <i>Christ Blessing the Children</i>, about 1545–1550, The Metropolitan Museum of Art, New York. Photo: The Met open access (CC0), Wikimedia Commons.<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Arab_woman_holding_child_LOC_matpc.04623.jpg">‘Arab woman holding child’</a> (1898–1946, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002725077/">‘Native children from neighborhood of Jerusalem’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 4 -->
+ <article class="card" data-week="scene4">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent4-tissot.jpg" alt="Watercolor by Tissot. A man in a yellow striped robe and a turban sits astride a thick branch of a big sycomore tree, holding on to a branch above him and looking toward the road on the left. Along the road Jesus, in white, comes walking with his disciples, and a long crowd follows behind. More people have climbed the tree on the right to watch, and others sit on the rocks below.">
+   <figcaption class="cap"><b>Zacchaeus in the Sycamore Awaiting the Passage of Jesus</b> James Tissot, 1886–1896<br>Brooklyn Museum, New York, USA</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Fourth Sunday in Lent · Zacchaeus up a tree</span><span><span data-wd="3">Mar 7</span> · Fourth Sunday in Lent · Luke 19:1–10</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Why did Zacchaeus climb a tree?</h2></div>
+   <p class="line">Hidden among the branches, a man holds his breath and looks down at the road. Soon Jesus will pass this way.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find the man who has climbed up onto the branch. What color are his clothes?</li>
+    <li>Follow where his eyes are looking. What is he waiting for?</li>
+    <li>Other people have climbed the tree too. Find them. Why do you think they climbed up?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>Jesus was passing through Jericho. “There was a man named Zacchaeus. He was a chief tax collector, and he was rich” (19:2). Tax collectors gathered taxes for Rome, so people did not welcome them. Zacchaeus wanted to see who Jesus was, but he “couldn’t because of the crowd, because he was short” (19:3). So he ran ahead and climbed up into a sycamore tree (19:4).</p>
+    <p>When Jesus came to the place, he looked up and called him by name: “Zacchaeus, hurry and come down, for today I must stay at your house” (19:5). The crowd murmured, “He has gone in to lodge with a man who is a sinner” (19:7), but Zacchaeus welcomed Jesus with joy. He said he would give half of his goods to the poor, and pay back four times as much to anyone he had cheated (19:8). Jesus said, “For the Son of Man came to seek and to save that which was lost” (19:10).</p>
+    <p>The French painter James Tissot set out to paint the life of Jesus, and twice, in 1886 and 1889, traveled to the Holy Land to see the land and its people for himself. He painted about 350 pictures, and in 1900 the Brooklyn Museum bought all of them with money raised from the public. This is one of them, a small picture 25 centimeters wide and 18 centimeters tall. As its title says, it shows Zacchaeus in the tree, waiting for Jesus to pass by. On the road at the left, Jesus, in white, comes walking with his disciples, and a long crowd follows.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>The Bible’s ‘sycamore’ is not the sycamore of English parks but a fig tree, the sycomore fig. Its leaves look like mulberry leaves and its fruit like figs, so it is also called the fig-mulberry. It has a short, thick trunk and low branches that spread wide, so even a short person can climb it easily. It is easily hurt by cold, so it grows well in warm lowlands like Jericho rather than in the cooler hills.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Jericho</b>Jericho lies about 250 meters below sea level and is counted as the lowest city in the world. It is an oasis where a spring flows in the middle of the desert, and the Bible calls it “Jericho the city of palm trees” (Deuteronomy 34:3). The road from Galilee up to Jerusalem passed through here.</p>
+    <figure class="ph" data-q="If you climbed this tree, which branch would you step on? Find a spot where Zacchaeus could hide, too." data-color="img/lvr4-sycamore.jpg" data-color-alt="AI-colorized version of a black-and-white photo. Beyond a green field, a sycomore fig full of leaves stands with its branches spreading wide from a thick trunk." data-color-q="AI guessed the colors in this photo. What color do the leaves and trunk look like to you?">
+     <div class="phw"><img src="img/lera4-sycamore.jpg" alt="Black-and-white photo. Beyond a field of low plants, a big tree stands with branches spreading wide in every direction from a short, thick trunk." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>A sycomore fig</b> · 1900<br>A sycomore fig photographed for the series ‘Trees and shrubs.’ In the center of Jericho today there is an old sycomore fig called ‘Zacchaeus’ tree.’ There is no evidence it is the very same tree from 2,000 years ago, but pilgrims come and remember the story there. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Trees_and_shrubs._Sycomore_tree._(Ficus_sycomorus_L.)._LOC_matpc.02466.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="Find the houses and trees. Compared with the mountains behind, what kind of place is this town in?">
+     <img src="img/lcolor4-jericho.jpg" alt="Old color print. Low houses and trees are scattered across flat ground, and a range of dry mountains stretches behind." loading="lazy">
+     <figcaption><b>General view of Jericho · 1890s color print</b><br>Jericho about 130 years ago. Unlike the dry mountains around it, trees grow in the town thanks to its spring. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002724993/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. The crowd is so packed you can’t see a thing. You climb up a tree. Through the leaves you can see the road. Then Jesus, passing by, looks up and calls your name."><small>Close your eyes and imagine</small>You climbed the tree to watch without being seen. What would you feel if Jesus stopped and called you by name?</p>
+    <a class="go" href="https://www.brooklynmuseum.org/objects/4540">Look closely at the painting · The Brooklyn Museum’s page<small>Zoom in to find Zacchaeus’ face among the leaves</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“If there were a kid everyone disliked, what do you think Jesus would do for that kid?”</p></div>
+   <div class="root">Jesus came to seek and to save the lost (Luke 19:10).</div>
+   <a class="read" href="https://biblehub.com/web/luke/19.htm">Now read the passage · Luke 19:1–10<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Make sure no one teases a friend for being short. Rather than painting tax collectors only as bad people, focus on how Jesus called first the man everyone pointed at. Let the children know that ‘Zacchaeus’ tree’ in Jericho is a story passed down.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li><a href="https://thevcs.org/campaign/today">The comparative commentary in the VCS exhibition <i>Zacchaeus</i></a> <span class="note">Luke 19:1–10</span></li>
+    <li><a href="https://www.biblicalarchaeology.org/daily/people-cultures-in-the-bible/people-in-the-bible/making-amends/">Bible History Daily, ‘Making Amends’</a> <span class="note">how astonishing Zacchaeus’ promise (half, and four times as much) was</span></li>
+    <li>Just before, at the end of chapter 18, Jesus healed a blind man near Jericho (18:35–43). Read the two Jericho stories one after the other.</li>
+   </ul></section>
+   <details class="src"><summary>Sources (7)</summary><ul>
+    <li><a href="https://www.brooklynmuseum.org/objects/4540">Brooklyn Museum artwork page</a>: James Tissot, 1886–1896, opaque watercolor over graphite on gray paper, 18.1 × 25.2 cm, purchased by public subscription (00.159.189)</li>
+    <li><a href="https://www.brooklynmuseum.org/opencollection/objects/4454">Brooklyn Museum, <i>The Life of Our Lord Jesus Christ</i> series</a>: the series bought from the artist in 1900</li>
+    <li><a href="https://www.biblicaltraining.org/library/sycomore-tree">BiblicalTraining, ‘Sycomore Tree’</a>: a short, thick trunk and wide, low branches; grows in warm lowlands but not in the cooler hill country</li>
+    <li><a href="https://search.biblegateway.com/resources/eastons-bible-dictionary/Sycamore">Easton’s Bible Dictionary, ‘Sycamore’</a>: the ‘fig-mulberry,’ with leaves like the mulberry and a form like the fig; easily destroyed by frost</li>
+    <li><a href="https://seetheholyland.net/jericho/">See the Holy Land, ‘Jericho’</a>: on the route from Galilee to Jerusalem; an old sycamore called Zacchaeus’ tree in the town center</li>
+    <li><a href="https://www.proterrasancta.org/en/news/jericho-between-roses-and-the-moon-all-curiosities">Pro Terra Sancta, ‘Jericho: all the curiosities’</a>: about 250 m below sea level, the lowest city</li>
+    <li><a href="https://biblehub.com/web/luke/19.htm">World English Bible</a>: Luke 19:1–10; Deuteronomy 34:3</li>
+   </ul><p>Painting: James Tissot, <i>Zacchaeus in the Sycamore Awaiting the Passage of Jesus</i>, 1886–1896, Brooklyn Museum, New York. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Trees_and_shrubs._Sycomore_tree._(Ficus_sycomorus_L.)._LOC_matpc.02466.jpg">‘Trees and shrubs. Sycomore tree. (Ficus sycomorus L.)’</a> (1900, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002724993/">‘General view, Jericho’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 5 -->
+ <article class="card" data-week="scene5">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent5-giotto.jpg" alt="Fresco by Giotto. At left, Jesus raises his hand to call out, and two women lie at his feet. At right, in front of a rock tomb, Lazarus stands wrapped tightly in white cloth, and several people around him cover their noses with the edges of their clothes. In front, two young men move the stone slab that had closed the tomb.">
+   <figcaption class="cap"><b>The Raising of Lazarus</b> Giotto di Bondone, about 1304–1306<br>Scrovegni Chapel, Padua, Italy</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Fifth Sunday in Lent · Lazarus, come out!</span><span><span data-wd="4">Mar 14</span> · Fifth Sunday in Lent · John 11:1–44</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Did Jesus cry too?</h2></div>
+   <p class="line">In front of the tomb, people hold their noses. In the middle of them all, Lazarus, wrapped up tight in white cloth, walks out.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find the people covering their noses with their clothes. Why are they holding their noses?</li>
+    <li>Find the two women lying at Jesus’ feet. Who might they be?</li>
+    <li>Find the big stone slab at the front. Who is moving it?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>Lazarus, who lived in Bethany, fell ill. His sisters, Martha and Mary, sent word to Jesus. “Now Jesus loved Martha, and her sister, and Lazarus” (11:5). But when Jesus arrived, Lazarus “had been in the tomb four days already” (11:17). Martha said, “Lord, if you would have been here, my brother wouldn’t have died” (11:21), and Jesus said, “I am the resurrection and the life. He who believes in me will still live, even if he dies” (11:25).</p>
+    <p>When Jesus saw the people weeping, “Jesus wept” (11:35). The tomb was a cave with a stone lying against it. When Jesus told them to take away the stone, Martha tried to stop him: “Lord, by this time there is a stench, for he has been dead four days” (11:39). They took away the stone, and Jesus cried with a loud voice, “Lazarus, come out!” (11:43). The man who had been dead came out, bound hand and foot with wrappings. “Free him, and let him go” (11:44).</p>
+    <p>This is a wall painting by Giotto in the Scrovegni Chapel in Padua, Italy. <a href="christmas.html?lang=en#scene3"><i>The Adoration of the Magi</i> from the Christmas Course</a> is in the same chapel. Giotto put Martha’s worry right into the picture: the people next to Lazarus are holding their noses with their clothes. That is rarely seen in other paintings of Lazarus. In John’s Gospel it is Mary who falls at Jesus’ feet (11:32), but Giotto painted both sisters kneeling.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>“Jesus wept” (11:35) is just two words in English, so it is often called the shortest verse in the Bible. Jesus knew he was about to raise Lazarus, and still he wept with the people who were grieving.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Bethany (today’s al-Eizariya)</b>Bethany “was near Jerusalem, about fifteen stadia away” (11:18), a village on the eastern slope of the Mount of Olives. Today its Arabic name, al-Eizariya, means ‘the place of Lazarus.’</p>
+    <figure class="ph" data-q="How are the houses gathered on the hillside? Where might Martha and Mary’s house have been?" data-color="img/lvr5-bethany.jpg" data-color-alt="AI-colorized version of a black-and-white photo. Sandy-colored stone houses gather on a hillside, with green trees around them." data-color-q="AI guessed the colors in this photo. What color do the houses look like to you?">
+     <div class="phw"><img src="img/lera5-bethany.jpg" alt="Black-and-white photo. Stone houses gather in tiers on a hillside, with trees around them." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>The village of Bethany</b> · between 1898 and 1946<br>The title in the photographer’s logbook is ‘Bethany. General view of the village.’ Jesus also sat at table in this village with Martha, Mary and Lazarus (John 12:1–2). <a class="orig" href="https://commons.wikimedia.org/wiki/File:Bethany._General_view_of_the_village_LOC_matpc.05913.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="Find the entrance to the tomb. What might be inside?">
+     <img src="img/lcolor5-lazarus-tomb.jpg" alt="Old color print. A low, dark entrance opens between stone walls, with people standing around it." loading="lazy">
+     <figcaption><b>The Tomb of Lazarus, Bethany · 1890s color print</b><br>A place long remembered as the tomb of Lazarus. To go in today, you climb down 24 steep steps cut into the rock. When a mosque was built on the site of the church above the tomb in the sixteenth century and the old entrance was closed, Franciscan friars opened a new entrance from the street. <a class="orig" href="https://www.loc.gov/item/2002724964/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. People are crying in front of the tomb. Jesus is crying too. Then Jesus calls out in a loud voice, ‘Lazarus, come out!’ What sound do you hear?"><small>Close your eyes and imagine</small>Four days since someone you love died. Just when everyone thinks it’s all over, what would it be like if Jesus stood at the tomb and called his name?</p>
+    <a class="go" href="https://www.proterrasancta.org/en/the-tomb-of-lazarus-in-bethany">Visit the tomb up close · Pro Terra Sancta, ‘The Tomb of Lazarus in Bethany’<small>Photos of the 24 steps and the inside of the tomb</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“Have you ever been so sad you cried? Who stayed with you then?”</p></div>
+   <div class="root">Jesus wept with those who wept, and called the dead Lazarus out of the tomb (John 11:35, 43).</div>
+   <a class="read" href="https://biblehub.com/web/john/11.htm">Now read the passage · John 11:1–44<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Be gentle if a child has lost a family member or a pet. Rather than promising ‘When Jesus comes, everyone comes back to life,’ stay first with the fact that Jesus was sad and wept too. The nose-holding scene can easily become a joke, so calmly explain why Martha was worried (four days after death).</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>Follow Giotto’s paintings in the same chapel: <a href="christmas.html?lang=en#scene3"><i>The Adoration of the Magi</i> in the Christmas Course</a> and <a href="easter.html?lang=en#scene5"><i>The Ascension</i> in the Easter Course</a>.</li>
+    <li><a href="https://thevcs.org/i-am-resurrection-and-life">VCS exhibition <i>‘I am the Resurrection and the Life’</i></a> <span class="note">John 11:1–44</span></li>
+    <li>The Revised Common Lectionary, used by many churches, reads John 11:1–45 on the Fifth Sunday in Lent in Year A.</li>
+   </ul></section>
+   <details class="src"><summary>Sources (8)</summary><ul>
+    <li><a href="https://christianiconography.info/lazarus.html">Christian Iconography, ‘Saint Lazarus’</a>: Giotto’s <i>Raising of Lazarus</i>, 1304–1306; the people nearest Lazarus cover their noses with cloths</li>
+    <li><a href="https://christianiconography.info/Wikimedia%20Commons/lazarusGiotto.html">Christian Iconography, ‘Giotto, The Raising of Lazarus’</a>: Martha and Mary both at Jesus’ feet (in John, only Mary); the ‘stench’ detail not found in other Lazarus images</li>
+    <li><a href="https://www.thehistoryofart.org/giotto/raising-of-lazarus">The History of Art, ‘Raising of Lazarus’</a>: two young men laying down the slab that covered the tomb; the two kneeling sisters</li>
+    <li><a href="https://www.dwu.edu/post/Interpretation-of-The-Saint-John-s-Bible-Lazarus-Come-ForthI">Dakota Wesleyan University</a>: “Jesus wept” (11:35), the shortest verse</li>
+    <li><a href="https://en.wikipedia.org/wiki/Bethany">Wikipedia, ‘Bethany’</a>: al-Eizariya means ‘place of Lazarus’</li>
+    <li><a href="https://www.proterrasancta.org/en/the-tomb-of-lazarus-in-bethany">Pro Terra Sancta, ‘The Tomb of Lazarus in Bethany’</a>: the sixteenth-century mosque and the sealed entrance; the 24-step entrance opened by the Franciscans</li>
+    <li><a href="https://diglib.library.vanderbilt.edu/act-imagelink.pl?RC=58384">Vanderbilt Divinity Library, Art in the Christian Tradition</a>: John 11:1–45, Fifth Sunday in Lent, Year A</li>
+    <li><a href="https://biblehub.com/web/john/11.htm">World English Bible</a>: John 11:1–44, 12:1–2</li>
+   </ul><p>Painting: Giotto di Bondone, <i>The Raising of Lazarus</i>, about 1304–1306, Scrovegni Chapel, Padua. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Bethany._General_view_of_the_village_LOC_matpc.05913.jpg">‘Bethany. General view of the village’</a> (1898–1946, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002724964/">‘Tomb of Lazarus, Bethany’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 6 -->
+ <article class="card" data-week="scene6">
+  <figure class="fig">
+   <img loading="lazy" src="img/lent6-duccio.jpg" alt="Painting by Duccio. Under a golden sky, Jesus, in a red robe with a blue cloak, rides a donkey with his disciples up a stone road toward the city gate, and a young donkey follows behind. People spread their cloaks on the road, and people up in the trees break off branches. A crowd gathers at the gate, and beyond the wall rise a white many-sided building and towers.">
+   <figcaption class="cap"><b>The Entry into Jerusalem</b> Duccio di Buoninsegna, 1308–1311<br>Museo dell’Opera del Duomo, Siena, Italy</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Palm Sunday · The king who came on a donkey</span><span><span data-wd="5">Mar 21</span> · Palm Sunday · Matthew 21:1–11</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Why would a king ride a donkey?</h2></div>
+   <p class="line">A donkey climbs the stone road toward the city gate. Up in the trees people break off branches, and cloaks are spread on the road.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find the people who have climbed the trees. What are they doing?</li>
+    <li>Look behind the donkey Jesus is riding. There is one more, smaller donkey. What is spread on the road?</li>
+    <li>Find the tall white building beyond the city wall. Where did Jesus go when he entered the city?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>When Jesus came near Jerusalem, to Bethphage on the Mount of Olives, he sent two disciples to bring a donkey and her colt (21:1–2). What the prophet Zechariah had said long before came true: “Behold, your King comes to you, humble, and riding on a donkey, on a colt, the foal of a donkey” (21:5; Zechariah 9:9). People spread their clothes and branches on the road and shouted, “Hosanna to the son of David! Blessed is he who comes in the name of the Lord! Hosanna in the highest!” (21:9). The whole city was stirred up, asking, “Who is this?” (21:10).</p>
+    <p>John says the people “took the branches of the palm trees, and went out to meet him” (John 12:13). That is why this day is called Palm Sunday. The week from this day to the day before Easter is called Holy Week.</p>
+    <p>Like <i>The Temptation of Christ on the Mountain</i> in Scene 1, this painting comes from the back of Duccio’s great altarpiece, the <i>Maestà</i>. Unlike the other panels, which show two scenes each, this panel shows a single scene, large. Duccio painted Jerusalem like an Italian hill town with a gate and towers. When the altarpiece was finished on June 9, 1311, the people of Siena closed their shops and, to the sound of drums and trumpets, carried the painting in procession from the painter’s workshop to the cathedral, just like the procession in the picture.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>‘Hosanna’ is a Hebrew word that originally meant ‘Save us, please!’ It comes from Psalm 118:25, “Save us now, we beg you, Yahweh!”, and the very next verse is “Blessed is he who comes in Yahweh’s name!” (118:26). The crowd welcomed Jesus by shouting this psalm.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Bethphage on the Mount of Olives</b>Bethphage is a small village on the eastern slope of the Mount of Olives; its name means ‘house of unripe figs.’ Today Christians in Jerusalem hold a procession on Palm Sunday afternoon that starts at the church in Bethphage, crosses the Mount of Olives, passes Gethsemane, and enters the Old City through the Lions’ Gate. In 2023 about 20,000 people walked together.</p>
+    <figure class="ph" data-q="What are the people holding in their hands? Who might be at the very front of the procession?" data-color="img/lvr6-palm-procession.jpg" data-color-alt="AI-colorized version of a black-and-white photo. People in red and dark robes carry palm branches in a long line along a dusty road, while others watch from the slope on the left." data-color-q="AI guessed the colors in this photo. What color do the branches look like to you?">
+     <div class="phw"><img src="img/lera6-palm-procession.jpg" alt="Black-and-white photo. People in dark robes walk in a long line carrying tall palm branches, while others watch from the slope on the left. A church building stands on a distant hill." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>The Palm Sunday procession at Bethphage</b> · 1930s<br>The title in the photographer’s logbook is ‘Palm Sunday procession at Bethphage.’ About ninety years ago, too, people walked from Bethphage to Jerusalem carrying branches like this. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Palm_Sunday_procession_at_Bethphage_LOC_matpc.18989.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="How is the gate blocked? Count the arches.">
+     <img src="img/lcolor6-golden-gate.jpg" alt="Old color print. A large gate with two arches walled up with stone stands in the city wall, and gravestones lie on the slope in front of it." loading="lazy">
+     <figcaption><b>The Golden Gate (outside) · 1890s color print</b><br>A gate in the eastern wall of the Temple Mount, facing straight toward the Mount of Olives. It has been walled up with stone for a long time. Christians have handed down the tradition that Jesus entered through this gate on Palm Sunday, and Jewish tradition waits for the Messiah to come through it (compare Ezekiel 44:1–3). <a class="orig" href="https://www.loc.gov/item/2002725012/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. People are spreading clothes on the road and waving branches. ‘Hosanna! Hosanna!’ Down below, someone riding a donkey is slowly coming up."><small>Close your eyes and imagine</small>A king who comes not on a mighty horse but on a little donkey, surrounded not by an army but by people singing. If you stood beside that road, what would you wave and what would you shout?</p>
+    <a class="go" href="https://www.custodia.org/en/news/bethpage-starting-point-palm-sunday-procession">See the procession up close · Custodia, ‘Bethphage, starting point of the Palm Sunday procession’<small>The route of today’s procession and the church at Bethphage</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“If you were a king, what would you ride? Why do you think Jesus chose a donkey?”</p></div>
+   <div class="root">Jesus is the humble king who came riding on a donkey (Matthew 21:5; Zechariah 9:9).</div>
+   <a class="read" href="https://biblehub.com/web/matthew/21.htm">Now read the passage · Matthew 21:1–11<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Palm Sunday begins with a joyful welcome, but a week later it leads to the cross. With young children, stay with the joy of the welcome, and bring out the story of the suffering slowly, at a pace that suits their age. The Golden Gate is treasured by several faiths today, so introduce it without putting any of them down.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>Try the ‘Palm procession’ activity in the Experience Together room next. Walking with branches, like the people up in the trees in the painting, works well.</li>
+    <li><a href="https://thevcs.org/christs-triumphal-entry">VCS exhibition <i>Christ’s Triumphal Entry</i></a> <span class="note">Matthew 21:1–11, Mark 11:1–10, Luke 19:29–40, John 12:12–19</span></li>
+    <li><a href="https://andrewgrahamdixon.com/archive/itp-51-christs-entry-into-jerusalem-by-duccio-di-buoninsegna.html">Andrew Graham-Dixon on this painting</a> <span class="note">how Duccio fit a great crowd into one small panel</span></li>
+    <li>The Revised Common Lectionary, used by many churches, reads Matthew 21:1–11 at the Liturgy of the Palms on Palm Sunday in Year A.</li>
+   </ul></section>
+   <details class="src"><summary>Sources (9)</summary><ul>
+    <li><a href="https://nationalgallery.org.uk/paintings/NG1139">The National Gallery, ‘Maestà Predella Panels’</a>: the procession of June 9, 1311 carrying the painting from the workshop to the cathedral</li>
+    <li><a href="https://www.britannica.com/biography/Duccio/Later-commissions">Britannica, ‘Duccio: Later commissions’</a>: the whole populace and clergy, drums and trumpets, three days of alms for the poor</li>
+    <li><a href="https://www.travelingintuscany.com/art/duccio/maestabackpanels.htm">Traveling in Tuscany, ‘Maestà back panels’</a>: except for the Entry into Jerusalem and the Crucifixion, each panel holds two episodes; a realistic city view</li>
+    <li><a href="https://andrewgrahamdixon.com/archive/itp-51-christs-entry-into-jerusalem-by-duccio-di-buoninsegna.html">Andrew Graham-Dixon</a>: Jesus riding up a cobbled incline toward a Jerusalem reimagined as a Tuscan hill town</li>
+    <li><a href="https://learn.ligonier.org/articles/what-does-hosanna-mean-in-the-bible">Ligonier, ‘What Does Hosanna Mean in the Bible?’</a>: the Hebrew <i>hoshiah na</i> of Psalm 118:25, “Save, please!”</li>
+    <li><a href="https://www.custodia.org/en/news/bethpage-starting-point-palm-sunday-procession">Custodia Terrae Sanctae</a>, <a href="https://www.catholicworldreport.com/2022/04/10/the-church-at-bethpage-which-marks-the-starting-point-jerusalems-palm-sunday-procession/">Catholic World Report</a>: the procession from Bethphage to St Anne’s by the Lions’ Gate; the name ‘house of unripe figs’</li>
+    <li><a href="https://www.osservatoreromano.va/en/news/2023-04/ing-014/a-place-of-encounter-faith-prayer-and-unity.html">L’Osservatore Romano (2023)</a>: some 20,000 people in the Palm Sunday procession</li>
+    <li><a href="https://en.wikipedia.org/wiki/Golden_Gate_(Jerusalem)">Wikipedia, ‘Golden Gate (Jerusalem)’</a>: the eastern gate of the Temple Mount, walled up since medieval times; Christian and Jewish traditions</li>
+    <li><a href="https://biblehub.com/web/matthew/21.htm">World English Bible</a>: Matthew 21:1–11; Zechariah 9:9; John 12:13; Psalm 118:25–26 · <a href="https://diglib.library.vanderbilt.edu/act-imagelink.pl?RC=58772">Vanderbilt Divinity Library</a>: Palm Sunday lectionary</li>
+   </ul><p>Painting: Duccio di Buoninsegna, <i>The Entry into Jerusalem</i>, back of the <i>Maestà</i>, 1308–1311, Museo dell’Opera del Duomo, Siena. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Palm_Sunday_procession_at_Bethphage_LOC_matpc.18989.jpg">‘Palm Sunday procession at Bethphage’</a> (1934–1939, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002725012/">‘The Golden Gate (exterior), Jerusalem’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+  <p>The paintings are public-domain works. The old photos in ‘Step back in time’ come from the Library of Congress <a href="https://commons.wikimedia.org/wiki/Category:Matson_Collection_in_the_Library_of_Congress">Matson Collection</a> (20th-century photos, no known copyright restrictions).</p>
+  <p>The ‘AI colorized’ photos were colored with the AI colorization model <a href="https://github.com/piddnad/ddcolor">DDColor</a> (Alibaba researchers, ICCV 2023), using the public <a href="https://huggingface.co/spaces/gudada/DDColor">DDColor app</a> on Hugging Face. It keeps the photo’s brightness and shapes and only guesses the colors, so even when the result looks convincing, the colors may differ from the real ones.</p>
+  <p>The ‘1890s color prints’ come from the Library of Congress <a href="https://www.loc.gov/collections/photochrom-prints/about-this-collection/">Photochrom Collection</a>. Color was added to a black-and-white negative following color notes the photographer made on the spot (<a href="https://en.wikipedia.org/wiki/Photochrom">Wikipedia, ‘Photochrom’</a>), so the colors are not AI guesses, but they cannot be called exactly true to life either. The Library of Congress says there are no known copyright restrictions on this collection (<a href="https://blogs.loc.gov/loc/2017/10/free-to-use-and-reuse-historical-travel-pictures/">Library of Congress blog</a>).</p>
+  <p>Bible quotations are from the World English Bible (WEB), which is in the public domain.</p>
+  <p>Of the six passages, Matthew 4:1–11 (First Sunday in Lent, Year A), Luke 15 (Fourth Sunday in Lent, Year C), John 11 (Fifth Sunday in Lent, Year A) and Matthew 21:1–11 (Palm Sunday, Year A) are read in Lent in the Revised Common Lectionary, used by many churches. Mark 10 and Luke 19 were chosen by this course to follow the thread of going home and being sought out. This course also points to exhibitions on the same passages by The Visual Commentary on Scripture (King’s College London), without reproducing VCS’s text.</p>
+  <p><a href="after-epiphany.html?lang=en">Previous · After Epiphany Course</a> · <a href="easter.html?lang=en">Next · Easter Course</a> · <a href="feel.html#en">Back to Experience Together</a> · <a href="./?lang=en">Practice Room</a></p>
+ </div>
+</footer>
+</div>
+
+<dialog class="show" id="show" aria-label="아이에게 보여 주기">
+ <div class="sw">
+  <div class="sw-top"><span id="swTitle"></span><button class="sw-x" type="button" data-close aria-label="닫기">×</button></div>
+  <div class="sw-stage" id="swStage"></div>
+  <p class="sw-q" id="swQ" aria-live="polite"></p>
+  <div class="sw-nav"><button type="button" data-step="-1">이전</button><span class="dots" id="swDots" aria-hidden="true"></span><button type="button" class="next" data-step="1">다음</button></div>
+ </div>
+</dialog>
+
+<script>
+/* 화면 글자: 한국어 / English */
+const T={
+ ko:{look:"찾아보기",photo:"그 시절 사진",imagine:"눈 감고 상상해 보기",vr:"AI 가상 복원 · 실제 색과 다를 수 있어요",toColor:"가상 복원으로 보기",toBw:"흑백 원본으로",prev:"이전",next:"다음",again:"처음으로",close:"닫기",dlg:"아이에게 보여 주기",title:"사순절 코스 · 질문 받기 연습실"},
+ en:{look:"Things to find",photo:"A photo from those days",imagine:"Close your eyes and imagine",vr:"AI colorized · the real colors may differ",toColor:"See in color (AI)",toBw:"Back to black and white",prev:"Previous",next:"Next",again:"Start over",close:"Close",dlg:"Show it to the children",title:"Lent Course · Question Practice Room"}
+};
+const langOf=el=>{const b=el&&el.closest(".L");return b&&b.lang==="en"?"en":"ko";};
+{
+ /* 한국어 ↔ English. 고른 언어는 이 브라우저에 기억해요. 주소 끝에 #en 또는 ?lang=en을 붙여도 영어판으로 열려요 */
+ const KEY="lent-lang",boxes=[...document.querySelectorAll(".L")];
+ const setLang=(l,save)=>{
+  l=l==="en"?"en":"ko";
+  boxes.forEach(b=>{const off=b.lang!==l;b.hidden=off;const m=b.querySelector("main");if(m)m.hidden=off;});
+  document.documentElement.lang=l;
+  document.title=T[l].title;
+  if(save)try{localStorage.setItem(KEY,l);}catch(e){}
+ };
+ const h=location.hash.slice(1),q=new URLSearchParams(location.search).get("lang");
+ let first="ko";
+ if(h==="en"||h==="ko")first=h;
+ else if(q==="en"||q==="ko")first=q;
+ else try{first=localStorage.getItem(KEY)||"ko";}catch(e){}
+ setLang(first,h==="en"||h==="ko");
+ document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-lang]");
+  if(!b)return;
+  const l=b.dataset.lang==="en"?"en":"ko";
+  setLang(l,true);
+  const o=document.querySelector(`.L[lang="${l}"] [data-lang]`);
+  if(o)o.focus();
+ });
+ addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(h==="en"||h==="ko")setLang(h,true);});
+}
+{
+ /* 장면 고르기: #scene1~6, 없으면 오늘 날짜에 맞는 장면 */
+ const W=["scene1","scene2","scene3","scene4","scene5","scene6"];
+ /* 사순절 첫째~다섯째 주일과 종려주일: 부활절(해마다 바뀜) 6주 전 주일부터 한 주씩.
+    마지막 장면(종려주일)이 지나고 한 주가 더 지나면(부활절부터) 다음 해 사순절로 넘어가요. 날짜도 해마다 맞춰 바꿔요 */
+ const easter=y=>{const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),n=h+l-7*m+114;return new Date(y,Math.floor(n/31)-1,n%31+1);};
+ const plan=y=>{const e=easter(y);return [-42,-35,-28,-21,-14,-7].map(n=>new Date(y,e.getMonth(),e.getDate()+n));};
+ const now=new Date();
+ let starts=plan(now.getFullYear());
+ if(now>=new Date(starts[5].getFullYear(),starts[5].getMonth(),starts[5].getDate()+7))starts=plan(now.getFullYear()+1);
+ const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+ document.querySelectorAll("[data-wd]").forEach(el=>{const d=starts[+el.dataset.wd],b=el.closest(".L");el.textContent=b&&b.lang==="en"?`${MON[d.getMonth()]} ${d.getDate()}`:`${d.getMonth()+1}월 ${d.getDate()}일`;});
+ const today=()=>{const n=new Date();let i=0;starts.forEach((d,k)=>{if(n>=d)i=k;});return W[i];};
+ let cur=null;
+ const show=scroll=>{
+  const h=location.hash.slice(1);
+  cur=W.includes(h)?h:(cur||today());
+  document.querySelectorAll(".card").forEach(c=>c.classList.toggle("on",c.dataset.week===cur));
+  document.querySelectorAll(".wk").forEach(t=>t.setAttribute("aria-current",String(t.dataset.w===cur)));
+  if(scroll){const c=document.querySelector(`.L:not([hidden]) .card[data-week="${cur}"]`);if(c)c.scrollIntoView({block:"start"});}
+ };
+ document.documentElement.classList.add("js");
+ show(false);
+ addEventListener("hashchange",()=>show(W.includes(location.hash.slice(1))));
+}
+{
+ /* 아이에게 보여 주기: 그림 → 찾아보기 → 옛 사진 → 눈 감고 상상 → 물어볼 것 */
+ const dlg=document.getElementById("show");
+ const stage=document.getElementById("swStage"),qEl=document.getElementById("swQ"),dots=document.getElementById("swDots"),title=document.getElementById("swTitle");
+ const prev=dlg.querySelector('[data-step="-1"]'),next=dlg.querySelector('[data-step="1"]'),closeBtn=dlg.querySelector("[data-close]");
+ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+ let steps=[],at=0,tinted=false,tx=T.ko;
+ const build=card=>{
+  const art=card.querySelector(".fig img"),s=[];
+  const pic={img:art.src,alt:art.alt};
+  s.push({...pic,label:card.querySelector(".opener small").textContent,text:card.querySelector(".opener h2").textContent});
+  card.querySelectorAll(".look li").forEach(li=>s.push({...pic,label:tx.look,text:li.textContent}));
+  card.querySelectorAll(".era .ph").forEach(f=>{
+   const im=f.querySelector("img"),abs=u=>new URL(u,location.href).href;
+   const bw=f.dataset.bw?{src:f.dataset.bw,alt:f.dataset.bwAlt}:{src:im.getAttribute("src"),alt:im.alt};
+   s.push({img:abs(bw.src),alt:bw.alt,label:tx.photo,text:f.dataset.q,
+    color:f.dataset.color?{img:abs(f.dataset.color),alt:f.dataset.colorAlt,text:f.dataset.colorQ}:null});
+  });
+  const im=card.querySelector(".imagine");
+  if(im)s.push({img:null,label:tx.imagine,text:im.dataset.kid});
+  s.push({...pic,label:card.querySelector(".ask small").textContent,text:card.querySelector(".ask p").textContent});
+  return s;
+ };
+ const render=()=>{
+  const s=steps[at],c=s.color&&tinted?s.color:null;
+  const src=c?c.img:s.img,alt=c?c.alt:s.alt,text=c?c.text:s.text,label=c?tx.vr:s.label;
+  stage.innerHTML=s.img?`<div class="sw-pic"><img src="${esc(src)}" alt="${esc(alt)}">${s.color?`<button class="tint" type="button" data-tint aria-pressed="${tinted}">${esc(tinted?tx.toBw:tx.toColor)}</button>`:""}</div>`:`<div class="sw-dark"><span>${esc(s.label)}</span></div>`;
+  qEl.innerHTML=`<small>${esc(label)}</small>${esc(text)}`;
+  dots.innerHTML=steps.map((_,i)=>`<i class="${i===at?"on":""}"></i>`).join("");
+  prev.disabled=at===0;
+  next.textContent=at===steps.length-1?tx.again:tx.next;
+ };
+ const go=d=>{at=(d>0&&at===steps.length-1)?0:Math.max(0,Math.min(steps.length-1,at+d));tinted=false;render();};
+ const tint=()=>{if(!steps[at].color)return;tinted=!tinted;render();const b=stage.querySelector("[data-tint]");if(b)b.focus();};
+ if(typeof dlg.showModal!=="function"){document.querySelectorAll("[data-show]").forEach(b=>b.hidden=true);}
+ document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-show]");
+  if(!b)return;
+  const card=b.closest(".card"),l=langOf(card);
+  tx=T[l];
+  dlg.lang=l;dlg.setAttribute("aria-label",tx.dlg);closeBtn.setAttribute("aria-label",tx.close);prev.textContent=tx.prev;
+  steps=build(card);at=0;tinted=false;
+  title.textContent=card.querySelector(".chip").textContent;
+  render();dlg.showModal();next.focus();
+ });
+ dlg.addEventListener("click",e=>{
+  if(e.target.closest("[data-close]")){dlg.close();return;}
+  if(e.target.closest("[data-tint]")){tint();return;}
+  const st=e.target.closest("[data-step]");
+  if(st)go(+st.dataset.step);
+ });
+ document.addEventListener("keydown",e=>{
+  if(!dlg.open)return;
+  if(e.key==="ArrowRight"){e.preventDefault();go(1);}
+  else if(e.key==="ArrowLeft"){e.preventDefault();go(-1);}
+ });
+ let x0=null;
+ stage.addEventListener("pointerdown",e=>{x0=e.clientX;});
+ stage.addEventListener("pointerup",e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;if(Math.abs(dx)>50)go(dx<0?1:-1);else if(Math.abs(dx)<8&&e.target.tagName==="IMG")tint();});
+}
+{
+ /* 카드 속 흑백 사진: 누르면 흑백 원본 ↔ 가상 복원(같은 사진에 색을 입힌 것) */
+ const swap=(fig,on)=>{
+  const tx=T[langOf(fig)],img=fig.querySelector(".phw img"),btn=fig.querySelector(".tint");
+  if(!fig.dataset.bw){fig.dataset.bw=img.getAttribute("src");fig.dataset.bwAlt=img.alt;}
+  const src=on?fig.dataset.color:fig.dataset.bw,pre=new Image();
+  pre.src=src;
+  (pre.decode?pre.decode():Promise.resolve()).catch(()=>{}).then(()=>{
+   img.src=src;img.alt=on?fig.dataset.colorAlt:fig.dataset.bwAlt;
+   btn.setAttribute("aria-pressed",String(on));
+   btn.textContent=on?tx.toBw:tx.toColor;
+   const note=fig.querySelector(".vr-note");if(note)note.hidden=!on;
+   fig.classList.toggle("is-color",on);
+  });
+ };
+ document.addEventListener("click",e=>{
+  const w=e.target.closest(".ph[data-color] .phw");
+  if(!w)return;
+  const fig=w.closest(".ph");
+  swap(fig,!fig.classList.contains("is-color"));
+ });
+}
+</script>
+</body>
+</html>

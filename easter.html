@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부활절 코스 · 질문 받기 연습실</title>
+<meta name="description" content="빈 무덤에서 성령강림까지, 그림 여섯 점으로 걷는 부활의 50일. 부활절부터 성령강림절까지 주일 여섯 번, 그림 한 점에 질문 하나. 그 땅의 옛 사진과 AI 가상 복원, 아이에게 보여 주기.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="부활절 코스 · 질문 받기 연습실">
+<meta property="og:description" content="빈 무덤에서 성령강림까지, 그림 여섯 점으로 걷는 부활의 50일. 그림 한 점에 질문 하나.">
+<meta property="og:url" content="https://hunj08423-debug.github.io/hun/easter.html">
+<meta property="og:image" content="https://hunj08423-debug.github.io/hun/og-feel.jpg">
+<meta name="theme-color" content="#2F2712">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* 부활절 코스 · 함께 느끼기 방에서 이어지는 따로 페이지 (feel.html의 부활절·성령강림 칸에서 들어옴, christmas.html과 같은 틀)
+   VOICE everyday · 교사용 절기 카드, 조용하고 따뜻하게
+   IDEA 알아봄: 처음엔 알아보지 못한 제자들이 예수님을 알아보는 여섯 장면. 장면마다 해가 하나씩 더 떠오르는 띠
+   PICTURE 여섯 장면의 그림을 나란히 세운 띠, 고른 장면의 그림이 크게
+   COLOUR 함께 느끼기 방의 바탕과 잉크에 부활절 금빛 #806511(방의 #94700F보다 조금 짙게, 글씨 대비 4.5:1 이상), 새벽 같은 짙은 갈색 #2F2712, 촛불 금빛 한 점
+   TYPE Noto Serif KR(제목·질문·뿌리) + Noto Sans KR(본문)
+   LAYOUT 넓은 화면: 여섯 칸 띠 아래 그림 왼쪽 고정, 글 오른쪽 / 중간 화면: 3×2 띠 / 휴대폰: 2×3 띠, 그림, 글 */
+:root{color-scheme:light dark;
+--bg:light-dark(#F8F7F4,#151311);--surface:light-dark(#FFFFFF,#1E1B18);--ink:light-dark(#1C1A17,#F1ECE4);--ink2:light-dark(#3D3A35,#D9D2C7);
+--muted:light-dark(#5F584F,#B3AA9E);--line:light-dark(#E6E1D9,#36312B);--accent:light-dark(#806511,#EBCB6B);--soft:light-dark(#FAF3DE,#302815);
+--deep:#2F2712;--flame:#E9B44C;--warn:light-dark(#8A4B12,#F0C38E);--warn-soft:light-dark(#FBF1E6,#33261A);
+--sand:light-dark(#F3EDE3,#25201A);--earth:light-dark(#7A4E26,#E3B98C);
+--sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--serif:"Noto Serif KR","AppleMyungjo","Batang",serif}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.7 var(--sans);word-break:keep-all;overflow-wrap:break-word;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--serif);margin:0;line-height:1.2;letter-spacing:-.02em;text-wrap:balance}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(4vw,16px)}
+.top{background:var(--deep);color:#F3EEE6;padding:28px 0 30px}
+.top .brand{font-size:14px;opacity:.82}
+.top h1{font-size:clamp(32px,5vw,46px);margin:8px 0 10px;color:#fff}
+.top .sub{font-size:17px;max-width:46em;color:#F3E9CC}
+.howto{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:14px;color:#F3E9CC}
+.howto b{color:var(--flame);font-weight:700}
+.top a.back{color:inherit;text-decoration:none}
+.top a.back:hover{text-decoration:underline}
+.top a.back:focus-visible{outline:3px solid var(--flame);outline-offset:2px;border-radius:4px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lang{flex:none;min-height:36px;padding:6px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.42);background:transparent;color:#fff;font:700 14px/1.2 var(--sans);cursor:pointer}
+.lang:hover{background:rgba(255,255,255,.12)}
+.lang:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.draft{margin-top:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 14px;font-size:14px;color:#F3EEE6}
+.weeks{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:-2px 0 0;padding:22px 0 8px}
+.wk{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .2s ease,border-color .2s}
+.wk:hover{transform:translateY(-2px);border-color:var(--accent)}
+.wk:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wk[aria-current=true]{border:2px solid var(--accent);box-shadow:0 0 0 4px var(--soft)}
+.wk img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.wk .bd{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px}
+.wk .when{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 8px;font-size:13px;color:var(--muted)}
+.wk .when b{white-space:nowrap}
+.wk .when b{color:var(--accent);font-weight:700}
+.wk .q{font-family:var(--serif);font-weight:600;font-size:15px;line-height:1.45}
+.steps{display:inline-flex;gap:3px;align-items:center;flex:none}
+.steps i{display:block;width:11px;height:11px;border-radius:50%;background:var(--line)}
+.steps i.on{background:var(--accent)}
+.thread{margin:6px 0 4px;font-size:14px;color:var(--muted)}
+.thread b{color:var(--ink2)}
+.card{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,3.5vw,44px);padding:30px 0 46px;border-top:1px solid var(--line);margin-top:22px;scroll-margin-top:12px}
+.js .card{display:none}
+.js .card.on{display:grid}
+.fig{position:sticky;top:16px;align-self:start;display:flex;flex-direction:column;gap:10px}
+.fig img{width:100%;max-height:82vh;object-fit:contain;background:#0f0d0c;border-radius:14px}
+.fig .cap{font-size:13px;color:var(--muted);line-height:1.6}
+.fig .cap b{color:var(--ink2);font-weight:600}
+.txt{display:flex;flex-direction:column;gap:18px}
+.tag{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px;color:var(--muted)}
+.chip{background:var(--soft);color:var(--accent);font-weight:700;border-radius:999px;padding:4px 12px;font-size:13.5px}
+.opener{background:var(--soft);border-radius:18px;padding:18px 20px}
+.opener small{display:block;font-size:13px;font-weight:700;color:var(--accent)}
+.opener h2{font-size:clamp(25px,3.2vw,32px);margin-top:4px}
+.line{font-family:var(--serif);font-size:18.5px;line-height:1.75;font-weight:600}
+.blk h3{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--accent);letter-spacing:0;margin-bottom:6px}
+.blk p{margin:0 0 8px}
+.blk ol,.blk ul{margin:0;padding-left:21px;display:flex;flex-direction:column;gap:6px}
+/* 그 시절로 가 보기 */
+.era{background:var(--sand);border-radius:18px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:14px}
+.era>h3{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--earth);letter-spacing:0}
+.where{margin:0}
+.where b{display:block;font-family:var(--serif);font-size:17px;margin-bottom:2px}
+.ph{margin:0;display:flex;flex-direction:column;gap:8px}
+.ph img{width:100%;border-radius:12px;background:#0f0d0c}
+.ph figcaption{font-size:14.5px;line-height:1.65;color:var(--ink2)}
+.ph figcaption b{font-family:var(--serif);font-size:15.5px;color:var(--ink)}
+.imagine{margin:0;border-left:3px solid var(--flame);padding:4px 0 4px 14px;font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.75}
+.imagine small{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--earth);margin-bottom:2px}
+.go{position:relative;display:flex;flex-direction:column;gap:2px;padding:12px 16px 12px 44px;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;line-height:1.5}
+.go::before{content:"";position:absolute;left:17px;top:50%;margin-top:-7px;border-left:12px solid var(--earth);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.go small{font-weight:400;font-size:13px;color:var(--muted)}
+.go:hover{border-color:var(--earth)}
+.go:focus-visible{outline:3px solid var(--earth);outline-offset:2px}
+.old{margin:0;font-size:13px;color:var(--muted)}
+.orig{font-size:13px;color:var(--muted);white-space:nowrap}
+/* 가상 복원 보기 */
+.phw{position:relative}
+.ph[data-color] .phw{cursor:pointer}
+.tint{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:6px 13px 6px 10px;border:0;border-radius:999px;background:rgba(16,14,12,.80);color:#fff;font:700 13px/1.2 var(--sans);cursor:pointer}
+.tint::before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:conic-gradient(#E9B44C,#D2553F,#5B8C5A,#4A78B5,#E9B44C)}
+.tint[aria-pressed=true]::before{background:linear-gradient(90deg,#fff 50%,#333 50%);box-shadow:0 0 0 1px rgba(255,255,255,.6)}
+.tint:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.vr-note{display:block;margin-top:4px;font-size:12.5px;color:var(--muted)}
+.vr-note[hidden]{display:none}
+.ph.is-color .phw::after{content:"AI 가상 복원";position:absolute;right:10px;top:10px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.9);color:#1C1A17;font:700 12px/1.3 var(--sans)}
+.L[lang=en] .ph.is-color .phw::after{content:"AI colorized"}
+.sw-pic{position:relative;width:100%;height:100%}
+.sw-pic .tint{left:50%;transform:translateX(-50%);bottom:12px;font-size:14px;min-height:40px}
+/* 아이에게 보여 주기 */
+.showbtn{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;padding:12px 16px;border:0;border-radius:14px;background:var(--deep);color:#F3EEE6;font:700 16px/1.45 var(--sans);text-align:left;cursor:pointer}
+.showbtn b{display:flex;align-items:center;gap:9px}
+.showbtn b::before{content:"";border-left:11px solid var(--flame);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.showbtn span{font-weight:400;font-size:13px;color:#EADFC0}
+.showbtn:hover{background:#4A3D1E}
+.showbtn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tip{margin:10px 0 0;font-size:14px;color:#F3E9CC}
+.tip b{color:var(--flame)}
+dialog.show{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#100E0C;color:#F3EEE6}
+dialog.show::backdrop{background:#000}
+.sw{height:100%;display:flex;flex-direction:column;gap:12px;padding:12px max(14px,3vw) max(14px,env(safe-area-inset-bottom))}
+.sw-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:#BDB4A8}
+.sw-x{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:transparent;color:#F3EEE6;font-size:24px;line-height:1;cursor:pointer}
+.sw-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;touch-action:pan-y}
+.sw-stage img{width:100%;height:100%;object-fit:contain}
+.sw-dark{width:100%;height:100%;border-radius:14px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 46%,rgba(233,180,76,.30),rgba(233,180,76,0) 34%),#07060A}
+.sw-dark span{font-family:var(--serif);font-size:clamp(22px,4vw,34px);font-weight:700;color:#F6E3B8}
+.sw-q{margin:0 auto;max-width:820px;min-height:3.2em;text-align:center;font-family:var(--serif);font-weight:600;font-size:clamp(20px,3vw,28px);line-height:1.5;text-wrap:pretty}
+.sw-q small{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--flame);margin-bottom:4px}
+.sw-nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sw-nav button{min-height:48px;min-width:96px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#F3EEE6;font:700 16px var(--sans);cursor:pointer}
+.sw-nav button.next{background:var(--flame);border-color:var(--flame);color:#1C1A17}
+.sw-nav button:disabled{opacity:.35;cursor:default}
+.sw button:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.dots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25)}
+.dots i.on{background:var(--flame)}
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.ask small{font-size:13px;font-weight:700;color:var(--accent)}
+.ask p{margin:4px 0 0;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.6}
+.root{background:var(--deep);color:#F3EEE6;border-radius:14px;padding:15px 18px;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.6}
+.read{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:12px 18px;border-radius:14px;background:var(--accent);color:var(--surface);text-decoration:none;font-weight:700}
+.read:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.read span{font-weight:400;font-size:13.5px;opacity:.9}
+.aha{background:var(--soft);border-radius:14px;padding:14px 16px}
+.aha h3{margin-bottom:4px}
+.care{background:var(--warn-soft);color:var(--ink);border-radius:14px;padding:13px 16px;font-size:15px}
+.care b{color:var(--warn)}
+.more li{font-size:15px}
+.more .note{color:var(--muted);font-size:13.5px}
+details.src{border-top:1px dashed var(--line);padding-top:12px;font-size:13.5px;color:var(--muted)}
+details.src summary{cursor:pointer;font-weight:700;color:var(--ink2);min-height:32px}
+details.src ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.foot{border-top:1px solid var(--line);padding:22px 0 40px;font-size:14px;color:var(--muted)}
+.foot p{margin:0 0 6px}
+@media (max-width:1100px){.weeks{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.wk .bd{padding:12px 14px 14px}.wk .q{font-size:16px}}
+@media (max-width:900px){.card{grid-template-columns:minmax(0,1fr)}.fig{position:static}.fig img{max-height:70vh}}
+@media (max-width:600px){.weeks{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.wk .q{font-size:15px}.top .sub{font-size:16px}.line{font-size:17.5px}}
+@media (prefers-reduced-motion:reduce){.wk{transition:none}.wk:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="L" lang="ko">
+<header class="top">
+ <div class="wrap">
+  <div class="bar"><a class="brand back" href="feel.html">‹ 질문 받기 연습실 · 함께 느끼기</a><button class="lang" type="button" data-lang="en" lang="en">English</button></div>
+  <h1>부활절 코스</h1>
+  <p class="sub">빈 무덤에서 성령강림까지, 그림 여섯 점으로 걷는 부활의 50일. 부활절부터 성령강림절까지 주일 여섯 번을 골라, 그림 한 점에 질문 하나. 이름을 부르신 아침에서 불꽃처럼 오신 성령까지.</p>
+  <div class="howto"><span><b>1</b> 그림을 함께 보고</span><span><b>2</b> 질문을 던지고</span><span><b>3</b> 그 시절로 가 본 뒤</span><span><b>4</b> 본문을 같이 읽어요</span></div>
+  <p class="tip">그림 아래 <b>아이에게 보여 주기</b>를 누르면 그림과 그 땅의 옛 사진을 화면 가득 띄우고, 질문을 하나씩 넘길 수 있어요. 흑백 사진은 누르면 AI로 색을 입힌 <b>가상 복원</b>으로 바뀌어요.</p>
+  <div class="draft">검수 전 초안이에요. AI가 출처를 모아 쓴 글이라, 카드마다 맨 아래 ‘근거 보기’와 대조해 확인해 주세요.</div>
+ </div>
+</header>
+
+<main class="wrap">
+ <nav class="weeks" aria-label="장면 고르기">
+  <a class="wk" href="#scene1" data-w="scene1"><img src="img/east1-angelico-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>부활절 · <span data-wd="0">3월 28일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></span><span class="q">마리아는 왜 예수님을 못 알아봤어요?</span></span></a>
+  <a class="wk" href="#scene2" data-w="scene2"><img src="img/east2-cima-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>부활 2주 · <span data-wd="1">4월 4일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span></span><span class="q">도마는 왜 만져 봐야 믿는다고 했어요?</span></span></a>
+  <a class="wk" href="#scene3" data-w="scene3"><img src="img/east3-caravaggio-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>부활 3주 · <span data-wd="2">4월 11일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">엠마오로 가던 제자들은 언제 예수님을 알아봤어요?</span></span></a>
+  <a class="wk" href="#scene4" data-w="scene4"><img src="img/east4-witz-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>부활 4주 · <span data-wd="3">4월 18일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">예수님이 제자들한테 아침밥을 차려 주셨어요?</span></span></a>
+  <a class="wk" href="#scene5" data-w="scene5"><img src="img/east5-giotto-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>승천 주일 · <span data-wd="4">5월 9일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">예수님은 하늘 어디로 가셨어요?</span></span></a>
+  <a class="wk" href="#scene6" data-w="scene6"><img src="img/east6-maino-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>성령강림절 · <span data-wd="5">5월 16일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">머리 위의 불꽃은 뜨겁지 않았어요?</span></span></a>
+ </nav>
+ <p class="thread">여섯 장면을 잇는 두 말: <b>“알아보다”</b>(눅 24:31)와 <b>“보았다”</b>(요 20:18). 마리아도, 엠마오의 두 제자도, 호숫가의 제자들도 처음에는 예수님을 알아보지 못했어요. 이름을 부르실 때, 빵을 떼실 때, 그물이 가득 찰 때 알아보았지요. “내가 주를 보았다”는 소식은 승천과 성령강림을 지나 땅 끝까지 퍼져 나가요(행 1:8).</p>
+
+ <!-- 장면 1 -->
+ <article class="card" id="scene1" data-week="scene1">
+  <figure class="fig">
+   <img loading="lazy" src="img/east1-angelico.jpg" alt="프라 안젤리코의 벽화. 꽃이 핀 동산에서 흰 옷을 입은 예수가 어깨에 괭이를 메고 한 걸음 물러서며 손을 내민다. 붉은 옷의 마리아가 무릎을 꿇고 그에게 손을 뻗는다. 마리아 뒤로 바위를 판 무덤 입구가 보이고, 동산 가운데에 종려나무가 서 있다.">
+   <figcaption class="cap"><b>「나를 붙들지 말라」</b> 프라 안젤리코, 1440년 무렵<br>이탈리아 피렌체, 산마르코 수도원 1번 방</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">부활절 · 이름을 부르신 아침</span><span><span data-wd="0">3월 28일</span> 부활절 · 요한복음 20:1~18</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>마리아는 왜 예수님을 못 알아봤어요?</h2></div>
+   <p class="line">꽃이 핀 이른 아침의 동산, 괭이를 멘 사람. 마리아는 그를 동산지기인 줄 알았습니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>예수님 어깨에 멘 것을 찾아보세요. 무엇에 쓰는 도구일까요?</li>
+    <li>풀밭에 핀 작은 빨간 꽃들을 찾아보세요. 예수님 손과 발에 난 자국과 같은 색이에요.</li>
+    <li>마리아 뒤의 바위 굴을 보세요. 무엇일까요? 안은 어떻게 되어 있을까요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>“안식 후 첫날 일찍이 아직 어두울 때에” 막달라 마리아가 무덤에 왔다가 돌이 옮겨진 것을 보았어요(20:1). 마리아는 무덤 밖에 서서 울었어요. 뒤로 돌아서자 누군가 서 있었지만 “예수이신 줄은 알지 못하더라”(20:14). 마리아는 “그가 동산지기인 줄 알고” 주님의 시신을 어디 두었는지 알려 달라고 했어요(20:15).</p>
+    <p>“예수께서 마리아야 하시거늘 마리아가 돌이켜 히브리 말로 랍오니 하니 (이는 선생님이라는 말이라)”(20:16). 이름을 부르는 목소리에 마리아는 곧 알아보았어요. 예수님은 “나를 붙들지 말라” 하시고, 형제들에게 가서 전하라고 하셨어요(20:17). 마리아는 달려가 말했어요. “내가 주를 보았다”(20:18). 부활하신 예수님을 처음 만나고, 처음으로 그 소식을 전한 사람이 바로 마리아예요.</p>
+    <p>이탈리아 피렌체의 산마르코 수도원에는 수도사들이 기도하고 잠자던 작은 방이 44개 있어요. 도미니코회 수도사였던 화가 프라 안젤리코와 그의 공방은 거의 모든 방 벽에 예수님 이야기를 하나씩 그렸어요. 이 그림은 1번 방에 있는 높이 166센티미터의 벽화예요. 예수님이 괭이를 메고 계신 것은 마리아가 그분을 동산지기로 여긴 일을 떠올리게 하지요. 풀밭의 작은 빨간 꽃들은 예수님 손발의 못 자국과 같은 색으로 칠했어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>“나를 붙들지 말라”(20:17)를 라틴어 성경에서는 ‘놀리 메 탄게레(Noli me tangere)’라고 해요. 그래서 부활하신 예수님과 마리아가 만나는 장면을 그린 그림들을 모두 이 이름으로 불러요. 요한은 예수님이 묻히신 곳이 “동산” 안의 새 무덤이었다고 적었어요(19:41). 그러니 동산에서 만난 사람을 동산지기로 여길 만했지요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 예루살렘 성 밖의 동산 무덤</b>예수님이 십자가에 못 박히신 곳 가까이에 동산이 있었고, 그 안에 새 무덤이 있었어요(요 19:41~42). 4세기부터 그리스도인들은 지금의 성묘 교회 자리를 그곳으로 기억해 왔어요. 그때는 성벽 밖이었지만, 도시가 넓어져 지금은 옛 성 안에 있어요.</p>
+    <figure class="ph" data-q="둥근 돌을 찾아보세요. 이 돌을 굴리려면 몇 사람이 필요할까요?" data-color="img/evr1-rolling-stone.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 회백색 바위를 깎은 무덤 입구 옆에 맷돌처럼 둥근 큰 돌이 홈에 끼워져 있고, 돌 틈마다 풀이 자란다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 바위와 돌은 무슨 색으로 보이니?">
+     <div class="phw"><img src="img/eera1-rolling-stone.jpg" alt="흑백 사진. 바위를 깎은 무덤 입구 옆에 맷돌처럼 둥근 큰 돌이 홈에 끼워져 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>아부 고시의 굴리는 돌 무덤</b> · 1940년대<br>둥근 돌을 홈을 따라 굴려 입구를 여닫는 옛 유대인 무덤이에요. 여인들도 “누가 우리를 위하여 무덤 문에서 돌을 굴려 주리요” 하고 걱정했지요(막 16:3). 고고학자 아모스 클로너가 예루살렘 둘레에서 그 시절 무덤 900여 곳을 살펴보니, 이렇게 둥근 돌로 막은 무덤은 네 곳뿐이었고 대부분은 네모난 돌로 막았대요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Jewish_tombs_with_rolling_stones_at_Abou_Gosh._Rolling_stone_tomb,_without_figure._Abu_Ghosh_(Kirjath_Jearim)_LOC_matpc.21098.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="교회 앞마당의 사람들을 찾아보세요. 커다란 아치 문은 몇 개 보이나요?">
+     <img src="img/ecolor1-sepulchre.jpg" alt="색을 입힌 옛 인쇄 사진. 둥근 지붕을 얹은 큰 돌 교회의 정면에 아치 문 두 개가 나란히 있고, 앞마당에 사람 몇이 있다." loading="lazy">
+     <figcaption><b>성묘 교회 정면 · 1890년대 컬러 인쇄본</b><br>예수님이 묻히셨다가 살아나신 곳으로 기억해 온 자리에 선 교회예요. 콘스탄티누스 황제가 326년 무렵 짓기 시작해 335년에 봉헌했고, 지금 건물의 큰 틀은 십자군이 다시 지어 1149년에 봉헌한 모습이에요. <a class="orig" href="https://www.loc.gov/item/2002725003/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 아직 어두운 새벽이에요. 이슬 맺힌 풀 냄새가 나요. 너무 슬퍼서 눈물이 나요. 그때 누가 다정하게 내 이름을 불러요."><small>눈 감고 상상해 보기</small>울다가 고개를 들었는데, 낯선 사람인 줄 알았던 분이 내 이름을 부른다면, 그 목소리를 어떻게 알아볼까요?</p>
+    <a class="go" href="https://thevcs.org/campaign/making-all-things-new">그림 가까이 보기 · VCS 해설 ‘Making All Things New’<small>영어 · 그림을 크게 키워서 풀밭의 빨간 꽃과 예수님 손발의 자국을 견주어 보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“누가 네 이름을 다정하게 불러 줄 때 어떤 기분이 드니?”</p></div>
+   <div class="root">부활하신 예수님은 우는 마리아를 이름으로 부르셨습니다(요 20:16).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/JHN.20">이제 본문 읽기 · 요한복음 20:1~18<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> “나를 붙들지 말라”를 ‘만지지 마, 저리 가’로 오해하지 않게, 예수님이 마리아에게 맡기신 심부름(20:17)과 함께 이야기해 주세요. 막달라 마리아를 ‘죄 많은 여인’으로 소개하지 마세요. 그렇게 본 것은 중세의 전통이고, 성경은 일곱 귀신이 나간 여인으로 소개해요(눅 8:2).</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>함께 느끼기 방의 ‘부활절 정원’(돌을 굴려 여는 아침)과 ‘부활절 해돋이 예배’ 활동을 이어서 해 보세요.</li>
+    <li>함께 느끼기 방의 「수태고지」도 프라 안젤리코의 그림이에요. 천사의 소식을 듣는 마리아와, 부활의 소식을 전하러 가는 마리아를 나란히 보세요.</li>
+    <li><a href="https://thevcs.org/campaign/message-mission">VCS 해설 ‘Message and Mission’</a> <span class="note">영어 · 부활의 첫 소식을 전한 막달라 마리아</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (8)</summary><ul>
+    <li><a href="https://thevcs.org/campaign/making-all-things-new">VCS ‘Making All Things New’</a>: 1번 방, 프레스코, 166×125cm, 못 자국과 같은 색으로 칠한 작은 빨간 꽃, 울어서 붉어진 마리아의 얼굴, 마리아를 ‘죄 많은 여인’으로 본 중세의 생각</li>
+    <li><a href="https://www.christianiconography.info/Florence/sanMarco/noliMeTangereFraAngelico.html">Christian Iconography ‘Fra Angelico, Noli Me Tangere’</a>: 마리아 뒤의 무덤, 동산지기로 여긴 일을 떠올리게 하는 괭이</li>
+    <li><a href="https://www.european-traveler.com/?p=21686">European Traveler ‘Cell 1: Noli me tangere’</a>: 수도사 방 44개, 거의 모든 방의 프라 안젤리코 벽화</li>
+    <li><a href="https://www.professor-moriarty.com/info/node/6247">Professor Moriarty ‘Touch Me Not (cell 1)’</a>: 프라 안젤리코가 구상하고 제자 베노초 고촐리가 그렸다는 견해</li>
+    <li><a href="https://www.biblicalarchaeology.org/daily/archaeology-today/biblical-archaeology-topics/how-was-jesus-tomb-sealed/">Bible History Daily ‘How Was Jesus’ Tomb Sealed?’</a>: 클로너가 살핀 제2성전 시대 무덤 900여 곳 가운데 둥근 돌 무덤은 네 곳</li>
+    <li><a href="https://en.wikipedia.org/wiki/Church_of_the_Holy_Sepulchre">Wikipedia ‘Church of the Holy Sepulchre’</a>: 326년 무렵 착공, 335년 봉헌, 1149년 십자군 교회 봉헌</li>
+    <li><a href="https://www.newworldencyclopedia.org/entry/Holy_Sepulchre">New World Encyclopedia ‘Holy Sepulchre’</a>: 처음 지을 때는 성벽 밖, 지금은 옛 성 안</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/JHN.20">개역개정 본문(대한성서공회)</a>: 요 20:1~18, 19:41~42, 막 16:3, 눅 8:2</li>
+   </ul><p>그림: 프라 안젤리코, 「나를 붙들지 말라」(원제: Noli me tangere), 1440년 무렵, 피렌체 산마르코 수도원. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Jewish_tombs_with_rolling_stones_at_Abou_Gosh._Rolling_stone_tomb,_without_figure._Abu_Ghosh_(Kirjath_Jearim)_LOC_matpc.21098.jpg">‘Jewish tombs with rolling stones at Abou Gosh’</a>(1940~1946년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725003/">‘The front of the Holy Sepulchre, Jerusalem’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 2 -->
+ <article class="card" id="scene2" data-week="scene2">
+  <figure class="fig">
+   <img loading="lazy" src="img/east2-cima.jpg" alt="치마 다 코넬리아노의 그림. 아치 천장이 있는 방 한가운데 예수가 옷을 젖혀 옆구리 상처를 보이고, 몸을 숙인 도마가 손가락을 그 상처에 댄다. 둘레에 제자들이 빙 둘러서서 지켜보고, 뒤쪽 벽의 아치 창 두 개 너머로 먼 풍경이 보인다.">
+   <figcaption class="cap"><b>「의심하던 도마」</b> 치마 다 코넬리아노, 1502~1504년 무렵<br>영국 런던, 내셔널 갤러리</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">부활절 둘째 주일 · 손을 내미신 예수님</span><span><span data-wd="1">4월 4일</span> 부활절 둘째 주일 · 요한복음 20:19~29</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>도마는 왜 만져 봐야 믿는다고 했어요?</h2></div>
+   <p class="line">제자들이 빙 둘러선 가운데, 도마가 손가락을 뻗어 예수님의 상처에 댑니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>도마를 찾아보세요. 손가락이 어디에 닿아 있나요?</li>
+    <li>예수님 바로 곁, 수염이 없는 젊은 제자를 찾아보세요. 옛 그림에서는 요한을 이렇게 젊게 그리곤 했어요.</li>
+    <li>주황빛 겉옷을 입고 가슴에 손을 얹은 흰 수염의 제자를 찾아보세요. 다른 제자들의 얼굴은 어때 보이나요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>부활하신 날 저녁, 제자들은 무서워서 문을 꼭 닫고 모여 있었어요. 그때 예수님이 오셔서 “너희에게 평강이 있을지어다” 하시고 손과 옆구리를 보여 주셨어요(20:19~20). 그런데 도마는 그 자리에 없었어요. 친구들이 “우리가 주를 보았노라” 하자 도마가 말했어요. “내가 그의 손의 못 자국을 보며 내 손가락을 그 못 자국에 넣으며 내 손을 그 옆구리에 넣어 보지 않고는 믿지 아니하겠노라”(20:25).</p>
+    <p>여드레 뒤, 이번에는 도마도 함께 있을 때 예수님이 다시 오셨어요. 그리고 도마에게 먼저 말씀하셨어요. “네 손가락을 이리 내밀어 내 손을 보고 네 손을 내밀어 내 옆구리에 넣어 보라”(20:27). 도마는 고백했어요. “나의 주님이시요 나의 하나님이시니이다”(20:28). 예수님은 “보지 못하고 믿는 자들은 복되도다” 하셨어요(20:29). 바로 지금의 우리를 두고 하신 말씀이지요.</p>
+    <p>베네치아에서 활동한 화가 치마 다 코넬리아노가 1502~1504년 무렵 그린 큰 제단화예요. 높이가 3미터 가까이 돼요. 베네치아 북쪽 포르토그루아로에서 병원 네 곳을 운영하던 ‘성 도마 형제회’가 주문했어요. 남아 있는 장부에는 그림을 실어 나를 상자값, 짐꾼 삯, 화가의 조수들에게 준 팁까지 적혀 있어요. 그런데 화가는 그림값의 절반도 제때 받지 못해 소송까지 했고, 1509년에야 다 받았대요. 1870년부터 영국 런던의 내셔널 갤러리에 있어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>‘디두모’(쌍둥이)라 불린 도마(20:24)는 의심만 한 제자가 아니에요. 예수님이 위험한 유대로 다시 가시려 할 때 “우리도 주와 함께 죽으러 가자”고 말한 사람이 도마였어요(11:16). 예수님이 떠나신다고 하실 때도 “그 길을 어찌 알겠사옵나이까” 하고 솔직하게 물었지요(14:5). 그 물음에 예수님은 “내가 곧 길이요 진리요 생명이니” 하고 대답하셨어요(14:6).</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 문을 닫아건 예루살렘의 집</b>성경은 제자들이 모인 집이 어디인지 말하지 않아요. 오래전부터 그리스도인들은 시온산의 ‘다락방’을 마지막 만찬을 나눈 곳이자, 부활하신 예수님이 나타나신 곳, 성령이 오신 곳으로 기억해 왔어요.</p>
+    <figure class="ph" data-q="천장이 어떤 모양인가요? 이 방에 제자들이 모여 있었다면 어디쯤 앉았을까요?" data-color="img/evr2-upper-room.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 뾰족한 아치 천장을 기둥이 받치는 누런 돌방에 창으로 빛이 들어온다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 방의 돌벽은 무슨 색으로 보이니?">
+     <div class="phw"><img src="img/eera2-upper-room.jpg" alt="흑백 사진. 뾰족한 아치 천장을 기둥이 받치는 돌로 된 방. 천장에 등잔이 매달려 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>예루살렘 ‘마지막 만찬의 방’</b> · 1898~1946년 사이<br>시온산의 ‘체나콜로’(다락방)예요. 지금의 뾰족한 아치 방은 14세기 무렵 지은 건물이고, 1523년에는 모스크로 바뀌어 기도하는 벽감이 생기기도 했어요. 2천 년 전 방 그대로는 아니지만, 순례자들은 이곳에서 문을 닫고 모였던 제자들을 떠올려요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Chamber_of_the_Last_Supper,_Jerusalem_LOC_matpc.08504_(cropped).jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="등잔이 몇 개 매달려 있나요? 제단 위에 무엇이 보이나요?">
+     <img src="img/ecolor2-calvary.jpg" alt="색을 입힌 옛 인쇄 사진. 등잔이 줄지어 매달린 어두운 예배당 안쪽에 금빛으로 장식된 제단이 있다." loading="lazy">
+     <figcaption><b>골고다의 그리스 정교회 제단 · 1890년대 컬러 인쇄본</b><br>예수님이 십자가에 못 박히신 곳으로 기억해 온 골고다 언덕은 지금 성묘 교회 안에 있어요. 도마가 보고 싶어 한 ‘못 자국’이 생긴 곳이지요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002725005/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 문이 꼭 닫힌 방이에요. 친구들은 ‘우리가 예수님을 봤어!’ 하는데 나만 못 봤어요. 그런데 예수님이 내게 다가와 손을 내미세요."><small>눈 감고 상상해 보기</small>모두가 본 것을 나만 못 봤을 때의 서운함. 그런데 예수님이 바로 나를 위해 다시 오셔서 손을 내미신다면 어떨까요?</p>
+    <a class="go" href="https://www.nationalgallery.org.uk/paintings/giovanni-battista-cima-da-conegliano-the-incredulity-of-saint-thomas">그림 가까이 보기 · 내셔널 갤러리 작품 페이지<small>영어 · 그림을 크게 키워서 제자들의 얼굴을 하나씩 보세요. 놀란 얼굴, 궁금한 얼굴이 다 달라요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“믿기 어려운 이야기를 들으면 너는 어떻게 하니? 궁금한 걸 묻는 건 괜찮을까?”</p></div>
+   <div class="root">예수님은 의심하는 도마를 꾸짖기보다 먼저 손을 내미셨습니다(요 20:27).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/JHN.20">이제 본문 읽기 · 요한복음 20:19~29<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 상처에 손가락을 대는 장면을 무서워하는 아이도 있어요. 손가락보다 ‘예수님이 먼저 찾아와 손을 내미셨다’는 데 마음을 두세요. ‘의심은 나쁜 것’이라고 가르치기보다, 질문을 품고 예수님께 나아가도 된다고 말해 주세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>함께 느끼기 방의 카라바조 「의심하는 도마」와 나란히 보세요. 카라바조는 예수님이 도마의 손을 잡아 이끄시는 모습을 가까이에서 그렸고, 치마는 제자들이 빙 둘러선 방을 그렸어요.</li>
+    <li>치마는 1년쯤 뒤 같은 주제를 한 번 더 그렸어요. 베네치아 아카데미아 미술관의 그림은 제자들 대신 성 마그누스가 함께 서 있고, 장면을 바깥 회랑으로 옮겼어요. <a href="https://www.gallerieaccademia.it/en/incredulity-saint-thomas-and-saint-magnus-oderzo">아카데미아 미술관 작품 설명</a> <span class="note">영어</span></li>
+    <li><a href="https://thevcs.org/doubting-thomas">VCS 전시 「Doubting Thomas」</a> <span class="note">영어 · 요한복음 20:24~31</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (8)</summary><ul>
+    <li><a href="https://www.nationalgallery.org.uk/paintings/giovanni-battista-cima-da-conegliano-the-incredulity-of-saint-thomas">내셔널 갤러리 작품 설명</a>: 1502~1504년 무렵, 성 도마에게 바친 형제회(포르토그루아로의 병원 네 곳 운영)의 주문, 운반 상자·짐꾼·조수 팁이 적힌 장부, 소송 끝에 1509년에야 완납</li>
+    <li><a href="https://nationalgallery.org.uk/paintings/NG816">내셔널 갤러리 NG816</a>: 상처에 손가락을 대는 도마, 예수 오른쪽의 파란 옷 젊은 요한, 머리가 벗어진 베드로</li>
+    <li><a href="https://artuk.org/discover/artworks/the-incredulity-of-saint-thomas-115649">Art UK</a>: 294×199.4cm, 포플러 판에서 합성 판으로 옮긴 그림, 1870년 구입</li>
+    <li><a href="https://www.nationalgallery.org.uk/paintings/glossary/saint-thomas">내셔널 갤러리 용어 풀이 ‘Saint Thomas’</a>: ‘쌍둥이(디두모)’라 불린 도마</li>
+    <li><a href="https://www.gallerieaccademia.it/en/incredulity-saint-thomas-and-saint-magnus-oderzo">베네치아 아카데미아 미술관</a>: 성 마그누스와 함께 바깥 회랑에 둔 두 번째 그림</li>
+    <li><a href="https://www.jewishvirtuallibrary.org/the-coenaculum-on-mount-zion">Jewish Virtual Library ‘The Coenaculum on Mount Zion’</a>: 14세기 프란치스코회가 지은 위층, 오순절의 다락방 전통, 1523년 모스크와 기도 벽감</li>
+    <li><a href="https://en.wikipedia.org/wiki/Cenacle">Wikipedia ‘Cenacle’</a>: 마지막 만찬과 성령강림의 장소로 이어 온 전통</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/JHN.20">개역개정 본문(대한성서공회)</a>: 요 20:19~29, 11:16, 14:5~6</li>
+   </ul><p>그림: 치마 다 코넬리아노, 「의심하던 도마」(원제: The Incredulity of Saint Thomas), 1502~1504년 무렵, 런던 내셔널 갤러리. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Chamber_of_the_Last_Supper,_Jerusalem_LOC_matpc.08504_(cropped).jpg">‘Chamber of the Last Supper, Jerusalem’</a>(1898~1946년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725005/">‘The Calvary and the Greek altar, Jerusalem’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 3 -->
+ <article class="card" id="scene3" data-week="scene3">
+  <figure class="fig">
+   <img loading="lazy" src="img/east3-caravaggio.jpg" alt="카라바조의 그림. 어두운 배경 앞 식탁에 수염 없는 젊은 예수가 앉아 빵 위로 손을 들어 축복한다. 왼쪽 제자는 의자에서 벌떡 일어나려 하고, 오른쪽 제자는 두 팔을 활짝 벌린다. 모자를 쓴 여관 주인이 서서 내려다본다. 식탁 위에는 빵과 구운 닭이 있고, 식탁 끝에 과일 바구니가 아슬아슬하게 걸쳐 있다.">
+   <figcaption class="cap"><b>「엠마오의 저녁 식사」</b> 카라바조, 1601년<br>영국 런던, 내셔널 갤러리</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">부활절 셋째 주일 · 빵을 떼실 때</span><span><span data-wd="2">4월 11일</span> 부활절 셋째 주일 · 누가복음 24:13~35</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>엠마오로 가던 제자들은 언제 예수님을 알아봤어요?</h2></div>
+   <p class="line">저녁 식탁, 빵 위로 들린 손. 그 순간 두 제자는 함께 걸어온 낯선 사람이 누구인지 알아봅니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>식탁 끝에 아슬아슬하게 걸친 과일 바구니를 찾아보세요. 곧 떨어질 것 같나요?</li>
+    <li>의자에서 벌떡 일어나려는 사람, 두 팔을 활짝 벌린 사람을 찾아보세요. 둘은 왜 이렇게 놀랐을까요?</li>
+    <li>모자를 쓰고 서 있는 사람을 보세요. 이 사람도 무슨 일인지 알았을까요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>예수님이 부활하신 그날, 제자 두 사람이 “예루살렘에서 이십오 리 되는 엠마오라 하는 마을로” 가고 있었어요(24:13). 예수님이 가까이 와서 함께 걸으셨지만 “그들의 눈이 가리어져서 그인 줄 알아보지 못하”였어요(24:16). 두 사람은 “슬픈 빛을 띠고” 예루살렘에서 있었던 일을 이야기했고(24:17), 예수님은 모세와 모든 선지자의 글로 시작해 성경을 자세히 풀어 주셨어요(24:27).</p>
+    <p>마을에 이르자 두 사람은 “우리와 함께 유하사이다 때가 저물어가고 날이 이미 기울었나이다” 하고 붙잡았어요(24:29). 식탁에서 예수님이 “떡을 가지사 축사하시고 떼어 그들에게 주시니 그들의 눈이 밝아져 그인 줄 알아 보더니 예수는 그들에게 보이지 아니하시는지라”(24:30~31). 두 사람은 “우리 속에서 마음이 뜨겁지 아니하더냐” 하고는 그 길로 예루살렘으로 돌아갔어요(24:32~33).</p>
+    <p>카라바조가 1601년 로마의 귀족 치리아코 마테이를 위해 그린 그림이에요. 사람들을 실제 크기로 그려서 식탁이 우리 바로 앞에 놓인 것 같아요. 카라바조는 제자들을 해진 옷에 주름진 얼굴의 일하는 사람들로 그리고, 예수님은 수염 없는 젊은 모습으로 그렸어요. 다른 세상에서 온 사람처럼 보이지요. 1839년부터 런던 내셔널 갤러리에 있어요. 카라바조는 5년 뒤 더 어둡고 조용한 엠마오 그림을 한 번 더 그렸어요(밀라노 브레라 미술관).</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>엠마오가 정확히 어디인지는 아직도 몰라요. 오래된 성경 사본마다 거리가 ‘60스타디온’(이십오 리, 약 11킬로미터)과 ‘160스타디온’(약 30킬로미터)으로 다르게 적혀 있거든요. 그래서 예루살렘 서쪽의 여러 마을, 엠마오-니코폴리스, 엘쿠베이베, 아부 고시, 모차가 저마다 엠마오로 꼽혀요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 예루살렘에서 서쪽으로 가는 길</b>두 제자는 해 질 녘 엠마오에 닿았다가, “곧 그 때로 일어나” 예루살렘으로 돌아갔어요(24:29, 33). 지금으로 치면 11킬로미터쯤 되는 길을 하루에 두 번 걸은 셈이에요.</p>
+    <figure class="ph" data-q="길 위에 서 있는 개를 찾아보세요. 저 멀리 언덕 꼭대기에 있는 건물도 보이나요?" data-color="img/evr3-emmaus-road.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 돌이 흩어진 옛길 위에 누런 개 한 마리가 서 있고, 길은 초록빛이 도는 언덕 사이로 이어진다. 멀리 언덕 꼭대기에 건물이 보인다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 해 질 녘이라면 이 길은 무슨 색이었을까?">
+     <div class="phw"><img src="img/eera3-emmaus-road.jpg" alt="흑백 사진. 돌이 흩어진 옛길 위에 개 한 마리가 서 있고, 길은 언덕 사이로 이어진다. 멀리 언덕 꼭대기에 건물이 보인다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>엠마오로 가는 로마 시대 길</b> · 1930년대<br>사진가의 기록장에 남은 제목은 ‘엠마오로 가는 로마 길, 멀리 미스바(네비 삼윌)’예요. 멀리 보이는 언덕 네비 삼윌은 선지자 사무엘의 무덤으로 전해지는 곳으로, 1099년 십자군이 처음 예루살렘을 바라본 언덕이기도 해요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Roman_road_to_Emmaus_showing_%27Mizpah%27,_Neby_Samwil_LOC_matpc.16561.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="반죽을 어떻게 펴고 있나요? 갓 구운 빵 냄새를 상상해 보세요.">
+     <img src="img/ecolor3-bread.jpg" alt="색을 입힌 옛 인쇄 사진. 돌 문간 앞에 앉은 여인이 둥글고 납작한 반죽을 펴고, 그 곁에 아이를 업은 여인이 서 있다. 둘레에 둥근 빵과 그릇들이 놓여 있다." loading="lazy">
+     <figcaption><b>빵을 굽는 시리아 농부 · 1890년대 컬러 인쇄본</b><br>둥글고 납작한 빵 반죽을 펴는 모습이에요. 예수님이 엠마오의 식탁에서 떼어 주신 빵도 이렇게 손으로 떼어 나누는 빵이었을지 몰라요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002725075/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 해 질 녘 길을 친구와 터벅터벅 걸어요. 마음이 무거워요. 낯선 사람이 함께 걸으며 이야기를 들려줘요. 이상하게 마음이 따뜻해져요."><small>눈 감고 상상해 보기</small>몇 시간을 함께 걸었는데도 몰랐던 사람. 빵을 떼어 주는 손을 보는 순간 알아본다면, 그다음엔 무엇을 하고 싶을까요?</p>
+    <a class="go" href="https://www.nationalgallery.org.uk/paintings/michelangelo-merisi-da-caravaggio-the-supper-at-emmaus">그림 가까이 보기 · 내셔널 갤러리 작품 페이지<small>영어 · 그림을 크게 키워서 식탁 위의 빵과 과일, 제자의 해진 팔꿈치를 찾아보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“마음이 뜨거워진 적 있니? 언제였어?”</p></div>
+   <div class="root">예수님은 함께 걷고 성경을 풀어 주시며, 빵을 떼어 주실 때 알려지셨습니다(눅 24:31, 35).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/LUK.24">이제 본문 읽기 · 누가복음 24:13~35<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 그림 속 예수님은 수염이 없어서 아이들이 낯설어할 수 있어요. 성경은 예수님의 생김새를 말하지 않고, 화가마다 다르게 그렸다고 알려 주세요. ‘눈이 가리어졌다’(24:16)는 눈이 안 보였다는 뜻이 아니라, 보고도 알아보지 못했다는 뜻이에요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li><a href="https://thevcs.org/road-emmaus">VCS 전시 「The Road to Emmaus」</a> <span class="note">영어 · 누가복음 24:13~35</span></li>
+    <li><a href="https://www.biblicalarchaeology.org/daily/biblical-sites-places/the-emmaus-trail/">Bible History Daily ‘The Emmaus Trail’</a> <span class="note">영어 · 엠마오 후보지들과 지금 걸을 수 있는 엠마오 길</span></li>
+    <li>엠마오의 두 제자가 예루살렘에 돌아가 보니, 다른 제자들도 “주께서 과연 살아나시고 시몬에게 보이셨다”고 말하고 있었어요(24:34).</li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (8)</summary><ul>
+    <li><a href="https://www.nationalgallery.org.uk/paintings/michelangelo-merisi-da-caravaggio-the-supper-at-emmaus">내셔널 갤러리 작품 설명</a>: 해진 옷과 주름진 얼굴의 일하는 사람들로 그린 제자들, 다른 세상에서 온 듯한 수염 없는 젊은 그리스도</li>
+    <li><a href="https://en.wikipedia.org/wiki/Supper_at_Emmaus_(Caravaggio,_London)">Wikipedia ‘Supper at Emmaus (Caravaggio, London)’</a>: 1601년, 141×196.2cm, 치리아코 마테이의 주문, 1606년의 두 번째 그림</li>
+    <li><a href="https://www.ulstermuseum.org/stories/supper-emmaus">얼스터 박물관 ‘The Supper at Emmaus’</a>: 빵과 과일과 고기가 놓인 식탁, 식탁 끝에서 흔들리는 과일 바구니, 1839년 기증</li>
+    <li><a href="https://thevcs.org/campaign/simultaneity-and-surprise">VCS ‘Simultaneity and Surprise’</a>: 실제 크기의 인물, 식탁 가장자리를 넘어선 과일 바구니, 수염 없는 그리스도</li>
+    <li><a href="https://www.biblicalarchaeology.org/daily/biblical-sites-places/the-emmaus-trail/">Bible History Daily ‘The Emmaus Trail’</a>: 사본마다 다른 60스타디온과 160스타디온, 엠마오 후보지</li>
+    <li><a href="https://seetheholyland.net/emmaus/">See the Holy Land ‘Emmaus’</a>: 1스타디온은 약 185m, 네 후보지(니코폴리스·아부 고시·엘쿠베이베·모차)</li>
+    <li><a href="https://www.jewishvirtuallibrary.org/nebi-samwil">Jewish Virtual Library ‘Nebi Samwil’</a>, <a href="https://assets.destinationpalestine.io/node/156">Destination Palestine ‘Nabi Samuel’</a>: 사무엘의 무덤 전통, 1099년 6월 7일 십자군이 처음 예루살렘을 본 언덕</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/LUK.24">개역개정 본문(대한성서공회)</a>: 눅 24:13~35</li>
+   </ul><p>그림: 카라바조, 「엠마오의 저녁 식사」(원제: The Supper at Emmaus), 1601년, 런던 내셔널 갤러리. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Roman_road_to_Emmaus_showing_%27Mizpah%27,_Neby_Samwil_LOC_matpc.16561.jpg">‘Roman road to Emmaus showing “Mizpah”, Neby Samwil’</a>(1934~1939년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725075/">‘Syrian peasant making bread, Holy Land’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 4 -->
+ <article class="card" id="scene4" data-week="scene4">
+  <figure class="fig">
+   <img loading="lazy" src="img/east4-witz.jpg" alt="콘라트 비츠의 그림. 맑은 호수 위 작은 배에서 제자들이 물고기가 가득한 그물을 끌어 올리고, 베드로는 물속에 들어가 물가에 선 예수에게 다가간다. 붉은 옷을 입은 예수가 물가에 서 있다. 물에는 배와 사람들의 그림자가 비치고, 호수 건너편에는 마을과 들판, 그 뒤로 산들이 이어지며 멀리 희미하게 하얀 봉우리들이 보인다.">
+   <figcaption class="cap"><b>「놀라운 고기잡이」</b> 콘라트 비츠, 1444년<br>스위스 제네바, 예술역사박물관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">부활절 넷째 주일 · 와서 조반을 먹으라</span><span><span data-wd="3">4월 18일</span> 부활절 넷째 주일 · 요한복음 21:1~14</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>예수님이 제자들한테 아침밥을 차려 주셨어요?</h2></div>
+   <p class="line">밤새 한 마리도 못 잡았던 그물이 물고기로 가득합니다. 베드로는 배를 기다리지 못하고 물로 뛰어듭니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>물속에 있는 베드로를 찾아보세요. 어디로 가고 있나요?</li>
+    <li>배 위에서 그물을 끌어 올리는 제자들을 세어 보세요. 물고기가 보이나요?</li>
+    <li>호수 건너 뾰족한 산을 찾아보세요. 그 뒤로 희미하게 보이는 하얀 봉우리도 찾아보세요. 그림이 걸린 제네바에서 바라보이는 진짜 산이에요.</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>부활하신 예수님이 디베랴 호수에서 제자들에게 다시 나타나신 이야기예요. 시몬 베드로가 “나는 물고기 잡으러 가노라” 하자 다른 제자들도 따라나섰지만, “그 날 밤에 아무 것도 잡지 못하였”어요(21:3). 날이 새어 갈 때 예수님이 바닷가에 서셨지만 제자들은 알아보지 못했어요(21:4).</p>
+    <p>“그물을 배 오른편에 던지라 그리하면 잡으리라”(21:6). 그물을 던지자 물고기가 너무 많아 들어 올릴 수가 없었어요. 예수님이 사랑하시던 제자가 “주님이시라” 하자, 베드로는 겉옷을 두르고 바다로 뛰어내렸어요(21:7). 뭍에 오르니 “숯불이 있는데 그 위에 생선이 놓였고 떡도 있더라”(21:9). 그물에는 큰 물고기가 “백쉰세 마리”나 들었는데도 찢어지지 않았지요(21:11). 예수님은 말씀하셨어요. “와서 조반을 먹으라”(21:12).</p>
+    <p>독일에서 태어나 스위스 바젤에서 활동한 화가 콘라트 비츠가 1444년 제네바 성 베드로 대성당의 제단화로 그린 그림이에요. 비츠는 갈릴리 호수를 그림이 걸릴 제네바의 호수, 레만 호로 옮겨 그렸어요. 왼쪽부터 부아롱 산줄기, 가운데 뾰족한 몰 산, 오른쪽 끝의 살레브 산이 보이고, 멀리 희미하게 몽블랑 쪽의 하얀 봉우리들도 보여요. 그래서 이 그림은 실제 풍경을 알아볼 수 있게 옮긴, 유럽에서 가장 이른 풍경화 가운데 하나로 꼽혀요. 비츠는 이 그림을 그리고 1~2년 뒤 세상을 떠났어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>1986년 큰 가뭄으로 갈릴리 호수의 물이 줄었을 때, 어부 형제가 진흙 속에서 2천 년 된 고기잡이배를 찾아냈어요. 길이 8.27미터, 폭 2.3미터로, 기원전 120년에서 기원후 40년 사이의 배예요. 예수님과 제자들이 탔던 바로 그 배라는 증거는 없지만, 그 시절 갈릴리 어부들은 이런 배를 탔어요. 지금은 호숫가 기노사르의 박물관에 있어요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 디베랴 호수(갈릴리 바다)</b>요한은 갈릴리 바다를 ‘디베랴 호수’라고 불러요(21:1). ‘바다’라고 부르지만 사실은 민물 호수예요. 베드로와 안드레, 야고보와 요한은 원래 이 호수의 어부였어요.</p>
+    <figure class="ph" data-q="그물이 펼쳐지는 모양을 보세요. 무엇을 닮았나요?" data-color="img/evr4-galilee-net.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 푸른 호수 위 작은 배에서 어부가 둥근 그물을 공중으로 던지고, 그물이 넓게 펼쳐진다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 호수는 무슨 색으로 보이니?">
+     <div class="phw"><img src="img/eera4-galilee-net.jpg" alt="흑백 사진. 작은 배 위에서 어부가 둥근 그물을 공중으로 던지고, 그물이 넓게 펼쳐진다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>갈릴리에서 그물을 던지는 어부들</b> · 1930년대<br>가장자리에 추를 단 둥근 그물, 투망을 던지는 모습이에요. 투망은 지름이 5~6미터쯤 되는데 한 사람이 던져요. 물에 내려앉는 모습이 꼭 낙하산 같지요. 2천 년 전 갈릴리 어부들도 이런 그물을 썼어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Fishermen_on_Galilee_throwing_net_from_boat_LOC_matpc.12384.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="배에 사람이 몇 명 타고 있나요? 돛이 보이나요?">
+     <img src="img/ecolor4-tiberias-boat.jpg" alt="색을 입힌 옛 인쇄 사진. 잔잔한 호수 위에 고깃배가 떠 있고, 뒤로 언덕이 보인다." loading="lazy">
+     <figcaption><b>디베랴 호수의 고깃배 · 1890년대 컬러 인쇄본</b><br>130년쯤 전 디베랴(티베리아스) 앞 호수에 떠 있는 고깃배예요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002725060/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 밤새 그물을 던졌지만 한 마리도 못 잡았어요. 춥고 졸려요. 그런데 바닷가에서 숯불 냄새가 나요. 생선 굽는 냄새도요. 누가 불러요. ‘와서 아침 먹어라!’"><small>눈 감고 상상해 보기</small>밤새 헛수고를 하고 지쳐 돌아오는 아침. 누가 먼저 불을 피우고 아침을 차려 놓고 기다린다면 어떤 마음이 들까요?</p>
+    <a class="go" href="https://commons.wikimedia.org/wiki/File:Konrad_Witz_-_Fischzug_Petri.jpeg">그림 가까이 보기 · 위키미디어 공용의 큰 사진<small>그림을 크게 키워서 물에 비친 그림자와 먼 산의 눈을 찾아보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“열심히 했는데 잘 안된 날, 누가 너를 위해 밥을 차려 준 적 있니?”</p></div>
+   <div class="root">부활하신 예수님은 지친 제자들에게 먼저 아침을 차려 주셨습니다(요 21:9, 12).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/JHN.21">이제 본문 읽기 · 요한복음 21:1~14<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> ‘153’이라는 숫자에는 여러 풀이가 있지만, 아이들에게는 ‘그물이 찢어지지 않을 만큼 넉넉했다’는 데 머물러도 충분해요. 큰 아이들과는 아침을 먹은 뒤 예수님이 베드로에게 세 번 “네가 나를 사랑하느냐” 물으신 이야기(21:15~17)도 이어 읽어 보세요. 예수님을 세 번 모른다고 했던 베드로를 다시 세워 주신 장면이에요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li><a href="https://thevcs.org/campaign/feed-him-faith">VCS 해설 ‘Feed on Him by Faith’</a> <span class="note">영어 · 요한복음 21장 · 고기잡이와 아침 식사, 그리고 “내 양을 먹이라”</span></li>
+    <li><a href="https://www.jerusalemperspective.com/2451/">멘델 눈 ‘Let Down Your Nets’</a> <span class="note">영어 · 갈릴리의 평생 어부가 쓴 1세기 그물 이야기</span></li>
+    <li><a href="https://seetheholyland.net/jesus-boat/">See the Holy Land ‘Jesus Boat’</a> <span class="note">영어 · 1986년에 찾은 2천 년 전 고기잡이배</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (8)</summary><ul>
+    <li><a href="https://en.wikipedia.org/wiki/The_Miraculous_Draft_of_Fishes_(Witz)">Wikipedia ‘The Miraculous Draft of Fishes (Witz)’</a>: 1444년, 제네바 예술역사박물관, 갈릴리를 제네바 호수로 옮긴 그림, 실제 지형을 관찰해 그린 유럽 최초의 풍경</li>
+    <li><a href="https://the-artinspector.com/post/konrad-witz-the-miraculous-fishing-trip">The Art Inspector ‘Konrad Witz’</a>: 붉은 옷의 그리스도, 부아롱·몰·살레브와 멀리 몽블랑</li>
+    <li><a href="https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/konrad-witz">Encyclopedia.com ‘Konrad Witz’</a>: 로트바일 출생, 바젤 화가 조합, 1444년 서명과 날짜가 있는 성 베드로 제단화, 1446년 사망</li>
+    <li><a href="https://christianhistoryinstitute.org/magazine/article/fishers-of-fish">Christian History ‘Fishers of Fish’</a>: 1세기 갈릴리의 세 가지 그물, 지름 15~20피트의 둥근 투망</li>
+    <li><a href="https://www.christianitytoday.com/history/issues/issue-59/fishers-of-fish.html">Christianity Today ‘Fishers of Fish’</a>: 한 사람이 던지는 투망, 낙하산처럼 내려앉는 그물</li>
+    <li><a href="https://en.wikipedia.org/wiki/Sea_of_Galilee_Boat">Wikipedia ‘Sea of Galilee Boat’</a>: 1986년 가뭄 때 루판 형제가 찾음, 길이 8.27m 폭 2.3m</li>
+    <li><a href="https://seetheholyland.net/jesus-boat/">See the Holy Land ‘Jesus Boat’</a>: 방사성 탄소 연대 기원전 120년~기원후 40년, 2000년부터 기노사르 이갈 알론 박물관 전시, 갈릴리는 민물 호수</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/JHN.21">개역개정 본문(대한성서공회)</a>: 요 21:1~17</li>
+   </ul><p>그림: 콘라트 비츠, 「놀라운 고기잡이」(원제: Der wunderbare Fischzug), 1444년, 제네바 예술역사박물관. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Fishermen_on_Galilee_throwing_net_from_boat_LOC_matpc.12384.jpg">‘Fishermen on Galilee throwing net from boat’</a>(1934~1939년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725060/">‘Fisherman’s boat on the lake, Tiberias’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 5 -->
+ <article class="card" id="scene5" data-week="scene5">
+  <figure class="fig">
+   <img loading="lazy" src="img/east5-giotto.jpg" alt="조토의 벽화. 위쪽 한가운데에서 예수가 옆모습으로 구름을 타고 하늘로 올라가고, 양쪽에 천사들이 줄지어 따른다. 아래쪽 가운데 흰 옷 입은 두 천사가 위를 가리키고, 그 양옆에 무릎 꿇은 제자들과 푸른 옷의 마리아가 하늘을 올려다본다.">
+   <figcaption class="cap"><b>「승천」</b> 조토 디 본도네, 1304~1306년 무렵<br>이탈리아 파도바, 스크로베니 예배당</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">승천 주일 · 하늘로 올라가신 예수님</span><span><span data-wd="4">5월 9일</span> 승천 주일(부활절 일곱째 주일) · 사도행전 1:1~11</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>예수님은 하늘 어디로 가셨어요?</h2></div>
+   <p class="line">예수님이 그림 맨 위 테두리 너머로 올라가십니다. 흰 옷 입은 두 천사가 제자들에게 위를 가리킵니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>예수님의 두 손을 찾아보세요. 손끝이 그림 테두리에 가려져 있나요?</li>
+    <li>가운데 흰 옷 입은 두 천사를 찾아보세요. 누구를 보고, 어디를 가리키나요?</li>
+    <li>무릎 꿇은 사람들 가운데 푸른 옷을 입은 마리아를 찾아보세요.</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>부활하신 예수님은 “사십 일 동안” 제자들에게 보이시며 하나님 나라의 일을 말씀하셨어요(1:3). 그리고 약속하셨어요. “오직 성령이 너희에게 임하시면 너희가 권능을 받고 예루살렘과 온 유대와 사마리아와 땅 끝까지 이르러 내 증인이 되리라”(1:8).</p>
+    <p>“이 말씀을 마치시고 그들이 보는데 올려져 가시니 구름이 그를 가리어 보이지 않게 하더라”(1:9). 제자들이 하늘만 쳐다보고 있을 때, 흰 옷 입은 두 사람이 곁에 서서 말했어요. “갈릴리 사람들아 어찌하여 서서 하늘을 쳐다보느냐 너희 가운데서 하늘로 올려지신 이 예수는 하늘로 가심을 본 그대로 오시리라”(1:11). 제자들은 감람산에서 예루살렘으로 돌아와 다락방에 모였어요(1:12~13).</p>
+    <p><a href="lent.html#scene5">사순절 코스의 「나사로를 살리심」</a>과 같은, 파도바 스크로베니 예배당의 조토 벽화예요. 벽을 따라 이어지는 예수님 이야기의 거의 마지막 장면이고, 바로 다음이 성령강림이에요. 조토는 예수님을 옆에서 본 모습으로, 마치 위로 오르듯 그렸어요. 손끝은 아예 그림 테두리 너머로 넘어가 있지요. 마리아의 푸른 옷은 아주 값비싼 물감으로 칠했다고 해요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>승천일은 부활절부터 40일째 되는 날로, 해마다 목요일이에요(1:3). 그래서 많은 교회가 그다음 주일에 승천을 함께 기억해요. 그리고 승천일에서 열흘 뒤가 성령강림절이에요. 제자들은 그 열흘 동안 다락방에 모여 약속하신 성령을 기다렸어요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 감람산 꼭대기</b>제자들은 “감람원이라 하는 산”에서 예루살렘으로 돌아왔어요(1:12). 예루살렘 동쪽, 기드론 골짜기 건너편의 산이에요. 이 산 꼭대기에는 4세기 말부터 승천을 기억하는 예배당이 섰어요.</p>
+    <figure class="ph" data-q="바닥 가운데의 네모난 돌 틀을 찾아보세요. 그 안에는 무엇이 있다고 전해질까요?" data-color="img/evr5-ascension.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 승천 예배당의 안. 붉은 갈색 벽에 아치 모양 벽감과 작은 창 두 개가 있고, 밝은 바닥 가운데에 네모난 돌 틀이 놓여 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 벽은 무슨 색으로 보이니?">
+     <div class="phw"><img src="img/eera5-ascension.jpg" alt="흑백 사진. 승천 예배당의 안. 둥근 벽 가운데에 아치 모양으로 움푹 들어간 벽감과 작은 창 두 개가 있고, 바닥 가운데에 네모난 돌 틀이 놓여 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>승천하신 자리</b> · 1898~1914년 사이<br>감람산 꼭대기에 있는 작은 팔각형 예배당의 안이에요. 바닥의 네모난 돌 틀 안에는 예수님의 마지막 오른발 자국이 남았다고 전해지는 바위가 있어요. 왼발 자국이 있던 조각은 중세에 알아크사 모스크로 옮겨졌대요. 1187년 살라딘이 예루살렘을 차지한 뒤 모스크가 되었고, 1198년에 돌 지붕을 얹었어요. 벽에 움푹 들어간 곳은 기도하는 방향을 알려 주는 벽감이에요. 지금도 그리스도인들은 승천일에만 그 안에서 예배를 드려요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Jerusalem_(El-Kouds)._Spot_of_the_Ascension_LOC_matpc.06710.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="언덕을 따라 난 길을 찾아보세요. 꼭대기에는 무엇이 있나요?">
+     <img src="img/ecolor5-olives.jpg" alt="색을 입힌 옛 인쇄 사진. 올리브나무가 드문드문 선 완만한 언덕에 길이 나 있고, 언덕 위에 건물들이 보인다." loading="lazy">
+     <figcaption><b>감람산과 겟세마네 · 1890년대 컬러 인쇄본</b><br>예루살렘 쪽에서 바라본 감람산이에요. 아래쪽 겟세마네에서 꼭대기까지 걸어서 오를 수 있어요. 성경은 이 산이 예루살렘에서 가까워 “안식일에 가기 알맞은 길”이라고 해요(1:12). <a class="orig" href="https://www.loc.gov/item/2002725021/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 감람산 꼭대기, 바람이 불어요. 예수님이 손을 들어 축복하시며 점점 올라가세요. 구름이 그분을 가려요. 나는 고개를 젖히고 하늘만 쳐다봐요."><small>눈 감고 상상해 보기</small>손을 들어 축복하시며 떠나시는 예수님(눅 24:50~51). 멀어지는 모습을 바라보며 마지막으로 들은 약속을 떠올린다면, 그 약속은 무엇이었을까요?</p>
+    <a class="go" href="https://www.proterrasancta.org/en/news/the-chapel-of-the-ascension-and-its-long-history">승천 예배당 가까이 보기 · 프로 테라 상타 ‘승천 예배당의 긴 역사’<small>영어 · 발자국 바위와 승천일 예배 이야기</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“사랑하는 사람이 멀리 떠날 때, 어떤 약속을 듣고 싶니? 예수님은 무엇을 약속하셨을까?”</p></div>
+   <div class="root">예수님은 하늘로 올라가셨고, 가신 모습 그대로 다시 오실 것입니다(행 1:11).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/ACT.1">이제 본문 읽기 · 사도행전 1:1~11<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> ‘하늘’을 우주 저 멀리 어느 장소로만 그리지 않도록, ‘하나님이 계신 곳으로 가셨다’고 쉽게 풀어 주세요. 예수님이 떠나신 것을 ‘우리를 두고 가셨다’로 느끼지 않게, 성령을 보내 주시겠다는 약속(1:8)과 함께 이야기해 주세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>조토의 스크로베니 예배당 그림을 이어 보세요. <a href="christmas.html#scene3">성탄절 코스 「동방박사의 경배」</a>, <a href="lent.html#scene5">사순절 코스 「나사로를 살리심」</a>.</li>
+    <li>누가복음의 마지막 장면(24:50~53)도 같은 일을 들려줘요. 예수님은 베다니 앞까지 제자들을 데리고 나가 손을 들어 축복하시며 떠나셨어요.</li>
+    <li><a href="https://thevcs.org/exhibitions/new-testament/acts-apostles">VCS 사도행전 전시 목록</a> <span class="note">영어 · 「The Ascension」(마가복음 16:19~20, 누가복음 24:50~53, 사도행전 1:1~11)</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (8)</summary><ul>
+    <li><a href="https://drrichardstemp.com/2020/08/22/110-the-ascension/">리처드 스템프 ‘The Ascension’</a>: 손끝이 그림 테두리 뒤로 가려질 만큼 높이 오른 예수, 무릎 꿇은 사람들을 보며 위를 가리키는 두 천사</li>
+    <li><a href="https://www.historytoday.com/node/54059">History Today ‘The Ascension’</a>: 오르듯 옆모습으로 그린 그리스도, 값비싼 푸른 물감으로 칠한 마리아</li>
+    <li><a href="https://smecsundaymorningforum.org/tag/giotto/">SMEC ‘The Ascension of Christ’</a>: 무릎 꿇고 흰 옷 입은 두 사람을 바라보는 제자들과 마리아</li>
+    <li><a href="https://www.artchive.com/artwork/the-ascension-giotto-c-1305/">Artchive ‘The Ascension (c.1305)’</a>: 위쪽의 천사 무리, 스크로베니 예배당 프레스코</li>
+    <li><a href="https://en.wikipedia.org/wiki/Chapel_of_the_Ascension">Wikipedia ‘Chapel of the Ascension’</a>: 감람산 꼭대기, 390년 무렵 첫 교회, 살라딘 이후의 역사</li>
+    <li><a href="https://www.sacred-destinations.com/israel/jerusalem-chapel-of-ascension">Sacred Destinations ‘Chapel of the Ascension’</a>: 1198년의 돌 지붕과 기도 벽감, 오른발 자국 바위, 알아크사로 옮긴 왼발 자국</li>
+    <li><a href="https://www.proterrasancta.org/en/news/the-chapel-of-the-ascension-and-its-long-history">Pro Terra Sancta ‘The Chapel of the Ascension and its long history’</a>: 1187년 모스크로 바뀐 예배당, 승천일에 그 안에서 드리는 그리스도인들의 예배</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/ACT.1">개역개정 본문(대한성서공회)</a>: 행 1:1~13, 눅 24:50~51</li>
+   </ul><p>그림: 조토 디 본도네, 「승천」(원제: Ascension), 1304~1306년 무렵, 파도바 스크로베니 예배당. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Jerusalem_(El-Kouds)._Spot_of_the_Ascension_LOC_matpc.06710.jpg">‘Jerusalem (El-Kouds). Spot of the Ascension’</a>(1898~1914년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725021/">‘Mount of Olives and Gethsemane, general view, Jerusalem’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 6 -->
+ <article class="card" id="scene6" data-week="scene6">
+  <figure class="fig">
+   <img loading="lazy" src="img/east6-maino.jpg" alt="마이노의 그림. 위쪽에서 날개를 활짝 편 흰 비둘기로부터 노랗고 주황빛 빛이 쏟아진다. 아래에는 사도들과 마리아, 막달라 마리아가 모여 있고 빛 속에서 작은 불꽃들이 사람들 머리 위로 내려온다. 앞쪽에는 베드로와, 무언가를 쓰고 있는 누가가 크게 그려져 있고, 베드로의 발치에는 열쇠 하나가 놓여 있다.">
+   <figcaption class="cap"><b>「성령강림」</b> 후안 바우티스타 마이노, 1612~1614년<br>스페인 마드리드, 프라도 미술관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">성령강림절 · 불꽃처럼 오신 성령</span><span><span data-wd="5">5월 16일</span> 성령강림절 · 사도행전 2:1~13</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>머리 위의 불꽃은 뜨겁지 않았어요?</h2></div>
+   <p class="line">하얀 비둘기에서 노랗고 주황빛 빛이 터져 나옵니다. 작은 불꽃들이 모인 사람들 머리 위로 내려옵니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>맨 위의 하얀 비둘기를 찾아보세요. 날개를 어떻게 펼치고 있나요?</li>
+    <li>비둘기의 빛 속에서 내려오는 작은 불꽃들을 찾아보세요. 어디로 내려오고 있나요?</li>
+    <li>앞쪽에서 책에 무언가를 쓰는 사람을 찾아보세요. 이 이야기를 기록한 누가예요. 바닥에 놓인 열쇠도 찾아보세요. 누구의 열쇠일까요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>예수님이 하늘로 올라가신 뒤, 제자들은 약속하신 성령을 기다리며 함께 기도했어요. “오순절 날이 이미 이르매 그들이 다같이 한 곳에 모였더니 홀연히 하늘로부터 급하고 강한 바람 같은 소리가 있어 그들이 앉은 온 집에 가득하며 마치 불의 혀처럼 갈라지는 것들이 그들에게 보여 각 사람 위에 하나씩 임하여 있더니”(2:1~3). 그들은 성령의 충만함을 받고 다른 언어들로 말하기 시작했어요(2:4).</p>
+    <p>그때 예루살렘에는 명절을 지키러 “천하 각국으로부터” 온 사람들이 머물러 있었어요(2:5). 그들은 갈릴리 사람들이 자기 나라 말로 “하나님의 큰 일”을 말하는 것을 듣고 놀랐어요(2:11). 어떤 이들은 “새 술에 취하였다”고 비웃었지만(2:13), 그날 세례를 받은 사람이 삼천 명이나 되었어요(2:41).</p>
+    <p>스페인 톨레도의 도미니코회 산페드로 마르티르 수도원 성당의 큰 제단을 위해 화가 후안 바우티스타 마이노가 1612~1614년에 그린 그림이에요. 높이가 2.8미터나 돼요. 이 제단에는 성탄, 주현, 부활, 성령강림 네 장면이 걸렸는데, 스페인 사람들은 이 네 큰 명절을 함께 ‘네 파스쿠아’라고 불렀어요. <a href="christmas.html">성탄절 코스</a>부터 이 코스까지 우리가 걸어온 길과 같지요. 마이노는 1612년 2월 그림 계약서에 서명했고, 이듬해 이 수도원에서 수도사가 되었어요.</p>
+    <p>이런 그림에서는 흔히 마리아를 한가운데 두는데, 마이노는 마리아를 왼쪽 조금 뒤로 물리고 앞쪽에 베드로와 누가를 크게 그렸어요. 베드로의 발치에 놓인 열쇠는 예수님이 베드로에게 주시겠다고 하신 천국 열쇠(마 16:19)를 나타내요. 누가는 전통적으로 누가복음과 사도행전을 쓴 사람으로 알려져 있지요. 사람들은 놀랐지만 소란스럽지 않고, 조용히 그 순간을 맞고 있어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>‘오순절’은 ‘50번째 날’이라는 뜻이에요. 유대인의 큰 명절 ‘칠칠절’로, 유월절 무렵 거둔 곡물의 첫 이삭 한 단을 바친 날부터 일곱 주를 세어, 50일째에 새로 거둔 밀로 구운 떡을 바쳤어요(레 23:10~17). 교회는 부활절부터 50일째 되는 날에 성령이 오신 일을 기억하고, 이날을 ‘교회의 생일’이라고도 불러요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 명절을 맞은 예루살렘</b>오순절에는 세계 곳곳에 흩어져 살던 유대 사람들이 예루살렘에 모였어요. 사도행전은 바대, 메대, 엘람에서 로마, 그레데, 아라비아까지 열다섯 곳의 이름을 하나하나 적고 있어요(2:9~11).</p>
+    <figure class="ph" data-q="낫을 든 사람을 찾아보세요. 벤 곡식을 어떻게 모으고 있나요?" data-color="img/evr6-barley.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 누렇게 익은 보리밭에서 사람들이 낫으로 보리를 베어 단으로 묶는다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 다 익은 보리밭은 무슨 색으로 보이니?">
+     <div class="phw"><img src="img/eera6-barley.jpg" alt="흑백 사진. 넓은 밭에서 사람들이 낫으로 보리를 베고 단으로 묶는다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>보리 거두기</b> · 1898~1946년 사이<br>이스라엘에서는 유월절 무렵 보리를 거두기 시작해요. 그 첫 단을 바친 날부터 50일을 세면, 밀 추수를 기뻐하는 칠칠절(오순절)이 와요. 성경은 이 명절을 ‘맥추절’, ‘칠칠절’이라고도 불러요(출 23:16, 34:22). <a class="orig" href="https://commons.wikimedia.org/wiki/File:Reaping_barley_harvest._LOC_matpc.05396.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="성문 앞의 사람들을 보세요. 옷차림이 모두 같나요?">
+     <img src="img/ecolor6-jaffa-gate.jpg" alt="색을 입힌 옛 인쇄 사진. 높은 돌 성벽에 난 성문 앞에 사람들과 나귀들이 오간다." loading="lazy">
+     <figcaption><b>예루살렘 야파 문 · 1890년대 컬러 인쇄본</b><br>지중해 항구 야파(욥바)로 가는 길이 시작되는 예루살렘 서쪽 문이에요. 바다를 건너온 순례자들도 이 길을 따라 예루살렘에 들어왔어요. 오순절에 “천하 각국으로부터” 온 사람들도(2:5) 이렇게 여러 길과 문을 지나 예루살렘에 모였겠지요. <a class="orig" href="https://www.loc.gov/item/2002724999/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 친구들과 한 방에 모여 기도하고 있어요. 갑자기 ‘휘이잉’ 큰 바람 소리가 집 안을 가득 채워요. 친구 머리 위에 작은 불꽃이 반짝여요. 그런데 하나도 뜨겁지 않아요."><small>눈 감고 상상해 보기</small>문을 닫고 숨어 있던 제자들이 거리로 나가 낯선 나라 사람들에게 말을 걸어요. 나라면 그 사람에게 무엇을 먼저 이야기해 줄까요?</p>
+    <a class="go" href="https://www.museodelprado.es/en/the-collection/art-work/the-pentecost/49c1d551-240d-4bab-8f4a-39c706ce0ee5">그림 가까이 보기 · 프라도 미술관 작품 페이지<small>영어 · 그림을 크게 키워서 누가가 쓰고 있는 책과 비둘기의 빛을 보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“다른 나라에서 온 친구에게 ‘하나님이 너를 사랑하셔’를 어떻게 전할 수 있을까?”</p></div>
+   <div class="root">약속하신 성령이 오셔서, 제자들이 여러 언어로 하나님의 큰 일을 전했습니다(행 2:4, 11).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/ACT.2">이제 본문 읽기 · 사도행전 2:1~13<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 불꽃을 진짜 불로 생각해 무서워하는 아이가 있을 수 있어요. 성경은 “마치 불의 혀처럼”이라고 해요(2:3). ‘다른 언어로 말하는 일’은 교회마다 이해가 달라요. 여기서는 여러 나라 사람이 저마다 ‘자기 말로 들었다’(2:6, 11)는 데 머물러 주세요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>함께 느끼기 방의 엘 그레코 「성령 강림」과 나란히 보세요. 엘 그레코는 마리아를 한가운데 두고 사람들이 불꽃처럼 위로 솟구치듯 그렸고, 마이노는 마리아를 옆으로 비키고 조용한 놀람을 그렸어요.</li>
+    <li>함께 느끼기 방의 ‘교회 생일 잔치’, ‘성령 바람개비’ 활동과 이어서 해 보세요.</li>
+    <li><a href="https://www.museodelprado.es/en/whats-on/exhibition/juan-bautista-maino-1581-1649/9aefb766-3b30-4dc8-9551-f22c091b2219">프라도 미술관 ‘후안 바우티스타 마이노’ 전시 안내</a> <span class="note">영어 · 네 파스쿠아 제단화 이야기</span></li>
+    <li><a href="https://thevcs.org/exhibitions/new-testament/acts-apostles">VCS 사도행전 전시 목록</a> <span class="note">영어 · 「Pentecost」(사도행전 2:1~13)</span></li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (7)</summary><ul>
+    <li><a href="https://www.museodelprado.es/en/the-collection/art-work/the-pentecost/49c1d551-240d-4bab-8f4a-39c706ce0ee5">프라도 미술관 작품 정보</a>: 1612~1614년, 285×163cm, 산페드로 마르티르 성당 ‘네 파스쿠아’ 제단화, 1612년 2월 14일 계약, 왼쪽으로 물린 마리아, 앞쪽의 베드로와 글을 쓰는 누가, 날개를 편 흰 비둘기와 노랗고 주황빛 빛, 조용한 놀람</li>
+    <li><a href="https://www.museodelprado.es/en/whats-on/exhibition/juan-bautista-maino-1581-1649/9aefb766-3b30-4dc8-9551-f22c091b2219">프라도 미술관 마이노 전시 안내</a>: 성탄·주현·부활·성령강림을 함께 이르는 ‘네 파스쿠아’, 산페드로 마르티르에 여러 해 머문 화가</li>
+    <li><a href="https://galeriacaylus.com/wp-content/uploads/2024/01/maino-a.-rodriguez-rebollo.pdf">갈레리아 카일루스 마이노 연구 자료</a>: 1613년 산페드로 마르티르 수도원에서 도미니코회 수도사가 됨</li>
+    <li><a href="https://www.myjewishlearning.com/article/shavuot-history/">My Jewish Learning ‘Shavuot History’</a>: 보리 추수에서 밀 추수까지 일곱 주, 밀의 첫 열매를 바치는 칠칠절</li>
+    <li><a href="https://www.posenlibrary.com/node/11827">The Posen Library ‘Shavuot in Early Judaism’</a>: 그리스어 ‘오순절’은 ‘50일을 센다’는 뜻, 보리 추수 뒤의 밀 추수</li>
+    <li><a href="https://en.wikipedia.org/wiki/Cenacle">Wikipedia ‘Cenacle’</a>: 오순절에 성령이 내린 다락방 전통</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/ACT.2">개역개정 본문(대한성서공회)</a>: 행 2:1~13, 41, 레 23:10~17, 출 23:16, 34:22</li>
+   </ul><p>그림: 후안 바우티스타 마이노, 「성령강림」(원제: Pentecostés), 1612~1614년, 마드리드 프라도 미술관. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Reaping_barley_harvest._LOC_matpc.05396.jpg">‘Reaping barley harvest’</a>(1898~1946년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002724999/">‘The Jaffa Gate, Jerusalem’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+  <p>그림은 저작권이 끝난 작품(퍼블릭 도메인)만 썼어요. ‘그 시절로 가 보기’의 옛 사진은 미국 의회도서관 <a href="https://commons.wikimedia.org/wiki/Category:Matson_Collection_in_the_Library_of_Congress">매슨 컬렉션</a>(20세기에 찍은 사진, 알려진 저작권 제한 없음)에서 가져왔어요.</p>
+  <p>‘가상 복원’은 흑백 사진에 AI 컬러화 모델 <a href="https://github.com/piddnad/ddcolor">DDColor</a>(알리바바 연구진, ICCV 2023)로 색을 입힌 것이에요. 허깅페이스에 공개된 <a href="https://huggingface.co/spaces/gudada/DDColor">DDColor 앱</a>을 썼어요. 사진의 밝기와 모양은 그대로 두고 색만 짐작해서 입히기 때문에, 그럴듯해 보여도 실제 색과 다를 수 있어요.</p>
+  <p>‘1890년대 컬러 인쇄본’은 미국 의회도서관 <a href="https://www.loc.gov/collections/photochrom-prints/about-this-collection/">포토크롬 컬렉션</a>에서 가져왔어요. 흑백 원판에, 사진가가 현장에서 적어 둔 색 메모대로 색을 입혀 찍어 낸 방식이라(<a href="https://en.wikipedia.org/wiki/Photochrom">Wikipedia ‘Photochrom’</a>) AI가 짐작한 색은 아니지만, 실제 색과 똑같다고 할 수는 없어요. 의회도서관은 이 컬렉션에 알려진 저작권 제한이 없다고 밝혀요(<a href="https://blogs.loc.gov/loc/2017/10/free-to-use-and-reuse-historical-travel-pictures/">의회도서관 블로그</a>).</p>
+  <p>부활절(요한복음 20:1~18), 부활절 둘째 주일(요한복음 20:19~31), 승천(사도행전 1:1~11), 성령강림절(사도행전 2장)은 많은 교회가 쓰는 개정 공동 성서정과(RCL)가 해마다 읽는 본문이고, 엠마오 이야기(누가복음 24:13~35)와 호숫가의 아침(요한복음 21장)도 부활절 기간에 읽는 본문이에요. Visual Commentary on Scripture(킹스 칼리지 런던)의 같은 본문 전시도 함께 소개했지만, VCS의 글을 옮기지는 않았어요.</p>
+  <p><a href="lent.html">이전 코스 · 사순절 코스</a> · <a href="after-pentecost.html">다음 코스 · 성령강림절 후 코스</a> · <a href="feel.html">함께 느끼기 방으로</a> · <a href="./">연습하기 방으로</a></p>
+ </div>
+</footer>
+</div>
+
+<div class="L" lang="en" hidden>
+<header class="top">
+ <div class="wrap">
+  <div class="bar"><a class="brand back" href="feel.html#en">‹ Question Practice Room · Experience Together</a><button class="lang" type="button" data-lang="ko" lang="ko">한국어</button></div>
+  <h1>Easter Course</h1>
+  <p class="sub">The fifty days of Easter, from the empty tomb to Pentecost, through six works of art. Six Sundays chosen between Easter Day and Pentecost, one picture and one question each: from the morning he called her by name to the Spirit coming like flames.</p>
+  <div class="howto"><span><b>1</b> Look at the art together</span><span><b>2</b> Ask the question</span><span><b>3</b> Step back in time</span><span><b>4</b> Read the passage together</span></div>
+  <p class="tip">Tap <b>Show it to the children</b> under the art to fill the screen with the picture and old photos of the land, one question at a time. Tap a black-and-white photo to switch to an <b>AI-colorized</b> version.</p>
+  <div class="draft">This is a draft awaiting review. AI gathered the sources and wrote the text, so please check each card against ‘Sources’ at the bottom.</div>
+ </div>
+</header>
+
+<main class="wrap" hidden>
+ <nav class="weeks" aria-label="Choose a scene">
+  <a class="wk" href="#scene1" data-w="scene1"><img src="img/east1-angelico-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Easter Day · <span data-wd="0">Mar 28</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></span><span class="q">Why didn’t Mary recognize Jesus?</span></span></a>
+  <a class="wk" href="#scene2" data-w="scene2"><img src="img/east2-cima-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Easter 2 · <span data-wd="1">Apr 4</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span></span><span class="q">Why did Thomas want to touch before he believed?</span></span></a>
+  <a class="wk" href="#scene3" data-w="scene3"><img src="img/east3-caravaggio-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Easter 3 · <span data-wd="2">Apr 11</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">When did the disciples on the road to Emmaus recognize Jesus?</span></span></a>
+  <a class="wk" href="#scene4" data-w="scene4"><img src="img/east4-witz-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Easter 4 · <span data-wd="3">Apr 18</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">Did Jesus make breakfast for his disciples?</span></span></a>
+  <a class="wk" href="#scene5" data-w="scene5"><img src="img/east5-giotto-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Ascension · <span data-wd="4">May 9</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">Where in heaven did Jesus go?</span></span></a>
+  <a class="wk" href="#scene6" data-w="scene6"><img src="img/east6-maino-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Pentecost · <span data-wd="5">May 16</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">Weren’t the flames on their heads hot?</span></span></a>
+ </nav>
+ <p class="thread">Two words tie the six scenes together: <b>“recognized”</b> (Luke 24:31) and <b>“seen the Lord”</b> (John 20:18, 25). Mary, the two disciples on the road to Emmaus, and the disciples on the lake all failed to recognize Jesus at first. They knew him when he called her name, when he broke the bread, when the net came up full. And the news that they had seen the Lord spreads through the Ascension and Pentecost to the uttermost parts of the earth (Acts 1:8).</p>
+
+ <!-- Scene 1 -->
+ <article class="card" data-week="scene1">
+  <figure class="fig">
+   <img loading="lazy" src="img/east1-angelico.jpg" alt="Fresco by Fra Angelico. In a garden full of flowers, Jesus in white, with a hoe over his shoulder, steps back and holds out his hand. Mary, in red, kneels and reaches toward him. Behind Mary is the entrance of a tomb cut into the rock, and a palm tree stands in the middle of the garden.">
+   <figcaption class="cap"><b>Noli me tangere</b> Fra Angelico, about 1440<br>Convent of San Marco, Cell 1, Florence, Italy</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Easter Day · The morning he called her by name</span><span><span data-wd="0">Mar 28</span> · Easter Day · John 20:1–18</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Why didn’t Mary recognize Jesus?</h2></div>
+   <p class="line">A garden in bloom early in the morning, and a man with a hoe. Mary thought he was the gardener.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find what Jesus carries on his shoulder. What is that tool used for?</li>
+    <li>Find the tiny red flowers in the grass. They are the same color as the marks on Jesus’ hands and feet.</li>
+    <li>Look at the rocky cave behind Mary. What is it? What might it be like inside?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>“Now on the first day of the week, Mary Magdalene went early, while it was still dark, to the tomb, and saw the stone taken away from the tomb” (20:1). Mary stood outside the tomb, weeping. She turned around and saw someone standing there, but “didn’t know that it was Jesus” (20:14). “Supposing him to be the gardener,” she asked him to tell her where he had put the Lord’s body (20:15).</p>
+    <p>“Jesus said to her, ‘Mary.’ She turned and said to him, ‘Rabboni!’ which is to say, ‘Teacher!’” (20:16). At the voice calling her name, she knew him at once. Jesus said, “Don’t hold me,” and told her to go to his brothers and tell them (20:17). Mary went and told the disciples that she had seen the Lord (20:18). She was the first to meet the risen Jesus, and the first to carry the news.</p>
+    <p>The Convent of San Marco in Florence, Italy, has 44 small cells where the friars prayed and slept. The painter Fra Angelico, himself a Dominican friar, and his workshop painted one story of Jesus on the wall of almost every cell. This painting, 166 centimeters tall, is in Cell 1. Jesus carrying a hoe reminds us that Mary took him for the gardener. The tiny red flowers in the grass are painted the same color as the nail marks on Jesus’ hands and feet.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>In the Latin Bible, “Don’t hold me” (20:17) is <i>Noli me tangere</i>. That is why paintings of the risen Jesus meeting Mary are all called by this name. John also wrote that Jesus was buried in a new tomb inside “a garden” (19:41). So it made sense to take a man met in the garden for the gardener.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · A garden tomb outside Jerusalem’s walls</b>Near the place where Jesus was crucified there was a garden, and in it a new tomb (John 19:41–42). Since the fourth century, Christians have remembered the site of today’s Church of the Holy Sepulchre as that place. Back then it was outside the city wall, but the city grew, and now it lies inside the Old City.</p>
+    <figure class="ph" data-q="Find the round stone. How many people would it take to roll it?" data-color="img/evr1-rolling-stone.jpg" data-color-alt="AI-colorized version of a black-and-white photo. Beside a tomb entrance cut into pale gray rock, a big round stone like a millstone sits in a groove, with grass growing in the cracks." data-color-q="AI guessed the colors in this photo. What color do the rock and the stone look like to you?">
+     <div class="phw"><img src="img/eera1-rolling-stone.jpg" alt="Black-and-white photo. Beside a tomb entrance cut into the rock, a big round stone like a millstone sits in a groove." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>A rolling-stone tomb at Abu Ghosh</b> · 1940s<br>An old Jewish tomb whose entrance was opened and closed by rolling a round stone along a groove. The women worried, too: “Who will roll away the stone from the door of the tomb for us?” (Mark 16:3). When the archaeologist Amos Kloner examined more than 900 tombs from that time around Jerusalem, only four were closed with round stones like this; most were closed with square stones. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Jewish_tombs_with_rolling_stones_at_Abou_Gosh._Rolling_stone_tomb,_without_figure._Abu_Ghosh_(Kirjath_Jearim)_LOC_matpc.21098.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="Find the people in the courtyard in front of the church. How many big arched doors can you see?">
+     <img src="img/ecolor1-sepulchre.jpg" alt="Old color print. On the front of a large stone church with a dome, two arched doors stand side by side, and a few people are in the courtyard in front." loading="lazy">
+     <figcaption><b>The front of the Church of the Holy Sepulchre · 1890s color print</b><br>The church stands on the place long remembered as where Jesus was buried and rose again. The emperor Constantine began building it around 326 and dedicated it in 335; the main shape of today’s building is the Crusaders’ rebuilding, dedicated in 1149. <a class="orig" href="https://www.loc.gov/item/2002725003/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. It is early morning and still dark. You can smell the dewy grass. You are so sad you are crying. Then someone gently calls your name."><small>Close your eyes and imagine</small>You were crying, and when you looked up, the person you took for a stranger called your name. How would you recognize that voice?</p>
+    <a class="go" href="https://thevcs.org/campaign/making-all-things-new">Look closely at the painting · VCS commentary ‘Making All Things New’<small>Zoom in and compare the red flowers in the grass with the marks on Jesus’ hands and feet</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“How does it feel when someone calls your name kindly?”</p></div>
+   <div class="root">The risen Jesus called the weeping Mary by name (John 20:16).</div>
+   <a class="read" href="https://biblehub.com/web/john/20.htm">Now read the passage · John 20:1–18<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> So that “Don’t hold me” isn’t heard as ‘Don’t touch me, go away,’ talk about it together with the errand Jesus gave Mary (20:17). Please don’t introduce Mary Magdalene as a ‘sinful woman.’ That view is a medieval tradition; the Bible introduces her as the woman from whom seven demons had gone out (Luke 8:2).</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>Try the ‘Easter garden’ (a morning when the stone rolls away) and ‘Easter sunrise service’ activities in the Experience Together room next.</li>
+    <li><i>The Annunciation</i> in the Experience Together room is also by Fra Angelico. Set side by side Mary hearing the angel’s news and Mary going to tell the news of the resurrection.</li>
+    <li><a href="https://thevcs.org/campaign/message-mission">VCS commentary ‘Message and Mission’</a> <span class="note">Mary Magdalene, who carried the first news of the resurrection</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (8)</summary><ul>
+    <li><a href="https://thevcs.org/campaign/making-all-things-new">VCS, ‘Making All Things New’</a>: Cell 1, fresco, 166 × 125 cm; tiny red flowers the color of the wounds; Mary’s face flushed from weeping; the medieval idea of Mary Magdalene as the ‘sinful woman’</li>
+    <li><a href="https://www.christianiconography.info/Florence/sanMarco/noliMeTangereFraAngelico.html">Christian Iconography, ‘Fra Angelico, Noli Me Tangere’</a>: the tomb behind Mary; the hoe recalling her mistake about the gardener</li>
+    <li><a href="https://www.european-traveler.com/?p=21686">European Traveler, ‘Cell 1: Noli me tangere’</a>: 44 friars’ cells, almost all decorated by Fra Angelico</li>
+    <li><a href="https://www.professor-moriarty.com/info/node/6247">Professor Moriarty, ‘Touch Me Not (cell 1)’</a>: the view that Fra Angelico designed it and his pupil Benozzo Gozzoli painted it</li>
+    <li><a href="https://www.biblicalarchaeology.org/daily/archaeology-today/biblical-archaeology-topics/how-was-jesus-tomb-sealed/">Bible History Daily, ‘How Was Jesus’ Tomb Sealed?’</a>: of more than 900 Second Temple tombs Kloner examined, four had round stones</li>
+    <li><a href="https://en.wikipedia.org/wiki/Church_of_the_Holy_Sepulchre">Wikipedia, ‘Church of the Holy Sepulchre’</a>: begun about 326, consecrated 335, Crusader church dedicated 1149</li>
+    <li><a href="https://www.newworldencyclopedia.org/entry/Holy_Sepulchre">New World Encyclopedia, ‘Holy Sepulchre’</a>: outside the city walls when first built, inside the Old City today</li>
+    <li><a href="https://biblehub.com/web/john/20.htm">World English Bible</a>: John 20:1–18, 19:41–42; Mark 16:3; Luke 8:2</li>
+   </ul><p>Painting: Fra Angelico, <i>Noli me tangere</i>, about 1440, Convent of San Marco, Florence. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Jewish_tombs_with_rolling_stones_at_Abou_Gosh._Rolling_stone_tomb,_without_figure._Abu_Ghosh_(Kirjath_Jearim)_LOC_matpc.21098.jpg">‘Jewish tombs with rolling stones at Abou Gosh’</a> (1940–1946, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002725003/">‘The front of the Holy Sepulchre, Jerusalem’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 2 -->
+ <article class="card" data-week="scene2">
+  <figure class="fig">
+   <img loading="lazy" src="img/east2-cima.jpg" alt="Painting by Cima da Conegliano. In the middle of a room with an arched ceiling, Jesus pulls aside his clothes to show the wound in his side, and Thomas, bending forward, touches the wound with his finger. The disciples stand around in a circle watching, and a distant landscape can be seen through two arched windows in the back wall.">
+   <figcaption class="cap"><b>The Incredulity of Saint Thomas</b> Cima da Conegliano, about 1502–1504<br>The National Gallery, London, UK</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Second Sunday of Easter · Jesus reaches out his hand</span><span><span data-wd="1">Apr 4</span> · Second Sunday of Easter · John 20:19–29</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Why did Thomas want to touch before he believed?</h2></div>
+   <p class="line">With the disciples standing all around, Thomas reaches out his finger and touches Jesus’ wound.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find Thomas. Where is his finger touching?</li>
+    <li>Find the young, beardless disciple right beside Jesus. Old paintings often showed John this young.</li>
+    <li>Find the white-bearded disciple in an orange cloak with his hand on his chest. How do the other disciples’ faces look?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>On the evening of the day Jesus rose, the disciples were gathered behind locked doors, afraid. Jesus came, stood among them and said, “Peace be to you,” and showed them his hands and his side (20:19–20). But Thomas was not there. When the others told him, “We have seen the Lord!”, Thomas said, “Unless I see in his hands the print of the nails, put my finger into the print of the nails, and put my hand into his side, I will not believe” (20:25).</p>
+    <p>Eight days later, with Thomas there this time, Jesus came again, and spoke to Thomas first: “Reach here your finger, and see my hands. Reach here your hand, and put it into my side” (20:27). Thomas answered, “My Lord and my God!” (20:28). Jesus said, “Blessed are those who have not seen, and have believed” (20:29). He was talking about us today.</p>
+    <p>Cima da Conegliano, a painter working in Venice, painted this large altarpiece around 1502–1504. It is nearly 3 meters tall. It was ordered by a brotherhood dedicated to Saint Thomas that ran four hospitals in Portogruaro, north of Venice. The surviving account books even list a crate for shipping the painting, the porters’ pay, and a tip for the painter’s assistants. But Cima was not paid even half his fee on time; he went to court and was paid in full only in 1509. The painting has been at the National Gallery in London since 1870.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>Thomas, “called Didymus” (the Twin, 20:24), was not just a doubter. When Jesus decided to go back to dangerous Judea, it was Thomas who said, “Let’s go also, that we may die with him” (11:16). And when Jesus said he was going away, Thomas honestly asked, “How can we know the way?” (14:5). To that question Jesus answered, “I am the way, the truth, and the life” (14:6).</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · A locked house in Jerusalem</b>The Bible doesn’t say which house the disciples gathered in. For a long time Christians have remembered the ‘Upper Room’ on Mount Zion as the place of the Last Supper, where the risen Jesus appeared, and where the Holy Spirit came.</p>
+    <figure class="ph" data-q="What shape is the ceiling? If the disciples gathered in this room, where might they have sat?" data-color="img/evr2-upper-room.jpg" data-color-alt="AI-colorized version of a black-and-white photo. In a sandy-colored stone room, columns hold up a pointed arched ceiling, and light comes in through a window." data-color-q="AI guessed the colors in this photo. What color do the stone walls look like to you?">
+     <div class="phw"><img src="img/eera2-upper-room.jpg" alt="Black-and-white photo. A stone room whose pointed arched ceiling is held up by columns. Lanterns hang from the ceiling." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>The ‘Chamber of the Last Supper,’ Jerusalem</b> · between 1898 and 1946<br>The Cenacle (Upper Room) on Mount Zion. Today’s room with its pointed arches is a building from around the fourteenth century, and in 1523 it was turned into a mosque and a prayer niche was added. It is not the room as it was 2,000 years ago, but pilgrims remember here the disciples who gathered behind locked doors. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Chamber_of_the_Last_Supper,_Jerusalem_LOC_matpc.08504_(cropped).jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="How many lamps are hanging? What can you see on the altar?">
+     <img src="img/ecolor2-calvary.jpg" alt="Old color print. Inside a dark chapel hung with rows of lamps, there is an altar decorated in gold." loading="lazy">
+     <figcaption><b>The Greek altar at Calvary · 1890s color print</b><br>The hill of Golgotha, long remembered as the place where Jesus was crucified, is now inside the Church of the Holy Sepulchre. It is where the ‘print of the nails’ Thomas wanted to see came from. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002725005/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You are in a room with the doors shut tight. Your friends say, ‘We saw Jesus!’ but you didn’t. Then Jesus comes over to you and holds out his hand."><small>Close your eyes and imagine</small>The disappointment of being the only one who missed what everyone else saw. What would it be like if Jesus came back just for you and held out his hand?</p>
+    <a class="go" href="https://www.nationalgallery.org.uk/paintings/giovanni-battista-cima-da-conegliano-the-incredulity-of-saint-thomas">Look closely at the painting · The National Gallery’s page<small>Zoom in and look at the disciples’ faces one by one. Some look amazed, some look curious</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“What do you do when you hear something hard to believe? Is it okay to ask questions?”</p></div>
+   <div class="root">Rather than scolding doubting Thomas, Jesus held out his hand first (John 20:27).</div>
+   <a class="read" href="https://biblehub.com/web/john/20.htm">Now read the passage · John 20:19–29<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Some children find the finger in the wound frightening. Rather than the finger, help them notice that Jesus came first and held out his hand. Instead of teaching that ‘doubt is bad,’ tell them it is okay to bring their questions to Jesus.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>Compare it with Caravaggio’s <i>The Incredulity of Saint Thomas</i> in the Experience Together room. Caravaggio painted, close up, Jesus taking Thomas’s hand and guiding it; Cima painted a room with the disciples standing all around.</li>
+    <li>About a year later Cima painted the subject again. In the painting in the Gallerie dell’Accademia in Venice, Saint Magnus stands with them instead of the disciples, and the scene moves outdoors to a loggia. <a href="https://www.gallerieaccademia.it/en/incredulity-saint-thomas-and-saint-magnus-oderzo">The Accademia’s description</a></li>
+    <li><a href="https://thevcs.org/doubting-thomas">VCS exhibition <i>Doubting Thomas</i></a> <span class="note">John 20:24–31</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (8)</summary><ul>
+    <li><a href="https://www.nationalgallery.org.uk/paintings/giovanni-battista-cima-da-conegliano-the-incredulity-of-saint-thomas">The National Gallery artwork page</a>: about 1502–4; commissioned by a confraternity dedicated to Saint Thomas that ran four hospitals in Portogruaro; account books listing the crate, porters and a tip for the assistants; paid in full only in 1509 after legal action</li>
+    <li><a href="https://nationalgallery.org.uk/paintings/NG816">The National Gallery, NG816</a>: Thomas places his fingers in the wound; young, fair-haired John in blue on Christ’s right; balding Peter</li>
+    <li><a href="https://artuk.org/discover/artworks/the-incredulity-of-saint-thomas-115649">Art UK</a>: 294 × 199.4 cm, transferred from poplar to a synthetic panel, bought 1870</li>
+    <li><a href="https://www.nationalgallery.org.uk/paintings/glossary/saint-thomas">The National Gallery glossary, ‘Saint Thomas’</a>: Thomas the Twin (Didymus)</li>
+    <li><a href="https://www.gallerieaccademia.it/en/incredulity-saint-thomas-and-saint-magnus-oderzo">Gallerie dell’Accademia, Venice</a>: the second version, with Saint Magnus, set outdoors under a loggia</li>
+    <li><a href="https://www.jewishvirtuallibrary.org/the-coenaculum-on-mount-zion">Jewish Virtual Library, ‘The Coenaculum on Mount Zion’</a>: the upper storey built by the Franciscans in the fourteenth century; the Pentecost tradition; the 1523 mosque and prayer niche</li>
+    <li><a href="https://en.wikipedia.org/wiki/Cenacle">Wikipedia, ‘Cenacle’</a>: the tradition of the Last Supper and Pentecost</li>
+    <li><a href="https://biblehub.com/web/john/20.htm">World English Bible</a>: John 20:19–29, 11:16, 14:5–6</li>
+   </ul><p>Painting: Cima da Conegliano, <i>The Incredulity of Saint Thomas</i>, about 1502–1504, The National Gallery, London. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Chamber_of_the_Last_Supper,_Jerusalem_LOC_matpc.08504_(cropped).jpg">‘Chamber of the Last Supper, Jerusalem’</a> (1898–1946, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002725005/">‘The Calvary and the Greek altar, Jerusalem’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 3 -->
+ <article class="card" data-week="scene3">
+  <figure class="fig">
+   <img loading="lazy" src="img/east3-caravaggio.jpg" alt="Painting by Caravaggio. Against a dark background, a young, beardless Jesus sits at a table and raises his hand over the bread in blessing. The disciple at left is about to leap up from his chair, and the disciple at right flings his arms wide. An innkeeper in a cap stands looking down. On the table are bread and a roast chicken, and a basket of fruit teeters on the edge.">
+   <figcaption class="cap"><b>The Supper at Emmaus</b> Caravaggio, 1601<br>The National Gallery, London, UK</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Third Sunday of Easter · When he broke the bread</span><span><span data-wd="2">Apr 11</span> · Third Sunday of Easter · Luke 24:13–35</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>When did the disciples on the road to Emmaus recognize Jesus?</h2></div>
+   <p class="line">An evening table, a hand raised over the bread. In that moment, the two disciples realize who the stranger who walked with them is.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find the basket of fruit balanced on the edge of the table. Does it look about to fall?</li>
+    <li>Find the man about to leap up from his chair and the man with his arms flung wide. Why are they so amazed?</li>
+    <li>Look at the man standing in a cap. Does he know what is happening?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>On the very day Jesus rose, two disciples “were going that very day to a village named Emmaus, which was sixty stadia from Jerusalem” (24:13). Jesus came near and walked with them, “but their eyes were kept from recognizing him” (24:16). They were sad as they talked about what had happened in Jerusalem (24:17), and “beginning from Moses and from all the prophets, he explained to them in all the Scriptures the things concerning himself” (24:27).</p>
+    <p>When they reached the village, they urged him, “Stay with us, for it is almost evening, and the day is almost over” (24:29). At the table “he took the bread and gave thanks. Breaking it, he gave it to them. Their eyes were opened, and they recognized him, and he vanished out of their sight” (24:30–31). They said, “Weren’t our hearts burning within us?” and “rose up that very hour” and went back to Jerusalem (24:32–33).</p>
+    <p>Caravaggio painted this in Rome in 1601 for the nobleman Ciriaco Mattei. The figures are painted life-size, so the table seems to sit right in front of us. Caravaggio painted the disciples as ordinary working men with ragged clothes and lined faces, and Jesus as a young man without a beard, as if he came from another world. It has been at the National Gallery in London since 1839. Five years later Caravaggio painted the Emmaus supper once more, darker and quieter (Pinacoteca di Brera, Milan).</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>No one knows for sure where Emmaus was. Old manuscripts of the Bible give the distance differently, as ‘sixty stadia’ (about 11 kilometers) or ‘one hundred sixty stadia’ (about 30 kilometers). So several villages west of Jerusalem are each named as Emmaus: Emmaus-Nicopolis, el-Qubeibeh, Abu Ghosh and Motza.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · The road west from Jerusalem</b>The two disciples reached Emmaus at dusk, then “rose up that very hour” and returned to Jerusalem (24:29, 33). That means walking a road of about 11 kilometers twice in one day.</p>
+    <figure class="ph" data-q="Find the dog standing on the road. Can you also see the building on the hilltop far away?" data-color="img/evr3-emmaus-road.jpg" data-color-alt="AI-colorized version of a black-and-white photo. A tan dog stands on an old, stony road that runs between greenish hills. A building can be seen on a distant hilltop." data-color-q="AI guessed the colors in this photo. At sunset, what color would this road have been?">
+     <div class="phw"><img src="img/eera3-emmaus-road.jpg" alt="Black-and-white photo. A dog stands on an old, stony road that runs on between the hills. A building can be seen on a distant hilltop." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>A Roman road to Emmaus</b> · 1930s<br>The title in the photographer’s logbook is ‘Roman road to Emmaus showing “Mizpah,” Neby Samwil.’ The hill in the distance, Nebi Samwil, is the traditional tomb of the prophet Samuel, and it is also the hill from which the Crusaders first saw Jerusalem in 1099. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Roman_road_to_Emmaus_showing_%27Mizpah%27,_Neby_Samwil_LOC_matpc.16561.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="How is she spreading out the dough? Imagine the smell of freshly baked bread.">
+     <img src="img/ecolor3-bread.jpg" alt="Old color print. A woman sitting in front of a stone doorway spreads out round, flat dough, and beside her stands a woman carrying a child on her back. Round loaves and bowls lie around them." loading="lazy">
+     <figcaption><b>A Syrian peasant making bread · 1890s color print</b><br>Round, flat bread dough being spread out. The bread Jesus broke and gave at the table in Emmaus may also have been bread like this, torn by hand and shared. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002725075/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You are trudging along a road at sunset with a friend. Your heart feels heavy. A stranger walks with you and tells you stories. Strangely, your heart begins to feel warm."><small>Close your eyes and imagine</small>Someone you walked beside for hours without knowing him. If you recognized him the moment you saw his hands break the bread, what would you want to do next?</p>
+    <a class="go" href="https://www.nationalgallery.org.uk/paintings/michelangelo-merisi-da-caravaggio-the-supper-at-emmaus">Look closely at the painting · The National Gallery’s page<small>Zoom in to find the bread and fruit on the table, and the torn elbow of a disciple’s sleeve</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“Has your heart ever felt warm, like it was burning? When was that?”</p></div>
+   <div class="root">Jesus walked with them and opened the Scriptures, and he was recognized in the breaking of the bread (Luke 24:31, 35).</div>
+   <a class="read" href="https://biblehub.com/web/luke/24.htm">Now read the passage · Luke 24:13–35<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Jesus has no beard in this painting, which may seem strange to children. Let them know that the Bible doesn’t describe what Jesus looked like, and that every painter pictured him differently. “Their eyes were kept from recognizing him” (24:16) doesn’t mean they couldn’t see; it means they saw him but didn’t know him.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li><a href="https://thevcs.org/road-emmaus">VCS exhibition <i>The Road to Emmaus</i></a> <span class="note">Luke 24:13–35</span></li>
+    <li><a href="https://www.biblicalarchaeology.org/daily/biblical-sites-places/the-emmaus-trail/">Bible History Daily, ‘The Emmaus Trail’</a> <span class="note">the candidates for Emmaus, and an Emmaus trail you can walk today</span></li>
+    <li>When the two disciples got back to Jerusalem, the others were saying, “The Lord is risen indeed, and has appeared to Simon!” (24:34).</li>
+   </ul></section>
+   <details class="src"><summary>Sources (8)</summary><ul>
+    <li><a href="https://www.nationalgallery.org.uk/paintings/michelangelo-merisi-da-caravaggio-the-supper-at-emmaus">The National Gallery artwork page</a>: the disciples as ordinary working men with lined faces and ragged clothes; the youthful, beardless Christ who seems to come from a different world</li>
+    <li><a href="https://en.wikipedia.org/wiki/Supper_at_Emmaus_(Caravaggio,_London)">Wikipedia, ‘Supper at Emmaus (Caravaggio, London)’</a>: 1601, 141 × 196.2 cm, commissioned by Ciriaco Mattei; the second version of 1606</li>
+    <li><a href="https://www.ulstermuseum.org/stories/supper-emmaus">Ulster Museum, ‘The Supper at Emmaus’</a>: a table laden with bread, fruit and meat; the basket teetering on the edge; presented in 1839</li>
+    <li><a href="https://thevcs.org/campaign/simultaneity-and-surprise">VCS, ‘Simultaneity and Surprise’</a>: life-size figures; the fruit basket crossing the edge of the table; the beardless Christ</li>
+    <li><a href="https://www.biblicalarchaeology.org/daily/biblical-sites-places/the-emmaus-trail/">Bible History Daily, ‘The Emmaus Trail’</a>: manuscripts giving 60 or 160 stadia; the candidates for Emmaus</li>
+    <li><a href="https://seetheholyland.net/emmaus/">See the Holy Land, ‘Emmaus’</a>: a stadion is about 185 m; four candidates (Nicopolis, Abu Ghosh, el-Qubeibeh, Motza)</li>
+    <li><a href="https://www.jewishvirtuallibrary.org/nebi-samwil">Jewish Virtual Library, ‘Nebi Samwil’</a>, <a href="https://assets.destinationpalestine.io/node/156">Destination Palestine, ‘Nabi Samuel’</a>: the tradition of Samuel’s tomb; the hill where the Crusaders first saw Jerusalem on June 7, 1099</li>
+    <li><a href="https://biblehub.com/web/luke/24.htm">World English Bible</a>: Luke 24:13–35</li>
+   </ul><p>Painting: Caravaggio, <i>The Supper at Emmaus</i>, 1601, The National Gallery, London. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Roman_road_to_Emmaus_showing_%27Mizpah%27,_Neby_Samwil_LOC_matpc.16561.jpg">‘Roman road to Emmaus showing “Mizpah,” Neby Samwil’</a> (1934–1939, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002725075/">‘Syrian peasant making bread, Holy Land’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 4 -->
+ <article class="card" data-week="scene4">
+  <figure class="fig">
+   <img loading="lazy" src="img/east4-witz.jpg" alt="Painting by Konrad Witz. On a clear lake, disciples in a small boat haul up a net full of fish, while Peter wades through the water toward Jesus on the shore. Jesus stands at the water’s edge in a red robe. The boat and the people are reflected in the water. Across the lake are a town and fields, and behind them a line of mountains, with faint white peaks in the far distance.">
+   <figcaption class="cap"><b>The Miraculous Draught of Fishes</b> Konrad Witz, 1444<br>Musée d’Art et d’Histoire, Geneva, Switzerland</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Fourth Sunday of Easter · Come and eat breakfast</span><span><span data-wd="3">Apr 18</span> · Fourth Sunday of Easter · John 21:1–14</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Did Jesus make breakfast for his disciples?</h2></div>
+   <p class="line">The net that caught nothing all night is full of fish. Peter can’t wait for the boat, so he jumps into the water.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find Peter in the water. Where is he going?</li>
+    <li>Count the disciples pulling up the net in the boat. Can you see the fish?</li>
+    <li>Find the pointed mountain across the lake, and the faint white peaks behind it. They are real mountains you can see from Geneva, where the painting hung.</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>This is the story of the risen Jesus showing himself again to his disciples at the sea of Tiberias. Simon Peter said, “I’m going fishing,” and the others went with him, but “that night, they caught nothing” (21:3). When day came, Jesus stood on the beach, “yet the disciples didn’t know that it was Jesus” (21:4).</p>
+    <p>“Cast the net on the right side of the boat, and you will find some” (21:6). When they did, there were so many fish that they couldn’t haul the net in. The disciple whom Jesus loved said, “It’s the Lord!” and Peter wrapped his coat around him and threw himself into the sea (21:7). On land “they saw a fire of coals there, and fish laid on it, and bread” (21:9). The net held “one hundred fifty-three” great fish, “and even though there were so many, the net wasn’t torn” (21:11). Jesus said to them, “Come and eat breakfast” (21:12).</p>
+    <p>Konrad Witz, a painter born in Germany who worked in Basel, Switzerland, painted this in 1444 for an altarpiece in St. Peter’s Cathedral in Geneva. Witz moved the Sea of Galilee to Lake Geneva, the lake of the city where the painting would hang. From left you can see the Voirons ridge, the pointed Môle in the middle, and the Salève at the far right, and, faint in the distance, the white peaks of the Mont Blanc range. So this painting is counted among the earliest in Europe to show a real, recognizable landscape. Witz died a year or two after he painted it.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>In 1986, when a great drought lowered the Sea of Galilee, two fishermen brothers found a 2,000-year-old fishing boat in the mud. It is 8.27 meters long and 2.3 meters wide, and dates from between 120 BC and AD 40. There is no evidence that it is the very boat Jesus and his disciples sailed in, but fishermen in Galilee in those days used boats like this. Today it is in a museum at Ginosar on the lakeshore.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · The sea of Tiberias (the Sea of Galilee)</b>John calls the Sea of Galilee the ‘sea of Tiberias’ (21:1). It is called a sea, but it is really a freshwater lake. Peter and Andrew, James and John were fishermen on this lake to begin with.</p>
+    <figure class="ph" data-q="Look at the shape of the net as it spreads out. What does it look like?" data-color="img/evr4-galilee-net.jpg" data-color-alt="AI-colorized version of a black-and-white photo. From a small boat on a blue lake, a fisherman throws a round net into the air, and it spreads out wide." data-color-q="AI guessed the colors in this photo. What color does the lake look?">
+     <div class="phw"><img src="img/eera4-galilee-net.jpg" alt="Black-and-white photo. From a small boat, a fisherman throws a round net into the air, and it spreads out wide." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>Fishermen on Galilee throwing a net</b> · 1930s<br>This is a cast net: a round net with weights around its edge. A cast net is about 5 to 6 meters across, yet one person throws it. As it drops onto the water it looks just like a parachute. Fishermen in Galilee 2,000 years ago used nets like this too. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Fishermen_on_Galilee_throwing_net_from_boat_LOC_matpc.12384.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="How many people are in the boat? Can you see a sail?">
+     <img src="img/ecolor4-tiberias-boat.jpg" alt="Old color print. A fishing boat floats on a calm lake, with hills behind it." loading="lazy">
+     <figcaption><b>A fishing boat at Tiberias · 1890s color print</b><br>A fishing boat on the lake off Tiberias about 130 years ago. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002725060/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You threw the net all night but didn’t catch a single fish. You’re cold and sleepy. Then you smell a charcoal fire on the beach, and fish cooking. Someone calls out, ‘Come and eat breakfast!’"><small>Close your eyes and imagine</small>A morning when you come back worn out after a night of work that came to nothing. If someone had already lit a fire, made breakfast and was waiting for you, how would you feel?</p>
+    <a class="go" href="https://commons.wikimedia.org/wiki/File:Konrad_Witz_-_Fischzug_Petri.jpeg">Look closely at the painting · The large image on Wikimedia Commons<small>Zoom in to find the reflections in the water and the snow on the faraway mountains</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“On a day when you tried hard but things didn’t go well, has anyone ever made a meal for you?”</p></div>
+   <div class="root">The risen Jesus was the first to set out breakfast for his tired disciples (John 21:9, 12).</div>
+   <a class="read" href="https://biblehub.com/web/john/21.htm">Now read the passage · John 21:1–14<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> There are many interpretations of the number ‘153’, but for children it’s enough to stay with ‘there were plenty, yet the net didn’t tear’. With older children, also read on to the story after breakfast, when Jesus asked Peter three times whether he loved him (21:15–17). Peter had said three times that he didn’t know Jesus, and here Jesus sets him on his feet again.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li><a href="https://thevcs.org/campaign/feed-him-faith">VCS commentary ‘Feed on Him by Faith’</a> <span class="note">John 21 · the catch of fish, the breakfast, and “Feed my sheep”</span></li>
+    <li><a href="https://www.jerusalemperspective.com/2451/">Mendel Nun, ‘Let Down Your Nets’</a> <span class="note">first-century nets, from a lifelong fisherman on the Sea of Galilee</span></li>
+    <li><a href="https://seetheholyland.net/jesus-boat/">See the Holy Land, ‘Jesus Boat’</a> <span class="note">the 2,000-year-old fishing boat found in 1986</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (8)</summary><ul>
+    <li><a href="https://en.wikipedia.org/wiki/The_Miraculous_Draft_of_Fishes_(Witz)">Wikipedia, ‘The Miraculous Draft of Fishes (Witz)’</a>: 1444, Musée d’Art et d’Histoire, Geneva; Galilee moved to Lake Geneva; an early landscape drawn from the real terrain</li>
+    <li><a href="https://the-artinspector.com/post/konrad-witz-the-miraculous-fishing-trip">The Art Inspector, ‘Konrad Witz’</a>: Christ in red; the Voirons, the Môle and the Salève, with Mont Blanc in the distance</li>
+    <li><a href="https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/konrad-witz">Encyclopedia.com, ‘Konrad Witz’</a>: born in Rottweil; the Basel painters’ guild; the St. Peter altarpiece signed and dated 1444; died 1446</li>
+    <li><a href="https://christianhistoryinstitute.org/magazine/article/fishers-of-fish">Christian History, ‘Fishers of Fish’</a>: three kinds of net in first-century Galilee; the round cast net 15–20 feet across</li>
+    <li><a href="https://www.christianitytoday.com/history/issues/issue-59/fishers-of-fish.html">Christianity Today, ‘Fishers of Fish’</a>: a cast net thrown by one person, settling like a parachute</li>
+    <li><a href="https://en.wikipedia.org/wiki/Sea_of_Galilee_Boat">Wikipedia, ‘Sea of Galilee Boat’</a>: found by the Lufan brothers in the 1986 drought; 8.27 m long and 2.3 m wide</li>
+    <li><a href="https://seetheholyland.net/jesus-boat/">See the Holy Land, ‘Jesus Boat’</a>: radiocarbon date 120 BC–AD 40; on display at the Yigal Allon Museum, Ginosar, since 2000; Galilee is a freshwater lake</li>
+    <li><a href="https://biblehub.com/web/john/21.htm">World English Bible</a>: John 21:1–17</li>
+   </ul><p>Painting: Konrad Witz, <i>The Miraculous Draught of Fishes</i> (original title: <i>Der wunderbare Fischzug</i>), 1444, Musée d’Art et d’Histoire, Geneva. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Fishermen_on_Galilee_throwing_net_from_boat_LOC_matpc.12384.jpg">‘Fishermen on Galilee throwing net from boat’</a> (1934–1939, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002725060/">‘Fisherman’s boat on the lake, Tiberias’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 5 -->
+ <article class="card" data-week="scene5">
+  <figure class="fig">
+   <img loading="lazy" src="img/east5-giotto.jpg" alt="Fresco by Giotto. At the top center, Jesus, seen from the side, rises into the sky on a cloud, with rows of angels following on both sides. Below, in the middle, two angels in white point upward, and on either side of them the kneeling disciples and Mary in blue look up at the sky.">
+   <figcaption class="cap"><b>The Ascension</b> Giotto di Bondone, about 1304–1306<br>Scrovegni Chapel, Padua, Italy</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Ascension Sunday · Jesus goes up into heaven</span><span><span data-wd="4">May 9</span> · Ascension Sunday (Seventh Sunday of Easter) · Acts 1:1–11</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Where in heaven did Jesus go?</h2></div>
+   <p class="line">Jesus rises past the top edge of the picture. Two angels in white point upward for the disciples.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find Jesus’ two hands. Are his fingertips hidden behind the edge of the picture?</li>
+    <li>Find the two angels in white in the middle. Who are they looking at, and where are they pointing?</li>
+    <li>Among the kneeling people, find Mary in her blue robe.</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>After he rose, Jesus showed himself to his disciples, “appearing to them over a period of forty days, and speaking about God’s Kingdom” (1:3). And he promised that they would receive power when the Holy Spirit came upon them: “You will be witnesses to me in Jerusalem, in all Judea and Samaria, and to the uttermost parts of the earth” (1:8).</p>
+    <p>“When he had said these things, as they were looking, he was taken up, and a cloud received him out of their sight” (1:9). While the disciples kept staring into the sky, two men in white clothing stood by them and said, “You men of Galilee, why do you stand looking into the sky? This Jesus, who was received up from you into the sky, will come back in the same way as you saw him going into the sky” (1:11). The disciples returned to Jerusalem from the Mount of Olives and gathered in the upper room (1:12–13).</p>
+    <p>Like <a href="lent.html?lang=en#scene5"><i>The Raising of Lazarus</i> in the Lent Course</a>, this is one of Giotto’s frescoes in the Scrovegni Chapel in Padua. It is almost the last scene of the story of Jesus that runs around the walls, and the very next scene is Pentecost. Giotto painted Jesus from the side, as if he were climbing upward. His fingertips even reach past the edge of the picture. Mary’s blue robe is said to have been painted with a very costly pigment.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>Ascension Day is the fortieth day of Easter, counting Easter Day as the first, so it always falls on a Thursday (1:3). That’s why many churches also remember the Ascension on the Sunday after it. Ten days after Ascension Day comes Pentecost. For those ten days the disciples gathered in the upper room and waited for the promised Holy Spirit (1:4, 14).</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · The top of the Mount of Olives</b>The disciples returned to Jerusalem “from the mountain called Olivet” (1:12). It is the hill east of Jerusalem, across the Kidron Valley. Since the late fourth century, a chapel remembering the Ascension has stood on its summit.</p>
+    <figure class="ph" data-q="Find the square stone frame in the middle of the floor. What do people say is inside it?" data-color="img/evr5-ascension.jpg" data-color-alt="AI-colorized version of a black-and-white photo. Inside the Chapel of the Ascension: a reddish-brown wall with an arched niche and two small windows, and a square stone frame in the middle of the pale floor." data-color-q="AI guessed the colors in this photo. What color does the wall look?">
+     <div class="phw"><img src="img/eera5-ascension.jpg" alt="Black-and-white photo of the inside of the Chapel of the Ascension. In the curved wall are an arched niche and two small windows, and a square stone frame lies in the middle of the floor." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>The spot of the Ascension</b> · between 1898 and 1914<br>Inside the small eight-sided chapel on the top of the Mount of Olives. Within the square stone frame on the floor is a rock said to hold the last print of Jesus’ right foot. The piece with the left footprint is said to have been moved to the Al-Aqsa Mosque in the Middle Ages. After Saladin took Jerusalem in 1187 the chapel became a mosque, and in 1198 it was given a stone dome. The niche in the wall shows the direction of prayer. Even today, Christians hold services inside it only on the feast of the Ascension. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Jerusalem_(El-Kouds)._Spot_of_the_Ascension_LOC_matpc.06710.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="Find the path that runs up the hill. What is at the top?">
+     <img src="img/ecolor5-olives.jpg" alt="Old color print. A path runs up a gentle hill dotted with olive trees, and buildings can be seen on the hilltop." loading="lazy">
+     <figcaption><b>The Mount of Olives and Gethsemane · 1890s color print</b><br>The Mount of Olives seen from the Jerusalem side. You can walk from Gethsemane at the bottom all the way to the top. The Bible says this mountain is near Jerusalem, “a Sabbath day’s journey away” (1:12). <a class="orig" href="https://www.loc.gov/item/2002725021/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You are on top of the Mount of Olives, and the wind is blowing. Jesus lifts up his hands to bless you, and he rises higher and higher. A cloud hides him. You tip your head back and just stare at the sky."><small>Close your eyes and imagine</small>Jesus leaving as he lifts up his hands to bless them (Luke 24:50–51). As you watch him go farther away, you remember the last promise you heard from him. What was that promise?</p>
+    <a class="go" href="https://www.proterrasancta.org/en/news/the-chapel-of-the-ascension-and-its-long-history">Look closely at the Chapel of the Ascension · Pro Terra Sancta, ‘The Chapel of the Ascension and its long history’<small>The footprint rock and the Ascension Day services</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“When someone you love goes far away, what promise would you want to hear? What do you think Jesus promised?”</p></div>
+   <div class="root">Jesus went up into heaven, and he will come back in the same way as he was seen going (Acts 1:11).</div>
+   <a class="read" href="https://biblehub.com/web/acts/1.htm">Now read the passage · Acts 1:1–11<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> So that children don’t picture ‘heaven’ only as a place far out in space, put it simply: ‘he went to where God is.’ So that they don’t feel his leaving as ‘Jesus left us behind,’ talk about it together with his promise to send the Holy Spirit (1:8).</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>Follow Giotto’s paintings in the Scrovegni Chapel: <a href="christmas.html?lang=en#scene3"><i>The Adoration of the Magi</i> in the Christmas Course</a> and <a href="lent.html?lang=en#scene5"><i>The Raising of Lazarus</i> in the Lent Course</a>.</li>
+    <li>The last scene of Luke’s Gospel (24:50–53) tells of the same event. Jesus led the disciples out as far as Bethany and lifted up his hands to bless them. “While he blessed them, he withdrew from them, and was carried up into heaven” (24:51).</li>
+    <li><a href="https://thevcs.org/exhibitions/new-testament/acts-apostles">VCS exhibitions on the Acts of the Apostles</a> <span class="note"><i>The Ascension</i> (Mark 16:19–20, Luke 24:50–53, Acts 1:1–11)</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (8)</summary><ul>
+    <li><a href="https://drrichardstemp.com/2020/08/22/110-the-ascension/">Richard Stemp, ‘The Ascension’</a>: Jesus risen so high that his fingertips are hidden behind the frame; two angels looking at the kneeling figures and pointing up</li>
+    <li><a href="https://www.historytoday.com/node/54059">History Today, ‘The Ascension’</a>: Christ shown in profile as if climbing; Mary painted in costly blue</li>
+    <li><a href="https://smecsundaymorningforum.org/tag/giotto/">SMEC, ‘The Ascension of Christ’</a>: the disciples and Mary kneeling and looking at the two men in white</li>
+    <li><a href="https://www.artchive.com/artwork/the-ascension-giotto-c-1305/">Artchive, ‘The Ascension (c.1305)’</a>: the hosts of angels above; a fresco in the Scrovegni Chapel</li>
+    <li><a href="https://en.wikipedia.org/wiki/Chapel_of_the_Ascension">Wikipedia, ‘Chapel of the Ascension’</a>: the summit of the Mount of Olives; the first church around 390; its history after Saladin</li>
+    <li><a href="https://www.sacred-destinations.com/israel/jerusalem-chapel-of-ascension">Sacred Destinations, ‘Chapel of the Ascension’</a>: the stone dome and prayer niche of 1198; the rock with the right footprint; the left footprint moved to Al-Aqsa</li>
+    <li><a href="https://www.proterrasancta.org/en/news/the-chapel-of-the-ascension-and-its-long-history">Pro Terra Sancta, ‘The Chapel of the Ascension and its long history’</a>: the chapel turned into a mosque in 1187; Christian services inside on the feast of the Ascension</li>
+    <li><a href="https://biblehub.com/web/acts/1.htm">World English Bible</a>: Acts 1:1–14; Luke 24:50–51</li>
+   </ul><p>Painting: Giotto di Bondone, <i>Ascension</i>, about 1304–1306, Scrovegni Chapel, Padua. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Jerusalem_(El-Kouds)._Spot_of_the_Ascension_LOC_matpc.06710.jpg">‘Jerusalem (El-Kouds). Spot of the Ascension’</a> (1898–1914, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002725021/">‘Mount of Olives and Gethsemane, general view, Jerusalem’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 6 -->
+ <article class="card" data-week="scene6">
+  <figure class="fig">
+   <img loading="lazy" src="img/east6-maino.jpg" alt="Painting by Maíno. At the top, yellow and orange light pours out from a white dove with its wings spread wide. Below, the apostles, Mary and Mary Magdalene are gathered, and small flames fall from the light toward their heads. In front, Peter and Luke, who is writing something, are painted large, and a key lies on the floor at Peter’s feet.">
+   <figcaption class="cap"><b>Pentecost</b> Juan Bautista Maíno, 1612–1614<br>Museo del Prado, Madrid, Spain</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Pentecost · The Spirit who came like flames</span><span><span data-wd="5">May 16</span> · Pentecost · Acts 2:1–13</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Weren’t the flames on their heads hot?</h2></div>
+   <p class="line">Yellow and orange light bursts out from a white dove. Small flames come down over the heads of the people gathered there.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find the white dove at the very top. How is it spreading its wings?</li>
+    <li>Find the small flames coming down from the dove’s light. Where are they going?</li>
+    <li>Find the man in front who is writing in a book. It’s Luke, who wrote this story down. Can you also find the key on the floor? Whose key might it be?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>After Jesus went up into heaven, the disciples prayed together as they waited for the promised Holy Spirit. “Now when the day of Pentecost had come, they were all with one accord in one place. Suddenly there came from the sky a sound like the rushing of a mighty wind, and it filled all the house where they were sitting. Tongues like fire appeared and were distributed to them, and one sat on each of them” (2:1–3). They were all filled with the Holy Spirit and began to speak in other languages (2:4).</p>
+    <p>At that time there were Jews staying in Jerusalem “from every nation under the sky” (2:5). They were amazed to hear these Galileans speaking in their own languages “the mighty works of God” (2:11). Some mocked them, saying, “They are filled with new wine” (2:13), but that day about three thousand people were baptized and joined them (2:41).</p>
+    <p>Juan Bautista Maíno painted this in 1612–1614 for the high altar of the church of the Dominican monastery of San Pedro Mártir in Toledo, Spain. It is 2.8 meters tall. Four scenes hung on that altar: Christmas, Epiphany, Easter and Pentecost. In Spain these four great feasts were called together the ‘Four Pascuas’. It is the same road we have walked from the <a href="christmas.html?lang=en">Christmas Course</a> to this one. Maíno signed the contract for the paintings in February 1612, and the next year he became a friar in this monastery.</p>
+    <p>Paintings like this usually put Mary right in the middle, but Maíno moved Mary a little back on the left and painted Peter and Luke large in front. The key at Peter’s feet stands for the keys of the Kingdom that Jesus promised to give him (Matt 16:19). By tradition, Luke is known as the writer of the Gospel of Luke and the Acts of the Apostles. The people are amazed, but there is no uproar; they meet the moment quietly.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>‘Pentecost’ means ‘the fiftieth day’. It is the great Jewish festival called the Feast of Weeks. Starting from the day the first sheaf of the grain harvest was offered around Passover, people counted seven weeks, and on the fiftieth day they offered bread baked from the newly harvested wheat (Lev 23:10–17). The church remembers the coming of the Holy Spirit on the fiftieth day of Easter, counting Easter Day as the first, and also calls this day ‘the church’s birthday’.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Jerusalem at the festival</b>At Pentecost, Jews who lived scattered all over the world gathered in Jerusalem. The Acts of the Apostles lists fifteen places one by one, from Parthia, Media and Elam to Rome, Crete and Arabia (2:9–11).</p>
+    <figure class="ph" data-q="Find a person holding a sickle. How are they gathering the cut grain?" data-color="img/evr6-barley.jpg" data-color-alt="AI-colorized version of a black-and-white photo. In a field of ripe golden barley, people cut the barley with sickles and tie it into sheaves." data-color-q="AI guessed the colors in this photo. What color does the ripe barley field look?">
+     <div class="phw"><img src="img/eera6-barley.jpg" alt="Black-and-white photo. In a wide field, people cut barley with sickles and tie it into sheaves." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>The barley harvest</b> · between 1898 and 1946<br>In Israel the barley harvest begins around Passover. Count fifty days from the day the first sheaf was offered, and you come to the Feast of Weeks (Pentecost), a celebration of the wheat harvest. The Bible also calls this festival the ‘feast of harvest’ and the ‘feast of weeks’ (Exod 23:16; 34:22). <a class="orig" href="https://commons.wikimedia.org/wiki/File:Reaping_barley_harvest._LOC_matpc.05396.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="Look at the people in front of the gate. Are they all dressed the same?">
+     <img src="img/ecolor6-jaffa-gate.jpg" alt="Old color print. People and donkeys come and go in front of a gate in a high stone wall." loading="lazy">
+     <figcaption><b>The Jaffa Gate, Jerusalem · 1890s color print</b><br>The west gate of Jerusalem, where the road to the Mediterranean port of Jaffa (Joppa) begins. Pilgrims who crossed the sea also came into Jerusalem along this road. At Pentecost, the people who came “from every nation under the sky” (2:5) must also have gathered in Jerusalem through many roads and gates like this one. <a class="orig" href="https://www.loc.gov/item/2002724999/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You are praying with your friends, all together in one room. Suddenly a loud ‘whoosh’ of wind fills the whole house. A small flame sparkles above your friend’s head. But it isn’t hot at all."><small>Close your eyes and imagine</small>The disciples, who had been hiding behind closed doors, go out into the street and start talking to people from faraway countries. If you were there, what would you tell that person first?</p>
+    <a class="go" href="https://www.museodelprado.es/en/the-collection/art-work/the-pentecost/49c1d551-240d-4bab-8f4a-39c706ce0ee5">Look closely at the painting · The Prado Museum’s page<small>Zoom in to see the book Luke is writing in, and the light around the dove</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“How could you tell a friend from another country, ‘God loves you’?”</p></div>
+   <div class="root">The promised Holy Spirit came, and the disciples told of the mighty works of God in many languages (Acts 2:4, 11).</div>
+   <a class="read" href="https://biblehub.com/web/acts/2.htm">Now read the passage · Acts 2:1–13<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Some children may think the flames were real fire and be frightened. The Bible says “tongues like fire” (2:3). Churches understand ‘speaking in other languages’ in different ways. Here, stay with the point that people from many countries each heard them speaking in their own language (2:6, 11).</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>Set it side by side with El Greco’s <i>Pentecost</i> in the Experience Together room. El Greco put Mary right in the middle and painted the people surging upward like flames; Maíno moved Mary aside and painted a quiet amazement.</li>
+    <li>Follow it with the ‘Church birthday party’ and ‘Holy Spirit pinwheels’ activities in the Experience Together room.</li>
+    <li><a href="https://www.museodelprado.es/en/whats-on/exhibition/juan-bautista-maino-1581-1649/9aefb766-3b30-4dc8-9551-f22c091b2219">Museo del Prado, ‘Juan Bautista Maíno’ exhibition</a> <span class="note">the story of the Four Pascuas altarpiece</span></li>
+    <li><a href="https://thevcs.org/exhibitions/new-testament/acts-apostles">VCS exhibitions on the Acts of the Apostles</a> <span class="note"><i>Pentecost</i> (Acts 2:1–13)</span></li>
+   </ul></section>
+   <details class="src"><summary>Sources (7)</summary><ul>
+    <li><a href="https://www.museodelprado.es/en/the-collection/art-work/the-pentecost/49c1d551-240d-4bab-8f4a-39c706ce0ee5">Museo del Prado artwork page</a>: 1612–1614, 285 × 163 cm; the ‘Four Pascuas’ altarpiece of San Pedro Mártir; the contract of February 14, 1612; Mary moved to the left; Peter and the writing Luke in front; the white dove with outspread wings and yellow-orange light; the quiet amazement</li>
+    <li><a href="https://www.museodelprado.es/en/whats-on/exhibition/juan-bautista-maino-1581-1649/9aefb766-3b30-4dc8-9551-f22c091b2219">Museo del Prado, Maíno exhibition</a>: the ‘Four Pascuas’ (Christmas, Epiphany, Easter and Pentecost); the painter’s years at San Pedro Mártir</li>
+    <li><a href="https://galeriacaylus.com/wp-content/uploads/2024/01/maino-a.-rodriguez-rebollo.pdf">Galería Caylus, Maíno study</a>: professed as a Dominican friar at San Pedro Mártir in 1613</li>
+    <li><a href="https://www.myjewishlearning.com/article/shavuot-history/">My Jewish Learning, ‘Shavuot History’</a>: seven weeks from the barley harvest to the wheat harvest; Shavuot, when the first fruits of wheat were offered</li>
+    <li><a href="https://www.posenlibrary.com/node/11827">The Posen Library, ‘Shavuot in Early Judaism’</a>: the Greek ‘Pentecost’ means counting fifty days; the wheat harvest after the barley</li>
+    <li><a href="https://en.wikipedia.org/wiki/Cenacle">Wikipedia, ‘Cenacle’</a>: the tradition of the upper room where the Spirit came at Pentecost</li>
+    <li><a href="https://biblehub.com/web/acts/2.htm">World English Bible</a>: Acts 2:1–13, 41; Lev 23:10–17; Exod 23:16; 34:22</li>
+   </ul><p>Painting: Juan Bautista Maíno, <i>Pentecost</i> (original title: <i>Pentecostés</i>), 1612–1614, Museo del Prado, Madrid. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Reaping_barley_harvest._LOC_matpc.05396.jpg">‘Reaping barley harvest’</a> (1898–1946, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress Photochrom Collection, <a href="https://www.loc.gov/item/2002724999/">‘The Jaffa Gate, Jerusalem’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+  <p>The paintings are public-domain works. The old photos in ‘Step back in time’ come from the Library of Congress <a href="https://commons.wikimedia.org/wiki/Category:Matson_Collection_in_the_Library_of_Congress">Matson Collection</a> (20th-century photos, no known copyright restrictions).</p>
+  <p>The ‘AI colorized’ photos were colored with the AI colorization model <a href="https://github.com/piddnad/ddcolor">DDColor</a> (Alibaba researchers, ICCV 2023), using the public <a href="https://huggingface.co/spaces/gudada/DDColor">DDColor app</a> on Hugging Face. It keeps the photo’s brightness and shapes and only guesses the colors, so even when the result looks convincing, the colors may differ from the real ones.</p>
+  <p>The ‘1890s color prints’ come from the Library of Congress <a href="https://www.loc.gov/collections/photochrom-prints/about-this-collection/">Photochrom Collection</a>. Color was added to a black-and-white negative following color notes the photographer made on the spot (<a href="https://en.wikipedia.org/wiki/Photochrom">Wikipedia, ‘Photochrom’</a>), so the colors are not AI guesses, but they cannot be called exactly true to life either. The Library of Congress says there are no known copyright restrictions on this collection (<a href="https://blogs.loc.gov/loc/2017/10/free-to-use-and-reuse-historical-travel-pictures/">Library of Congress blog</a>).</p>
+  <p>Bible quotations are from the World English Bible (WEB), which is in the public domain.</p>
+  <p>Easter Day (John 20:1–18), the Second Sunday of Easter (John 20:19–31), the Ascension (Acts 1:1–11) and Pentecost (Acts 2) are read every year in the Revised Common Lectionary, used by many churches, and the Emmaus story (Luke 24:13–35) and the morning by the lake (John 21) are also read in the Easter season. This course also points to exhibitions on the same passages by The Visual Commentary on Scripture (King’s College London), without reproducing VCS’s text.</p>
+  <p><a href="lent.html?lang=en">Previous · Lent Course</a> · <a href="after-pentecost.html?lang=en">Next · After Pentecost Course</a> · <a href="feel.html#en">Back to Experience Together</a> · <a href="./?lang=en">Practice Room</a></p>
+ </div>
+</footer>
+</div>
+
+<dialog class="show" id="show" aria-label="아이에게 보여 주기">
+ <div class="sw">
+  <div class="sw-top"><span id="swTitle"></span><button class="sw-x" type="button" data-close aria-label="닫기">×</button></div>
+  <div class="sw-stage" id="swStage"></div>
+  <p class="sw-q" id="swQ" aria-live="polite"></p>
+  <div class="sw-nav"><button type="button" data-step="-1">이전</button><span class="dots" id="swDots" aria-hidden="true"></span><button type="button" class="next" data-step="1">다음</button></div>
+ </div>
+</dialog>
+
+<script>
+/* 화면 글자: 한국어 / English */
+const T={
+ ko:{look:"찾아보기",photo:"그 시절 사진",imagine:"눈 감고 상상해 보기",vr:"AI 가상 복원 · 실제 색과 다를 수 있어요",toColor:"가상 복원으로 보기",toBw:"흑백 원본으로",prev:"이전",next:"다음",again:"처음으로",close:"닫기",dlg:"아이에게 보여 주기",title:"부활절 코스 · 질문 받기 연습실"},
+ en:{look:"Things to find",photo:"A photo from those days",imagine:"Close your eyes and imagine",vr:"AI colorized · the real colors may differ",toColor:"See in color (AI)",toBw:"Back to black and white",prev:"Previous",next:"Next",again:"Start over",close:"Close",dlg:"Show it to the children",title:"Easter Course · Question Practice Room"}
+};
+const langOf=el=>{const b=el&&el.closest(".L");return b&&b.lang==="en"?"en":"ko";};
+{
+ /* 한국어 ↔ English. 고른 언어는 이 브라우저에 기억해요. 주소 끝에 #en 또는 ?lang=en을 붙여도 영어판으로 열려요 */
+ const KEY="easter-lang",boxes=[...document.querySelectorAll(".L")];
+ const setLang=(l,save)=>{
+  l=l==="en"?"en":"ko";
+  boxes.forEach(b=>{const off=b.lang!==l;b.hidden=off;const m=b.querySelector("main");if(m)m.hidden=off;});
+  document.documentElement.lang=l;
+  document.title=T[l].title;
+  if(save)try{localStorage.setItem(KEY,l);}catch(e){}
+ };
+ const h=location.hash.slice(1),q=new URLSearchParams(location.search).get("lang");
+ let first="ko";
+ if(h==="en"||h==="ko")first=h;
+ else if(q==="en"||q==="ko")first=q;
+ else try{first=localStorage.getItem(KEY)||"ko";}catch(e){}
+ setLang(first,h==="en"||h==="ko");
+ document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-lang]");
+  if(!b)return;
+  const l=b.dataset.lang==="en"?"en":"ko";
+  setLang(l,true);
+  const o=document.querySelector(`.L[lang="${l}"] [data-lang]`);
+  if(o)o.focus();
+ });
+ addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(h==="en"||h==="ko")setLang(h,true);});
+}
+{
+ /* 장면 고르기: #scene1~6, 없으면 오늘 날짜에 맞는 장면 */
+ const W=["scene1","scene2","scene3","scene4","scene5","scene6"];
+ /* 부활절, 부활절 둘째·셋째·넷째 주일, 승천 주일(부활절 일곱째 주일), 성령강림절. 부활절 날짜는 해마다 바뀌어요.
+    다섯째·여섯째 주일에는 넷째 주일 장면이 그대로 이어져요. 마지막 장면(성령강림절)이 지나고 한 주가 더 지나면 다음 해 부활절로 넘어가요 */
+ const easter=y=>{const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),n=h+l-7*m+114;return new Date(y,Math.floor(n/31)-1,n%31+1);};
+ const plan=y=>{const e=easter(y);return [0,7,14,21,42,49].map(n=>new Date(y,e.getMonth(),e.getDate()+n));};
+ const now=new Date();
+ let starts=plan(now.getFullYear());
+ if(now>=new Date(starts[5].getFullYear(),starts[5].getMonth(),starts[5].getDate()+7))starts=plan(now.getFullYear()+1);
+ const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+ document.querySelectorAll("[data-wd]").forEach(el=>{const d=starts[+el.dataset.wd],b=el.closest(".L");el.textContent=b&&b.lang==="en"?`${MON[d.getMonth()]} ${d.getDate()}`:`${d.getMonth()+1}월 ${d.getDate()}일`;});
+ const today=()=>{const n=new Date();let i=0;starts.forEach((d,k)=>{if(n>=d)i=k;});return W[i];};
+ let cur=null;
+ const show=scroll=>{
+  const h=location.hash.slice(1);
+  cur=W.includes(h)?h:(cur||today());
+  document.querySelectorAll(".card").forEach(c=>c.classList.toggle("on",c.dataset.week===cur));
+  document.querySelectorAll(".wk").forEach(t=>t.setAttribute("aria-current",String(t.dataset.w===cur)));
+  if(scroll){const c=document.querySelector(`.L:not([hidden]) .card[data-week="${cur}"]`);if(c)c.scrollIntoView({block:"start"});}
+ };
+ document.documentElement.classList.add("js");
+ show(false);
+ addEventListener("hashchange",()=>show(W.includes(location.hash.slice(1))));
+}
+{
+ /* 아이에게 보여 주기: 그림 → 찾아보기 → 옛 사진 → 눈 감고 상상 → 물어볼 것 */
+ const dlg=document.getElementById("show");
+ const stage=document.getElementById("swStage"),qEl=document.getElementById("swQ"),dots=document.getElementById("swDots"),title=document.getElementById("swTitle");
+ const prev=dlg.querySelector('[data-step="-1"]'),next=dlg.querySelector('[data-step="1"]'),closeBtn=dlg.querySelector("[data-close]");
+ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+ let steps=[],at=0,tinted=false,tx=T.ko;
+ const build=card=>{
+  const art=card.querySelector(".fig img"),s=[];
+  const pic={img:art.src,alt:art.alt};
+  s.push({...pic,label:card.querySelector(".opener small").textContent,text:card.querySelector(".opener h2").textContent});
+  card.querySelectorAll(".look li").forEach(li=>s.push({...pic,label:tx.look,text:li.textContent}));
+  card.querySelectorAll(".era .ph").forEach(f=>{
+   const im=f.querySelector("img"),abs=u=>new URL(u,location.href).href;
+   const bw=f.dataset.bw?{src:f.dataset.bw,alt:f.dataset.bwAlt}:{src:im.getAttribute("src"),alt:im.alt};
+   s.push({img:abs(bw.src),alt:bw.alt,label:tx.photo,text:f.dataset.q,
+    color:f.dataset.color?{img:abs(f.dataset.color),alt:f.dataset.colorAlt,text:f.dataset.colorQ}:null});
+  });
+  const im=card.querySelector(".imagine");
+  if(im)s.push({img:null,label:tx.imagine,text:im.dataset.kid});
+  s.push({...pic,label:card.querySelector(".ask small").textContent,text:card.querySelector(".ask p").textContent});
+  return s;
+ };
+ const render=()=>{
+  const s=steps[at],c=s.color&&tinted?s.color:null;
+  const src=c?c.img:s.img,alt=c?c.alt:s.alt,text=c?c.text:s.text,label=c?tx.vr:s.label;
+  stage.innerHTML=s.img?`<div class="sw-pic"><img src="${esc(src)}" alt="${esc(alt)}">${s.color?`<button class="tint" type="button" data-tint aria-pressed="${tinted}">${esc(tinted?tx.toBw:tx.toColor)}</button>`:""}</div>`:`<div class="sw-dark"><span>${esc(s.label)}</span></div>`;
+  qEl.innerHTML=`<small>${esc(label)}</small>${esc(text)}`;
+  dots.innerHTML=steps.map((_,i)=>`<i class="${i===at?"on":""}"></i>`).join("");
+  prev.disabled=at===0;
+  next.textContent=at===steps.length-1?tx.again:tx.next;
+ };
+ const go=d=>{at=(d>0&&at===steps.length-1)?0:Math.max(0,Math.min(steps.length-1,at+d));tinted=false;render();};
+ const tint=()=>{if(!steps[at].color)return;tinted=!tinted;render();const b=stage.querySelector("[data-tint]");if(b)b.focus();};
+ if(typeof dlg.showModal!=="function"){document.querySelectorAll("[data-show]").forEach(b=>b.hidden=true);}
+ document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-show]");
+  if(!b)return;
+  const card=b.closest(".card"),l=langOf(card);
+  tx=T[l];
+  dlg.lang=l;dlg.setAttribute("aria-label",tx.dlg);closeBtn.setAttribute("aria-label",tx.close);prev.textContent=tx.prev;
+  steps=build(card);at=0;tinted=false;
+  title.textContent=card.querySelector(".chip").textContent;
+  render();dlg.showModal();next.focus();
+ });
+ dlg.addEventListener("click",e=>{
+  if(e.target.closest("[data-close]")){dlg.close();return;}
+  if(e.target.closest("[data-tint]")){tint();return;}
+  const st=e.target.closest("[data-step]");
+  if(st)go(+st.dataset.step);
+ });
+ document.addEventListener("keydown",e=>{
+  if(!dlg.open)return;
+  if(e.key==="ArrowRight"){e.preventDefault();go(1);}
+  else if(e.key==="ArrowLeft"){e.preventDefault();go(-1);}
+ });
+ let x0=null;
+ stage.addEventListener("pointerdown",e=>{x0=e.clientX;});
+ stage.addEventListener("pointerup",e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;if(Math.abs(dx)>50)go(dx<0?1:-1);else if(Math.abs(dx)<8&&e.target.tagName==="IMG")tint();});
+}
+{
+ /* 카드 속 흑백 사진: 누르면 흑백 원본 ↔ 가상 복원(같은 사진에 색을 입힌 것) */
+ const swap=(fig,on)=>{
+  const tx=T[langOf(fig)],img=fig.querySelector(".phw img"),btn=fig.querySelector(".tint");
+  if(!fig.dataset.bw){fig.dataset.bw=img.getAttribute("src");fig.dataset.bwAlt=img.alt;}
+  const src=on?fig.dataset.color:fig.dataset.bw,pre=new Image();
+  pre.src=src;
+  (pre.decode?pre.decode():Promise.resolve()).catch(()=>{}).then(()=>{
+   img.src=src;img.alt=on?fig.dataset.colorAlt:fig.dataset.bwAlt;
+   btn.setAttribute("aria-pressed",String(on));
+   btn.textContent=on?tx.toBw:tx.toColor;
+   const note=fig.querySelector(".vr-note");if(note)note.hidden=!on;
+   fig.classList.toggle("is-color",on);
+  });
+ };
+ document.addEventListener("click",e=>{
+  const w=e.target.closest(".ph[data-color] .phw");
+  if(!w)return;
+  const fig=w.closest(".ph");
+  swap(fig,!fig.classList.contains("is-color"));
+ });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주현절 후 코스 · 질문 받기 연습실</title>
+<meta name="description" content="요단강에서 빛나는 산 위까지, 그림 네 점으로 걷는 주현절 후. 주님의 수세 주일부터 산상변모주일까지, 그림 한 점에 질문 하나. 그 땅의 옛 사진과 AI 가상 복원, 아이에게 보여 주기.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="주현절 후 코스 · 질문 받기 연습실">
+<meta property="og:description" content="요단강에서 빛나는 산 위까지, 그림 네 점으로 걷는 주현절 후. 그림 한 점에 질문 하나.">
+<meta property="og:url" content="https://hunj08423-debug.github.io/hun/after-epiphany.html">
+<meta property="og:image" content="https://hunj08423-debug.github.io/hun/og-feel.jpg">
+<meta name="theme-color" content="#1D2B1A">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* 주현절 후 코스 · 함께 느끼기 방에서 이어지는 따로 페이지 (feel.html의 평상 절기 칸에서 들어옴, christmas.html과 같은 틀)
+   VOICE everyday · 교사용 절기 카드, 조용하고 따뜻하게
+   IDEA 드러남: 요단강과 변화산에서 같은 목소리가 들리는 네 장면. 장면마다 잎이 하나씩 더 돋는 띠
+   PICTURE 네 장면의 그림을 나란히 세운 띠, 고른 장면의 그림이 크게
+   COLOUR 함께 느끼기 방의 바탕과 잉크에 평상 절기 초록 #3F6F24, 숲 같은 짙은 초록 #1D2B1A, 촛불 금빛 한 점
+   TYPE Noto Serif KR(제목·질문·뿌리) + Noto Sans KR(본문)
+   LAYOUT 넓은 화면: 네 칸 띠 아래 그림 왼쪽 고정, 글 오른쪽 / 휴대폰: 2×2 띠, 그림, 글 */
+:root{color-scheme:light dark;
+--bg:light-dark(#F8F7F4,#151311);--surface:light-dark(#FFFFFF,#1E1B18);--ink:light-dark(#1C1A17,#F1ECE4);--ink2:light-dark(#3D3A35,#D9D2C7);
+--muted:light-dark(#5F584F,#B3AA9E);--line:light-dark(#E6E1D9,#36312B);--accent:light-dark(#3F6F24,#A9D98E);--soft:light-dark(#EAF2E3,#20301A);
+--deep:#1D2B1A;--flame:#E9B44C;--warn:light-dark(#8A4B12,#F0C38E);--warn-soft:light-dark(#FBF1E6,#33261A);
+--sand:light-dark(#F3EDE3,#25201A);--earth:light-dark(#7A4E26,#E3B98C);
+--sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--serif:"Noto Serif KR","AppleMyungjo","Batang",serif}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.7 var(--sans);word-break:keep-all;overflow-wrap:break-word;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--serif);margin:0;line-height:1.2;letter-spacing:-.02em;text-wrap:balance}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(4vw,16px)}
+.top{background:var(--deep);color:#F3EEE6;padding:28px 0 30px}
+.top .brand{font-size:14px;opacity:.82}
+.top h1{font-size:clamp(32px,5vw,46px);margin:8px 0 10px;color:#fff}
+.top .sub{font-size:17px;max-width:46em;color:#DCE9D2}
+.howto{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:14px;color:#DCE9D2}
+.howto b{color:var(--flame);font-weight:700}
+.top a.back{color:inherit;text-decoration:none}
+.top a.back:hover{text-decoration:underline}
+.top a.back:focus-visible{outline:3px solid var(--flame);outline-offset:2px;border-radius:4px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lang{flex:none;min-height:36px;padding:6px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.42);background:transparent;color:#fff;font:700 14px/1.2 var(--sans);cursor:pointer}
+.lang:hover{background:rgba(255,255,255,.12)}
+.lang:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.draft{margin-top:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 14px;font-size:14px;color:#F3EEE6}
+.weeks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:-2px 0 0;padding:22px 0 8px}
+.wk{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .2s ease,border-color .2s}
+.wk:hover{transform:translateY(-2px);border-color:var(--accent)}
+.wk:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wk[aria-current=true]{border:2px solid var(--accent);box-shadow:0 0 0 4px var(--soft)}
+.wk img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.wk .bd{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
+.wk .when{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 8px;font-size:13px;color:var(--muted)}
+.wk .when b{white-space:nowrap}
+.wk .when b{color:var(--accent);font-weight:700}
+.wk .q{font-family:var(--serif);font-weight:600;font-size:16px;line-height:1.45}
+.steps{display:inline-flex;gap:3px;align-items:center;flex:none}
+.steps i{display:block;width:11px;height:11px;border-radius:0 100% 0 100%;background:var(--line)}
+.steps i.on{background:var(--accent)}
+.thread{margin:6px 0 4px;font-size:14px;color:var(--muted)}
+.thread b{color:var(--ink2)}
+.card{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,3.5vw,44px);padding:30px 0 46px;border-top:1px solid var(--line);margin-top:22px;scroll-margin-top:12px}
+.js .card{display:none}
+.js .card.on{display:grid}
+.fig{position:sticky;top:16px;align-self:start;display:flex;flex-direction:column;gap:10px}
+.fig img{width:100%;max-height:82vh;object-fit:contain;background:#0f0d0c;border-radius:14px}
+.fig .cap{font-size:13px;color:var(--muted);line-height:1.6}
+.fig .cap b{color:var(--ink2);font-weight:600}
+.txt{display:flex;flex-direction:column;gap:18px}
+.tag{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px;color:var(--muted)}
+.chip{background:var(--soft);color:var(--accent);font-weight:700;border-radius:999px;padding:4px 12px;font-size:13.5px}
+.opener{background:var(--soft);border-radius:18px;padding:18px 20px}
+.opener small{display:block;font-size:13px;font-weight:700;color:var(--accent)}
+.opener h2{font-size:clamp(25px,3.2vw,32px);margin-top:4px}
+.line{font-family:var(--serif);font-size:18.5px;line-height:1.75;font-weight:600}
+.blk h3{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--accent);letter-spacing:0;margin-bottom:6px}
+.blk p{margin:0 0 8px}
+.blk ol,.blk ul{margin:0;padding-left:21px;display:flex;flex-direction:column;gap:6px}
+/* 그 시절로 가 보기 */
+.era{background:var(--sand);border-radius:18px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:14px}
+.era>h3{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--earth);letter-spacing:0}
+.where{margin:0}
+.where b{display:block;font-family:var(--serif);font-size:17px;margin-bottom:2px}
+.ph{margin:0;display:flex;flex-direction:column;gap:8px}
+.ph img{width:100%;border-radius:12px;background:#0f0d0c}
+.ph figcaption{font-size:14.5px;line-height:1.65;color:var(--ink2)}
+.ph figcaption b{font-family:var(--serif);font-size:15.5px;color:var(--ink)}
+.imagine{margin:0;border-left:3px solid var(--flame);padding:4px 0 4px 14px;font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.75}
+.imagine small{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--earth);margin-bottom:2px}
+.go{position:relative;display:flex;flex-direction:column;gap:2px;padding:12px 16px 12px 44px;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;line-height:1.5}
+.go::before{content:"";position:absolute;left:17px;top:50%;margin-top:-7px;border-left:12px solid var(--earth);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.go small{font-weight:400;font-size:13px;color:var(--muted)}
+.go:hover{border-color:var(--earth)}
+.go:focus-visible{outline:3px solid var(--earth);outline-offset:2px}
+.old{margin:0;font-size:13px;color:var(--muted)}
+.orig{font-size:13px;color:var(--muted);white-space:nowrap}
+/* 가상 복원 보기 */
+.phw{position:relative}
+.ph[data-color] .phw{cursor:pointer}
+.tint{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:6px 13px 6px 10px;border:0;border-radius:999px;background:rgba(16,14,12,.80);color:#fff;font:700 13px/1.2 var(--sans);cursor:pointer}
+.tint::before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:conic-gradient(#E9B44C,#D2553F,#5B8C5A,#4A78B5,#E9B44C)}
+.tint[aria-pressed=true]::before{background:linear-gradient(90deg,#fff 50%,#333 50%);box-shadow:0 0 0 1px rgba(255,255,255,.6)}
+.tint:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.vr-note{display:block;margin-top:4px;font-size:12.5px;color:var(--muted)}
+.vr-note[hidden]{display:none}
+.ph.is-color .phw::after{content:"AI 가상 복원";position:absolute;right:10px;top:10px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.9);color:#1C1A17;font:700 12px/1.3 var(--sans)}
+.L[lang=en] .ph.is-color .phw::after{content:"AI colorized"}
+.sw-pic{position:relative;width:100%;height:100%}
+.sw-pic .tint{left:50%;transform:translateX(-50%);bottom:12px;font-size:14px;min-height:40px}
+/* 아이에게 보여 주기 */
+.showbtn{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;padding:12px 16px;border:0;border-radius:14px;background:var(--deep);color:#F3EEE6;font:700 16px/1.45 var(--sans);text-align:left;cursor:pointer}
+.showbtn b{display:flex;align-items:center;gap:9px}
+.showbtn b::before{content:"";border-left:11px solid var(--flame);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.showbtn span{font-weight:400;font-size:13px;color:#CFE0C3}
+.showbtn:hover{background:#2C4227}
+.showbtn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tip{margin:10px 0 0;font-size:14px;color:#DCE9D2}
+.tip b{color:var(--flame)}
+dialog.show{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#100E0C;color:#F3EEE6}
+dialog.show::backdrop{background:#000}
+.sw{height:100%;display:flex;flex-direction:column;gap:12px;padding:12px max(14px,3vw) max(14px,env(safe-area-inset-bottom))}
+.sw-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:#BDB4A8}
+.sw-x{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:transparent;color:#F3EEE6;font-size:24px;line-height:1;cursor:pointer}
+.sw-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;touch-action:pan-y}
+.sw-stage img{width:100%;height:100%;object-fit:contain}
+.sw-dark{width:100%;height:100%;border-radius:14px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 46%,rgba(233,180,76,.30),rgba(233,180,76,0) 34%),#07060A}
+.sw-dark span{font-family:var(--serif);font-size:clamp(22px,4vw,34px);font-weight:700;color:#F6E3B8}
+.sw-q{margin:0 auto;max-width:820px;min-height:3.2em;text-align:center;font-family:var(--serif);font-weight:600;font-size:clamp(20px,3vw,28px);line-height:1.5;text-wrap:pretty}
+.sw-q small{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--flame);margin-bottom:4px}
+.sw-nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sw-nav button{min-height:48px;min-width:96px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#F3EEE6;font:700 16px var(--sans);cursor:pointer}
+.sw-nav button.next{background:var(--flame);border-color:var(--flame);color:#1C1A17}
+.sw-nav button:disabled{opacity:.35;cursor:default}
+.sw button:focus-visible{outline:3px solid var(--flame);outline-offset:2px}
+.dots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25)}
+.dots i.on{background:var(--flame)}
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.ask small{font-size:13px;font-weight:700;color:var(--accent)}
+.ask p{margin:4px 0 0;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.6}
+.root{background:var(--deep);color:#F3EEE6;border-radius:14px;padding:15px 18px;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.6}
+.read{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:12px 18px;border-radius:14px;background:var(--accent);color:var(--surface);text-decoration:none;font-weight:700}
+.read:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.read span{font-weight:400;font-size:13.5px;opacity:.9}
+.aha{background:var(--soft);border-radius:14px;padding:14px 16px}
+.aha h3{margin-bottom:4px}
+.care{background:var(--warn-soft);color:var(--ink);border-radius:14px;padding:13px 16px;font-size:15px}
+.care b{color:var(--warn)}
+.more li{font-size:15px}
+.more .note{color:var(--muted);font-size:13.5px}
+details.src{border-top:1px dashed var(--line);padding-top:12px;font-size:13.5px;color:var(--muted)}
+details.src summary{cursor:pointer;font-weight:700;color:var(--ink2);min-height:32px}
+details.src ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.foot{border-top:1px solid var(--line);padding:22px 0 40px;font-size:14px;color:var(--muted)}
+.foot p{margin:0 0 6px}
+@media (max-width:900px){.card{grid-template-columns:minmax(0,1fr)}.fig{position:static}.fig img{max-height:70vh}}
+@media (max-width:600px){.weeks{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.wk .q{font-size:15px}.top .sub{font-size:16px}.line{font-size:17.5px}}
+@media (prefers-reduced-motion:reduce){.wk{transition:none}.wk:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="L" lang="ko">
+<header class="top">
+ <div class="wrap">
+  <div class="bar"><a class="brand back" href="feel.html">‹ 질문 받기 연습실 · 함께 느끼기</a><button class="lang" type="button" data-lang="en" lang="en">English</button></div>
+  <h1>주현절 후 코스</h1>
+  <p class="sub">요단강에서 빛나는 산 위까지, 그림 네 점으로 걷는 주현절 후. 주님의 수세 주일부터 산상변모주일까지, 그림 한 점에 질문 하나.</p>
+  <div class="howto"><span><b>1</b> 그림을 함께 보고</span><span><b>2</b> 질문을 던지고</span><span><b>3</b> 그 시절로 가 본 뒤</span><span><b>4</b> 본문을 같이 읽어요</span></div>
+  <p class="tip">그림 아래 <b>아이에게 보여 주기</b>를 누르면 그림과 그 땅의 옛 사진을 화면 가득 띄우고, 질문을 하나씩 넘길 수 있어요. 흑백 사진은 누르면 AI로 색을 입힌 <b>가상 복원</b>으로 바뀌어요.</p>
+  <div class="draft">검수 전 초안이에요. AI가 출처를 모아 쓴 글이라, 카드마다 맨 아래 ‘근거 보기’와 대조해 확인해 주세요.</div>
+ </div>
+</header>
+
+<main class="wrap">
+ <nav class="weeks" aria-label="장면 고르기">
+  <a class="wk" href="#scene1" data-w="scene1"><img src="img/ep1-piero-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>주님의 세례 · <span data-wd="0">1월 10일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">예수님은 왜 세례를 받으셨어요?</span></span></a>
+  <a class="wk" href="#scene2" data-w="scene2"><img src="img/ep2-veronese-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>주현 후 2주 · <span data-wd="1">1월 17일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">물이 정말 포도주가 됐어요?</span></span></a>
+  <a class="wk" href="#scene3" data-w="scene3"><img src="img/ep3-duccio-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>주현 후 3주 · <span data-wd="2">1월 24일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">베드로는 왜 그물을 버려두고 따라갔어요?</span></span></a>
+  <a class="wk" href="#scene4" data-w="scene4"><img src="img/ep4-bellini-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>산상변모주일 · <span data-wd="3">2월 7일</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">예수님 옷이 왜 하얗게 빛났어요?</span></span></a>
+ </nav>
+ <p class="thread">네 장면을 잇는 두 말: <b>“내 사랑하는 아들”</b>(마 3:17, 17:5)과 <b>“영광을 나타내시매”</b>(요 2:11). 요단강에서 들린 하늘의 목소리는 변화산에서 다시 들려요. 그 사이에 예수님은 가나에서 처음으로 영광을 드러내셨고, 갈릴리 어부들은 부르심을 따라 일어섰어요. 주현절(主顯節)은 ‘주님이 드러나신 절기’라는 뜻이에요.</p>
+
+ <!-- 장면 1 -->
+ <article class="card" id="scene1" data-week="scene1">
+  <figure class="fig">
+   <img loading="lazy" src="img/ep1-piero.jpg" alt="피에로 델라 프란체스카의 그림. 맑은 하늘 아래 얕은 냇물에 선 예수가 두 손을 모으고 있고, 오른쪽의 세례 요한이 작은 그릇으로 예수의 머리에 물을 붓는다. 예수 머리 위에는 흰 비둘기가 날개를 펴고 떠 있다. 왼쪽에는 하얀 줄기의 큰 나무 곁에 천사 셋이 서 있고, 요한 뒤쪽에서는 한 사람이 옷을 머리 위로 벗고 있다. 멀리 언덕과 마을이 보인다.">
+   <figcaption class="cap"><b>「그리스도의 세례」</b> 피에로 델라 프란체스카, 1437~1445년 무렵<br>영국 런던, 내셔널 갤러리</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">주현절 후 첫 주일 · 하늘이 열리고</span><span><span data-wd="0">1월 10일</span> 주님의 수세 주일 · 마태복음 3:13~17</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>예수님은 왜 세례를 받으셨어요?</h2></div>
+   <p class="line">물에서 올라오시는 예수님 위로 하늘이 열립니다. 예수님이 아무 일도 하시기 전에, 맨 처음 들으신 말은 “내 사랑하는 아들”이었어요.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>예수님 머리 위의 흰 비둘기를 찾아보세요. 날개를 어떻게 펴고 있나요?</li>
+    <li>왼쪽 나무 곁에 서 있는 천사 셋을 찾아보세요. 머리에 무엇을 쓰고 있나요? 서로 어떻게 기대어 있나요?</li>
+    <li>요한 뒤쪽에서 옷을 머리 위로 벗고 있는 사람을 찾아보세요. 이 사람은 무엇을 하려는 걸까요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>예수님이 갈릴리에서 요단강으로 오셔서 요한에게 세례를 받으려 하셨어요(3:13). 요한은 “내가 당신에게서 세례를 받아야 할 터인데 당신이 내게로 오시나이까” 하고 말렸어요(3:14). 예수님은 “이제 허락하라 우리가 이와 같이 하여 모든 의를 이루는 것이 합당하니라” 하셨고, 요한이 허락했어요(3:15).</p>
+    <p>예수님이 세례를 받으시고 물에서 올라오시자 “하늘이 열리고 하나님의 성령이 비둘기 같이 내려” 예수님 위에 임하셨어요(3:16). 그리고 하늘에서 소리가 들렸어요. “이는 내 사랑하는 아들이요 내 기뻐하는 자라”(3:17). 하늘의 목소리와 비둘기 같은 성령, 물에서 올라오신 아들이 한 장면에 함께 있어요.</p>
+    <p>피에로 델라 프란체스카의 그림 가운데 남아 있는 가장 이른 작품으로, 고향 보르고 산세폴크로의 세례 요한 성당을 위해 그렸어요. 화가는 요단강 대신 고향 마을 둘레의 냇물과 산, 호두나무를 그려 넣었어요. 마을 사람들이 이 놀라운 일을 바로 자기 동네 앞에서 일어난 일처럼 느끼게 하려고요. 원래는 여러 칸으로 된 제단화의 가운데 그림이었고, 1861년 런던 내셔널 갤러리가 사들였어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>‘산세폴크로’는 ‘거룩한 무덤’이라는 뜻이에요. 성지에서 돌아오던 순례자 두 사람이 호두나무 아래에서 쉬다가 깨어 보니, 성물이 든 자루가 나무 꼭대기 가지에 올라가 있었다는 이야기가 이 마을에 전해져요. 그래서 그림 속 호두나무는 마을 사람들에게 아주 특별한 나무였어요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 요단강, 여리고 동쪽의 세례 터</b>여리고에서 동쪽으로 10킬로미터쯤 떨어진 요단강가가 오래전부터 예수님이 세례를 받으신 곳으로 전해져요. 지금도 해마다 1월이면 2만 명이 넘는 정교회 순례자들이 이곳에 모여 주현절을 지키며 강물에 들어가요.</p>
+    <figure class="ph" data-q="강물 속 사람들을 보세요. 어떤 옷을 입고 있나요? 몇 명쯤 될까요?" data-color="img/epvr1-epiphany-jordan.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 흰옷을 입은 수많은 순례자가 요단강 물속에 들어가 있고, 강가에도 사람들이 빽빽하게 모여 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 요단강 물은 무슨 색이었을까?">
+     <div class="phw"><img src="img/epera1-epiphany-jordan.jpg" alt="흑백 사진. 흰옷을 입은 수많은 순례자가 요단강 물속에 들어가 있고, 강가에도 사람들이 빽빽하게 모여 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>요단강에서 맞는 주현절</b> · 1900년<br>사진가의 기록장에 남은 제목은 ‘여리고 가는 길, 요단 등지. 주현절의 세례’예요. 정교회는 주현절에 예수님의 세례를 기억하며 요단강 물에 들어가는데, 그 모습을 찍은 사진이에요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Road_to_Jericho,_Jordan,_etc._The_baptism_on_Epiphany._LOC_matpc.01020.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="강가에 우거진 나무와 풀을 보세요. 이 강물에서 세례를 받는다면 어떤 느낌일까요?">
+     <img src="img/epcolor1-baptism-place.jpg" alt="색을 입힌 옛 인쇄 사진. 나무와 수풀이 우거진 강가 사이로 요단강이 흐르고, 왼쪽 강둑에 사람 몇이 앉아 쉬고 있다." loading="lazy">
+     <figcaption><b>요단강의 세례 터 · 1890년대 컬러 인쇄본</b><br>예수님이 세례를 받으신 곳으로 전해지는 요단강가예요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002725030/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 차가운 강물에 발을 담가요. 물에서 올라오는데 하늘에서 다정한 목소리가 들려요. “너는 내가 사랑하는 아이야.”"><small>눈 감고 상상해 보기</small>무언가를 잘해서가 아니라, 일을 시작하기도 전에 들은 말 “내 사랑하는 아들”. 그 말을 듣고 시작하는 하루는 어떤 하루일까요?</p>
+    <a class="go" href="https://nationalgallery.org.uk/paintings/NG665">그림 가까이 보기 · 내셔널 갤러리 작품 페이지<small>영어 · 그림을 크게 키워서 호두나무와 멀리 보이는 마을을 찾아보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“누가 너를 ‘사랑하는 아이’라고 불러 주면 어떤 기분이 들 것 같아?”</p></div>
+   <div class="root">예수님이 세례를 받으실 때 하늘이 열리고, 하나님은 “이는 내 사랑하는 아들이요 내 기뻐하는 자라” 하셨습니다(마 3:16~17).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/MAT.3">이제 본문 읽기 · 마태복음 3:13~17<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 세례를 받은 아이도, 아직 받지 않은 아이도 있어요. 교회마다 세례를 베푸는 방법과 나이도 달라요. 누가 세례를 받았는지 묻기보다, 예수님이 들으신 말에 마음을 모아 주세요. 요한이 말렸던 것처럼 예수님이 왜 세례를 받으셨는지는 어려운 질문이에요. 마태복음은 “모든 의를 이루는 것”(3:15)이라고만 말하니, 아이가 물으면 함께 궁금해해도 괜찮아요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li><a href="https://smarthistory.org/piero-della-francesca-the-baptism-of-christ/">Smarthistory ‘Piero della Francesca, The Baptism of Christ’</a> <span class="note">영어 · 그림 앞에서 나누는 영상 해설</span></li>
+    <li>이 주일은 성탄절 코스 넷째 장면(이집트로 피신 중의 휴식)과 같은 날이에요. 반 아이들에게 맞는 쪽을 골라 주세요.</li>
+    <li>마가복음 1:9~11, 누가복음 3:21~22에도 같은 이야기가 있어요.</li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (5)</summary><ul>
+    <li><a href="https://nationalgallery.org.uk/paintings/NG665">내셔널 갤러리 작품 페이지</a>: 1437~1445년 무렵, 산세폴크로 발다프라의 세례 요한 성당을 위해 그림, 피에로의 남아 있는 가장 이른 작품, 고향 둘레의 산과 냇물과 호두나무, 순례자와 호두나무 이야기</li>
+    <li><a href="https://en.wikipedia.org/wiki/The_Baptism_of_Christ_(Piero_della_Francesca)">Wikipedia ‘The Baptism of Christ (Piero della Francesca)’</a>: 167×116cm, 1861년 내셔널 갤러리가 사들임, 가운데 멀리 보이는 마을은 산세폴크로일 수 있음</li>
+    <li><a href="https://www.finestresullarte.info/en/works-and-artists/around-piero-della-francesca-s-baptism-the-polyptych-of-matteo-di-giovanni-in-sansepolcro">Finestre sull’Arte</a>: 마테오 디 조반니가 마저 그린 다폭 제단화의 가운데 칸</li>
+    <li><a href="https://religionunplugged.com/news/2020/1/29/pilgrims-visit-site-of-jesus-baptism-now-cleared-of-landmines">Religion Unplugged</a>: 2만 명이 넘는 정교회 순례자의 주현절, 여리고에서 동쪽 10km의 세례 터</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/MAT.3">개역개정 본문(대한성서공회)</a>: 마 3:13~17</li>
+   </ul><p>그림: 피에로 델라 프란체스카, 「그리스도의 세례」(원제: The Baptism of Christ), 1437~1445년 무렵, 런던 내셔널 갤러리. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Road_to_Jericho,_Jordan,_etc._The_baptism_on_Epiphany._LOC_matpc.01020.jpg">‘Road to Jericho, Jordan, etc. The baptism on Epiphany.’</a>(1900년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725030/">‘Place of the baptism, River Jordan, Holy Land’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 2 -->
+ <article class="card" id="scene2" data-week="scene2">
+  <figure class="fig">
+   <img loading="lazy" src="img/ep2-veronese.jpg" alt="파올로 베로네세의 아주 큰 그림. 기둥과 난간이 둘러선 웅장한 건물 마당에서 혼인 잔치가 열렸다. 긴 식탁에 화려한 옷을 입은 사람들이 빽빽이 앉아 있고, 한가운데에 예수와 마리아가 앉아 있다. 앞쪽 가운데에서는 악사들이 악기를 연주하고, 오른쪽 아래에서는 하인들이 커다란 항아리의 포도주를 다른 그릇에 따른다. 위쪽 난간에도 사람들이 모여 있고 파란 하늘이 보인다.">
+   <figcaption class="cap"><b>「가나의 혼인 잔치」</b> 파올로 베로네세, 1562~1563년<br>프랑스 파리, 루브르 박물관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">주현절 후 둘째 주일 · 첫 표적</span><span><span data-wd="1">1월 17일</span> 주현절 후 둘째 주일 · 요한복음 2:1~11</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>물이 정말 포도주가 됐어요?</h2></div>
+   <p class="line">잔치가 한창인데 포도주가 떨어졌어요. 무슨 일이 일어났는지 아는 사람은 물을 떠 온 하인들뿐이었어요.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>그림 한가운데 식탁에 앉은 예수님을 찾아보세요. 바로 곁에는 누가 앉아 있을까요?</li>
+    <li>오른쪽 아래에서 커다란 항아리의 포도주를 따르는 사람들을 찾아보세요. 이 사람들은 무슨 일이 일어났는지 알고 있을까요?</li>
+    <li>앞쪽 가운데에서 악기를 연주하는 사람들을 찾아보세요. 어떤 소리가 날 것 같나요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>갈릴리 가나의 혼례에 예수님의 어머니가 계셨고, 예수님과 제자들도 초대받았어요(2:1~2). 그런데 잔치 도중 포도주가 떨어졌어요. 어머니는 예수님께 알리고 하인들에게 “너희에게 무슨 말씀을 하시든지 그대로 하라” 하고 일렀어요(2:3~5).</p>
+    <p>거기에는 “유대인의 정결 예식을 따라 두세 통 드는 돌항아리 여섯”이 있었어요(2:6). 예수님이 “항아리에 물을 채우라” 하시자 하인들은 아귀까지 채웠어요(2:7). 떠서 연회장에게 갖다 주니, 연회장은 “물로 된 포도주”를 맛보고 신랑을 불러 “그대는 지금까지 좋은 포도주를 두었도다” 했어요(2:9~10). 어디서 났는지 연회장은 몰랐지만 “물 떠온 하인들은 알더라”(2:9). 요한은 이것이 예수님의 “첫 표적”이었고, 이 일로 “그의 영광을 나타내시매 제자들이 그를 믿으니라”라고 적었어요(2:11).</p>
+    <p>베네치아의 화가 파올로 베로네세가 1562~1563년, 베네치아 산조르조 마조레섬 수도원의 식당 벽을 위해 그렸어요. 수도사들이 식사하며 바라보던 그림이에요. 높이 6미터가 넘고 너비가 10미터 가까이 되어 루브르 박물관에서 가장 큰 그림이고, 130명쯤 되는 사람이 그려져 있어요. 1798년 나폴레옹의 군대가 이 그림을 거두어 파리로 보냈고, 지금은 루브르의 같은 방에서 「모나리자」와 마주 보고 걸려 있어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>돌항아리 하나에 ‘두세 통’이 들어갔다고 해요. 한 통(메트레테스)은 40리터쯤이라 항아리 하나에 80~120리터, 여섯 개를 아귀까지 채우면 500~700리터쯤 돼요. 보통 집 욕조로 서너 개를 가득 채울 만큼이에요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 갈릴리 가나</b>가나는 나사렛에서 멀지 않은 갈릴리 마을이에요. 오래전부터 나사렛 북동쪽 7킬로미터쯤의 크프르 칸나가 가나로 전해져 왔고, 나사렛 북서쪽 12킬로미터쯤의 옛 마을 터 키르벳 카나를 가나로 보는 학자도 많아요. 요한복음은 예수님의 제자 나다나엘이 가나 사람이었다고 해요(21:2).</p>
+    <figure class="ph" data-q="샘가에 모인 사람들을 찾아보세요. 무엇을 들고 있나요?" data-color="img/epvr2-cana-spring.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 덤불 앞 돌무더기 둘레의 샘가에 마을 사람들이 모여 있고, 물동이를 든 사람들도 보인다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 샘물을 긷는 그릇은 무슨 색이었을까?">
+     <div class="phw"><img src="img/epera2-cana-spring.jpg" alt="흑백 사진. 덤불 앞 돌무더기 둘레의 샘가에 마을 사람들이 모여 있고, 물동이를 든 사람들도 보인다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>가나의 샘</b> · 1900년<br>사진가의 기록장에 남은 제목은 ‘북쪽 풍경, 갈릴리 가나의 샘’이에요. 하인들이 돌항아리 여섯 개를 채운 물도 이렇게 마을 샘에서 길어 날랐을지 몰라요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Northern_views._The_spring_at_Cana_of_Galilee_LOC_matpc.06508.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="멀리 보이는 마을을 찾아보세요. 이 마을 어느 집에서 혼인 잔치가 열렸을까요?">
+     <img src="img/epcolor2-cana.jpg" alt="색을 입힌 옛 인쇄 사진. 멀리 언덕 기슭에 하얀 집들이 모인 가나 마을이 보이고, 앞쪽 풀밭에 올리브나무 한 그루와 사람 셋이 있다." loading="lazy">
+     <figcaption><b>가나 마을 · 1890년대 컬러 인쇄본</b><br>가나로 전해지는 마을의 모습이에요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002724974/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 신나는 잔치에 왔어요. 음악 소리, 웃음소리가 들려요. 그런데 어른들이 수군거려요. “포도주가 다 떨어졌대!”"><small>눈 감고 상상해 보기</small>무거운 물동이를 날라 항아리 여섯 개를 아귀까지 채운 하인들. 떠다 준 물이 포도주가 된 것을 아는 사람은 그들뿐이었어요. 그 비밀을 안 하인의 마음은 어땠을까요?</p>
+    <a class="go" href="https://www.louvre.fr/en/explore/the-palace/from-the-mona-lisa-to-the-wedding-feast-at-cana">그림 가까이 보기 · 루브르 박물관 ‘모나리자에서 가나의 혼인 잔치까지’<small>영어 · 그림이 걸린 방과 그림 이야기를 볼 수 있어요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“무언가 모자라서 곤란했던 적 있니? 그때 누가 도와줬어?”</p></div>
+   <div class="root">예수님은 가나의 혼례에서 첫 표적을 행하여 영광을 나타내셨고, 제자들이 그를 믿었습니다(요 2:11).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/JHN.2">이제 본문 읽기 · 요한복음 2:1~11<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 포도주가 술이라는 것을 아이가 물을 수 있어요. 그 시절 잔치에는 포도주가 빠질 수 없었고, 떨어지면 잔치를 연 집이 크게 곤란했다고 담담하게 알려 주세요. 예수님이 어머니께 하신 “여자여”(2:4)라는 말은 차갑게 들릴 수 있지만, 십자가 위에서 어머니를 제자에게 맡기실 때도 같은 말로 부르셨어요(19:26).</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li><a href="https://www.seetheholyland.net/cana/">See the Holy Land ‘Cana’</a> <span class="note">영어 · 가나 후보지들과 지금의 혼인 기념 교회</span></li>
+    <li>가나에서는 표적이 한 번 더 일어나요. 왕의 신하의 아들을 고치신 “두 번째 표적”이에요(요 4:46~54).</li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (8)</summary><ul>
+    <li><a href="https://www.louvre.fr/en/explore/the-palace/from-the-mona-lisa-to-the-wedding-feast-at-cana">루브르 박물관 ‘From the Mona Lisa to The Wedding Feast at Cana’</a>: 높이 6m가 넘고 너비 10m 가까운 루브르에서 가장 큰 그림, 130명쯤의 인물, 산조르조 마조레섬 수도원 식당</li>
+    <li><a href="https://www.louvre.fr/en/oeuvre-notices/wedding-feast-cana">루브르 박물관 작품 설명</a>: 1798년 나폴레옹의 군대가 거두어 파리로 보냄, 「모나리자」와 같은 방</li>
+    <li><a href="https://en.wikipedia.org/wiki/The_Wedding_at_Cana_(Veronese)">Wikipedia ‘The Wedding at Cana (Veronese)’</a>: 1562~1563년, 6.77×9.94m, 팔라디오가 설계한 수도원 식당</li>
+    <li><a href="https://christianiconography.info/Wikimedia%20Commons/canaVeronese.html">Christian Iconography ‘Paolo Veronese, The Wedding Feast at Cana’</a>: 오른쪽 아래 항아리에서 포도주를 따르는 하인들</li>
+    <li><a href="https://www.biblestudytools.com/bsb/john/2-6.html">BSB 요한복음 2:6 각주</a>: 두세 메트레테스는 약 78.8~118.1리터</li>
+    <li><a href="https://en.wikipedia.org/wiki/Cana">Wikipedia ‘Cana’</a>: 나사렛 북동쪽 약 7km의 크프르 칸나를 가나로 보는 전통</li>
+    <li><a href="https://www.seetheholyland.net/cana/">See the Holy Land ‘Cana’</a>: 위치는 아직 확실하지 않음, 나사렛 북서쪽 12km의 키르벳 카나</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/JHN.2">개역개정 본문(대한성서공회)</a>: 요 2:1~11; 4:46~54; 19:26; 21:2</li>
+   </ul><p>그림: 파올로 베로네세, 「가나의 혼인 잔치」(원제: Les Noces de Cana), 1562~1563년, 파리 루브르 박물관. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Northern_views._The_spring_at_Cana_of_Galilee_LOC_matpc.06508.jpg">‘Northern views. The spring at Cana of Galilee’</a>(1900년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002724974/">‘General view, Cana of Galilee, Holy Land’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 3 -->
+ <article class="card" id="scene3" data-week="scene3">
+  <figure class="fig">
+   <img loading="lazy" src="img/ep3-duccio.jpg" alt="두초의 작은 판 그림. 하늘이 온통 금빛이다. 왼쪽 물가 바위에 선 예수가 손을 들어 배에 탄 두 사람을 부른다. 배 위의 베드로는 한 손을 들어 예수를 바라보고, 안드레와 함께 물에 드리운 그물을 붙잡고 있다. 초록빛 물속 그물에 물고기들이 걸려 있다.">
+   <figcaption class="cap"><b>「베드로와 안드레를 부르심」</b> 두초 디 부오닌세냐, 1308~1311년<br>미국 워싱턴, 내셔널 갤러리 오브 아트</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">주현절 후 셋째 주일 · 나를 따라오라</span><span><span data-wd="2">1월 24일</span> 주현절 후 셋째 주일 · 마태복음 4:18~22</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>베드로는 왜 그물을 버려두고 따라갔어요?</h2></div>
+   <p class="line">날마다 던지던 그물, 날마다 타던 배. 짧은 말 한마디에 어부 형제는 그 모두를 두고 일어섭니다.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>하늘을 보세요. 무슨 색인가요? 진짜 하늘도 이런 색일까요?</li>
+    <li>물속을 자세히 보세요. 입을 벌린 채 우리 쪽을 바라보는 물고기 두 마리가 있어요.</li>
+    <li>예수님의 손과 베드로의 손을 보세요. 예수님은 손으로 무엇을 하고 계신가요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>예수님이 갈릴리 해변을 다니시다가, 베드로라 하는 시몬과 그의 형제 안드레가 바다에 그물을 던지는 것을 보셨어요. “그들은 어부라”(4:18). 예수님이 말씀하셨어요. “나를 따라오라 내가 너희를 사람을 낚는 어부가 되게 하리라”(4:19). 두 사람은 “곧 그물을 버려 두고 예수를 따르니라”(4:20).</p>
+    <p>조금 더 가시다가, 세베대의 아들 야고보와 요한이 아버지와 함께 배에서 “그물 깁는 것을 보시고 부르시니”, 두 사람도 “곧 배와 아버지를 버려 두고” 따라갔어요(4:21~22). 바로 앞에서 마태복음은 예수님이 나사렛을 떠나 바닷가의 가버나움에 가서 사셨다고 전해요(4:13).</p>
+    <p>시에나의 화가 두초가 1308~1311년 시에나 대성당의 커다란 양면 제단화 「마에스타」를 위해 그린 작은 그림이에요. 제단화 뒷면에 예수님의 이야기가 여러 칸으로 이어졌는데, 그 가운데 한 장면이에요. 하늘을 금으로 칠한 것을 보면, 화가가 눈에 보이는 세상을 그대로 옮기는 데 마음을 두지 않았다는 걸 알 수 있어요. 제단화의 그림들은 지금 런던, 마드리드, 뉴욕 등 여러 미술관에 흩어져 있고, 이 그림은 1939년부터 워싱턴 내셔널 갤러리 오브 아트에 있어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>베드로와 안드레가 던지던 ‘그물’(4:18)은 그리스어로 ‘암피블레스트론’, 둥글게 활짝 펼쳐지도록 던지는 그물이에요. 부활절 코스 넷째 장면의 옛 사진에서, 백 년 전 갈릴리 어부들이 배 위에서 이런 그물을 던지는 모습을 볼 수 있어요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 갈릴리 바닷가 가버나움</b>예수님은 나사렛을 떠나 “해변에 있는 가버나움”에 가서 사셨어요(4:13). 베드로와 안드레의 집도 가버나움에 있었어요(막 1:21, 29). 형제들이 그물을 던지던 바닷가는 집에서 멀지 않았을 거예요.</p>
+    <figure class="ph" data-q="그물을 손질하는 어부들을 찾아보세요. 그물은 얼마나 길까요?" data-color="img/epvr3-nets.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 갈릴리 바닷가에서 어부들이 나무틀에 길게 걸쳐 놓은 그물을 손질하고 있다. 뒤로 바다가 보인다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 그물은 무슨 색이었을까?">
+     <div class="phw"><img src="img/epera3-nets.jpg" alt="흑백 사진. 갈릴리 바닷가에서 어부들이 나무틀에 길게 걸쳐 놓은 그물을 손질하고 있다. 뒤로 바다가 보인다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>그물을 깁는 갈릴리 어부들</b> · 1930년대<br>야고보와 요한도 아버지 세베대와 함께 배에서 “그물 깁는” 중이었어요(4:21). 밤새 고기를 잡고 나면(눅 5:5) 찢어진 곳을 꿰매야 했어요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Fishermen_of_Galilee_mending_their_nets_LOC_matpc.04162.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="흩어진 돌과 기둥 조각을 찾아보세요. 이곳에 예전에 무엇이 있었을까요?">
+     <img src="img/epcolor3-capernaum.jpg" alt="색을 입힌 옛 인쇄 사진. 풀밭에 다듬은 돌과 부서진 기둥 조각들이 흩어져 있고, 그 사이에 사람들이 앉아 있다. 뒤로 갈릴리 바다와 건너편 언덕이 보인다." loading="lazy">
+     <figcaption><b>가버나움의 옛 터 · 1890년대 컬러 인쇄본</b><br>베드로와 안드레가 살던 바닷가 마을 가버나움의 폐허예요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002724975/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 물 냄새가 나는 바닷가에서 아빠와 함께 그물을 고치고 있어요. 그때 누가 다가와 내 이름을 불러요. “나를 따라오렴.”"><small>눈 감고 상상해 보기</small>날마다 하던 일을 두고 낯선 분을 따라나서는 것. 베드로는 예수님에게서 무엇을 보았기에 “곧” 일어설 수 있었을까요?</p>
+    <a class="go" href="https://www.nga.gov/artworks/282-calling-apostles-peter-and-andrew">그림 가까이 보기 · 내셔널 갤러리 오브 아트 작품 페이지<small>영어 · 그림을 크게 키워서 물속의 물고기와 그물을 찾아보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“누가 “나랑 같이 가자” 하면, 너는 무엇을 두고 따라갈 수 있을 것 같아?”</p></div>
+   <div class="root">예수님은 갈릴리 바닷가에서 어부들을 부르셨고, 그들은 곧 그물을 버려 두고 예수님을 따랐습니다(마 4:19~20).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/MAT.4">이제 본문 읽기 · 마태복음 4:18~22<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> “배와 아버지를 버려 두고”(4:22)라는 말에 아이가 놀랄 수 있어요. 가족을 함부로 떠나라는 말이 아니라, 예수님의 부르심에 바로 응답했다는 이야기로 풀어 주세요. 야고보와 요한의 어머니도 나중에 갈릴리에서부터 예수님을 따라다닌 여인들 가운데 있었어요(마 27:55~56).</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li><a href="https://www.nga.gov/research/publications/italian-paintings-thirteenth-and-fourteenth-centuries-0/italian-paintings-thirteenth-and-fourteenth-centuries-calling-apostles-peter-and-andrew-1308-1311">NGA 연구 도록 ‘The Calling of the Apostles Peter and Andrew’</a> <span class="note">영어 · 「마에스타」 전체의 배치와 그림 해설</span></li>
+    <li>사순절 코스 첫째 장면(산 위의 시험)과 여섯째 장면의 두초 그림도 같은 「마에스타」에 있던 그림이에요.</li>
+    <li>마가복음 1:16~20과 누가복음 5:1~11에도 어부들을 부르신 이야기가 있어요. 누가복음에서는 그물이 찢어질 만큼 고기를 잡은 뒤에 따라나서요(눅 5:6, 11).</li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (7)</summary><ul>
+    <li><a href="https://www.nga.gov/artworks/282-calling-apostles-peter-and-andrew">내셔널 갤러리 오브 아트 작품 페이지</a>: 1308~1311년, 갈릴리 바다에서 일하는 두 어부를 부르시는 장면</li>
+    <li><a href="https://www.nga.gov/research/publications/italian-paintings-thirteenth-and-fourteenth-centuries-0/italian-paintings-thirteenth-and-fourteenth-centuries-calling-apostles-peter-and-andrew-1308-1311">NGA 연구 도록</a>: 우리를 향해 입을 벌린 물고기 두 마리, 「마에스타」 뒷면 아래 칸의 장면</li>
+    <li><a href="https://www.nga.gov/artworks/10-nativity-prophets-isaiah-and-ezekiel">NGA ‘The Nativity with the Prophets Isaiah and Ezekiel’</a>: 두 세기 가까이 시에나 대성당 주제단을 차지한 양면 제단화</li>
+    <li><a href="https://artsandculture.google.com/asset/the-calling-of-the-apostles-peter-and-andrew-duccio-di-buoninsegna/zQFeUyeLmQjLqQ">Google Arts &amp; Culture</a>: 70개가 넘는 장면, 금빛 하늘은 눈에 보이는 세상을 그리는 것이 화가의 첫째 관심이 아니었음을 알려 줌</li>
+    <li><a href="https://www.kressfoundation.org/kress-collection/artwork/c0c0ab1e97e050a68aafb761fbadb880e0b59ee8296b1a0bb978c2999fcbbe88">크레스 재단 소장품 기록</a>: 42.7×45.5cm, 새뮤얼 H. 크레스 컬렉션(1939.1.141)</li>
+    <li><a href="https://biblehub.com/greek/293.htm">Bible Hub ‘amphiblēstron’</a>: 던짐 그물</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/MAT.4">개역개정 본문(대한성서공회)</a>: 마 4:13, 18~22; 27:55~56; 막 1:21, 29; 눅 5:5~11</li>
+   </ul><p>그림: 두초 디 부오닌세냐, 「베드로와 안드레를 부르심」(원제: The Calling of the Apostles Peter and Andrew), 1308~1311년, 워싱턴 내셔널 갤러리 오브 아트, 새뮤얼 H. 크레스 컬렉션. 사진: 내셔널 갤러리 오브 아트 공개 이미지(CC0), 위키미디어 공용.<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Fishermen_of_Galilee_mending_their_nets_LOC_matpc.04162.jpg">‘Fishermen of Galilee mending their nets’</a>(1934~1939년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002724975/">‘Ruins of Capernaium, (i.e. Capernaum), Holy Land’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+
+ <!-- 장면 4 -->
+ <article class="card" id="scene4" data-week="scene4">
+  <figure class="fig">
+   <img loading="lazy" src="img/ep4-bellini.jpg" alt="조반니 벨리니의 그림. 낮은 바위 언덕 위에 흰옷을 입은 예수가 서 있고, 양옆에 모세와 엘리야가 서 있다. 그 아래 땅바닥에는 세 제자가 놀라서 엎드리거나 몸을 돌리고 있다. 뒤로는 나무와 집이 있는 시골 들판과 마을, 구름 낀 하늘이 펼쳐지고, 왼쪽 들판에서는 한 사람이 소를 몰고 간다.">
+   <figcaption class="cap"><b>「그리스도의 변모」</b> 조반니 벨리니, 1480년 무렵<br>이탈리아 나폴리, 카포디몬테 미술관</figcaption>
+   <button class="showbtn" type="button" data-show><b>아이에게 보여 주기</b><span>그림과 옛 사진을 화면 가득, 질문은 하나씩</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">산상변모주일 · 산 위의 빛</span><span><span data-wd="3">2월 7일</span> 산상변모주일 · 마태복음 17:1~9</span></div>
+   <div class="opener"><small>이 그림이 여는 질문</small><h2>예수님 옷이 왜 하얗게 빛났어요?</h2></div>
+   <p class="line">높은 산 위에서 예수님의 얼굴이 해같이 빛나요. 엎드린 제자들에게 예수님이 다가와 손을 대셨어요.</p>
+   <section class="blk look"><h3>그림 속에서 찾아보기</h3><ol>
+    <li>가운데 서 있는 예수님과 양옆의 두 사람을 찾아보세요. 이 두 사람은 누구일까요?</li>
+    <li>아래쪽의 세 제자를 보세요. 저마다 어떻게 놀랐나요?</li>
+    <li>뒤쪽 들판에서 소를 몰고 가는 사람을 찾아보세요. 이 사람은 언덕 위에서 일어난 일을 알고 있을까요?</li>
+   </ol></section>
+   <section class="blk"><h3>이야기</h3>
+    <p>엿새 후에 예수님은 베드로와 야고보와 요한을 데리고 높은 산에 오르셨어요(17:1). 그들 앞에서 “변형되사 그 얼굴이 해 같이 빛나며 옷이 빛과 같이 희어졌”어요(17:2). 모세와 엘리야가 나타나 예수님과 이야기했어요(17:3). 베드로는 “우리가 여기 있는 것이 좋사오니” 초막 셋을 짓겠다고 했어요(17:4).</p>
+    <p>베드로가 말하는 동안 빛난 구름이 그들을 덮고, 구름 속에서 소리가 났어요. “이는 내 사랑하는 아들이요 내 기뻐하는 자니 너희는 그의 말을 들으라”(17:5). 세례 받으실 때 들린 목소리에 한마디가 더해졌어요. 제자들이 엎드려 두려워하자 예수님이 다가와 손을 대시며 “일어나라 두려워하지 말라” 하셨어요(17:7). 눈을 들어 보니 “오직 예수 외에는 아무도 보이지 아니하더라”(17:8).</p>
+    <p>베네치아의 화가 조반니 벨리니가 1480년 무렵에 그린 그림으로, 원래 비첸차 대성당의 피오카르도 예배당 제단에 있었어요. 벨리니는 이 장면을 하늘 높은 곳이 아니라 낮은 언덕과 들판, 마을이 보이는 시골에 놓았어요. 앞쪽 언덕 위의 놀라운 일과 달리, 뒤쪽에서는 사람들의 하루가 여느 때처럼 흘러가요. 1613년 예배당을 다른 용도로 쓰게 되면서 떼어졌고, 파르마의 파르네세 가문 소장품을 거쳐 1734년 나폴리로 옮겨졌어요.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">알고 보면</h3>벨리니는 같은 장면을 두 번 그렸어요. 젊은 시절인 1455~1460년 무렵에 그린 「변모」는 베네치아 코레르 미술관에 있어요. 20년쯤 지나 다시 그린 이 그림은 훨씬 넓고 차분한 풍경 속에 사람들을 놓았어요.</div>
+   <section class="era">
+    <h3>그 시절로 가 보기</h3>
+    <p class="where"><b>그곳은 · 다볼산</b>성경은 이 ‘높은 산’의 이름을 말하지 않아요. 3세기의 오리게네스 때부터 갈릴리의 다볼산이 변화산으로 꼽혔고, 4세기부터 순례자들이 찾았어요. 다볼산은 평평한 들판에 홀로 우뚝 솟은 높이 575미터의 산이에요. 지금 꼭대기에는 1924년에 세운 변모 기념 교회가 있어요.</p>
+    <figure class="ph" data-q="둥근 산을 찾아보세요. 앞쪽에 선 사람들과 견주면 산이 얼마나 클까요?" data-color="img/epvr4-tabor.jpg" data-color-alt="흑백 사진에 AI로 색을 입힌 가상 복원. 넓은 들판 너머로 둥그스름한 산 하나가 솟아 있고, 앞쪽 돌 비탈에 세 사람이 서 있다." data-color-q="AI가 색을 짐작해서 입혀 본 사진이에요. 산을 덮은 구름은 무슨 색이었을까?">
+     <div class="phw"><img src="img/epera4-tabor.jpg" alt="흑백 사진. 넓은 들판 너머로 둥그스름한 산 하나가 솟아 있고, 앞쪽 돌 비탈에 세 사람이 서 있다." loading="lazy"><button class="tint" type="button" aria-pressed="false">가상 복원으로 보기</button></div>
+     <figcaption><span class="cap-bw"><b>멀리서 본 다볼산</b> · 1930년대<br>들판 한가운데 홀로 솟은 산이라 멀리서도 눈에 띄어요. 예수님과 세 제자가 오른 ‘높은 산’(17:1)으로 오래전부터 꼽혀 온 산이에요. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Mount_Tabor._Distant_view_LOC_matpc.04152.jpg">원본 크게 보기</a></span><small class="vr-note" hidden>가상 복원 · AI가 색을 짐작해 입힌 것이라 실제 색과 다를 수 있어요.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="산은 어떤 모양인가요? 꼭대기에 올라가면 무엇이 보일까요?">
+     <img src="img/epcolor4-tabor.jpg" alt="색을 입힌 옛 인쇄 사진. 덤불이 우거진 들판 너머로 둥근 다볼산이 우뚝 솟아 있다." loading="lazy">
+     <figcaption><b>다볼산 · 1890년대 컬러 인쇄본</b><br>1924년 지금의 교회가 세워지기 전의 다볼산이에요. 흑백 원판에 색을 입혀 찍어 낸 ‘포토크롬’이에요. <a class="orig" href="https://www.loc.gov/item/2002725040/">원본 크게 보기</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="눈을 감아 봐요. 숨이 차게 높은 산을 올랐어요. 갑자기 눈부신 빛이 비쳐요. 무서워서 엎드렸는데, 따뜻한 손이 내 어깨에 닿아요. “일어나, 무서워하지 마.”"><small>눈 감고 상상해 보기</small>눈부신 빛과 구름, 하늘의 목소리가 지나간 뒤 남은 것은 “오직 예수”였어요. 다시 산을 내려가 여느 날로 돌아갈 때, 제자들은 무엇을 마음에 품고 갔을까요?</p>
+    <a class="go" href="https://commons.wikimedia.org/wiki/File:Giovanni_Bellini_-_Trasfigurazione_di_Cristo.jpg">그림 가까이 보기 · 위키미디어 공용의 큰 사진<small>그림을 크게 키워서 뒤쪽 들판에서 소를 모는 사람을 찾아보세요</small></a>
+    <p class="old">옛 사진은 2천 년 전 모습 그대로는 아니지만, 성경 속 땅과 살림살이를 눈으로 볼 수 있어요.</p>
+   </section>
+   <div class="ask"><small>아이에게 물어볼 것</small><p>“무서울 때 누가 “무서워하지 마” 하고 손을 잡아 준 적 있니?”</p></div>
+   <div class="root">높은 산에서 예수님의 얼굴이 해같이 빛났고, 구름 속에서 “이는 내 사랑하는 아들이요 … 너희는 그의 말을 들으라” 하는 소리가 들렸습니다(마 17:2, 5).</div>
+   <a class="read" href="https://bible.bskorea.or.kr/bible/NKRV/MAT.17">이제 본문 읽기 · 마태복음 17:1~9<span>대한성서공회 개역개정</span></a>
+   <div class="care"><b>조심할 점</b> 모세와 엘리야가 나타난 일을 ‘유령’처럼 무섭게 느끼는 아이도 있어요. 흔히 모세는 율법을, 엘리야는 선지자들을 대표한다고 풀이해요. 구약의 큰 두 사람이 예수님과 함께 이야기했다고 알려 주세요. 산상변모주일 다음 수요일이 재의 수요일, 곧 사순절이 시작되는 날이에요.</div>
+   <section class="blk more"><h3>함께 보기 · 선생님이 더 읽을 것</h3><ul>
+    <li>마가복음 9:2~8, 누가복음 9:28~36에도 같은 이야기가 있어요. 누가복음은 예수님이 “기도하시러” 산에 오르셨다고 해요(눅 9:28).</li>
+    <li><a href="https://scotland.op.org/?p=6018">‘Bellini’s Transfiguration at Naples’</a> <span class="note">영어 · 앞쪽의 따로 떨어진 자리와 여느 때처럼 흘러가는 뒤쪽 풍경</span></li>
+    <li>이번 주 수요일부터 사순절이에요. 사순절 코스로 이어 가 보세요.</li>
+   </ul></section>
+   <details class="src"><summary>근거 보기 (6)</summary><ul>
+    <li><a href="https://en.wikipedia.org/wiki/Transfiguration_(Bellini)">Wikipedia ‘Transfiguration of Christ (Bellini)’</a>: 1480년 무렵, 116×154cm, 나폴리 카포디몬테 미술관, 먼저 그린 코레르 미술관의 「변모」</li>
+    <li><a href="https://www.firstonline.info/en/giovanni-bellini-dopo-4-secoli-torna-a-vicenza-come-ospite-illustre/">FIRSTonline</a>: 비첸차 대성당 피오카르도 예배당, 1613년 떼어 냄, 파르마의 파르네세 소장품, 1734년 나폴리로</li>
+    <li><a href="https://scotland.op.org/?p=6018">‘Bellini’s Transfiguration at Naples’</a>: 제자들이 있는 앞쪽과 일상이 이어지는 뒤쪽의 구분</li>
+    <li><a href="https://en.wikipedia.org/wiki/Mount_Tabor">Wikipedia ‘Mount Tabor’</a>: 높이 575m, 3세기 오리게네스가 처음 변화산으로 꼽음, 4세기부터 순례지</li>
+    <li><a href="https://en.wikipedia.org/wiki/Church_of_the_Transfiguration">Wikipedia ‘Church of the Transfiguration’</a>: 1924년 완공, 건축가 안토니오 바를루치</li>
+    <li><a href="https://bible.bskorea.or.kr/bible/NKRV/MAT.17">개역개정 본문(대한성서공회)</a>: 마 17:1~9; 눅 9:28</li>
+   </ul><p>그림: 조반니 벨리니, 「그리스도의 변모」(원제: Trasfigurazione), 1480년 무렵, 나폴리 카포디몬테 미술관. 사진: 위키미디어 공용(저작권 만료).<br>옛 사진: 미국 의회도서관 매슨 컬렉션, <a href="https://commons.wikimedia.org/wiki/File:Mount_Tabor._Distant_view_LOC_matpc.04152.jpg">‘Mount Tabor. Distant view’</a>(1934~1939년, 위키미디어 공용, 알려진 저작권 제한 없음).<br>1890년대 컬러 인쇄본: 미국 의회도서관 포토크롬 컬렉션, <a href="https://www.loc.gov/item/2002725040/">‘Mount Tabor, Holy Land, (i.e. Israel)’</a>(알려진 저작권 제한 없음).</p></details>
+  </div>
+ </article>
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+  <p>그림은 저작권이 끝난 작품(퍼블릭 도메인)만 썼어요. ‘그 시절로 가 보기’의 옛 사진은 미국 의회도서관 <a href="https://commons.wikimedia.org/wiki/Category:Matson_Collection_in_the_Library_of_Congress">매슨 컬렉션</a>(20세기에 찍은 사진, 알려진 저작권 제한 없음)에서 가져왔어요.</p>
+  <p>‘가상 복원’은 흑백 사진에 AI 컬러화 모델 <a href="https://github.com/piddnad/ddcolor">DDColor</a>(알리바바 연구진, ICCV 2023)로 색을 입힌 것이에요. 허깅페이스에 공개된 <a href="https://huggingface.co/spaces/gudada/DDColor">DDColor 앱</a>을 썼어요. 사진의 밝기와 모양은 그대로 두고 색만 짐작해서 입히기 때문에, 그럴듯해 보여도 실제 색과 다를 수 있어요.</p>
+  <p>‘1890년대 컬러 인쇄본’은 미국 의회도서관 <a href="https://www.loc.gov/collections/photochrom-prints/about-this-collection/">포토크롬 컬렉션</a>에서 가져왔어요. 흑백 원판에, 사진가가 현장에서 적어 둔 색 메모대로 색을 입혀 찍어 낸 방식이라(<a href="https://en.wikipedia.org/wiki/Photochrom">Wikipedia ‘Photochrom’</a>) AI가 짐작한 색은 아니지만, 실제 색과 똑같다고 할 수는 없어요. 의회도서관은 이 컬렉션에 알려진 저작권 제한이 없다고 밝혀요(<a href="https://blogs.loc.gov/loc/2017/10/free-to-use-and-reuse-historical-travel-pictures/">의회도서관 블로그</a>).</p>
+  <p>네 본문은 많은 교회가 쓰는 개정 공동 성서정과(RCL)가 주현절 뒤에 읽는 본문이에요. 마태복음 3:13~17은 A해 주님의 수세 주일, 요한복음 2:1~11은 C해 주현절 후 둘째 주일, 마태복음 4:12~23은 A해 주현절 후 셋째 주일, 마태복음 17:1~9는 A해 산상변모주일의 복음서 본문이에요. 첫 장면은 성탄절 코스의 마지막 장면과 같은 주일이에요.</p>
+  <p><a href="christmas.html">이전 코스 · 성탄절 코스</a> · <a href="lent.html">다음 코스 · 사순절 코스</a> · <a href="feel.html">함께 느끼기 방으로</a> · <a href="./">연습하기 방으로</a></p>
+ </div>
+</footer>
+</div>
+
+<div class="L" lang="en" hidden>
+<header class="top">
+ <div class="wrap">
+  <div class="bar"><a class="brand back" href="feel.html#en">‹ Question Practice Room · Experience Together</a><button class="lang" type="button" data-lang="ko" lang="ko">한국어</button></div>
+  <h1>After Epiphany Course</h1>
+  <p class="sub">From the Jordan to the mountain of light, the season after Epiphany through four works of art. From the Baptism of the Lord to Transfiguration Sunday: one picture and one question each.</p>
+  <div class="howto"><span><b>1</b> Look at the art together</span><span><b>2</b> Ask the question</span><span><b>3</b> Step back in time</span><span><b>4</b> Read the passage together</span></div>
+  <p class="tip">Tap <b>Show it to the children</b> under the art to fill the screen with the picture and old photos of the land, one question at a time. Tap a black-and-white photo to switch to an <b>AI-colorized</b> version.</p>
+  <div class="draft">This is a draft awaiting review. AI gathered the sources and wrote the text, so please check each card against ‘Sources’ at the bottom.</div>
+ </div>
+</header>
+
+<main class="wrap" hidden>
+ <nav class="weeks" aria-label="Choose a scene">
+  <a class="wk" href="#scene1" data-w="scene1"><img src="img/ep1-piero-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Baptism of the Lord · <span data-wd="0">Jan 10</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></span><span class="q">Why was Jesus baptized?</span></span></a>
+  <a class="wk" href="#scene2" data-w="scene2"><img src="img/ep2-veronese-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Epiphany 2 · <span data-wd="1">Jan 17</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="q">Did the water really turn into wine?</span></span></a>
+  <a class="wk" href="#scene3" data-w="scene3"><img src="img/ep3-duccio-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Epiphany 3 · <span data-wd="2">Jan 24</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="q">Why did Peter leave his nets and follow Jesus?</span></span></a>
+  <a class="wk" href="#scene4" data-w="scene4"><img src="img/ep4-bellini-t.jpg" alt="" style="object-position:50% 50%"><span class="bd"><span class="when"><b>Transfiguration · <span data-wd="3">Feb 7</span></b><span class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="q">Why did Jesus’ clothes shine so white?</span></span></a>
+ </nav>
+ <p class="thread">Two phrases tie the four scenes together: <b>“my beloved Son”</b> (Matthew 3:17; 17:5) and <b>“revealed his glory”</b> (John 2:11). The voice from heaven heard at the Jordan is heard again on the mountain. In between, Jesus first reveals his glory at Cana, and fishermen of Galilee get up to follow him. ‘Epiphany’ means appearing, or showing forth.</p>
+
+ <!-- Scene 1 -->
+ <article class="card" data-week="scene1">
+  <figure class="fig">
+   <img loading="lazy" src="img/ep1-piero.jpg" alt="Painting by Piero della Francesca. Under a clear sky, Jesus stands in a shallow stream with his hands together, and John the Baptist, at right, pours water on his head from a small bowl. A white dove hovers above Jesus with its wings spread. At left, three angels stand beside a large tree with a pale trunk, and behind John a man is pulling his clothes over his head. Hills and a town can be seen in the distance.">
+   <figcaption class="cap"><b>The Baptism of Christ</b> Piero della Francesca, probably about 1437–1445<br>The National Gallery, London, UK</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">First Sunday after Epiphany · The heavens opened</span><span><span data-wd="0">Jan 10</span> · Baptism of the Lord · Matthew 3:13–17</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Why was Jesus baptized?</h2></div>
+   <p class="line">As Jesus comes up out of the water, the heavens open. Before he had done anything at all, the first words he heard were “my beloved Son.”</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find the white dove above Jesus’ head. How is it spreading its wings?</li>
+    <li>Find the three angels standing by the tree at left. What are they wearing on their heads? How are they leaning on one another?</li>
+    <li>Find the man behind John pulling his clothes over his head. What is he about to do?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>Jesus came from Galilee to the Jordan to be baptized by John (3:13). John tried to stop him: “I need to be baptized by you, and you come to me?” (3:14). Jesus answered, “Allow it now, for this is the fitting way for us to fulfill all righteousness,” and John allowed him (3:15).</p>
+    <p>When Jesus was baptized and came up from the water, “the heavens were opened to him. He saw the Spirit of God descending as a dove, and coming on him” (3:16). Then a voice came from heaven: “This is my beloved Son, with whom I am well pleased” (3:17). The voice from heaven, the Spirit like a dove, and the Son coming up from the water are all in one scene.</p>
+    <p>This is Piero della Francesca’s earliest surviving work, painted for the church of Saint John the Baptist in his hometown, Borgo Sansepolcro. Instead of the Jordan, Piero painted the stream, hills and walnut tree around his own town, so that people could imagine this amazing moment happening right on their doorstep. It was once the central panel of a larger altarpiece, and the National Gallery in London bought it in 1861.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>‘Sansepolcro’ means ‘Holy Sepulchre.’ The town tells of two pilgrims returning from the Holy Land who rested under a walnut tree; when they woke up, their bag of holy relics had flown up to one of the highest branches. So the walnut tree in the painting was a very special tree for the people of the town.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · The Jordan, east of Jericho</b>A spot on the Jordan about 10 kilometers east of Jericho has long been remembered as the place where Jesus was baptized. Every January, more than 20,000 Orthodox pilgrims still gather there to keep Epiphany and step into the river.</p>
+    <figure class="ph" data-q="Look at the people in the river. What are they wearing? How many do you think there are?" data-color="img/epvr1-epiphany-jordan.jpg" data-color-alt="AI-colorized version of a black-and-white photo. Crowds of pilgrims in white robes stand in the waters of the Jordan, and the bank is packed with people too." data-color-q="AI guessed these colors. What color do you think the Jordan was?">
+     <div class="phw"><img src="img/epera1-epiphany-jordan.jpg" alt="Black-and-white photo. Crowds of pilgrims in white robes stand in the waters of the Jordan, and the bank is packed with people too." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>Epiphany at the Jordan</b> · 1900<br>The title in the photographer’s logbook is ‘Road to Jericho, Jordan, etc. The baptism on Epiphany.’ The Orthodox churches remember Jesus’ baptism at Epiphany by going into the water of the Jordan, and this photo shows that day. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Road_to_Jericho,_Jordan,_etc._The_baptism_on_Epiphany._LOC_matpc.01020.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="Look at the trees and plants growing thick along the bank. What would it feel like to be baptized in this river?">
+     <img src="img/epcolor1-baptism-place.jpg" alt="Old color print. The Jordan flows between banks thick with trees and bushes, and a few people sit resting on the left bank." loading="lazy">
+     <figcaption><b>The place of the baptism on the Jordan · 1890s color print</b><br>The riverbank remembered as the place where Jesus was baptized. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002725030/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You dip your feet into a cold river. As you come up out of the water, a kind voice speaks from the sky: “You are my child, and I love you.”"><small>Close your eyes and imagine</small>Not because he had done something well, but before he had even begun, he heard “my beloved Son.” What would a day be like if it began with those words?</p>
+    <a class="go" href="https://nationalgallery.org.uk/paintings/NG665">Look closely at the painting · The National Gallery’s page<small>Zoom in to find the walnut tree and the town in the distance</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“If someone called you ‘my beloved child,’ how do you think you would feel?”</p></div>
+   <div class="root">When Jesus was baptized, the heavens opened and God said, “This is my beloved Son, with whom I am well pleased” (Matthew 3:16–17).</div>
+   <a class="read" href="https://biblehub.com/web/matthew/3.htm">Now read the passage · Matthew 3:13–17<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Some children have been baptized and some have not, and churches baptize in different ways and at different ages. Rather than asking who has been baptized, focus on the words Jesus heard. Why Jesus was baptized at all is a hard question, as John’s protest shows. Matthew only says it was “to fulfill all righteousness” (3:15), so it’s fine to wonder about it together if a child asks.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li><a href="https://smarthistory.org/piero-della-francesca-the-baptism-of-christ/">Smarthistory, ‘Piero della Francesca, The Baptism of Christ’</a> <span class="note">a video conversation in front of the painting</span></li>
+    <li>This Sunday falls on the same day as the fourth scene of the Christmas Course (Rest on the Flight into Egypt). Choose whichever suits your class.</li>
+    <li>The same story is told in Mark 1:9–11 and Luke 3:21–22.</li>
+   </ul></section>
+   <details class="src"><summary>Sources (5)</summary><ul>
+    <li><a href="https://nationalgallery.org.uk/paintings/NG665">The National Gallery artwork page</a>: probably about 1437–1445; made for the church of San Giovanni Battista in Val d’Afra, Sansepolcro; Piero’s earliest surviving work; the local hills, stream and walnut tree; the pilgrims and the walnut tree</li>
+    <li><a href="https://en.wikipedia.org/wiki/The_Baptism_of_Christ_(Piero_della_Francesca)">Wikipedia, ‘The Baptism of Christ (Piero della Francesca)’</a>: 167 × 116 cm; bought by the National Gallery in 1861; the town in the distance may be Sansepolcro</li>
+    <li><a href="https://www.finestresullarte.info/en/works-and-artists/around-piero-della-francesca-s-baptism-the-polyptych-of-matteo-di-giovanni-in-sansepolcro">Finestre sull’Arte</a>: the central panel of the polyptych completed by Matteo di Giovanni</li>
+    <li><a href="https://religionunplugged.com/news/2020/1/29/pilgrims-visit-site-of-jesus-baptism-now-cleared-of-landmines">Religion Unplugged</a>: more than 20,000 Orthodox pilgrims at Epiphany; the baptism site 10 km east of Jericho</li>
+    <li><a href="https://biblehub.com/web/matthew/3.htm">World English Bible</a>: Matthew 3:13–17</li>
+   </ul><p>Painting: Piero della Francesca, <i>The Baptism of Christ</i>, probably about 1437–1445, The National Gallery, London. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Road_to_Jericho,_Jordan,_etc._The_baptism_on_Epiphany._LOC_matpc.01020.jpg">‘Road to Jericho, Jordan, etc. The baptism on Epiphany.’</a> (1900, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress, Photochrom Collection, <a href="https://www.loc.gov/item/2002725030/">‘Place of the baptism, River Jordan, Holy Land’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 2 -->
+ <article class="card" data-week="scene2">
+  <figure class="fig">
+   <img loading="lazy" src="img/ep2-veronese.jpg" alt="A huge painting by Paolo Veronese. A wedding feast is held in the courtyard of a grand building lined with columns and balustrades. Guests in splendid clothes crowd around long tables, and Jesus and Mary sit in the very middle. In the center foreground musicians play their instruments, and at lower right servants pour wine from a large jar into another vessel. More people gather on the balustrade above, under a blue sky.">
+   <figcaption class="cap"><b>The Wedding Feast at Cana</b> Paolo Veronese, 1562–1563<br>Musée du Louvre, Paris, France</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Second Sunday after Epiphany · The first sign</span><span><span data-wd="1">Jan 17</span> · Second Sunday after Epiphany · John 2:1–11</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Did the water really turn into wine?</h2></div>
+   <p class="line">The party was in full swing when the wine ran out. The only people who knew what happened next were the servants who had drawn the water.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find Jesus seated at the table in the very middle. Who is sitting right next to him?</li>
+    <li>At lower right, find the people pouring wine from a large jar. Do they know what has happened?</li>
+    <li>In the center foreground, find the people playing instruments. What do you think the music sounds like?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>Jesus’ mother was at a wedding in Cana of Galilee, and Jesus and his disciples were invited too (2:1–2). In the middle of the feast the wine ran out. His mother told Jesus, and said to the servants, “Whatever he says to you, do it” (2:3–5).</p>
+    <p>“Six water pots of stone” stood there “after the Jews’ way of purifying, containing two or three metretes apiece” (2:6). Jesus said, “Fill the water pots with water,” and they filled them to the brim (2:7). When they took some to the ruler of the feast, he tasted “the water now become wine” and told the bridegroom, “You have kept the good wine until now!” (2:9–10). He didn’t know where it came from, “but the servants who had drawn the water knew” (2:9). John says this was “the beginning of his signs,” and that Jesus “revealed his glory; and his disciples believed in him” (2:11).</p>
+    <p>The Venetian painter Paolo Veronese painted this in 1562–1563 for the dining hall (refectory) of the monastery on the island of San Giorgio Maggiore in Venice, where the monks looked at it as they ate. At over 6 meters high and almost 10 meters wide, it is the biggest painting in the Louvre, with some 130 figures. In 1798 Napoleon’s troops confiscated it and sent it to Paris. Today it hangs in the same room as the <i>Mona Lisa</i>, facing her.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>Each stone jar held ‘two or three metretes.’ A metretes was about 40 liters, so each jar held about 80–120 liters, and all six filled to the brim held roughly 500–700 liters. That is enough to fill three or four ordinary bathtubs.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Cana of Galilee</b>Cana was a village in Galilee not far from Nazareth. Kafr Kanna, about 7 kilometers northeast of Nazareth, has long been remembered as Cana, while many scholars think the ruined village of Khirbet Qana, about 12 kilometers northwest of Nazareth, is more likely. John says that the disciple Nathanael came from Cana (21:2).</p>
+    <figure class="ph" data-q="Find the people gathered at the spring. What are they carrying?" data-color="img/epvr2-cana-spring.jpg" data-color-alt="AI-colorized version of a black-and-white photo. Villagers gather at the spring by a heap of stones in front of the bushes; some carry water jars." data-color-q="AI guessed these colors. What color do you think the water jars were?">
+     <div class="phw"><img src="img/epera2-cana-spring.jpg" alt="Black-and-white photo. Villagers gather at the spring by a heap of stones in front of the bushes; some carry water jars." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>The spring at Cana</b> · 1900<br>The title in the photographer’s logbook is ‘Northern views. The spring at Cana of Galilee.’ The water that filled the six stone jars may have been carried from a village spring like this one. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Northern_views._The_spring_at_Cana_of_Galilee_LOC_matpc.06508.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="Find the village in the distance. In which house might the wedding have been held?">
+     <img src="img/epcolor2-cana.jpg" alt="Old color print. The white houses of Cana cluster at the foot of a hill in the distance; in the meadow in front stand an olive tree and three men." loading="lazy">
+     <figcaption><b>Cana · 1890s color print</b><br>The village remembered as Cana. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002724974/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You are at a happy party. You hear music and laughter. But the grown-ups are whispering: “The wine has run out!”"><small>Close your eyes and imagine</small>The servants carried heavy water jars until all six stone jars were full to the brim. They were the only ones who knew the water had become wine. How do you think a servant felt, keeping that secret?</p>
+    <a class="go" href="https://www.louvre.fr/en/explore/the-palace/from-the-mona-lisa-to-the-wedding-feast-at-cana">Look closely at the painting · The Louvre, ‘From the Mona Lisa to The Wedding Feast at Cana’<small>See the room where the painting hangs, and its story</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“Have you ever been in trouble because something ran out? Who helped you?”</p></div>
+   <div class="root">At the wedding in Cana, Jesus did the beginning of his signs and revealed his glory, and his disciples believed in him (John 2:11).</div>
+   <a class="read" href="https://biblehub.com/web/john/2.htm">Now read the passage · John 2:1–11<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> A child may ask about wine being alcohol. Explain simply that wine was part of every feast then, and that running out would have been a real embarrassment for the family. Jesus’ “Woman” to his mother (2:4) can sound cold, but he used the same word from the cross when he gave his mother into the care of his disciple (19:26).</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li><a href="https://www.seetheholyland.net/cana/">See the Holy Land, ‘Cana’</a> <span class="note">the candidate sites for Cana and today’s wedding church</span></li>
+    <li>Cana sees another sign later: Jesus heals a royal official’s son, “the second sign” (John 4:46–54).</li>
+   </ul></section>
+   <details class="src"><summary>Sources (8)</summary><ul>
+    <li><a href="https://www.louvre.fr/en/explore/the-palace/from-the-mona-lisa-to-the-wedding-feast-at-cana">The Louvre, ‘From the Mona Lisa to The Wedding Feast at Cana’</a>: over 6 m high and almost 10 m wide, the biggest painting in the Louvre; some 130 figures; the refectory of the monastery on San Giorgio Maggiore</li>
+    <li><a href="https://www.louvre.fr/en/oeuvre-notices/wedding-feast-cana">The Louvre artwork notice</a>: confiscated by Napoleon’s troops in 1798 and shipped to Paris; the same room as the <i>Mona Lisa</i></li>
+    <li><a href="https://en.wikipedia.org/wiki/The_Wedding_at_Cana_(Veronese)">Wikipedia, ‘The Wedding at Cana (Veronese)’</a>: 1562–1563; 6.77 × 9.94 m; the refectory designed by Palladio</li>
+    <li><a href="https://christianiconography.info/Wikimedia%20Commons/canaVeronese.html">Christian Iconography, ‘Paolo Veronese, The Wedding Feast at Cana’</a>: servants pouring from the jars at lower right</li>
+    <li><a href="https://www.biblestudytools.com/bsb/john/2-6.html">BSB footnote on John 2:6</a>: two or three metretes, about 78.8–118.1 liters</li>
+    <li><a href="https://en.wikipedia.org/wiki/Cana">Wikipedia, ‘Cana’</a>: the tradition placing Cana at Kafr Kanna, about 7 km northeast of Nazareth</li>
+    <li><a href="https://www.seetheholyland.net/cana/">See the Holy Land, ‘Cana’</a>: the location is uncertain; Khirbet Qana 12 km northwest of Nazareth</li>
+    <li><a href="https://biblehub.com/web/john/2.htm">World English Bible</a>: John 2:1–11; 4:46–54; 19:26; 21:2</li>
+   </ul><p>Painting: Paolo Veronese, <i>The Wedding Feast at Cana</i> (<i>Les Noces de Cana</i>), 1562–1563, Musée du Louvre, Paris. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Northern_views._The_spring_at_Cana_of_Galilee_LOC_matpc.06508.jpg">‘Northern views. The spring at Cana of Galilee’</a> (1900, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress, Photochrom Collection, <a href="https://www.loc.gov/item/2002724974/">‘General view, Cana of Galilee, Holy Land’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 3 -->
+ <article class="card" data-week="scene3">
+  <figure class="fig">
+   <img loading="lazy" src="img/ep3-duccio.jpg" alt="A small panel by Duccio. The whole sky is gold. Jesus stands on a rock at the water’s edge at left and raises his hand to call two men in a boat. Peter raises one hand and looks at Jesus, holding with Andrew a net that hangs in the water. Fish are caught in the net in the green water.">
+   <figcaption class="cap"><b>The Calling of the Apostles Peter and Andrew</b> Duccio di Buoninsegna, 1308–1311<br>National Gallery of Art, Washington, USA</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Third Sunday after Epiphany · Come after me</span><span><span data-wd="2">Jan 24</span> · Third Sunday after Epiphany · Matthew 4:18–22</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Why did Peter leave his nets and follow Jesus?</h2></div>
+   <p class="line">The net they threw every day, the boat they worked in every day. At a few short words, the fisherman brothers leave it all and get up.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Look at the sky. What color is it? Is the real sky ever that color?</li>
+    <li>Look closely into the water. Two fish are facing us with their mouths open.</li>
+    <li>Look at Jesus’ hand and Peter’s hands. What is Jesus doing with his hand?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>Walking by the Sea of Galilee, Jesus saw two brothers, Simon called Peter and his brother Andrew, “casting a net into the sea; for they were fishermen” (4:18). He said to them, “Come after me, and I will make you fishers for men” (4:19). “They immediately left their nets and followed him” (4:20).</p>
+    <p>Going on a little, he saw James and John, the sons of Zebedee, in the boat with their father, “mending their nets. He called them.” They too “immediately left the boat and their father, and followed him” (4:21–22). Just before this, Matthew tells us that Jesus left Nazareth and went to live in Capernaum, by the sea (4:13).</p>
+    <p>The Sienese painter Duccio painted this small picture in 1308–1311 for the <i>Maestà</i>, a huge two-sided altarpiece for Siena Cathedral. The back of the altarpiece told the story of Jesus in many small scenes, and this is one of them. The gold sky tells us that copying the world exactly as it looks was not the painter’s main concern. The panels of the altarpiece are now scattered among museums in London, Madrid, New York and elsewhere; this one has been at the National Gallery of Art in Washington since 1939.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>The ‘net’ Peter and Andrew were casting (4:18) is <i>amphiblēstron</i> in Greek, a round net thrown so that it spreads wide open. In the old photo in the fourth scene of the Easter Course, you can see Galilee fishermen throwing a net like this from a boat about a hundred years ago.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Capernaum, by the Sea of Galilee</b>Jesus left Nazareth and lived “in Capernaum, which is by the sea” (4:13). Peter and Andrew’s house was in Capernaum too (Mark 1:21, 29). The shore where the brothers cast their net was probably not far from home.</p>
+    <figure class="ph" data-q="Find the fishermen working on their nets. How long do you think the net is?" data-color="img/epvr3-nets.jpg" data-color-alt="AI-colorized version of a black-and-white photo. On the shore of the Sea of Galilee, fishermen mend a long net draped over a wooden frame, with the sea behind them." data-color-q="AI guessed these colors. What color do you think the net was?">
+     <div class="phw"><img src="img/epera3-nets.jpg" alt="Black-and-white photo. On the shore of the Sea of Galilee, fishermen mend a long net draped over a wooden frame, with the sea behind them." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>Galilee fishermen mending their nets</b> · 1930s<br>James and John were in the boat with their father Zebedee “mending their nets” (4:21). After fishing all night (Luke 5:5), the torn places had to be sewn up. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Fishermen_of_Galilee_mending_their_nets_LOC_matpc.04162.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="Find the scattered stones and pieces of columns. What do you think stood here long ago?">
+     <img src="img/epcolor3-capernaum.jpg" alt="Old color print. Cut stones and broken columns lie scattered in the grass, with people sitting among them; beyond are the Sea of Galilee and the hills on the far shore." loading="lazy">
+     <figcaption><b>The ruins of Capernaum · 1890s color print</b><br>The ruins of Capernaum, the lakeside town where Peter and Andrew lived. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002724975/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You are mending a net with your dad on a beach that smells of the water. Someone walks up and calls your name: “Come, follow me.”"><small>Close your eyes and imagine</small>Leaving behind the work you do every day to follow someone new. What did Peter see in Jesus that let him get up “immediately”?</p>
+    <a class="go" href="https://www.nga.gov/artworks/282-calling-apostles-peter-and-andrew">Look closely at the painting · The National Gallery of Art’s page<small>Zoom in to find the fish in the water and the net</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“If someone said, “Come with me,” what could you leave behind to go?”</p></div>
+   <div class="root">Jesus called fishermen by the Sea of Galilee, and they immediately left their nets and followed him (Matthew 4:19–20).</div>
+   <a class="read" href="https://biblehub.com/web/matthew/4.htm">Now read the passage · Matthew 4:18–22<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Children may be surprised that they “left the boat and their father” (4:22). It isn’t about walking away from family lightly; it’s about answering Jesus’ call right away. The mother of James and John was later among the women who had followed Jesus from Galilee (Matthew 27:55–56).</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li><a href="https://www.nga.gov/research/publications/italian-paintings-thirteenth-and-fourteenth-centuries-0/italian-paintings-thirteenth-and-fourteenth-centuries-calling-apostles-peter-and-andrew-1308-1311">NGA catalogue, ‘The Calling of the Apostles Peter and Andrew’</a> <span class="note">the layout of the whole <i>Maestà</i> and a full discussion of the panel</span></li>
+    <li>The Duccio paintings in the first and sixth scenes of the Lent Course (the Temptation on the mountain and the Entry into Jerusalem) also come from the <i>Maestà</i>.</li>
+    <li>The calling of the fishermen is also told in Mark 1:16–20 and Luke 5:1–11. In Luke, they follow after catching so many fish that the nets began to break (Luke 5:6, 11).</li>
+   </ul></section>
+   <details class="src"><summary>Sources (7)</summary><ul>
+    <li><a href="https://www.nga.gov/artworks/282-calling-apostles-peter-and-andrew">National Gallery of Art artwork page</a>: 1308–1311; Jesus calls two fishermen at work on the Sea of Galilee</li>
+    <li><a href="https://www.nga.gov/research/publications/italian-paintings-thirteenth-and-fourteenth-centuries-0/italian-paintings-thirteenth-and-fourteenth-centuries-calling-apostles-peter-and-andrew-1308-1311">NGA catalogue entry</a>: two fish with gaping mouths facing us; a scene from the back of the <i>Maestà</i></li>
+    <li><a href="https://www.nga.gov/artworks/10-nativity-prophets-isaiah-and-ezekiel">NGA, ‘The Nativity with the Prophets Isaiah and Ezekiel’</a>: the two-sided altarpiece that dominated Siena Cathedral’s main altar for nearly two centuries</li>
+    <li><a href="https://artsandculture.google.com/asset/the-calling-of-the-apostles-peter-and-andrew-duccio-di-buoninsegna/zQFeUyeLmQjLqQ">Google Arts &amp; Culture</a>: more than 70 scenes; the gilded sky shows that capturing the physical world was not the painter’s top priority</li>
+    <li><a href="https://www.kressfoundation.org/kress-collection/artwork/c0c0ab1e97e050a68aafb761fbadb880e0b59ee8296b1a0bb978c2999fcbbe88">Kress Foundation collection record</a>: 42.7 × 45.5 cm; Samuel H. Kress Collection (1939.1.141)</li>
+    <li><a href="https://biblehub.com/greek/293.htm">Bible Hub, ‘amphiblēstron’</a>: a casting net</li>
+    <li><a href="https://biblehub.com/web/matthew/4.htm">World English Bible</a>: Matthew 4:13, 18–22; 27:55–56; Mark 1:21, 29; Luke 5:5–11</li>
+   </ul><p>Painting: Duccio di Buoninsegna, <i>The Calling of the Apostles Peter and Andrew</i>, 1308–1311, National Gallery of Art, Washington, Samuel H. Kress Collection. Photo: National Gallery of Art open access (CC0), Wikimedia Commons.<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Fishermen_of_Galilee_mending_their_nets_LOC_matpc.04162.jpg">‘Fishermen of Galilee mending their nets’</a> (1934–1939, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress, Photochrom Collection, <a href="https://www.loc.gov/item/2002724975/">‘Ruins of Capernaium, (i.e. Capernaum), Holy Land’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+
+ <!-- Scene 4 -->
+ <article class="card" data-week="scene4">
+  <figure class="fig">
+   <img loading="lazy" src="img/ep4-bellini.jpg" alt="Painting by Giovanni Bellini. Jesus, dressed in white, stands on a low rocky hill with Moses and Elijah on either side. Below them, three disciples have fallen to the ground or turned away in fear. Behind them stretch fields, trees, houses and a village under a cloudy sky, and in a field at left a man drives his cattle.">
+   <figcaption class="cap"><b>The Transfiguration</b> Giovanni Bellini, about 1480<br>Museo di Capodimonte, Naples, Italy</figcaption>
+   <button class="showbtn" type="button" data-show><b>Show it to the children</b><span>The painting and old photos fill the screen, one question at a time</span></button>
+  </figure>
+  <div class="txt">
+   <div class="tag"><span class="chip">Transfiguration Sunday · Light on the mountain</span><span><span data-wd="3">Feb 7</span> · Transfiguration Sunday · Matthew 17:1–9</span></div>
+   <div class="opener"><small>The question this painting opens</small><h2>Why did Jesus’ clothes shine so white?</h2></div>
+   <p class="line">On a high mountain, Jesus’ face shines like the sun. When the disciples fall to the ground, Jesus comes and touches them.</p>
+   <section class="blk look"><h3>Things to find in the painting</h3><ol>
+    <li>Find Jesus standing in the middle and the two men beside him. Who are they?</li>
+    <li>Look at the three disciples below. How is each of them showing his fear?</li>
+    <li>In the field behind, find the man driving his cattle. Does he know what is happening on the hill?</li>
+   </ol></section>
+   <section class="blk"><h3>The story</h3>
+    <p>After six days Jesus took Peter, James and John up a high mountain (17:1). “He was transfigured before them. His face shone like the sun, and his garments became as white as the light” (17:2). Moses and Elijah appeared, talking with him (17:3). Peter said, “Lord, it is good for us to be here,” and offered to make three tents (17:4).</p>
+    <p>While he was still speaking, a bright cloud overshadowed them, and a voice came out of the cloud: “This is my beloved Son, in whom I am well pleased. Listen to him” (17:5). It is the voice heard at Jesus’ baptism, with three more words. The disciples fell on their faces in fear, but Jesus came, touched them and said, “Get up, and don’t be afraid” (17:7). When they looked up, “they saw no one, except Jesus alone” (17:8).</p>
+    <p>The Venetian painter Giovanni Bellini painted this around 1480 for the altar of the Fioccardo chapel in Vicenza Cathedral. He set the scene not high in the sky but in the countryside, with low hills, fields and a village. While something astonishing happens on the hill in front, everyday life goes on as usual behind. In 1613 the chapel was given another use and the painting was removed; it passed into the Farnese collection in Parma and came to Naples in 1734.</p>
+   </section>
+   <div class="aha"><h3 style="font-family:var(--sans);font-size:14px;color:var(--accent)">Good to know</h3>Bellini painted this scene twice. His earlier <i>Transfiguration</i>, from about 1455–1460, is in the Museo Correr in Venice. Painting it again some twenty years later, he placed the figures in a much wider and calmer landscape.</div>
+   <section class="era">
+    <h3>Step back in time</h3>
+    <p class="where"><b>The place · Mount Tabor</b>The Bible doesn’t name this “high mountain.” Since Origen in the 3rd century, Mount Tabor in Galilee has been named as the Mount of Transfiguration, and pilgrims have visited it since the 4th century. Tabor rises alone from a flat plain to a height of 575 meters. The Church of the Transfiguration, built in 1924, now stands on top.</p>
+    <figure class="ph" data-q="Find the rounded mountain. Compared with the people in front, how big is it?" data-color="img/epvr4-tabor.jpg" data-color-alt="AI-colorized version of a black-and-white photo. A single rounded mountain rises beyond a wide plain, and three men stand on the stony slope in front." data-color-q="AI guessed these colors. What color do you think the clouds over the mountain were?">
+     <div class="phw"><img src="img/epera4-tabor.jpg" alt="Black-and-white photo. A single rounded mountain rises beyond a wide plain, and three men stand on the stony slope in front." loading="lazy"><button class="tint" type="button" aria-pressed="false">See in color (AI)</button></div>
+     <figcaption><span class="cap-bw"><b>Mount Tabor from a distance</b> · 1930s<br>It stands alone in the middle of the plain, so it can be seen from far away. It has long been named as the “high mountain” (17:1) that Jesus climbed with three disciples. <a class="orig" href="https://commons.wikimedia.org/wiki/File:Mount_Tabor._Distant_view_LOC_matpc.04152.jpg">View the original</a></span><small class="vr-note" hidden>AI colorized · AI guessed the colors, so they may differ from the real ones.</small></figcaption>
+    </figure>
+    <figure class="ph" data-q="What shape is the mountain? What could you see from the top?">
+     <img src="img/epcolor4-tabor.jpg" alt="Old color print. The rounded dome of Mount Tabor rises beyond fields of bushes." loading="lazy">
+     <figcaption><b>Mount Tabor · 1890s color print</b><br>Mount Tabor before today’s church was built in 1924. It is a ‘photochrom’: color was added to a black-and-white negative and then printed. <a class="orig" href="https://www.loc.gov/item/2002725040/">View the original</a></figcaption>
+    </figure>
+    <p class="imagine" data-kid="Close your eyes. You have climbed a mountain so high you are out of breath. Suddenly a dazzling light shines. You fall down, afraid, but a warm hand touches your shoulder: “Get up. Don’t be afraid.”"><small>Close your eyes and imagine</small>After the dazzling light, the cloud and the voice from heaven, what remained was “Jesus alone.” Going back down the mountain to ordinary days, what did the disciples carry in their hearts?</p>
+    <a class="go" href="https://commons.wikimedia.org/wiki/File:Giovanni_Bellini_-_Trasfigurazione_di_Cristo.jpg">Look closely at the painting · A large image on Wikimedia Commons<small>Zoom in to find the man driving cattle in the field behind</small></a>
+    <p class="old">Old photos don’t show exactly how things looked 2,000 years ago, but they let you see the land and the everyday life of the Bible.</p>
+   </section>
+   <div class="ask"><small>A question to ask the child</small><p>“Has anyone ever held your hand and said, “Don’t be afraid,” when you were scared?”</p></div>
+   <div class="root">On a high mountain Jesus’ face shone like the sun, and a voice from the cloud said, “This is my beloved Son … Listen to him” (Matthew 17:2, 5).</div>
+   <a class="read" href="https://biblehub.com/web/matthew/17.htm">Now read the passage · Matthew 17:1–9<span>World English Bible</span></a>
+   <div class="care"><b>Take care</b> Some children may find the appearance of Moses and Elijah spooky, like ghosts. They are often understood to stand for the Law (Moses) and the Prophets (Elijah); you can simply say that two great people of the Old Testament talked with Jesus. The Wednesday after Transfiguration Sunday is Ash Wednesday, the first day of Lent.</div>
+   <section class="blk more"><h3>See also · For teachers to read further</h3><ul>
+    <li>The same story appears in Mark 9:2–8 and Luke 9:28–36. Luke says Jesus went up the mountain “to pray” (Luke 9:28).</li>
+    <li><a href="https://scotland.op.org/?p=6018">‘Bellini’s Transfiguration at Naples’</a> <span class="note">the place ‘apart’ in front, and everyday life going on behind</span></li>
+    <li>Lent begins this Wednesday. Carry on with the Lent Course.</li>
+   </ul></section>
+   <details class="src"><summary>Sources (6)</summary><ul>
+    <li><a href="https://en.wikipedia.org/wiki/Transfiguration_(Bellini)">Wikipedia, ‘Transfiguration of Christ (Bellini)’</a>: about 1480; 116 × 154 cm; Museo di Capodimonte, Naples; the earlier version in the Museo Correr</li>
+    <li><a href="https://www.firstonline.info/en/giovanni-bellini-dopo-4-secoli-torna-a-vicenza-come-ospite-illustre/">FIRSTonline</a>: the Fioccardo chapel of Vicenza Cathedral; removed in 1613; the Farnese collection in Parma; to Naples in 1734</li>
+    <li><a href="https://scotland.op.org/?p=6018">‘Bellini’s Transfiguration at Naples’</a>: the foreground with the disciples, and the background where life goes on as normal</li>
+    <li><a href="https://en.wikipedia.org/wiki/Mount_Tabor">Wikipedia, ‘Mount Tabor’</a>: 575 m; first identified with the Transfiguration by Origen in the 3rd century; a pilgrimage site from the 4th century</li>
+    <li><a href="https://en.wikipedia.org/wiki/Church_of_the_Transfiguration">Wikipedia, ‘Church of the Transfiguration’</a>: completed in 1924, architect Antonio Barluzzi</li>
+    <li><a href="https://biblehub.com/web/matthew/17.htm">World English Bible</a>: Matthew 17:1–9; Luke 9:28</li>
+   </ul><p>Painting: Giovanni Bellini, <i>The Transfiguration</i> (<i>Trasfigurazione</i>), about 1480, Museo di Capodimonte, Naples. Photo: Wikimedia Commons (public domain).<br>Old photo: Library of Congress, Matson Collection, <a href="https://commons.wikimedia.org/wiki/File:Mount_Tabor._Distant_view_LOC_matpc.04152.jpg">‘Mount Tabor. Distant view’</a> (1934–1939, Wikimedia Commons, no known restrictions).<br>1890s color print: Library of Congress, Photochrom Collection, <a href="https://www.loc.gov/item/2002725040/">‘Mount Tabor, Holy Land, (i.e. Israel)’</a> (no known restrictions).</p></details>
+  </div>
+ </article>
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+  <p>The paintings are public-domain works. The old photos in ‘Step back in time’ come from the Library of Congress <a href="https://commons.wikimedia.org/wiki/Category:Matson_Collection_in_the_Library_of_Congress">Matson Collection</a> (20th-century photos, no known copyright restrictions).</p>
+  <p>The ‘AI colorized’ photos were colored with the AI colorization model <a href="https://github.com/piddnad/ddcolor">DDColor</a> (Alibaba researchers, ICCV 2023), using the public <a href="https://huggingface.co/spaces/gudada/DDColor">DDColor app</a> on Hugging Face. It keeps the photo’s brightness and shapes and only guesses the colors, so even when the result looks convincing, the colors may differ from the real ones.</p>
+  <p>The ‘1890s color prints’ come from the Library of Congress <a href="https://www.loc.gov/collections/photochrom-prints/about-this-collection/">Photochrom Collection</a>. Color was added to a black-and-white negative following color notes the photographer made on the spot (<a href="https://en.wikipedia.org/wiki/Photochrom">Wikipedia, ‘Photochrom’</a>), so the colors are not AI guesses, but they cannot be called exactly true to life either. The Library of Congress says there are no known copyright restrictions on this collection (<a href="https://blogs.loc.gov/loc/2017/10/free-to-use-and-reuse-historical-travel-pictures/">Library of Congress blog</a>).</p>
+  <p>Bible quotations are from the World English Bible (WEB), which is in the public domain.</p>
+  <p>All four passages are read after Epiphany in the Revised Common Lectionary, used by many churches: Matthew 3:13–17 (Baptism of the Lord, Year A), John 2:1–11 (Second Sunday after Epiphany, Year C), Matthew 4:12–23 (Third Sunday after Epiphany, Year A) and Matthew 17:1–9 (Transfiguration Sunday, Year A). The first scene falls on the same Sunday as the last scene of the Christmas Course.</p>
+  <p><a href="christmas.html?lang=en">Previous · Christmas Course</a> · <a href="lent.html?lang=en">Next · Lent Course</a> · <a href="feel.html#en">Back to Experience Together</a> · <a href="./?lang=en">Practice Room</a></p>
+ </div>
+</footer>
+</div>
+
+<dialog class="show" id="show" aria-label="아이에게 보여 주기">
+ <div class="sw">
+  <div class="sw-top"><span id="swTitle"></span><button class="sw-x" type="button" data-close aria-label="닫기">×</button></div>
+  <div class="sw-stage" id="swStage"></div>
+  <p class="sw-q" id="swQ" aria-live="polite"></p>
+  <div class="sw-nav"><button type="button" data-step="-1">이전</button><span class="dots" id="swDots" aria-hidden="true"></span><button type="button" class="next" data-step="1">다음</button></div>
+ </div>
+</dialog>
+
+<script>
+/* 화면 글자: 한국어 / English */
+const T={
+ ko:{look:"찾아보기",photo:"그 시절 사진",imagine:"눈 감고 상상해 보기",vr:"AI 가상 복원 · 실제 색과 다를 수 있어요",toColor:"가상 복원으로 보기",toBw:"흑백 원본으로",prev:"이전",next:"다음",again:"처음으로",close:"닫기",dlg:"아이에게 보여 주기",title:"주현절 후 코스 · 질문 받기 연습실"},
+ en:{look:"Things to find",photo:"A photo from those days",imagine:"Close your eyes and imagine",vr:"AI colorized · the real colors may differ",toColor:"See in color (AI)",toBw:"Back to black and white",prev:"Previous",next:"Next",again:"Start over",close:"Close",dlg:"Show it to the children",title:"After Epiphany Course · Question Practice Room"}
+};
+const langOf=el=>{const b=el&&el.closest(".L");return b&&b.lang==="en"?"en":"ko";};
+{
+ /* 한국어 ↔ English. 고른 언어는 이 브라우저에 기억해요. 주소 끝에 #en 또는 ?lang=en을 붙여도 영어판으로 열려요 */
+ const KEY="after-epiphany-lang",boxes=[...document.querySelectorAll(".L")];
+ const setLang=(l,save)=>{
+  l=l==="en"?"en":"ko";
+  boxes.forEach(b=>{const off=b.lang!==l;b.hidden=off;const m=b.querySelector("main");if(m)m.hidden=off;});
+  document.documentElement.lang=l;
+  document.title=T[l].title;
+  if(save)try{localStorage.setItem(KEY,l);}catch(e){}
+ };
+ const h=location.hash.slice(1),q=new URLSearchParams(location.search).get("lang");
+ let first="ko";
+ if(h==="en"||h==="ko")first=h;
+ else if(q==="en"||q==="ko")first=q;
+ else try{first=localStorage.getItem(KEY)||"ko";}catch(e){}
+ setLang(first,h==="en"||h==="ko");
+ document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-lang]");
+  if(!b)return;
+  const l=b.dataset.lang==="en"?"en":"ko";
+  setLang(l,true);
+  const o=document.querySelector(`.L[lang="${l}"] [data-lang]`);
+  if(o)o.focus();
+ });
+ addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(h==="en"||h==="ko")setLang(h,true);});
+}
+{
+ /* 장면 고르기: #scene1~4, 없으면 오늘 날짜에 맞는 장면 */
+ const W=["scene1","scene2","scene3","scene4"];
+ /* 주님의 수세 주일(주현절 주일 = 1월 2~8일 사이의 주일, 그다음 주일), 주현절 후 둘째·셋째 주일, 산상변모주일(부활절 49일 전, 재의 수요일 앞 주일).
+    마지막 장면이 지나고 한 주가 더 지나면(사순절부터) 다음 해로 넘어가요. 날짜도 해마다 맞춰 바꿔요 */
+ const easter=y=>{const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),n=h+l-7*m+114;return new Date(y,Math.floor(n/31)-1,n%31+1);};
+ const plan=y=>{const j2=new Date(y,0,2),ep=2+(7-j2.getDay())%7,e=easter(y);
+  return [7,14,21].map(n=>new Date(y,0,ep+n)).concat([new Date(y,e.getMonth(),e.getDate()-49)]);};
+ const now=new Date();
+ let starts=plan(now.getFullYear());
+ if(now>=new Date(starts[3].getFullYear(),starts[3].getMonth(),starts[3].getDate()+7))starts=plan(now.getFullYear()+1);
+ const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+ document.querySelectorAll("[data-wd]").forEach(el=>{const d=starts[+el.dataset.wd],b=el.closest(".L");el.textContent=b&&b.lang==="en"?`${MON[d.getMonth()]} ${d.getDate()}`:`${d.getMonth()+1}월 ${d.getDate()}일`;});
+ const today=()=>{const n=new Date();let i=0;starts.forEach((d,k)=>{if(n>=d)i=k;});return W[i];};
+ let cur=null;
+ const show=scroll=>{
+  const h=location.hash.slice(1);
+  cur=W.includes(h)?h:(cur||today());
+  document.querySelectorAll(".card").forEach(c=>c.classList.toggle("on",c.dataset.week===cur));
+  document.querySelectorAll(".wk").forEach(t=>t.setAttribute("aria-current",String(t.dataset.w===cur)));
+  if(scroll){const c=document.querySelector(`.L:not([hidden]) .card[data-week="${cur}"]`);if(c)c.scrollIntoView({block:"start"});}
+ };
+ document.documentElement.classList.add("js");
+ show(false);
+ addEventListener("hashchange",()=>show(W.includes(location.hash.slice(1))));
+}
+{
+ /* 아이에게 보여 주기: 그림 → 찾아보기 → 옛 사진 → 눈 감고 상상 → 물어볼 것 */
+ const dlg=document.getElementById("show");
+ const stage=document.getElementById("swStage"),qEl=document.getElementById("swQ"),dots=document.getElementById("swDots"),title=document.getElementById("swTitle");
+ const prev=dlg.querySelector('[data-step="-1"]'),next=dlg.querySelector('[data-step="1"]'),closeBtn=dlg.querySelector("[data-close]");
+ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+ let steps=[],at=0,tinted=false,tx=T.ko;
+ const build=card=>{
+  const art=card.querySelector(".fig img"),s=[];
+  const pic={img:art.src,alt:art.alt};
+  s.push({...pic,label:card.querySelector(".opener small").textContent,text:card.querySelector(".opener h2").textContent});
+  card.querySelectorAll(".look li").forEach(li=>s.push({...pic,label:tx.look,text:li.textContent}));
+  card.querySelectorAll(".era .ph").forEach(f=>{
+   const im=f.querySelector("img"),abs=u=>new URL(u,location.href).href;
+   const bw=f.dataset.bw?{src:f.dataset.bw,alt:f.dataset.bwAlt}:{src:im.getAttribute("src"),alt:im.alt};
+   s.push({img:abs(bw.src),alt:bw.alt,label:tx.photo,text:f.dataset.q,
+    color:f.dataset.color?{img:abs(f.dataset.color),alt:f.dataset.colorAlt,text:f.dataset.colorQ}:null});
+  });
+  const im=card.querySelector(".imagine");
+  if(im)s.push({img:null,label:tx.imagine,text:im.dataset.kid});
+  s.push({...pic,label:card.querySelector(".ask small").textContent,text:card.querySelector(".ask p").textContent});
+  return s;
+ };
+ const render=()=>{
+  const s=steps[at],c=s.color&&tinted?s.color:null;
+  const src=c?c.img:s.img,alt=c?c.alt:s.alt,text=c?c.text:s.text,label=c?tx.vr:s.label;
+  stage.innerHTML=s.img?`<div class="sw-pic"><img src="${esc(src)}" alt="${esc(alt)}">${s.color?`<button class="tint" type="button" data-tint aria-pressed="${tinted}">${esc(tinted?tx.toBw:tx.toColor)}</button>`:""}</div>`:`<div class="sw-dark"><span>${esc(s.label)}</span></div>`;
+  qEl.innerHTML=`<small>${esc(label)}</small>${esc(text)}`;
+  dots.innerHTML=steps.map((_,i)=>`<i class="${i===at?"on":""}"></i>`).join("");
+  prev.disabled=at===0;
+  next.textContent=at===steps.length-1?tx.again:tx.next;
+ };
+ const go=d=>{at=(d>0&&at===steps.length-1)?0:Math.max(0,Math.min(steps.length-1,at+d));tinted=false;render();};
+ const tint=()=>{if(!steps[at].color)return;tinted=!tinted;render();const b=stage.querySelector("[data-tint]");if(b)b.focus();};
+ if(typeof dlg.showModal!=="function"){document.querySelectorAll("[data-show]").forEach(b=>b.hidden=true);}
+ document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-show]");
+  if(!b)return;
+  const card=b.closest(".card"),l=langOf(card);
+  tx=T[l];
+  dlg.lang=l;dlg.setAttribute("aria-label",tx.dlg);closeBtn.setAttribute("aria-label",tx.close);prev.textContent=tx.prev;
+  steps=build(card);at=0;tinted=false;
+  title.textContent=card.querySelector(".chip").textContent;
+  render();dlg.showModal();next.focus();
+ });
+ dlg.addEventListener("click",e=>{
+  if(e.target.closest("[data-close]")){dlg.close();return;}
+  if(e.target.closest("[data-tint]")){tint();return;}
+  const st=e.target.closest("[data-step]");
+  if(st)go(+st.dataset.step);
+ });
+ document.addEventListener("keydown",e=>{
+  if(!dlg.open)return;
+  if(e.key==="ArrowRight"){e.preventDefault();go(1);}
+  else if(e.key==="ArrowLeft"){e.preventDefault();go(-1);}
+ });
+ let x0=null;
+ stage.addEventListener("pointerdown",e=>{x0=e.clientX;});
+ stage.addEventListener("pointerup",e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;if(Math.abs(dx)>50)go(dx<0?1:-1);else if(Math.abs(dx)<8&&e.target.tagName==="IMG")tint();});
+}
+{
+ /* 카드 속 흑백 사진: 누르면 흑백 원본 ↔ 가상 복원(같은 사진에 색을 입힌 것) */
+ const swap=(fig,on)=>{
+  const tx=T[langOf(fig)],img=fig.querySelector(".phw img"),btn=fig.querySelector(".tint");
+  if(!fig.dataset.bw){fig.dataset.bw=img.getAttribute("src");fig.dataset.bwAlt=img.alt;}
+  const src=on?fig.dataset.color:fig.dataset.bw,pre=new Image();
+  pre.src=src;
+  (pre.decode?pre.decode():Promise.resolve()).catch(()=>{}).then(()=>{
+   img.src=src;img.alt=on?fig.dataset.colorAlt:fig.dataset.bwAlt;
+   btn.setAttribute("aria-pressed",String(on));
+   btn.textContent=on?tx.toBw:tx.toColor;
+   const note=fig.querySelector(".vr-note");if(note)note.hidden=!on;
+   fig.classList.toggle("is-color",on);
+  });
+ };
+ document.addEventListener("click",e=>{
+  const w=e.target.closest(".ph[data-color] .phw");
+  if(!w)return;
+  const fig=w.closest(".ph");
+  swap(fig,!fig.classList.contains("is-color"));
+ });
+}
+</script>
+</body>
+</html>

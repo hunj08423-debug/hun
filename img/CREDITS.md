@@ -267,15 +267,15 @@ Unsplash (무료로 쓸 수 있고 출처 표기 의무는 없음. 찍은 사람
 - yangnim-6.jpg — 옛 선교사 마을의 벽돌 사택 — 받은 파일 이름 Yangnim History & Culture Village (1).jpg (새로 더함)
 - 참고: 자막의 3·1만세운동길 내용은 한국관광공사 관광 정보(https://www.ktriptips.com/kor/tourspot/2931898)를 따름
 
-## 대림절 4주 코스 (advent.html, 2026년 11월 16일 더함)
+## 대림절 4주 코스 (advent.html, 2026년 11월 16일 더함 · 11월 17일 모든 그림과 사진을 위키미디어 공용의 원본 파일로 다시 만듦)
 ### 그림
-- advent1-martini.jpg — 시모네 마르티니·리포 멤미, 「수태고지」(1333년, 피렌체 우피치 미술관) — 위키미디어 공용(Google Art Project, 저작권 만료)
-- advent2-visitation.jpg — 콘스탄츠의 하인리히 장인(으로 전해짐), 「방문」(1310~1320년 무렵, 뉴욕 메트로폴리탄 미술관) — 메트로폴리탄 미술관 공개 이미지(CC0), 위키미디어 공용
-- advent3-rublev.jpg — 안드레이 루블료프(로 전해짐), 「그리스도의 탄생」(1405년 무렵, 모스크바 크렘린 블라고베셴스키 대성당) — 위키미디어 공용(저작권 만료)
-- advent4-jacopo.jpg — 야코포 디 초네와 공방, 「그리스도의 탄생과 목자들」(1370~1371년, 런던 내셔널 갤러리) — 위키미디어 공용(저작권 만료)
+- advent1-martini.jpg — 시모네 마르티니·리포 멤미, 「수태고지」(1333년, 피렌체 우피치 미술관) — 위키미디어 공용 ‘Simone Martini and Lippo Memmi - Annunciazione - Google Art Project.jpg’(Google Art Project, 저작권 만료)
+- advent2-visitation.jpg — 콘스탄츠의 하인리히 장인(으로 전해짐), 「방문」(1310~1320년 무렵, 뉴욕 메트로폴리탄 미술관) — 메트로폴리탄 미술관 공개 이미지(CC0), 위키미디어 공용 ‘The Visitation MET DP344571.jpg’
+- advent3-rublev.jpg — 안드레이 루블료프(로 전해짐), 「그리스도의 탄생」(1405년 무렵, 모스크바 크렘린 블라고베셴스키 대성당) — 위키미디어 공용 ‘Nativity (15th c., Annunciation Cathedral in Moscow).jpg’(저작권 만료)
+- advent4-jacopo.jpg — 야코포 디 초네와 공방, 「그리스도의 탄생과 목자들」(1370~1371년, 런던 내셔널 갤러리) — 위키미디어 공용 ‘4 Jacopo di Cione Polyptych San Pier Maggiore, detail. 1370-71 London NG.jpg’(저작권 만료)
 - advent1-martini-s.jpg — 위 「수태고지」의 작은 판(가로 480px). 함께 느끼기 방의 '대림절 4주 코스' 한 줄에 씀
 
-### 옛 사진 (미국 의회도서관 매슨 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용에서 받아 잘라 냄)
+### 옛 사진 (미국 의회도서관 매슨 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 테두리를 잘라 냄)
 - era1-nazareth-spring.jpg — 나사렛의 ‘마리아의 샘’ · 1930년대 — https://commons.wikimedia.org/wiki/File:Virgin%27s_Fountain_in_Nazareth_LOC_matpc.00447.jpg (AI 가상 복원: vr-nazareth-spring.jpg)
 - era2-ain-karim.jpg — 도착한 곳 · 아인 카림 · 1925년 — https://commons.wikimedia.org/wiki/File:View_of_Ain_Karim_LOC_matpc.12392.jpg (AI 가상 복원: vr-ain-karim.jpg)
 - era3-grotto.jpg — 베들레헴 ‘탄생 동굴’ · 1950~70년대 — https://commons.wikimedia.org/wiki/File:Bethlehem._Grotto_of_the_Nativity_LOC_matpc.22862.jpg
@@ -284,7 +284,7 @@ Unsplash (무료로 쓸 수 있고 출처 표기 의무는 없음. 찍은 사람
 - era4-shepherd.jpg — 베들레헴 근처의 목자 · 1925년 — https://commons.wikimedia.org/wiki/File:Shepherd_with_flock_near_Bethlehem._LOC_matpc.14106.jpg (AI 가상 복원: vr-shepherd.jpg)
 - era4-flock.jpg — 베들레헴과 양 떼 · 1940년대 — https://commons.wikimedia.org/wiki/File:Bethlehem._The_town_with_shepherd_%26_flock_in_foreground_LOC_matpc.21865.jpg (AI 가상 복원: vr-flock.jpg)
 
-### 1890년대 컬러 인쇄본 (미국 의회도서관 포토크롬 컬렉션, 알려진 저작권 제한 없음)
+### 1890년대 컬러 인쇄본 (미국 의회도서관 포토크롬 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 여백과 아래쪽 인쇄 글씨를 잘라 냄)
 - color-w1-fountain.jpg — 같은 샘 · 1890년대 컬러 인쇄본 — https://commons.wikimedia.org/wiki/File:The_virgin%27s_fountain,_Nazareth,_Holy_Land,_(i.e._Israel)-LCCN2002725047.jpg
 - color-w2-nazareth.jpg — 떠난 곳 · 나사렛 · 1890년대 컬러 인쇄본 — https://commons.wikimedia.org/wiki/File:From_the_east,_Nazareth,_Holy_Land,_(i.e.,_Israel)-LCCN2002725045.jpg
 - color-w3-plowing.jpg — 다른 농부, 같은 모습 · 1890년대 컬러 인쇄본 — https://commons.wikimedia.org/wiki/File:Native_of_Palestine_working_with_an_ox_and_an_ass,_Holy_Land-LCCN2002725074.jpg
@@ -292,30 +292,145 @@ Unsplash (무료로 쓸 수 있고 출처 표기 의무는 없음. 찍은 사람
 - color-w4-bethlehem.jpg — 같은 베들레헴 · 1890년대 컬러 인쇄본 — https://commons.wikimedia.org/wiki/File:General_view_of_the_well_of_David,_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002724966.jpg
 
 ### AI 가상 복원 (vr-*.jpg)
-- vr-*.jpg — 위 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 입힌 것. 허깅페이스의 gudada/DDColor 앱을 씀. 같은 이름의 era*.jpg는 이 결과를 흑백으로 바꾼 판(밝기는 그대로)이라, 누르면 같은 사진이 정확히 겹쳐 바뀜.
+- vr-*.jpg — 위 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 입힌 것. 허깅페이스의 gudada/DDColor 앱을 씀(11월 17일 원본에서 다시 만듦). 같은 이름의 era*.jpg는 이 결과를 흑백으로 바꾼 판(밝기는 그대로)이라, 누르면 같은 사진이 정확히 겹쳐 바뀜.
 
-## 성탄절 코스 (christmas.html, 2026년 11월 17일 더함)
+## 성탄절 코스 (christmas.html, 2026년 11월 17일 더함 · 같은 날 모든 사진을 위키미디어 공용의 원본 파일로 다시 만듦)
 ### 그림
 - xmas1-geertgen.jpg — 헤르트헨 토트 신트 얀스, 「밤의 탄생」(1490년 무렵, 런던 내셔널 갤러리) — 위키미디어 공용 ‘Geertgen tot Sint Jans, The Nativity at Night, c 1490.jpg’(저작권 만료)
-- xmas2-rembrandt.jpg — 렘브란트 판 레인, 「시므온의 찬송」(1631년, 헤이그 마우리츠하위스 미술관) — 위키미디어 공용 ‘Het loflied van Simeon, Rembrandt van Rijn, 1631, Mauritshuis, The Hague.jpg’(저작권 만료). 위쪽 둥근 모서리의 흰 바탕은 어둡게 메움
+- xmas2-rembrandt.jpg — 렘브란트 판 레인, 「시므온의 찬송」(1631년, 헤이그 마우리츠하위스 미술관) — 위키미디어 공용 ‘Het loflied van Simeon, Rembrandt van Rijn, 1631, Mauritshuis, The Hague.jpg’(저작권 만료). 위쪽 둥근 모서리와 가장자리의 흰 바탕은 어둡게 메움
 - xmas3-giotto.jpg — 조토 디 본도네, 「동방박사의 경배」(1303~1304년 무렵, 파도바 스크로베니 예배당) — 위키미디어 공용 ‘Giotto di Bondone - No. 18 Scenes from the Life of Christ - 2. Adoration of the Magi - WGA09195.jpg’(Web Gallery of Art, 저작권 만료)
 - xmas4-caravaggio.jpg — 카라바조, 「이집트로 피신 중의 휴식」(1597년 무렵, 로마 도리아 팜필리 미술관) — 위키미디어 공용 ‘Rest on the Flight into Egypt-Caravaggio (c.1597).jpg’(저작권 만료)
 - xmas1-geertgen-s.jpg — 위 「밤의 탄생」에서 마리아와 아기 부분을 정사각형으로 잘라 낸 작은 판(480px). 함께 느끼기 방의 '성탄절 코스' 한 줄에 씀
+- xmas*-t.jpg — 위 그림들을 장면 고르기 띠에 맞게 4:3으로 잘라 낸 작은 판(가로 560px)
 
-### 옛 사진 (미국 의회도서관 매슨 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용에서 받아 잘라 냄)
+### 옛 사진 (미국 의회도서관 매슨 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 테두리를 잘라 냄)
 - xera1-church-light.jpg — 성탄 무렵의 예수탄생교회 · 1940~1946년 — https://commons.wikimedia.org/wiki/File:Church_of_the_Nativity,_Bethlehem,_Palestine_00660u_original.jpg (AI 가상 복원: xvr1-church-light.jpg)
 - xera2-western-wall.jpg — 성전 마당을 받치던 서쪽 돌벽 · 1900년 — https://commons.wikimedia.org/wiki/File:Various_views_inside_the_city._Jews_wailing_place_LOC_matpc.00027.jpg (AI 가상 복원: xvr2-western-wall.jpg)
-- xera3-camel-riders.jpg — 베들레헴으로 가는 ‘세 박사’ · 1898~1946년 사이 — https://commons.wikimedia.org/wiki/File:Three_%27Wise_Men%27_on_way_to_Bethlehem_in_distance_LOC_matpc.06283.jpg (AI 가상 복원: xvr3-camel-riders.jpg, 오른쪽 검은 테두리는 잘라 냄)
+- xera3-camel-riders.jpg — 베들레헴으로 가는 ‘세 박사’ · 1898~1946년 사이 — https://commons.wikimedia.org/wiki/File:Three_%27Wise_Men%27_on_way_to_Bethlehem_in_distance_LOC_matpc.06283.jpg (AI 가상 복원: xvr3-camel-riders.jpg, 오른쪽의 검은 가장자리와 손글씨 쪽지는 잘라 냄)
 - xera4-donkey-family.jpg — ‘이집트로 피하는 길’ · 1934~1939년 — https://commons.wikimedia.org/wiki/File:%27Flight_into_Egypt%27_Bedouin_types_-_woman_%26_infant_on_donkey,_man(%3F)_standing_LOC_matpc.19007.jpg (AI 가상 복원: xvr4-donkey-family.jpg)
 
-### 1890년대 컬러 인쇄본 (미국 의회도서관 포토크롬 컬렉션, 알려진 저작권 제한 없음)
-- xcolor1-nativity-church.jpg — 예수탄생교회 안 · LCCN 2002724967 — https://www.loc.gov/item/2002724967/
+### 1890년대 컬러 인쇄본 (미국 의회도서관 포토크롬 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 여백과 아래쪽 인쇄 글씨를 잘라 냄)
+- xcolor1-nativity-church.jpg — 예수탄생교회 안 · LCCN 2002724967 — https://commons.wikimedia.org/wiki/File:Church_of_the_nativity_(interior),_Bethlehem,_Holy_Land,_(i.e.,_West_Bank)-LCCN2002724967.jpg
 - xcolor2-jerusalem.jpg — 올리브산에서 본 예루살렘 — https://commons.wikimedia.org/wiki/File:From_the_Mount_of_Olives,_general_view,_Jerusalem,_Holy_Land-LCCN2002725017.jpg
 - xcolor3-camels.jpg — 사막에서 쉬는 낙타 몰이꾼들 — https://commons.wikimedia.org/wiki/File:Camels_halting_in_the_desert,_Holy_Land-LCCN2001699277.jpg
-- xcolor4-virgins-tree.jpg — 카이로(헬리오폴리스)의 ‘마리아의 나무’ · ‘Heliopolis, arbre de la Sainte Mère’ · LCCN 2017656958 — https://www.loc.gov/item/2017656958/
+- xcolor4-virgins-tree.jpg — 카이로(헬리오폴리스)의 ‘마리아의 나무’ · ‘Heliopolis, arbre de la Sainte Mère’ · LCCN 2017656958 — https://commons.wikimedia.org/wiki/File:Heliopolis,_arbre_de_la_Sainte_M%C3%A8re_LCCN2017656958.jpg
 
 ### 그 밖의 사진
 - xcomet-halley-1986.jpg — 핼리 혜성, 1986년 3월 8일, W. 릴러, 국제 핼리 혜성 관측(NASA) — https://commons.wikimedia.org/wiki/File:Lspn_comet_halley.jpg (퍼블릭 도메인)
 
 ### AI 가상 복원 (xvr*.jpg)
-- xvr*.jpg — 위 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 입힌 것. 허깅페이스의 gudada/DDColor 앱을 씀. 같은 번호의 xera*.jpg는 이 결과를 흑백으로 바꾼 판(밝기는 그대로)이라, 누르면 같은 사진이 정확히 겹쳐 바뀜.
+- xvr*.jpg — 위 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 입힌 것. 허깅페이스의 gudada/DDColor 앱을 씀(11월 17일 원본에서 다시 만듦). 같은 번호의 xera*.jpg는 이 결과를 흑백으로 바꾼 판(밝기는 그대로)이라, 누르면 같은 사진이 정확히 겹쳐 바뀜.
+
+## 사순절 코스 (lent.html, 2026년 11월 17일 더함)
+### 그림
+- lent1-duccio.jpg — 두초 디 부오닌세냐, 「산 위의 시험」(1308~1311년, 뉴욕 프릭 컬렉션) — 위키미디어 공용 ‘Duccio - The Temptation on the Mount.jpg’(저작권 만료)
+- lent2-murillo.jpg — 바르톨로메 에스테반 무리요, 「돌아온 아들」(1667~1670년, 워싱턴 내셔널 갤러리) — 위키미디어 공용 ‘Bartolomé Esteban Murillo, The Return of the Prodigal Son, 1667-1670, NGA 34956.jpg’(내셔널 갤러리 공개 이미지, CC0)
+- lent3-cranach.jpg — 소 루카스 크라나흐와 공방, 「아이들을 축복하시는 예수님」(1545~1550년 무렵, 뉴욕 메트로폴리탄 미술관) — 위키미디어 공용 ‘Christ Blessing the Children MET DP280362.jpg’(메트로폴리탄 공개 이미지, CC0)
+- lent4-tissot.jpg — 제임스 티소, 「돌무화과나무 위에서 예수님을 기다리는 삭개오」(1886~1896년, 브루클린 미술관) — 위키미디어 공용 ‘Brooklyn Museum - Zacchaeus in the Sycamore Awaiting the Passage of Jesus (Zachée sur le sycomore attendant le passage de Jésus) - James Tissot.jpg’(저작권 만료)
+- lent5-giotto.jpg — 조토 디 본도네, 「나사로를 살리심」(1304~1306년 무렵, 파도바 스크로베니 예배당) — 위키미디어 공용 ‘Giotto di Bondone - No. 25 Scenes from the Life of Christ - 9. Raising of Lazarus - WGA09204.jpg’(Web Gallery of Art, 저작권 만료)
+- lent6-duccio.jpg — 두초 디 부오닌세냐, 「예루살렘에 들어가심」(1308~1311년, 시에나 대성당 미술관) — 위키미디어 공용 ‘Maesta.Duccio. detail.jpg’(저작권 만료)
+- lent1-duccio-s.jpg — 위 「산 위의 시험」에서 예수와 마귀 부분을 정사각형으로 잘라 낸 작은 판(480px). 함께 느끼기 방의 '사순절 코스' 한 줄에 씀
+- lent*-t.jpg — 위 그림들을 장면 고르기 띠에 맞게 4:3으로 잘라 낸 작은 판(가로 560px)
+
+### 옛 사진 (미국 의회도서관 매슨 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 테두리를 잘라 냄)
+- lera1-wilderness.jpg — 유대 광야와 시험산 · 1934~1939년 — https://commons.wikimedia.org/wiki/File:The_wilderness_of_Judea_%26_Mt._of_Temptation_LOC_matpc.14208.jpg (AI 가상 복원: lvr1-wilderness.jpg)
+- lera2-carob.jpg — 쥐엄나무(캐럽) · 1900년 — https://commons.wikimedia.org/wiki/File:Trees_and_shrubs._Carob_tree._(Ceratonia_Siliqua_L.)._LOC_matpc.02474.jpg (입체 사진의 왼쪽 절반, AI 가상 복원: lvr2-carob.jpg)
+- lera3-mother-child.jpg — 아기를 안은 여인 · 1898~1946년 사이 — https://commons.wikimedia.org/wiki/File:Arab_woman_holding_child_LOC_matpc.04623.jpg (AI 가상 복원: lvr3-mother-child.jpg)
+- lera4-sycamore.jpg — 돌무화과나무 · 1900년 — https://commons.wikimedia.org/wiki/File:Trees_and_shrubs._Sycomore_tree._(Ficus_sycomorus_L.)._LOC_matpc.02466.jpg (입체 사진의 왼쪽 절반, AI 가상 복원: lvr4-sycamore.jpg)
+- lera5-bethany.jpg — 베다니 마을 · 1898~1946년 사이 — https://commons.wikimedia.org/wiki/File:Bethany._General_view_of_the_village_LOC_matpc.05913.jpg (AI 가상 복원: lvr5-bethany.jpg)
+- lera6-palm-procession.jpg — 벳바게의 종려주일 행진 · 1934~1939년 — https://commons.wikimedia.org/wiki/File:Palm_Sunday_procession_at_Bethphage_LOC_matpc.18989.jpg (AI 가상 복원: lvr6-palm-procession.jpg)
+
+### 1890년대 컬러 인쇄본 (미국 의회도서관 포토크롬 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 여백과 아래쪽 인쇄 글씨를 잘라 냄)
+- lcolor1-wadi-kelt.jpg — 와디 켈트의 절벽 수도원 · LCCN 2002725062 — https://www.loc.gov/item/2002725062/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- lcolor2-meal.jpg — 갈멜산 마을 사람들의 식사 · LCCN 2002725090 — https://www.loc.gov/item/2002725090/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- lcolor3-children.jpg — 예루살렘 근처 마을의 아이들 · LCCN 2002725077 — https://www.loc.gov/item/2002725077/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- lcolor4-jericho.jpg — 여리고 전경 · LCCN 2002724993 — https://www.loc.gov/item/2002724993/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- lcolor5-lazarus-tomb.jpg — 베다니의 나사로 무덤 · LCCN 2002724964 — https://www.loc.gov/item/2002724964/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- lcolor6-golden-gate.jpg — 황금문(바깥쪽) · LCCN 2002725012 — https://www.loc.gov/item/2002725012/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+
+### AI 가상 복원 (lvr*.jpg)
+- lvr*.jpg — 위 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 입힌 것. 허깅페이스의 gudada/DDColor 앱을 씀. 같은 번호의 lera*.jpg는 이 결과를 흑백으로 바꾼 판(밝기는 그대로)이라, 누르면 같은 사진이 정확히 겹쳐 바뀜.
+
+## 부활절 코스 (easter.html, 2026년 11월 17일 더함)
+### 그림
+- east1-angelico.jpg — 프라 안젤리코, 「나를 붙들지 말라」(1440년 무렵, 피렌체 산마르코 수도원 1번 방) — 위키미디어 공용 ‘Angelico, noli me tangere.jpg’(저작권 만료). 둥근 벽화 바깥의 흰 바탕은 어둡게 메움
+- east2-cima.jpg — 치마 다 코넬리아노, 「의심하던 도마」(1502~1504년 무렵, 런던 내셔널 갤러리) — 위키미디어 공용 ‘Cima da Conegliano London NG Incredulita STommaso 1504.jpg’(저작권 만료)
+- east3-caravaggio.jpg — 카라바조, 「엠마오의 저녁 식사」(1601년, 런던 내셔널 갤러리) — 위키미디어 공용 ‘Supper at Emmaus-Caravaggio (1601).jpg’(저작권 만료)
+- east4-witz.jpg — 콘라트 비츠, 「놀라운 고기잡이」(1444년, 제네바 예술역사박물관) — 위키미디어 공용 ‘Konrad Witz - Fischzug Petri.jpeg’(저작권 만료)
+- east5-giotto.jpg — 조토 디 본도네, 「승천」(1304~1306년 무렵, 파도바 스크로베니 예배당) — 위키미디어 공용 ‘Giotto di Bondone - No. 38 Scenes from the Life of Christ - 22. Ascension - WGA09226.jpg’(Web Gallery of Art, 저작권 만료)
+- east6-maino.jpg — 후안 바우티스타 마이노, 「성령강림」(1612~1614년, 마드리드 프라도 미술관) — 위키미디어 공용 ‘Maino Pentecostés. Lienzo. 285 x 163 cm. Museo del Prado.jpg’(저작권 만료)
+- east1-angelico-s.jpg — 위 「나를 붙들지 말라」에서 마리아와 예수 부분을 정사각형으로 잘라 낸 작은 판(480px). 함께 느끼기 방의 '부활절 코스' 한 줄에 씀
+- east*-t.jpg — 위 그림들을 장면 고르기 띠에 맞게 4:3으로 잘라 낸 작은 판(가로 560px)
+
+### 옛 사진 (미국 의회도서관 매슨 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 테두리를 잘라 냄)
+- eera1-rolling-stone.jpg — 아부 고시의 굴리는 돌 무덤 · 1940~1946년 — https://commons.wikimedia.org/wiki/File:Jewish_tombs_with_rolling_stones_at_Abou_Gosh._Rolling_stone_tomb,_without_figure._Abu_Ghosh_(Kirjath_Jearim)_LOC_matpc.21098.jpg (AI 가상 복원: evr1-rolling-stone.jpg)
+- eera2-upper-room.jpg — 예루살렘 ‘마지막 만찬의 방’ · 1898~1946년 사이 — https://commons.wikimedia.org/wiki/File:Chamber_of_the_Last_Supper,_Jerusalem_LOC_matpc.08504_(cropped).jpg (AI 가상 복원: evr2-upper-room.jpg)
+- eera3-emmaus-road.jpg — 엠마오로 가는 로마 시대 길 · 1934~1939년 — https://commons.wikimedia.org/wiki/File:Roman_road_to_Emmaus_showing_%27Mizpah%27,_Neby_Samwil_LOC_matpc.16561.jpg (왼쪽 손글씨와 오른쪽 아래 상한 부분은 잘라 냄, AI 가상 복원: evr3-emmaus-road.jpg)
+- eera4-galilee-net.jpg — 갈릴리에서 그물을 던지는 어부들 · 1934~1939년 — https://commons.wikimedia.org/wiki/File:Fishermen_on_Galilee_throwing_net_from_boat_LOC_matpc.12384.jpg (AI 가상 복원: evr4-galilee-net.jpg)
+- eera5-ascension.jpg — 승천하신 자리(승천 예배당 안) · 1898~1914년 사이 — https://commons.wikimedia.org/wiki/File:Jerusalem_(El-Kouds)._Spot_of_the_Ascension_LOC_matpc.06710.jpg (예배당 안을 찍은 사진, 아래쪽 인쇄 글씨는 잘라 냄, AI 가상 복원: evr5-ascension.jpg)
+- eera6-barley.jpg — 보리 거두기 · 1898~1946년 사이 — https://commons.wikimedia.org/wiki/File:Reaping_barley_harvest._LOC_matpc.05396.jpg (AI 가상 복원: evr6-barley.jpg)
+
+### 1890년대 컬러 인쇄본 (미국 의회도서관 포토크롬 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 여백과 아래쪽 인쇄 글씨를 잘라 냄)
+- ecolor1-sepulchre.jpg — 성묘 교회 정면 · LCCN 2002725003 — https://www.loc.gov/item/2002725003/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- ecolor2-calvary.jpg — 골고다의 그리스 정교회 제단 · LCCN 2002725005 — https://www.loc.gov/item/2002725005/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- ecolor3-bread.jpg — 빵을 굽는 시리아 농부 · LCCN 2002725075 — https://www.loc.gov/item/2002725075/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- ecolor4-tiberias-boat.jpg — 디베랴 호수의 고깃배 · LCCN 2002725060 — https://www.loc.gov/item/2002725060/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- ecolor5-olives.jpg — 감람산과 겟세마네 · LCCN 2002725021 — https://www.loc.gov/item/2002725021/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- ecolor6-jaffa-gate.jpg — 예루살렘 야파 문 · LCCN 2002724999 — https://www.loc.gov/item/2002724999/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+
+### AI 가상 복원 (evr*.jpg)
+- evr*.jpg — 위 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 입힌 것. 허깅페이스의 gudada/DDColor 앱을 씀. 같은 번호의 eera*.jpg는 이 결과를 흑백으로 바꾼 판(밝기는 그대로)이라, 누르면 같은 사진이 정확히 겹쳐 바뀜.
+
+## 주현절 후 코스 (after-epiphany.html, 2026년 11월 17일 더함)
+### 그림
+- ep1-piero.jpg — 피에로 델라 프란체스카, 「그리스도의 세례」(1437~1445년 무렵, 런던 내셔널 갤러리) — 위키미디어 공용 ‘Piero della Francesca - Battesimo di Cristo (National Gallery, London).jpg’(저작권 만료). 둥근 아치 바깥의 흰 바탕을 어두운 색으로 채움
+- ep2-veronese.jpg — 파올로 베로네세, 「가나의 혼인 잔치」(1562~1563년, 파리 루브르 박물관) — 위키미디어 공용 ‘Les Noces de Cana - Paolo Veronese - Musée du Louvre Peintures INV 142 ; MR 384.jpg’(저작권 만료)
+- ep3-duccio.jpg — 두초 디 부오닌세냐, 「베드로와 안드레를 부르심」(1308~1311년, 워싱턴 내셔널 갤러리 오브 아트) — 위키미디어 공용 ‘Duccio di Buoninsegna, The Calling of the Apostles Peter and Andrew, 1308-1311, NGA 282.jpg’(저작권 만료)
+- ep4-bellini.jpg — 조반니 벨리니, 「그리스도의 변모」(1480년 무렵, 나폴리 카포디몬테 미술관) — 위키미디어 공용 ‘Giovanni Bellini - Trasfigurazione di Cristo.jpg’(저작권 만료)
+- ep1-piero-s.jpg — 위 첫 그림을 정사각형으로 잘라 낸 작은 판(480px). 함께 느끼기 방의 코스 한 줄에 씀
+- ep*-t.jpg — 위 그림들을 장면 고르기 띠에 맞게 4:3으로 잘라 낸 작은 판(가로 560px)
+
+### 옛 사진 (미국 의회도서관 매슨 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 테두리를 잘라 냄)
+- epera1-epiphany-jordan.jpg — 요단강에서 맞는 주현절 · 1900년 — https://commons.wikimedia.org/wiki/File:Road_to_Jericho,_Jordan,_etc._The_baptism_on_Epiphany._LOC_matpc.01020.jpg (AI 가상 복원: epvr1-epiphany-jordan.jpg) — 나란히 찍힌 입체사진 두 장 가운데 오른쪽 한 장만 씀
+- epera2-cana-spring.jpg — 가나의 샘 · 1900년 — https://commons.wikimedia.org/wiki/File:Northern_views._The_spring_at_Cana_of_Galilee_LOC_matpc.06508.jpg (AI 가상 복원: epvr2-cana-spring.jpg) — 나란히 찍힌 입체사진 두 장 가운데 오른쪽 한 장만 씀
+- epera3-nets.jpg — 그물을 깁는 갈릴리 어부들 · 1930년대 — https://commons.wikimedia.org/wiki/File:Fishermen_of_Galilee_mending_their_nets_LOC_matpc.04162.jpg (AI 가상 복원: epvr3-nets.jpg) — 나란히 찍힌 입체사진 두 장 가운데 오른쪽 한 장만 씀
+- epera4-tabor.jpg — 멀리서 본 다볼산 · 1930년대 — https://commons.wikimedia.org/wiki/File:Mount_Tabor._Distant_view_LOC_matpc.04152.jpg (AI 가상 복원: epvr4-tabor.jpg)
+
+### 1890년대 컬러 인쇄본 (미국 의회도서관 포토크롬 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 여백과 아래쪽 인쇄 글씨를 잘라 냄)
+- epcolor1-baptism-place.jpg — 요단강의 세례 터 · LCCN 2002725030 — https://www.loc.gov/item/2002725030/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- epcolor2-cana.jpg — 가나 마을 · LCCN 2002724974 — https://www.loc.gov/item/2002724974/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- epcolor3-capernaum.jpg — 가버나움의 옛 터 · LCCN 2002724975 — https://www.loc.gov/item/2002724975/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- epcolor4-tabor.jpg — 다볼산 · LCCN 2002725040 — https://www.loc.gov/item/2002725040/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+
+### AI 가상 복원 (epvr*.jpg)
+- epvr*.jpg — 위 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 입힌 것. 허깅페이스의 gudada/DDColor 앱을 씀. 같은 번호의 epera*.jpg는 이 결과를 흑백으로 바꾼 판(밝기만 남김)이라 두 사진이 꼭 겹쳐요
+
+## 성령강림절 후 코스 (after-pentecost.html, 2026년 11월 17일 더함)
+### 그림
+- pt1-rublev.jpg — 안드레이 루블료프, 「삼위일체」(15세기 초, 러시아 정교회 소장(2023년까지 모스크바 트레티야코프 미술관)) — 위키미디어 공용 ‘Andrey Rublev - Св. Троица - Google Art Project.jpg’(저작권 만료)
+- pt2-rembrandt.jpg — 렘브란트 판 레인, 「갈릴리 바다의 폭풍 속 그리스도」(1633년, 보스턴 이저벨라 스튜어트 가드너 미술관, 1990년 도난) — 위키미디어 공용 ‘Rembrandt Christ in the Storm on the Lake of Galilee.jpg’(저작권 만료)
+- pt3-vangogh.jpg — 빈센트 반 고흐, 「선한 사마리아인(들라크루아를 따라서)」(1890년, 오테를로 크뢸러뮐러 미술관) — 위키미디어 공용 ‘Vincent van Gogh - The Good Samaritan, 1890 - Google Art Project.jpg’(저작권 만료)
+- pt4-tintoretto.jpg — 야코포 틴토레토, 「빵과 물고기의 기적」(1545~1550년 무렵, 뉴욕 메트로폴리탄 미술관) — 위키미디어 공용 ‘The Miracle of the Loaves and Fishes MET DT5476.jpg’(저작권 만료). 사진에 함께 찍힌 금빛 액자를 잘라 냄, 가로 1800px
+- pt5-echternach.jpg — 『에히터나흐의 황금 복음서』 가운데, 「열 명의 나병 환자를 고치심」(1030~1050년 무렵, 뉘른베르크 게르만 국립 박물관) — 위키미디어 공용 ‘CodexAureus Cleansing of the ten lepers.jpg’(저작권 만료)
+- pt6-alkmaar.jpg — 알크마르의 화가, 「일곱 가지 자비의 일」(1504년, 암스테르담 레이크스 미술관) — 위키미디어 공용 ‘De zeven werken van barmhartigheid Rijksmuseum SK-A-2815.jpeg’(저작권 만료). 한 줄로 이어진 일곱 폭을 네 폭과 세 폭 두 줄로 나눠 붙임, 가로 1800px
+- pt1-rublev-s.jpg — 위 첫 그림을 정사각형으로 잘라 낸 작은 판(480px). 함께 느끼기 방의 코스 한 줄에 씀
+- pt*-t.jpg — 위 그림들을 장면 고르기 띠에 맞게 4:3으로 잘라 낸 작은 판(가로 560px)
+
+### 옛 사진 (미국 의회도서관 매슨 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 테두리를 잘라 냄)
+- ptera1-oak.jpg — 헤브론의 ‘아브라함의 참나무’ · 1898~1946년 사이 — https://commons.wikimedia.org/wiki/File:Abraham%27s_Oak,_Hebron_LOC_matpc.06207.jpg (AI 가상 복원: ptvr1-oak.jpg) — 나란히 찍힌 입체사진 두 장 가운데 오른쪽 한 장만 씀
+- ptera2-storm.jpg — 갈릴리 바다의 큰 폭풍 · 1900년 — https://commons.wikimedia.org/wiki/File:Northern_views._Great_storm_on_Sea_of_Galilee_LOC_matpc.21984.jpg (AI 가상 복원: ptvr2-storm.jpg)
+- ptera3-inn.jpg — 여리고 가는 길의 ‘선한 사마리아인의 여관’ · 1900년 — https://commons.wikimedia.org/wiki/File:Road_to_Jericho,_Jordan,_etc._Good_Samaritan%27s_Inn_LOC_matpc.00036.jpg (AI 가상 복원: ptvr3-inn.jpg)
+- ptera4-mosaic.jpg — 타브가의 빵과 물고기 모자이크 · 1930년대 — https://commons.wikimedia.org/wiki/File:Mosaic_of_loaves_%26_fishes_at_Tabgha_LOC_matpc.04154.jpg
+- ptera5-esdraelon.jpg — 에스드라엘론 평야 · 1898~1946년 사이 — https://commons.wikimedia.org/wiki/File:Plain_of_Esdraelon_LOC_matpc.10555.jpg (AI 가상 복원: ptvr5-esdraelon.jpg)
+- ptera6-flock.jpg — 셰이크 자라 근처의 양과 염소 떼 · 1940년대 — https://commons.wikimedia.org/wiki/File:Herd_or_flock_of_goats_%26_sheep_near_Sheik_Jerrah_(i.e.,_Sheikh_Jarrah)_LOC_matpc.21548.jpg (AI 가상 복원: ptvr6-flock.jpg)
+
+### 1890년대 컬러 인쇄본 (미국 의회도서관 포토크롬 컬렉션, 알려진 저작권 제한 없음. 위키미디어 공용의 원본에서 여백과 아래쪽 인쇄 글씨를 잘라 냄)
+- ptcolor1-mamre.jpg — 마므레의 아브라함 나무 · LCCN 2002724988 — https://www.loc.gov/item/2002724988/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- ptcolor2-tiberias.jpg — 디베랴와 갈릴리 바다 · LCCN 2001699273 — https://www.loc.gov/item/2001699273/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- ptcolor3-khan.jpg — 여리고 가는 길, 칸 엘아흐마르 · LCCN 2002725031 — https://www.loc.gov/item/2002725031/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- ptcolor4-bread-seller.jpg — 예루살렘의 빵 장수 · LCCN 2002725082 — https://www.loc.gov/item/2002725082/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- ptcolor5-laborers.jpg — 에스드라엘론 평야의 일꾼들 · LCCN 2002725093 — https://www.loc.gov/item/2002725093/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+- ptcolor6-water-carrier.jpg — 예루살렘의 물장수 · LCCN 2002725079 — https://www.loc.gov/item/2002725079/ (위키미디어 공용에 올라온 같은 원본에서 받음)
+
+### AI 가상 복원 (ptvr*.jpg)
+- ptvr*.jpg — 위 흑백 사진에 AI 컬러화 모델 DDColor(알리바바 연구진, ICCV 2023)로 색을 입힌 것. 허깅페이스의 gudada/DDColor 앱을 씀. 같은 번호의 ptera*.jpg는 이 결과를 흑백으로 바꾼 판(밝기만 남김)이라 두 사진이 꼭 겹쳐요. 타브가 모자이크(ptera4)는 색을 짐작해 입히지 않았어요
